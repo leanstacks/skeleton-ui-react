@@ -6,7 +6,7 @@ import _ from 'lodash';
 import { getTechnologiesByType, getTechnology } from '../selectors/technologies';
 import Technology from './Technology';
 
-const StackDetailPage = (props) => (
+export const StackDetailPage = (props) => (
   <div className="page">
     <div className="container">
       <h2 className="display-4">{_.capitalize(props.stackType)} Stack</h2>
