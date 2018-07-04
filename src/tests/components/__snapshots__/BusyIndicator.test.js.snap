@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render BusyIndicator correctly 1`] = `
+<div
+  className="busy-indicator busy-indicator--md"
+>
+  <div
+    className="busy-indicator__content"
+  >
+    <div
+      className="busy-indicator__heading"
+    >
+      <div
+        className="busy-indicator__title"
+      />
+    </div>
+    <div
+      className="busy-indicator__body"
+    >
+      <i
+        className="busy-indicator__icon fa fa-fw fa-spin fa-circle-o-notch"
+      />
+    </div>
+  </div>
+</div>
+`;

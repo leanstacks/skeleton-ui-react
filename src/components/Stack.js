@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { getTechnologiesByType } from '../selectors/technologies';
 
-const Stack = (props) => {
+export const Stack = (props) => {
   return (
     <div>
       <h3>{props.name} Stack</h3>
