@@ -60,6 +60,9 @@ typings/
 # next.js build output
 .next
 
+# GitHub release notes (gren)
+.grenrc*
+
 # VS Code files
 .vscode/
 
