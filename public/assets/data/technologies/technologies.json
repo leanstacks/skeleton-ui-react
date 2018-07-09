@@ -90,6 +90,16 @@
     "url": "http://numeraljs.com/"
   },
   {
+    "id": "482ffcac-9db2-40d2-a971-fbaf93707d5a",
+    "name": "Validator",
+    "type": "application",
+    "version": "10.4.0",
+    "license": "MIT",
+    "licenseUrl": "https://spdx.org/licenses/MIT.html",
+    "description": "A javascript library of validators and sanitizers.",
+    "url": "https://github.com/chriso/validator.js"
+  },
+  {
     "id": "d142466a-e461-474b-9aac-3490a37906d8",
     "name": "Webpack",
     "type": "build",
