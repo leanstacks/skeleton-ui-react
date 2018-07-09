@@ -73,7 +73,7 @@
     "id": "aa636860-0fa5-4093-9592-1cbb6b2f5c3b",
     "name": "Moment",
     "type": "application",
-    "version": "2.19.3",
+    "version": "2.22.2",
     "license": "MIT",
     "licenseUrl": "https://spdx.org/licenses/MIT.html",
     "description": "Parse, validate, manipulate, and display dates and times in JavaScript.",
