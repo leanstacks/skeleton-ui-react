@@ -2,10 +2,11 @@
 
 exports[`should render LoadingPage correctly 1`] = `
 <div
-  className="busy-indicator--full-page"
+  className="page-full"
 >
   <BusyIndicator
     size="xl"
+    title="Loading..."
   />
 </div>
 `;
