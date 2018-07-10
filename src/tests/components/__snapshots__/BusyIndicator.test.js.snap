@@ -2,25 +2,14 @@
 
 exports[`should render BusyIndicator correctly 1`] = `
 <div
-  className="busy-indicator busy-indicator--md"
+  className="h-100 d-flex flex-column justify-content-center text-center"
 >
   <div
-    className="busy-indicator__content"
+    className=""
   >
-    <div
-      className="busy-indicator__heading"
-    >
-      <div
-        className="busy-indicator__title"
-      />
-    </div>
-    <div
-      className="busy-indicator__body"
-    >
-      <i
-        className="busy-indicator__icon fa fa-fw fa-spin fa-circle-o-notch"
-      />
-    </div>
+    <i
+      className="fas fa-spin fa-circle-notch"
+    />
   </div>
 </div>
 `;

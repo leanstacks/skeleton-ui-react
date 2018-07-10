@@ -42,7 +42,10 @@ if (technologiesLastUpdated.add(1, 'hours').isBefore(moment())) {
   // Fetch Data using API
   store.dispatch(startSetTechnologies()).then(() => {
     console.log('startSetTechnologies success');
-    renderApp();
+    // Simulate API Latency -- Remove in Production
+    setTimeout(() => {
+      renderApp();
+    }, 2000);
   }).catch((err) => {
     //TODO Handle API Failure
     console.log('startSetTechnologies failure');

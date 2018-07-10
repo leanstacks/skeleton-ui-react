@@ -3,27 +3,28 @@ import React from 'react';
 const getSizeClass = (size) => {
   switch (size) {
     case 'xl':
-      return 'busy-indicator--xl';
+      return 'h1';
     case 'lg':
-      return 'busy-indicator--lg';
+      return 'lead';
     case 'sm':
-      return 'busy-indicator--sm';
+      return 'small';
     default:
-      return 'busy-indicator--md';
+      return '';
   };
 };
 
 const BusyIndicator = (props) => {
-  const icon = props.icon || 'fa-circle-o-notch';
+  const icon = props.icon || 'fa-circle-notch';
   return (
-    <div className={'busy-indicator ' + getSizeClass(props.size)}>
-      <div className="busy-indicator__content">
-        <div className="busy-indicator__heading">
-          <div className="busy-indicator__title">{props.title}</div>
-        </div>
-        <div className="busy-indicator__body">
-          <i className={'busy-indicator__icon fa fa-fw fa-spin ' + icon} />
-        </div>
+    <div className="h-100 d-flex flex-column justify-content-center text-center">
+      <div className={getSizeClass(props.size)}>
+        { 
+          props.title ? (
+            <span>{props.title}&nbsp;<i className={'fas fa-spin ' + icon} /></span>
+          ) : (
+            <i className={'fas fa-spin ' + icon} />
+          )
+        }
       </div>
     </div>
   );

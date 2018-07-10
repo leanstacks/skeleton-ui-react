@@ -16,10 +16,6 @@ a {
   }
 }
 
-.page {
-  min-height: 75vh;
-}
-
 .text-blue {
   color: $blue;
 }
@@ -30,4 +26,18 @@ a {
 
 .text-react-blue {
   color: $react-blue;
+}
+
+.page {
+  min-height: 75vh;
+}
+
+.page-full {
+  height: 100vh;
+  width: 100vw;
+}
+
+.page-half {
+  height: 50vh;
+  width: 100vw;
 }
