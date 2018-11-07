@@ -1,5 +1,5 @@
 # Start with nginx alpine
-FROM nginx:1.14-alpine
+FROM nginx:1.15-alpine
 # Copy nginx configuration file(s)
 COPY etc/nginx/*.conf /etc/nginx/conf.d/
 # Remove default nginx configuration file
