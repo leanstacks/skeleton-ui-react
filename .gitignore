@@ -62,6 +62,7 @@ typings/
 
 # GitHub release notes (gren)
 .grenrc*
+CHANGELOG.md
 
 # VS Code files
 .vscode/
