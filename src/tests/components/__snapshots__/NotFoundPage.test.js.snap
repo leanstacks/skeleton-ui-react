@@ -24,7 +24,6 @@ exports[`should render NotFoundPage correctly 1`] = `
         >
           Return to the 
           <Link
-            replace={false}
             to="/"
           >
             stacks
