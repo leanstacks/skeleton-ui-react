@@ -18,7 +18,7 @@ exports[`should render StacksPage correctly 1`] = `
       <div
         className="col-lg col-md-6 col-sm-12 mb-3"
       >
-        <Connect(Stack)
+        <ConnectFunction
           name="Application"
           type="application"
         />
@@ -26,7 +26,7 @@ exports[`should render StacksPage correctly 1`] = `
       <div
         className="col-lg col-md-6 col-sm-12 mb-3"
       >
-        <Connect(Stack)
+        <ConnectFunction
           name="Test"
           type="test"
         />
@@ -34,7 +34,7 @@ exports[`should render StacksPage correctly 1`] = `
       <div
         className="col-lg col-md-6 col-sm-12 mb-3"
       >
-        <Connect(Stack)
+        <ConnectFunction
           name="Build"
           type="build"
         />

@@ -3,15 +3,11 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
-
-const ExtractCSS = new ExtractTextWebpackPlugin('styles.[contenthash].css');
 
 module.exports = {
-    entry: {
-        'polyfill': 'babel-polyfill',
-        'app': './src/app.js'
-    },
+    entry: [
+      '@babel/polyfill', './src/app.js'
+    ],
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].[hash].js',
@@ -23,14 +19,26 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/
         }, {
-            test: /\.s?css$/,
-            use: ExtractCSS.extract({
-                use: [{
-                    loader: 'css-loader'
-                }, {
-                    loader: 'sass-loader'
-                }]
-            })
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        }, {
+          test: /\.(scss)$/,
+          use: [{
+            loader: 'style-loader', // inject CSS to page
+          }, {
+            loader: 'css-loader', // translates CSS into CommonJS modules
+          }, {
+            loader: 'postcss-loader', // Run postcss actions
+            options: {
+              plugins: function () { // postcss plugins, can be exported to postcss.config.js
+                return [
+                  require('autoprefixer')
+                ];
+              }
+            }
+          }, {
+            loader: 'sass-loader' // compiles SASS/SCSS to CSS
+          }]
         }, {
             test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             use: [{
@@ -57,7 +65,6 @@ module.exports = {
         }),
         new CopyWebpackPlugin([{
             from: './public'
-        }]),
-        ExtractCSS
+        }])
     ]
 };
