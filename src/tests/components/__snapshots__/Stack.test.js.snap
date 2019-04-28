@@ -95,7 +95,6 @@ exports[`should render Stack correctly 1`] = `
     </li>
   </ul>
   <Link
-    replace={false}
     to="/stacks/application"
   >
     Learn More 

@@ -105,7 +105,6 @@ exports[`should render LandingPage correctly 1`] = `
           </strong>
            React starter project. This project provides a template to kickstart React single-page applications utilizing a curated 
           <Link
-            replace={false}
             to="/stacks"
           >
             Technology Stack
