@@ -11,6 +11,9 @@
     "build:dev": "webpack --config webpack.dev.js",
     "build:qa": "webpack --config webpack.qa.js",
     "build": "webpack --config webpack.prod.js",
+    "deploy:dev": "aws s3 sync dist s3://react-starter-dev.leanstacks.net-us-east-1-854599584783 --delete",
+    "deploy:qa": "aws s3 sync dist s3://react-starter-qa.leanstacks.net-us-east-1-854599584783 --delete",
+    "deploy:prod": "aws s3 sync dist s3://react-starter.leanstacks.net-us-east-1-854599584783 --delete",
     "start": "webpack-dev-server --config webpack.dev.js",
     "test": "jest --config=jest.config.json"
   },
