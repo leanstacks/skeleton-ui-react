@@ -43,7 +43,7 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^24.7.1",
     "jest-localstorage-mock": "^2.3.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "node-sass": "^4.7.2",
