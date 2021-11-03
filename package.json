@@ -61,7 +61,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
-    "validator": "^10.11.0",
+    "validator": "^13.7.0",
     "webpack": "^3.9.1",
     "webpack-dev-server": "^2.9.5",
     "webpack-merge": "^4.1.1"
