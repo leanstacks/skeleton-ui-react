@@ -1,7 +1,10 @@
+import filter from 'lodash/filter';
+import find from 'lodash/find';
+
 export const getTechnologiesByType = (technologies = [], type) => {
-  return technologies.filter((technology) => technology.type === type);
+  return filter(technologies, { type });
 };
 
 export const getTechnology = (technologies = [], technologyId) => {
-  return technologies.find((technology) => technology.id === technologyId);
+  return find(technologies, { id: technologyId });
 };

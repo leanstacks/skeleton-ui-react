@@ -1,43 +1,66 @@
 body {
-  background: $off-white;
-  color: $black;
+  background: $light;
+  color: $dark;
   font-family: $font-primary;
 }
 
-h1, h2, .h1, .h2 {
+h1,
+h2,
+.h1,
+.h2 {
   font-family: $font-secondary;
 }
 
-a {
-  color: $blue;
-
-  &:hover {
-    color: $blue;
-  }
-}
-
-.text-blue {
-  color: $blue;
-}
-
-.text-dark-grey {
-  color: $dark-grey;
-}
-
-.text-react-blue {
-  color: $react-blue;
+.smaller {
+  font-size: 0.75rem;
+  font-weight: 400;
 }
 
 .page {
-  min-height: 75vh;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $white;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $gray-600;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $gray-600;
+  }
 }
 
 .page-full {
   height: 100vh;
   width: 100vw;
-}
+  overflow-y: auto;
+  position: relative;
 
-.page-half {
-  height: 50vh;
-  width: 100vw;
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $white;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $gray-600;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $gray-600;
+  }
 }

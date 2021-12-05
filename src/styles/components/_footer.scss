@@ -1,4 +1,7 @@
-footer {
-  border-top: 2px solid darken($dark-grey, 7%);
-  font-size: $font-size-xsmall;
+.footer {
+  font-size: 0.75rem;
+  height: 60px;
+  a {
+    text-decoration: none;
+  }
 }

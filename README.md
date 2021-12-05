@@ -12,11 +12,9 @@ This is a Single-Page Application (SPA) user interface application authored in J
 
 This project is primarily authored in:
 
-* ECMAScript 2017 (JavaScript 8th Edition) with syntatic sugar via Babel
-* HTML
+* ES2020 JavaScript with syntactic sugar via Babel
+* JSX
 * SASS
-
-**Note:** Babel allows developers the flexibility to choose the 6th, 7th, or 8th edition of JavaScript. The Babel transpiler ensures a browser-compatible build.
 
 ## Installation
 
@@ -28,11 +26,8 @@ Fork the [GitHub repo](https://github.com/leanstacks/skeleton-ui-react). Clone t
 
 This project requires the following global dependencies on the host machine:
 
-* Node 6+
-* NPM 3+
-* Yarn 1.3+
-
-**Note:** This project has been tested with Node 8.11+ (Carbon) and 6.14+ (Boron).
+* Node v14 (lts/fermium)
+* Yarn
 
 After installing the global dependencies, initialize the project. Open a terminal window, navigate to the project base directory and issue this command:
 
@@ -110,18 +105,6 @@ To execute the **build** command, type the following at a terminal prompt in the
 yarn build
 ```
 
-The **build** command has environment-specific variants which allow for the injection of alternative values into environment variables via the [Webpack Define Plugin](https://webpack.js.org/plugins/define-plugin/). See the Define Plugin documentation for more information.
-
-To execute the **build** command for a configured environment, type the following command at a terminal prompt in the base directory:
-
-```
-yarn build:dev
-
-OR
-
-yarn build:qa
-```
-
 ## Deployment
 
 This project is ideally suited to be hosted from a static web server (e.g. Apache or Nginx) or from a CDN (e.g. AWS CloudFront).
@@ -195,12 +178,13 @@ Add a rewrite rule to `web.config`, similar to the one illustrated below.
 ### Application
 
 [React](https://reactjs.org/)  
-[Redux](https://redux.js.org/)  
 [React Router](https://reacttraining.com/react-router/)  
+[React Redux](https://github.com/reactjs/react-redux)  
+[Redux](https://redux.js.org/)  
+[Redux Thunk](https://github.com/gaearon/redux-thunk)  
 [Axios](https://github.com/axios/axios)  
 [Lodash](https://lodash.com/)  
-[Moment](https://momentjs.com/)  
-[Numeral](http://numeraljs.com/)  
+[Luxon](https://moment.github.io/luxon)  
 [Bootstrap](https://getbootstrap.com/)  
 [Font Awesome](https://fontawesome.com/)  
 [Google Fonts](https://fonts.google.com)  
@@ -216,6 +200,5 @@ Add a rewrite rule to `web.config`, similar to the one illustrated below.
 ### Build
 
 [Babel](http://babeljs.io/)  
-[Node.js](https://nodejs.org/)  
 [Webpack](https://webpack.js.org/configuration/)  
 [Yarn](https://yarnpkg.com/en/)  

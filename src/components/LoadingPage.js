@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BusyIndicator from './BusyIndicator';
+import BusyIndicator from './common/BusyIndicator';
 
 const LoadingPage = () => (
   <div className="page-full">

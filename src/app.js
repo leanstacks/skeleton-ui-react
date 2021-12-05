@@ -1,28 +1,29 @@
+import 'bootstrap';
+import '@fortawesome/fontawesome-free/css/all.css';
+import 'animate.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import moment from 'moment';
 
-import AppRouter, { history } from './routers/AppRouter';
-import configureStore from './store/configureStore';
+import App from './components/App';
+import store from './store/store';
+import Config from './config/config';
+import storage from './utils/storage';
 
 import LoadingPage from './components/LoadingPage';
 
-import { startSetTechnologies, setTechnologies } from './actions/technologies';
+import { setPreferences } from './actions/preferences';
+import { startSetTechnologies } from './actions/technologies';
 
-import 'bootstrap/dist/js/bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
-import '@fortawesome/fontawesome-free/css/all.css';
 import './styles/styles.scss';
 
-const store = configureStore();
-
+// render the application just once
+let hasRendered = false;
 const jsx = (
   <Provider store={store}>
-    <AppRouter />
+    <App />
   </Provider>
 );
-let hasRendered = false;
 const renderApp = () => {
   if (!hasRendered) {
     ReactDOM.render(jsx, document.getElementById('app'));
@@ -30,32 +31,52 @@ const renderApp = () => {
   }
 };
 
+// load application configuration
+const loadConfiguration = async () => {
+  try {
+    await Config.init();
+  } catch (err) {
+    console.log(`Error initializing configuration.`, err);
+  }
+};
+
+// initialize user preferences
+const initPreferences = () => {
+  try {
+    const defaultPreferences = {
+      theme: 'theme-light'
+    };
+    const savedPreferences = storage.getJson(storage.KEY.PREFERENCES);
+    const mergedPreferences = Object.assign({}, defaultPreferences, savedPreferences);
+    storage.setJson(storage.KEY.PREFERENCES, mergedPreferences);
+    store.dispatch(setPreferences(mergedPreferences));
+  } catch (err) {
+    console.log(`Error initializing preferencs.`, err);
+  }
+};
+
+const initApplication = async () => {
+  try {
+    await store.dispatch(startSetTechnologies());
+  } catch (err) {
+    console.log(`Error initializing application data.`, err);
+  }
+}
+
+// sequence application startup activities
+const startApplication = async () => {
+  try {
+    await loadConfiguration();
+    initPreferences();
+    await initApplication();
+    renderApp();
+  } catch (err) {
+    console.error(`A fatal error occurred starting the application.`, err);
+  }
+};
+
+// render loading page while performing application startup
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
-// Initialize the Application State
-const technologiesLastUpdated = (localStorage.getItem('technologies_lu')) ? moment(Number.parseInt(localStorage.getItem('technologies_lu'))) : moment(0);
-console.log('technologiesLastUpdated', technologiesLastUpdated.format());
-const technologiesState = (localStorage.getItem('technologies')) ? JSON.parse(localStorage.getItem('technologies')) : null;
-if (technologiesLastUpdated.add(1, 'hours').isBefore(moment())) {
-  // Cached Data is Stale or Does Not Exist
-  console.log('Cached Data is Stale or Does Not Exist');
-  // Fetch Data using API
-  store.dispatch(startSetTechnologies()).then(() => {
-    console.log('startSetTechnologies success');
-    // Simulate API Latency -- Remove in Production
-    setTimeout(() => {
-      renderApp();
-    }, 2000);
-  }).catch((err) => {
-    //TODO Handle API Failure
-    console.log('startSetTechnologies failure');
-  });
-} else if (technologiesState) {
-  // Cached Data Exists and is Current
-  console.log('Cached Data Exists and is Current');
-  store.dispatch(setTechnologies(technologiesState));
-  renderApp();
-} else {
-  renderApp();
-  history.push('/landing');
-}
+// start the application
+startApplication();

@@ -5,9 +5,7 @@ const defaultState = {
 export default (state = defaultState, action) => {
   switch (action.type) {
     case 'SET_TECHNOLOGIES':
-      return {
-        technologies: action.technologies
-      };
+      return action.technologies;
     default:
       return state;
   };

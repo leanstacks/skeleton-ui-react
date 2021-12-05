@@ -1,3 +1,7 @@
-@import './base/settings';
-@import './base/base';
-@import './components/footer';
+@import "./base/bootstrap-overrides";
+@import "~bootstrap/scss/bootstrap";
+@import "~animate.css/animate.css";
+@import "./base/settings";
+@import "./base/base";
+@import "./components/footer";
+@import "./components/header";
