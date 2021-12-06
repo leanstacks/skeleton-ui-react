@@ -8,85 +8,29 @@ exports[`should render LandingPage correctly 1`] = `
     className="container"
   >
     <div
-      className="row"
+      className="row my-5"
     >
       <div
         className="col"
       >
         <h1
-          className="display-1 text-dark-grey d-none d-lg-block"
+          className="display-1 d-flex"
         >
-          Hello 
-          <img
-            alt="React Logo"
-            height="119"
-            src="/assets/img/react-icon.svg"
-            width="168"
-          />
-          <span
-            className="text-react-blue"
+          <div
+            className="me-2"
+          >
+            Hello,
+          </div>
+          <div
+            className="text-primary animate__animated animate__swing"
           >
             React
-          </span>
-        </h1>
-        <h1
-          className="display-1 text-dark-grey d-none d-md-block d-lg-none"
-        >
-          Hello
-          <br />
-           
-          <img
-            alt="React Logo"
-            height="119"
-            src="/assets/img/react-icon.svg"
-            width="168"
-          />
-          <span
-            className="text-react-blue"
-          >
-            React
-          </span>
-        </h1>
-        <h1
-          className="display-3 text-dark-grey d-none d-sm-block d-md-none"
-        >
-          Hello
-          <br />
-           
-          <img
-            alt="React Logo"
-            height="60"
-            src="/assets/img/react-icon.svg"
-            width="84"
-          />
-          <span
-            className="text-react-blue"
-          >
-            React
-          </span>
-        </h1>
-        <h1
-          className="display-4 text-dark-grey d-block d-sm-none"
-        >
-          Hello
-          <br />
-           
-          <img
-            alt="React Logo"
-            height="60"
-            src="/assets/img/react-icon.svg"
-            width="84"
-          />
-          <span
-            className="text-react-blue"
-          >
-            React
-          </span>
+          </div>
         </h1>
       </div>
     </div>
     <div
-      className="row mt-5"
+      className="row"
     >
       <div
         className="col"
@@ -96,15 +40,18 @@ exports[`should render LandingPage correctly 1`] = `
         >
           Welcome to the 
           <span
-            className="text-blue"
+            className="text-primary"
           >
             LEAN
           </span>
-          <strong>
+          <span
+            className="fw-bold"
+          >
             STACKS
-          </strong>
+          </span>
            React starter project. This project provides a template to kickstart React single-page applications utilizing a curated 
           <Link
+            className="text-decoration-none"
             to="/stacks"
           >
             Technology Stack

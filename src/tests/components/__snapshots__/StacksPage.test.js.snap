@@ -7,34 +7,42 @@ exports[`should render StacksPage correctly 1`] = `
   <div
     className="container"
   >
-    <h2
-      className="display-4"
-    >
-      Technology Stacks
-    </h2>
     <div
-      className="row"
+      className="row mt-5 mb-3"
     >
       <div
-        className="col-lg col-md-6 col-sm-12 mb-3"
+        className="col-12"
       >
-        <ConnectFunction
+        <h2
+          className="display-4"
+        >
+          Technology Stacks
+        </h2>
+      </div>
+    </div>
+    <div
+      className="row mb-3"
+    >
+      <div
+        className="col-12 col-md-4 mb-3 mb-md-0"
+      >
+        <Connect(Stack)
           name="Application"
           type="application"
         />
       </div>
       <div
-        className="col-lg col-md-6 col-sm-12 mb-3"
+        className="col-12 col-md-4 mb-3 mb-md-0"
       >
-        <ConnectFunction
+        <Connect(Stack)
           name="Test"
           type="test"
         />
       </div>
       <div
-        className="col-lg col-md-6 col-sm-12 mb-3"
+        className="col-12 col-md-4 mb-3 mb-md-0"
       >
-        <ConnectFunction
+        <Connect(Stack)
           name="Build"
           type="build"
         />
