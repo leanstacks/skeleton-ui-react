@@ -146,7 +146,7 @@ RewriteEngine On
 
 ##### NGinx
 
-Use `try_files` as described in the [Front Controller Pattern Web Apps](https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/#front-controller-pattern-web-apps) documentation.
+Use `try_files` as described in the [Front Controller Pattern Web Apps](https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/#front-controller-pattern-web-apps) documentation.Getting Started pages
 
 ```
 try_files $uri $uri/ /index.html;
@@ -172,6 +172,49 @@ Add a rewrite rule to `web.config`, similar to the one illustrated below.
   </rewrite>
 </system.webServer>
 ```
+
+## Docker
+
+This repository contains a sample `Dockerfile` which illustrates how to build a React SPA into a Docker image. 
+
+You may view and pull the published `skeleton-ui-react` Docker images on [DockerHub][dockerhub].
+
+### Prerequisites
+
+These instructions assume that you have the Docker CLI installed on your local computer. See the [Docker Guides](https://docs.docker.com/get-started/) to get started with Docker.
+
+### Build
+
+To build a Docker image for this project, run the following command in the root directory of this project:
+
+```
+docker build -t skeleton-ui-react:latest
+```
+
+### Pull
+
+To pull the latest `skeleton-ui-react` Docker image from the LeanStacks repository on DockerHub, run the following command:
+
+```
+docker pull leanstacks/skeleton-ui-react:latest
+```
+
+### Run
+
+To run the Docker image on your local machine, run the following command:
+
+```
+docker run -p 9000:80 leanstacks/skeleton-ui-react:latest
+```
+
+**Note:** The command above uses the official image published by LeanStacks to DockerHub. If you have built an image locally, you may substitute the name of your image.
+
+This command will run the Docker image in the foreground, allowing your to terminate the process by pressing `ctrl-C`.
+
+Open a browser and go to http://localhost:9000/ to use the application.
+
+To stop the Docker container, press `ctrl-C` in the terminal window.
+
 
 ## Technology Stacks
 
@@ -202,3 +245,6 @@ Add a rewrite rule to `web.config`, similar to the one illustrated below.
 [Babel](http://babeljs.io/)  
 [Webpack](https://webpack.js.org/configuration/)  
 [Yarn](https://yarnpkg.com/en/)  
+
+[dockerhub]: https://hub.docker.com/repository/docker/leanstacks/skeleton-ui-react "skeleton-ui-react | DockerHub"
+[dockerref]: https://docs.docker.com/reference/ "Reference documentation | Docker"
