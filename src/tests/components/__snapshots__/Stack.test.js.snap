@@ -95,6 +95,7 @@ exports[`should render Stack correctly 1`] = `
     </li>
   </ul>
   <Link
+    className="text-decoration-none"
     to="/stacks/application"
   >
     Learn More 

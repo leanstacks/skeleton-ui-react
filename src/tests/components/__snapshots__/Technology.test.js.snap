@@ -11,19 +11,24 @@ exports[`should render Technology correctly 1`] = `
       React
     </h4>
     <div>
-      <strong>
+      <span
+        className="fw-bold"
+      >
         Version:
-      </strong>
+      </span>
        
       16.2.0
     </div>
     <div>
-      <strong>
+      <span
+        className="fw-bold"
+      >
         License:
-      </strong>
+      </span>
        
       MIT
       <a
+        className="text-decoration-none"
         href="https://spdx.org/licenses/MIT.html"
         target="_blank"
         title="MIT"
@@ -43,6 +48,7 @@ exports[`should render Technology correctly 1`] = `
       className="text-right mt-3"
     >
       <a
+        className="text-decoration-none"
         href="https://reactjs.org/"
         target="_blank"
         title="React"

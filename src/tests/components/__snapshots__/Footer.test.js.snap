@@ -2,67 +2,39 @@
 
 exports[`should render Footer correctly 1`] = `
 <footer
-  className="bg-dark text-light mt-5 py-5"
+  className="footer"
 >
   <div
-    className="container"
+    className="container-fluid h-100"
   >
     <div
-      className="row"
+      className="row h-100 justify-content-between align-items-center"
     >
       <div
-        className="col text-left"
+        className="col-auto"
       >
-        <ul
-          className="list-unstyled"
-        >
-          <li>
-            React Starter Project
-          </li>
-          <li>
-            A 
-            <span
-              className="text-blue"
-            >
-              LEAN
-            </span>
-            <strong>
-              STACKS
-            </strong>
-             Solution
-          </li>
-          <li>
-            © 
-            <CurrentMoment
-              format="YYYY"
-            />
-          </li>
-        </ul>
+        React Starter Project
       </div>
       <div
-        className="col text-center d-none d-sm-block"
+        className="col-auto"
       >
-        <ul
-          className="list-unstyled"
+        <a
+          className="text-reset me-2"
+          href="#"
         >
-          <li>
-            <CurrentMoment />
-          </li>
-        </ul>
+          Terms
+        </a>
+        <a
+          className="text-reset"
+          href="#"
+        >
+          Privacy
+        </a>
       </div>
       <div
-        className="col text-right"
+        className="col-auto"
       >
-        <ul
-          className="list-unstyled"
-        >
-          <li>
-            Terms of Use
-          </li>
-          <li>
-            Privacy Policy
-          </li>
-        </ul>
+        <CurrentMoment />
       </div>
     </div>
   </div>

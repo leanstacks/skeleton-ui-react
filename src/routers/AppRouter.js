@@ -1,30 +1,38 @@
 import React from 'react';
-import { Router, Switch, Route, Redirect } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import { Router, Switch, Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import LandingPage from '../components/LandingPage';
-import NotFoundPage from '../components/NotFoundPage';
-import StackDetailPage from '../components/StackDetailPage';
-import StacksPage from '../components/StacksPage';
+import ErrorBoundary from '../components/ErrorBoundary';
+import ScrollToTop from '../components/common/ScrollToTop';
+import Footer from '../components/common/Footer';
+import Header from '../components/common/Header';
+import LandingPage from '../components/landing/LandingPage';
+import StackDetailPage from '../components/stacks/StackDetailPage';
+import StacksPage from '../components/stacks/StacksPage';
 
-export const history = createHistory();
+export const history = createBrowserHistory();
 
 const AppRouter = () => (
   <Router history={history}>
-    <div>
+    <ErrorBoundary>
+      <ScrollToTop />
       <Header />
       <Switch>
-        <Redirect exact from="/" to="/landing" />
-        <Route path="/stacks/:stackType/technologies/:technologyId" component={StackDetailPage} />
-        <Route path="/stacks/:stackType" component={StackDetailPage} />
-        <Route path="/stacks" component={StacksPage} />
-        <Route path="/landing" component={LandingPage} />
-        <Route component={NotFoundPage} />
+        <Route path="/stacks/:stackType/technologies/:technologyId">
+          <StackDetailPage />
+        </Route>
+        <Route path="/stacks/:stackType">
+          <StackDetailPage />
+        </Route>
+        <Route path="/stacks">
+          <StacksPage />
+        </Route>
+        <Route path="/">
+          <LandingPage />
+        </Route>
       </Switch>
       <Footer />
-    </div>
+    </ErrorBoundary>
   </Router>
 );
 

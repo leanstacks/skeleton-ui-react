@@ -1,70 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Header correctly 1`] = `
-<footer
-  className="bg-dark text-light mt-5 py-5"
->
-  <div
-    className="container"
+<header>
+  <nav
+    className="navbar navbar-expand"
   >
     <div
-      className="row"
+      className="container-fluid"
     >
+      <a
+        className="navbar-brand"
+        href="https://leanstacks.com/"
+        target="_blank"
+        title="About LeanStacks"
+      >
+        <img
+          alt=""
+          className="d-inline-block align-text-top me-2"
+          height="24"
+          src="/assets/img/leanstacks-icon-64.png"
+          width="24"
+        />
+        <span
+          className="text-primary"
+        >
+          LEAN
+        </span>
+        <span
+          className="fw-bold"
+        >
+          STACKS
+        </span>
+      </a>
+      <button
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-target="#navbarSupportedContent"
+        data-toggle="collapse"
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
       <div
-        className="col text-left"
+        className="collapse navbar-collapse"
+        id="navbarSupportedContent"
       >
         <ul
-          className="list-unstyled"
+          className="navbar-nav me-auto"
         >
-          <li>
-            React Starter Project
-          </li>
-          <li>
-            A 
-            <span
-              className="text-blue"
+          <li
+            className="nav-item"
+          >
+            <NavLink
+              className="nav-link"
+              exact={true}
+              to="/"
             >
-              LEAN
-            </span>
-            <strong>
-              STACKS
-            </strong>
-             Solution
+              Home
+            </NavLink>
           </li>
-          <li>
-            © 
-            <CurrentMoment
-              format="YYYY"
-            />
-          </li>
-        </ul>
-      </div>
-      <div
-        className="col text-center d-none d-sm-block"
-      >
-        <ul
-          className="list-unstyled"
-        >
-          <li>
-            <CurrentMoment />
+          <li
+            className="nav-item"
+          >
+            <NavLink
+              className="nav-link"
+              to="/stacks"
+            >
+              Technologies
+            </NavLink>
           </li>
         </ul>
-      </div>
-      <div
-        className="col text-right"
-      >
         <ul
-          className="list-unstyled"
+          className="navbar-nav"
         >
-          <li>
-            Terms of Use
-          </li>
-          <li>
-            Privacy Policy
+          <li
+            className="nav-item"
+          >
+            <a
+              className="nav-link"
+              href="https://github.com/leanstacks/skeleton-ui-react"
+              target="_blank"
+              title="View it on GitHub"
+            >
+              <i
+                className="fab fa-github"
+              />
+            </a>
           </li>
         </ul>
       </div>
     </div>
-  </div>
-</footer>
+  </nav>
+</header>
 `;

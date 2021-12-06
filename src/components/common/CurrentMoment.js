@@ -1,14 +1,17 @@
 import React from 'react';
-import moment from 'moment';
+import { DateTime } from 'luxon';
 
 export default class CurrentMoment extends React.Component {
 
   constructor(props) {
     super(props);
 
+    const { format = 'f' } = this.props;
+    const now = DateTime.now().toFormat(format);
+
     this.state = {
-      format: props.format || 'M/D/YY h:mm A',
-      now: moment()
+      format,
+      now
     };
   }
 
@@ -21,13 +24,13 @@ export default class CurrentMoment extends React.Component {
   }
 
   refreshCurrentMoment = () => {
-    const now = moment();
-    this.setState(() => ({ now }));
+    const now = DateTime.now().toFormat(this.state.format);
+    this.setState({ now });
   };
 
   render() {
     return (
-      <span>{this.state.now.format(this.state.format)}</span>
+      <span>{this.state.now}</span>
     );
   }
 
