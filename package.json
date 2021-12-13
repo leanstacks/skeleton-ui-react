@@ -1,6 +1,6 @@
 {
   "name": "skeleton-ui-react",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "React SPA Starter Project",
   "main": "index.js",
   "repository": "git@github.com:leanstacks/skeleton-ui-react.git",
