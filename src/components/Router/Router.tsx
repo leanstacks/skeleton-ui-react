@@ -7,6 +7,7 @@ import LandingPage from 'pages/LandingPage/LandingPage';
 import DashboardPage from 'pages/DashboardPage/DashboardPage';
 import SettingsPage from 'pages/SettingsPage/SettingsPage';
 import AppearanceSettings from 'pages/SettingsPage/components/AppearanceSettings';
+import ComponentsPage from 'pages/ComponentsPage/ComponentsPage';
 
 /**
  * The React Router configuration. An array of `RouteObject`.
@@ -32,13 +33,17 @@ export const routes: RouteObject[] = [
             children: [
               {
                 index: true,
-                element: <Navigate to="profile" />,
+                element: <Navigate to="appearance" />,
               },
               {
                 path: 'appearance',
                 element: <AppearanceSettings />,
               },
             ],
+          },
+          {
+            path: 'components',
+            element: <ComponentsPage />,
           },
         ],
       },

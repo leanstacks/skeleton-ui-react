@@ -48,6 +48,10 @@ const AppMenu = ({ side = 'right', testId = 'menu-app', ...props }: AppMenuProps
           <MenuNavLink to="/app/settings" title="Settings" iconName="settings">
             Settings
           </MenuNavLink>
+          <MenuSeparator />
+          <MenuNavLink to="/app/components" title="Components" iconName="stacks">
+            Components
+          </MenuNavLink>
         </>
       ) : (
         <>
@@ -56,6 +60,10 @@ const AppMenu = ({ side = 'right', testId = 'menu-app', ...props }: AppMenuProps
           </MenuNavLink>
           <MenuNavLink to="/auth/signin" title="Sign Up" iconName="person_add">
             Sign Up
+          </MenuNavLink>
+          <MenuSeparator />
+          <MenuNavLink to="/app/components" title="Components" iconName="stacks">
+            Components
           </MenuNavLink>
         </>
       )}

@@ -32,10 +32,6 @@ const SettingsPage = (): JSX.Element => {
         )}
         <div className="my-6 grid gap-8 md:grid-cols-4">
           <div data-testid="page-settings-menu">
-            <MenuNavLink to="profile" iconName="face" styleActive>
-              Profile
-            </MenuNavLink>
-            <MenuSeparator />
             <MenuNavLink to="appearance" iconName="brush" styleActive>
               Appearance
             </MenuNavLink>
