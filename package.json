@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "@codesandbox/sandpack-react": "2.13.5",
     "@fortawesome/fontawesome-svg-core": "6.5.1",
     "@fortawesome/free-regular-svg-icons": "6.5.1",
     "@fortawesome/free-solid-svg-icons": "6.5.1",
@@ -16,7 +17,6 @@
     "classnames": "2.5.1",
     "dayjs": "1.11.10",
     "formik": "2.4.5",
-    "highlight.js": "11.9.0",
     "lodash": "4.17.21",
     "qs": "6.11.2",
     "react": "18.2.0",

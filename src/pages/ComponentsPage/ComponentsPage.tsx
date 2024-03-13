@@ -1,7 +1,8 @@
 import { ButtonVariant } from '@leanstacks/react-common';
+
 import Button from 'components/Button/Button';
 import Page from 'components/Page/Page';
-import CodeBlock from 'components/Text/CodeBlock';
+import CodeSnippet from 'components/Text/CodeSnippet';
 import Text from 'components/Text/Text';
 
 const ComponentsPage = (): JSX.Element => {
@@ -16,15 +17,14 @@ const ComponentsPage = (): JSX.Element => {
           <Text variant="heading2" className="mb-4">
             Text Components
           </Text>
-
           <Text variant="heading1">Heading 1</Text>
-          <CodeBlock language="javascript" className="my-4">
-            {`<Text variant="heading1">Heading 1</Text>`}
-          </CodeBlock>
+          <CodeSnippet className="my-2" code={`<Text variant="heading1">Heading 1</Text>`} />
 
           <Text variant="heading2">Heading 2</Text>
+          <CodeSnippet className="my-2" code={`<Text variant="heading2">Heading 2</Text>`} />
 
           <Text variant="heading3">Heading 3</Text>
+          <CodeSnippet className="my-2" code={`<Text variant="heading3">Heading 3</Text>`} />
         </section>
 
         <section className="my-24">
@@ -32,13 +32,34 @@ const ComponentsPage = (): JSX.Element => {
             Button Components
           </Text>
 
-          <Button>Default button</Button>
+          <div className="my-8">
+            <Button>Default button</Button>
+            <CodeSnippet className="my-2" code={`<Button>Default button</Button>`} />
+          </div>
 
-          <Button variant={ButtonVariant.Outline}>Outline button</Button>
+          <div className="my-8">
+            <Button variant={ButtonVariant.Outline}>Outline button</Button>
+            <CodeSnippet
+              className="my-2"
+              code={`<Button variant={ButtonVariant.Outline}>Outline button</Button>`}
+            />
+          </div>
 
-          <Button variant={ButtonVariant.Solid}>Solid button</Button>
+          <div className="my-8">
+            <Button variant={ButtonVariant.Solid}>Solid button</Button>
+            <CodeSnippet
+              className="my-2"
+              code={`<Button variant={ButtonVariant.Solid}>Solid button</Button>`}
+            />
+          </div>
 
-          <Button variant={ButtonVariant.Text}>Text button</Button>
+          <div className="my-8">
+            <Button variant={ButtonVariant.Text}>Text button</Button>
+            <CodeSnippet
+              className="my-2"
+              code={`<Button variant={ButtonVariant.Text}>Text button</Button>`}
+            />
+          </div>
         </section>
       </div>
     </Page>
