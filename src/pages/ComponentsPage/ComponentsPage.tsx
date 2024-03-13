@@ -1,3 +1,5 @@
+import { ButtonVariant } from '@leanstacks/react-common';
+import Button from 'components/Button/Button';
 import Page from 'components/Page/Page';
 import CodeBlock from 'components/Text/CodeBlock';
 import Text from 'components/Text/Text';
@@ -39,12 +41,32 @@ const ComponentsPage = (): JSX.Element => {
 
         <section className="my-24">
           <Text variant="heading2" className="mb-4">
-            Text Components
+            Button Components
           </Text>
 
-          <Text variant="heading1">Heading 1</Text>
-          <Text variant="heading2">Heading 2</Text>
-          <Text variant="heading3">Heading 3</Text>
+          <Button>Default button</Button>
+          <CodeBlock code="<Button>Default button</Button>" language="jsx" className="my-4" />
+
+          <Button variant={ButtonVariant.Outline}>Outline button</Button>
+          <CodeBlock
+            code="<Button variant={ButtonVariant.Outline}>Outline button</Button>"
+            language="jsx"
+            className="my-4"
+          />
+
+          <Button variant={ButtonVariant.Solid}>Solid button</Button>
+          <CodeBlock
+            code="<Button variant={ButtonVariant.Outline}>Outline button</Button>"
+            language="jsx"
+            className="my-4"
+          />
+
+          <Button variant={ButtonVariant.Text}>Text button</Button>
+          <CodeBlock
+            code="<Button variant={ButtonVariant.Text}>Text button</Button>"
+            language="jsx"
+            className="my-4"
+          />
         </section>
       </div>
     </Page>
