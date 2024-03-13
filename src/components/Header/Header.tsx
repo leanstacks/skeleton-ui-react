@@ -1,10 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { ButtonVariant, PropsWithTestId } from '@leanstacks/react-common';
-import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { PropsWithTestId } from '@leanstacks/react-common';
 
 import { useAuthContext } from 'providers/AuthProvider';
 import logo from './logo.png';
-import Button from 'components/Button/Button';
 import ThemeToggle from 'components/Button/ThemeToggle';
 import AppMenu from './AppMenu';
 import MenuButton from 'components/Menu/MenuButton';
@@ -22,7 +20,6 @@ interface HeaderProps extends PropsWithTestId {}
  * @see {@link HeaderProps}
  */
 const Header = ({ testId = 'header' }: HeaderProps): JSX.Element => {
-  const navigate = useNavigate();
   const { isAuthenticated } = useAuthContext();
 
   return (

@@ -1,4 +1,5 @@
 import Page from 'components/Page/Page';
+import CodeBlock from 'components/Text/CodeBlock';
 import Text from 'components/Text/Text';
 
 const ComponentsPage = (): JSX.Element => {
@@ -15,8 +16,25 @@ const ComponentsPage = (): JSX.Element => {
           </Text>
 
           <Text variant="heading1">Heading 1</Text>
+          <CodeBlock
+            code='<Text variant="heading1">Heading 1</Text>'
+            language="jsx"
+            className="my-4"
+          />
+
           <Text variant="heading2">Heading 2</Text>
+          <CodeBlock
+            code='<Text variant="heading2">Heading 2</Text>'
+            language="jsx"
+            className="my-4"
+          />
+
           <Text variant="heading3">Heading 3</Text>
+          <CodeBlock
+            code='<Text variant="heading3">Heading 3</Text>'
+            language="jsx"
+            className="my-4"
+          />
         </section>
 
         <section className="my-24">

@@ -4,7 +4,6 @@ import { useGetUser } from 'api/useGetUser';
 import Avatar from 'components/Icon/Avatar';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import MenuNavLink from 'components/Menu/MenuNavLink';
-import MenuSeparator from 'components/Menu/MenuSeparator';
 
 /**
  * The `SettingsPage` component renders the layout for the settings page. It
