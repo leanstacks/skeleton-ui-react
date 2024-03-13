@@ -18,25 +18,13 @@ const ComponentsPage = (): JSX.Element => {
           </Text>
 
           <Text variant="heading1">Heading 1</Text>
-          <CodeBlock
-            code='<Text variant="heading1">Heading 1</Text>'
-            language="jsx"
-            className="my-4"
-          />
+          <CodeBlock language="javascript" className="my-4">
+            {`<Text variant="heading1">Heading 1</Text>`}
+          </CodeBlock>
 
           <Text variant="heading2">Heading 2</Text>
-          <CodeBlock
-            code='<Text variant="heading2">Heading 2</Text>'
-            language="jsx"
-            className="my-4"
-          />
 
           <Text variant="heading3">Heading 3</Text>
-          <CodeBlock
-            code='<Text variant="heading3">Heading 3</Text>'
-            language="jsx"
-            className="my-4"
-          />
         </section>
 
         <section className="my-24">
@@ -45,28 +33,12 @@ const ComponentsPage = (): JSX.Element => {
           </Text>
 
           <Button>Default button</Button>
-          <CodeBlock code="<Button>Default button</Button>" language="jsx" className="my-4" />
 
           <Button variant={ButtonVariant.Outline}>Outline button</Button>
-          <CodeBlock
-            code="<Button variant={ButtonVariant.Outline}>Outline button</Button>"
-            language="jsx"
-            className="my-4"
-          />
 
           <Button variant={ButtonVariant.Solid}>Solid button</Button>
-          <CodeBlock
-            code="<Button variant={ButtonVariant.Outline}>Outline button</Button>"
-            language="jsx"
-            className="my-4"
-          />
 
           <Button variant={ButtonVariant.Text}>Text button</Button>
-          <CodeBlock
-            code="<Button variant={ButtonVariant.Text}>Text button</Button>"
-            language="jsx"
-            className="my-4"
-          />
         </section>
       </div>
     </Page>

@@ -1,31 +1,33 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
 import hljs from 'highlight.js';
-import 'highlight.js/styles/a11y-light.css';
+import 'highlight.js/styles/a11y-dark.css';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 
-interface CodeBlockProps extends PropsWithClassName, PropsWithTestId {
-  code: string;
+interface CodeBlockProps extends PropsWithChildren, PropsWithClassName, PropsWithTestId {
   language?: string;
 }
 
 const CodeBlock = ({
+  children,
   className,
-  code = '',
   language,
   testId = 'code-block',
 }: CodeBlockProps): JSX.Element => {
-  const highlight = (code: string, language?: string): string => {
-    if (language) {
-      return hljs.highlight(code, { language }).value;
-    } else {
-      return hljs.highlightAuto(code).value;
+  const codeRef = useRef(null);
+
+  useEffect(() => {
+    if (!!codeRef.current) {
+      hljs.highlightElement(codeRef.current);
     }
-  };
+  }, []);
 
   return (
-    <div className={classNames('rounded-lg bg-neutral-500/10 p-4', className)} data-testid={testId}>
+    <div className={classNames('rounded-lg bg-neutral-500/10', className)} data-testid={testId}>
       <pre>
-        <code dangerouslySetInnerHTML={{ __html: highlight(code, language) }} />
+        <code style={{ background: 'transparent' }} className={language} ref={codeRef}>
+          {children}
+        </code>
       </pre>
     </div>
   );
