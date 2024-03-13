@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { useGetCurrentUser } from 'api/useGetCurrentUser';
+import { useGetUser } from 'api/useGetUser';
 import Avatar from 'components/Icon/Avatar';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import MenuNavLink from 'components/Menu/MenuNavLink';
@@ -12,7 +12,8 @@ import MenuSeparator from 'components/Menu/MenuSeparator';
  * @returns {JSX.Element} JSX
  */
 const SettingsPage = (): JSX.Element => {
-  const { data: user } = useGetCurrentUser({});
+  // REPLACE: Fetch the currently authenticated user
+  const { data: user } = useGetUser({ userId: 1 });
 
   return (
     <div data-testid="page-settings" className="px-2 sm:px-8">

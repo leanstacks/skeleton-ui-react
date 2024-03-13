@@ -1,4 +1,4 @@
-import { useGetCurrentUser } from 'api/useGetCurrentUser';
+import { useGetUser } from 'api/useGetUser';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 
 /**
@@ -7,7 +7,7 @@ import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
  * @returns {JSX.Element} JSX
  */
 const DashboardPage = (): JSX.Element => {
-  const { data: user } = useGetCurrentUser({ enabled: true });
+  const { data: user } = useGetUser({ userId: 1 });
 
   return (
     <div data-testid="page-dashboard" className="px-2 sm:px-8">

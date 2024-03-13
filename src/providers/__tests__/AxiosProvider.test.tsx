@@ -22,7 +22,7 @@ describe('AxiosProvider', () => {
     });
     useAuthContextSpy.mockReturnValue({
       isAuthenticated: true,
-      userTokens: userTokensFromStorageFixture,
+      userToken: userTokensFromStorageFixture,
       clientToken: clientTokenFromStorageFixture,
       refetchUserTokens: refetchUserTokensMock,
       refetchClientToken: refetchClientTokenMock,
@@ -130,7 +130,7 @@ describe('useAxios', () => {
   beforeEach(() => {
     useAuthContextSpy.mockReturnValue({
       isAuthenticated: true,
-      userTokens: userTokensFromStorageFixture,
+      userToken: userTokensFromStorageFixture,
       refetchUserTokens: refetchUserTokensMock,
     });
   });

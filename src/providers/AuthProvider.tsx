@@ -8,7 +8,7 @@ import LoaderSpinner from 'components/Loader/LoaderSpinner';
  */
 export interface AuthContextValue {
   isAuthenticated: boolean;
-  userTokens?: UserTokens;
+  userToken?: UserTokens;
   refetchUserTokens?: () => any;
 }
 
@@ -31,11 +31,12 @@ const AuthContext = React.createContext<AuthContextValue>(DEFAULT_CONTEXT_VALUE)
  * @returns {JSX.Element} JSX
  */
 const AuthContextProvider = ({ children }: PropsWithChildren): JSX.Element => {
+  // REPLACE: use a query hook to fetch authentication details from an IdP
   const { data: userTokens, isPending, isSuccess, refetch: refetchUserTokens } = useGetUserTokens();
 
   const value: AuthContextValue = {
     isAuthenticated: isSuccess,
-    userTokens,
+    userToken: userTokens,
     refetchUserTokens,
   };
 

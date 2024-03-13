@@ -17,7 +17,7 @@ const authRequestInterceptor = async (
 ): Promise<InternalAxiosRequestConfig> => {
   const { headers } = config;
   if (authContext.isAuthenticated) {
-    headers['Authorization'] = `Bearer ${authContext.userTokens?.id_token}`;
+    headers['Authorization'] = `Bearer ${authContext.userToken?.id_token}`;
   }
   return config;
 };
