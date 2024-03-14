@@ -1,18 +1,10 @@
-# LSuite UI
+# Starter React UI
 
-A serverless, progressive, responsive suite of productivity apps and tools.
-
-[![CI](https://github.com/leanstacks/ui-lsuite/actions/workflows/ci.yml/badge.svg)](https://github.com/leanstacks/ui-lsuite/actions/workflows/ci.yml)
-&emsp;
-[![Deploy to Development](https://github.com/leanstacks/ui-lsuite/actions/workflows/deploy-dev.yml/badge.svg)](https://github.com/leanstacks/ui-lsuite/actions/workflows/deploy-dev.yml)
-&emsp;
-[![Deploy to QA](https://github.com/leanstacks/ui-lsuite/actions/workflows/deploy-qa.yml/badge.svg)](https://github.com/leanstacks/ui-lsuite/actions/workflows/deploy-qa.yml)
-&emsp;
-[![Deploy to Production](https://github.com/leanstacks/ui-lsuite/actions/workflows/deploy-prod.yml/badge.svg)](https://github.com/leanstacks/ui-lsuite/actions/workflows/deploy-prod.yml)
+A serverless, progressive, responsive starter user interface (UI) with React at the core of the technology stack.
 
 ## About
 
-This project was bootstrapped with the [Create React App](https://github.com/facebook/create-react-app) template [@leanstacks/typescript](https://github.com/leanstacks/cra-template-typescript).
+This project was bootstrapped with the [Create React App](https://github.com/facebook/create-react-app) template.
 
 The technology stack includes:
 
@@ -23,11 +15,12 @@ The technology stack includes:
 - Formik - form management
 - Yup - validation
 - Tailwind - styling
-- Font Awesome - icons
+- Material Symbols - icons
 - React Spring - animation
 - Lodash - utility functions
 - DayJS - date utility functions
 - Testing Library React - tests
+- Jest - tests
 - MSW - API mocking
 - TypeScript
 
@@ -35,7 +28,7 @@ The technology stack includes:
 
 This repository uses [trunk-based development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development). The latest code is located on the `main` branch. The `main` branch is always ready for deployment.
 
-Features are developed on branches named `feature/NNNNN` which are created from the `main` branch. The feature name used in the branch contains an issue identifier or a short name, e.g. `feature/LSUITE-123-do-something`.
+Features are developed on branches named `feature/NNNNN` which are created from the `main` branch. The feature name used in the branch contains an issue identifier or a short name, e.g. `feature/123-do-something`.
 
 Releases are created on branches named `release/MM.mm.pp` which are created from the `main` branch. The release name follows the [semantic versioning](https://semver.org/) specification.
 
@@ -47,17 +40,13 @@ See also: [Feature flags](https://www.atlassian.com/continuous-delivery/principl
 
 ### Issue Management
 
-This project uses the LeanStacks Jira project, [LSUITE](https://leanstacks.atlassian.net/browse/LSUITE).
+This project uses [GitHub Issues](https://github.com/leanstacks/skeleton-ui-react/issues).
 
 ### Code Formatting
 
 The project includes a configuration file for the [Prettier](https://prettier.io/docs/en/configuration.html) code formatter. This allows all project contributors to share the same code formatting rules.
 
 Adjust the Prettier configuration as desired.
-
-### Confluence
-
-Find more details about this application in [LeanStacks Confluence](https://leanstacks.atlassian.net/wiki/x/AYDtP).
 
 ## Installation
 
@@ -176,7 +165,7 @@ The resources provisioned are:
 
 ### CI/CD Pipelines
 
-This project uses GitHub Actions to perform DevOps automation activities such as Continuous Integration and Continous Deployment. See all project [GitHub Actions workflow runs](https://github.com/leanstacks/ui-lsuite/actions).
+This project uses GitHub Actions to perform DevOps automation activities such as Continuous Integration and Continous Deployment. See all project [GitHub Actions workflow runs](https://github.com/leanstacks/skeleton-ui-react/actions).
 
 | Workflow              | Trigger                        | Description                                                                          |
 | --------------------- | ------------------------------ | ------------------------------------------------------------------------------------ |
@@ -197,7 +186,7 @@ This project uses GitHub Actions to perform DevOps automation activities such as
 - [Testing Library][testing-library]
 - [GitHub Actions][ghactions]
 
-[repo]: https://github.com/leanstacks/ui-lsuite 'LSuite UI on GitHub'
+[repo]: https://github.com/leanstacks/skeleton-ui-react 'GitHub Repository'
 [nvm]: https://github.com/nvm-sh/nvm 'Node Version Manager'
 [cra]: https://create-react-app.dev/ 'Create React App'
 [react-query]: https://tanstack.com/query 'React Query'
