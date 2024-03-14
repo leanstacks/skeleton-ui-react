@@ -11,8 +11,8 @@ concurrency:
   group: ${{ github.workflow }}
 
 env:
-  APP_NAME: lsuite.leanstacks.net
-  AWS_CFN_STACK_NAME: ls-ui-lsuite-resources-qa
+  APP_NAME: react-starter.leanstacks.net
+  AWS_CFN_STACK_NAME: ls-ui-reactstarter-resources-qa
   AWS_CFN_TEMPLATE: template.yml
   AWS_ENV_CODE: qa
   AWS_REGION: ${{ vars.AWS_REGION }}
