@@ -14,11 +14,6 @@ export interface Config {
   REACT_APP_BUILD_WORKFLOW_NAME: string;
   REACT_APP_BUILD_WORKFLOW_RUN_NUMBER: number;
   REACT_APP_BUILD_WORKFLOW_RUN_ATTEMPT: number;
-  REACT_APP_COGNITO_CLIENT_ID: string;
-  REACT_APP_COGNITO_DOMAIN: string;
-  REACT_APP_COGNITO_REDIRECT_URL: string;
-  REACT_APP_COGNITO_SIGNOUT_URL: string;
-  REACT_APP_LSAPI_APP_ID: string;
   REACT_APP_TOAST_AUTO_DISMISS_MILLIS: number;
 }
 
@@ -35,11 +30,6 @@ const configSchema: ObjectSchema<Config> = Yup.object({
   REACT_APP_BUILD_WORKFLOW_NAME: Yup.string().default('local'),
   REACT_APP_BUILD_WORKFLOW_RUN_NUMBER: Yup.number().default(1),
   REACT_APP_BUILD_WORKFLOW_RUN_ATTEMPT: Yup.number().default(1),
-  REACT_APP_COGNITO_CLIENT_ID: Yup.string().required(),
-  REACT_APP_COGNITO_DOMAIN: Yup.string().required(),
-  REACT_APP_COGNITO_REDIRECT_URL: Yup.string().required(),
-  REACT_APP_COGNITO_SIGNOUT_URL: Yup.string().required(),
-  REACT_APP_LSAPI_APP_ID: Yup.string().required(),
   REACT_APP_TOAST_AUTO_DISMISS_MILLIS: Yup.number().default(5000),
 });
 
