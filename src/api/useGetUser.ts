@@ -1,6 +1,7 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 
 import { useAxios } from 'providers/AxiosProvider';
+import { useConfig } from 'providers/ConfigProvider';
 import { QueryKeys } from 'utils/constants';
 
 export type Address = {
@@ -37,10 +38,11 @@ interface UseGetUserProps {
 
 export const useGetUser = ({ userId }: UseGetUserProps): UseQueryResult<User, Error> => {
   const axios = useAxios();
+  const config = useConfig();
 
   const getUser = async (id: number): Promise<User | null> => {
     const response = await axios.request({
-      url: `/users/${id}`,
+      url: `${config.REACT_APP_BASE_URL_API}/users/${id}`,
     });
     return response.data;
   };
