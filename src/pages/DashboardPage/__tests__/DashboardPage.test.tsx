@@ -1,18 +1,18 @@
 import { render, screen } from 'test/test-utils';
 import { UseQueryResult } from '@tanstack/react-query';
 
-import { currentUserFixture } from '__fixtures__/users';
-import * as UseGetCurrentUser from '../../../api/useGetCurrentUser';
+import { userFixture } from '__fixtures__/users';
+import * as UseGetUser from 'api/useGetUser';
 
 import DashboardPage from '../DashboardPage';
 
 describe('DashboardPage', () => {
-  const useGetCurrentUserSpy = jest.spyOn(UseGetCurrentUser, 'useGetCurrentUser');
+  const useGetUserSpy = jest.spyOn(UseGetUser, 'useGetUser');
 
   beforeEach(() => {
-    useGetCurrentUserSpy.mockReturnValue({
-      data: currentUserFixture[0],
-    } as unknown as UseQueryResult<UseGetCurrentUser.User, Error>);
+    useGetUserSpy.mockReturnValue({
+      data: userFixture,
+    } as unknown as UseQueryResult<UseGetUser.User, Error>);
   });
 
   it('should render successfully', async () => {
@@ -26,16 +26,14 @@ describe('DashboardPage', () => {
   it('should render user information when available', async () => {
     render(<DashboardPage />);
 
-    await screen.findByText(currentUserFixture[0].displayName);
+    await screen.findByText(userFixture.name);
 
-    expect(screen.getByTestId('user-display-name').textContent).toBe(
-      currentUserFixture[0].displayName,
-    );
+    expect(screen.getByTestId('user-display-name').textContent).toBe(userFixture.name);
   });
 
   it('should render loader when user not available', async () => {
-    useGetCurrentUserSpy.mockReturnValueOnce({ data: undefined } as unknown as UseQueryResult<
-      UseGetCurrentUser.User,
+    useGetUserSpy.mockReturnValueOnce({ data: undefined } as unknown as UseQueryResult<
+      UseGetUser.User,
       Error
     >);
     render(<DashboardPage />);

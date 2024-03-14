@@ -2,27 +2,20 @@ import { UseQueryResult } from '@tanstack/react-query';
 
 import { render, renderHook, screen, waitFor } from 'test/test-utils';
 
-import { clientTokenFromStorageFixture, userTokensFromAuthCodeFixture } from '__fixtures__/tokens';
+import { userTokensFixture } from '__fixtures__/tokens';
 import * as UseGetUserTokens from 'api/useGetUserTokens';
-import * as UseGetClientToken from 'api/useGetClientToken';
 
 import AuthContextProvider, { useAuthContext } from 'providers/AuthProvider';
 
 describe('AuthProvider', () => {
   const useGetUserTokensSpy = jest.spyOn(UseGetUserTokens, 'useGetUserTokens');
-  const useGetClientTokenSpy = jest.spyOn(UseGetClientToken, 'useGetClientToken');
 
   beforeEach(() => {
     useGetUserTokensSpy.mockReturnValue({
-      data: userTokensFromAuthCodeFixture,
+      data: userTokensFixture,
       isPending: false,
       isSuccess: true,
     } as unknown as UseQueryResult<UseGetUserTokens.UserTokens, Error>);
-
-    useGetClientTokenSpy.mockReturnValue({
-      data: clientTokenFromStorageFixture,
-      isPending: false,
-    } as unknown as UseQueryResult<UseGetClientToken.ClientToken, Error>);
   });
 
   it('should render successfully', async () => {
@@ -69,19 +62,13 @@ describe('AuthProvider', () => {
 
 describe('useAuthContext', () => {
   const useGetUserTokensSpy = jest.spyOn(UseGetUserTokens, 'useGetUserTokens');
-  const useGetClientTokenSpy = jest.spyOn(UseGetClientToken, 'useGetClientToken');
 
   beforeEach(() => {
     useGetUserTokensSpy.mockReturnValue({
-      data: userTokensFromAuthCodeFixture,
+      data: userTokensFixture,
       isSuccess: true,
       isPending: false,
     } as unknown as UseQueryResult<UseGetUserTokens.UserTokens, Error>);
-
-    useGetClientTokenSpy.mockReturnValue({
-      data: clientTokenFromStorageFixture,
-      isPending: false,
-    } as unknown as UseQueryResult<UseGetClientToken.ClientToken, Error>);
   });
 
   it('should return the context', async () => {

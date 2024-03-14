@@ -2,23 +2,23 @@ import { queryClient, render, screen } from 'test/test-utils';
 import { UseQueryResult } from '@tanstack/react-query';
 
 import * as UseAuthContext from 'providers/AuthProvider';
-import * as UseGetCurrentUser from 'api/useGetCurrentUser';
-import { currentUserFixture } from '__fixtures__/users';
+import * as UseGetUser from 'api/useGetUser';
+import { userFixture } from '__fixtures__/users';
 
 import AppMenu from '../AppMenu';
 
 describe('AppMenu', () => {
   const useAuthContextSpy = jest.spyOn(UseAuthContext, 'useAuthContext');
-  const useGetCurrentUserSpy = jest.spyOn(UseGetCurrentUser, 'useGetCurrentUser');
+  const useGetUserSpy = jest.spyOn(UseGetUser, 'useGetUser');
 
   beforeEach(() => {
     queryClient.clear();
     useAuthContextSpy.mockReturnValue({
       isAuthenticated: true,
     });
-    useGetCurrentUserSpy.mockReturnValue({
-      data: currentUserFixture[0],
-    } as unknown as UseQueryResult<UseGetCurrentUser.User>);
+    useGetUserSpy.mockReturnValue({
+      data: userFixture,
+    } as unknown as UseQueryResult<UseGetUser.User>);
   });
 
   it('should render successfully', async () => {
@@ -51,7 +51,7 @@ describe('AppMenu', () => {
     await screen.findByTestId('menu-app');
 
     expect(screen.getByTestId('menu-app')).toBeDefined();
-    expect(screen.getByText(currentUserFixture[0].displayName)).toBeDefined();
+    expect(screen.getByText(userFixture.name)).toBeDefined();
     expect(screen.getByText('Sign Out')).toBeDefined();
   });
 
@@ -59,9 +59,9 @@ describe('AppMenu', () => {
     useAuthContextSpy.mockReturnValue({
       isAuthenticated: false,
     });
-    useGetCurrentUserSpy.mockReturnValue({
+    useGetUserSpy.mockReturnValue({
       data: undefined,
-    } as unknown as UseQueryResult<UseGetCurrentUser.User>);
+    } as unknown as UseQueryResult<UseGetUser.User>);
 
     render(<AppMenu />);
 
