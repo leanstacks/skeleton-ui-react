@@ -1,31 +1,24 @@
 import { render, renderHook, screen, waitFor } from 'test/test-utils';
 
-import {
-  clientTokenFromStorageFixture,
-  userTokensFromRefreshTokenFixture,
-  userTokensFromStorageFixture,
-} from '__fixtures__/tokens';
 import * as AuthProvider from '../AuthProvider';
 
 import AxiosContextProvider, { useAxios } from 'providers/AxiosProvider';
 import { useEffect, useState } from 'react';
 import { InternalAxiosRequestConfig } from 'axios';
+import { userTokensFixture } from '__fixtures__/tokens';
 
 describe('AxiosProvider', () => {
   const useAuthContextSpy = jest.spyOn(AuthProvider, 'useAuthContext');
   const refetchUserTokensMock = jest.fn();
-  const refetchClientTokenMock = jest.fn();
 
   beforeEach(() => {
     refetchUserTokensMock.mockReturnValue({
-      data: userTokensFromRefreshTokenFixture,
+      data: userTokensFixture,
     });
     useAuthContextSpy.mockReturnValue({
       isAuthenticated: true,
-      userToken: userTokensFromStorageFixture,
-      clientToken: clientTokenFromStorageFixture,
+      userToken: userTokensFixture,
       refetchUserTokens: refetchUserTokensMock,
-      refetchClientToken: refetchClientTokenMock,
     });
   });
 
@@ -78,49 +71,6 @@ describe('AxiosProvider', () => {
     expect(screen.getByText('access-token')).toBeDefined();
     expect(refetchUserTokensMock).not.toHaveBeenCalled();
   });
-
-  it('should add client token authentication headers to requests', async () => {
-    useAuthContextSpy.mockReturnValue({
-      isAuthenticated: false,
-      clientToken: clientTokenFromStorageFixture,
-      refetchClientToken: refetchClientTokenMock,
-    });
-    function AxiosTester() {
-      const [response, setResponse] = useState();
-      const [config, setConfig] = useState<InternalAxiosRequestConfig>();
-      const axios = useAxios();
-      useEffect(() => {
-        axios.request({ url: '/api/ping' }).then((response) => {
-          setConfig(response.config);
-          setResponse(response.data);
-        });
-      }, [axios]);
-
-      return (
-        <>
-          {response && (
-            <div data-testid="provider-axios-ready">
-              <div>{config?.headers['Authorization']}</div>
-            </div>
-          )}
-        </>
-      );
-    }
-
-    render(
-      <AxiosContextProvider>
-        <AxiosTester />
-      </AxiosContextProvider>,
-    );
-
-    await screen.findByTestId('provider-axios-ready');
-
-    expect(screen.getByTestId('provider-axios-ready')).toBeDefined();
-    expect(screen.getByText('Client client-token')).toBeDefined();
-    expect(refetchClientTokenMock).not.toHaveBeenCalled();
-  });
-
-  it.skip('should refresh tokens on HTTP 401 response', async () => {});
 });
 
 describe('useAxios', () => {
@@ -130,7 +80,7 @@ describe('useAxios', () => {
   beforeEach(() => {
     useAuthContextSpy.mockReturnValue({
       isAuthenticated: true,
-      userToken: userTokensFromStorageFixture,
+      userToken: userTokensFixture,
       refetchUserTokens: refetchUserTokensMock,
     });
   });

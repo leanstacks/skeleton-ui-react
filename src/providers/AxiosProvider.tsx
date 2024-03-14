@@ -18,6 +18,7 @@ const authRequestInterceptor = async (
   const { headers } = config;
   if (authContext.isAuthenticated) {
     headers['Authorization'] = `Bearer ${authContext.userToken?.id_token}`;
+    headers['X-Access-Token'] = authContext.userToken?.access_token;
   }
   return config;
 };

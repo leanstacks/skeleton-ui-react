@@ -38,8 +38,6 @@ describe('Header', () => {
     await screen.findByTestId('header');
 
     expect(screen.getByTestId('header')).toBeDefined();
-    expect(screen.getByTestId('button-sign-in')).toBeDefined();
-    expect(screen.getByTestId('button-sign-up')).toBeDefined();
   });
 
   it('should render content when authenticated', async () => {
@@ -52,42 +50,6 @@ describe('Header', () => {
 
     expect(screen.getByTestId('header')).toBeDefined();
     expect(screen.getByTestId('button-menu-icon')).toBeDefined();
-  });
-
-  it('should navigate when sign in button clicked', async () => {
-    render(
-      <>
-        <Header />
-        <Routes>
-          <Route path="/" element={<div data-testid="page-home"></div>} />
-          <Route path="/auth/signin" element={<div data-testid="page-sign-in"></div>} />
-        </Routes>
-      </>,
-    );
-    await screen.findByTestId('header');
-
-    await userEvent.click(screen.getByTestId('button-sign-in'));
-    await screen.findByTestId('page-sign-in');
-
-    expect(screen.getByTestId('page-sign-in')).toBeDefined();
-  });
-
-  it('should navigate when sign up button clicked', async () => {
-    render(
-      <>
-        <Header />
-        <Routes>
-          <Route path="/" element={<div data-testid="page-home"></div>} />
-          <Route path="/auth/signin" element={<div data-testid="page-sign-in"></div>} />
-        </Routes>
-      </>,
-    );
-    await screen.findByTestId('header');
-
-    await userEvent.click(screen.getByTestId('button-sign-up'));
-    await screen.findByTestId('page-sign-in');
-
-    expect(screen.getByTestId('page-sign-in')).toBeDefined();
   });
 
   it('should navigate when sign out button clicked', async () => {

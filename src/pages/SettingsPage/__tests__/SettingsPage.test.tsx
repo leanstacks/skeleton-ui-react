@@ -2,18 +2,18 @@ import { UseQueryResult } from '@tanstack/react-query';
 
 import { render, screen } from 'test/test-utils';
 
-import * as UseGetCurrentUser from 'api/useGetCurrentUser';
-import { currentUserFixture } from '__fixtures__/users';
+import * as UseGetUser from 'api/useGetUser';
+import { userFixture } from '__fixtures__/users';
 
 import SettingsPage from '../SettingsPage';
 
 describe('SettingsPage', () => {
-  const useGetCurrentUserSpy = jest.spyOn(UseGetCurrentUser, 'useGetCurrentUser');
+  const useGetUserSpy = jest.spyOn(UseGetUser, 'useGetUser');
 
   beforeEach(() => {
-    useGetCurrentUserSpy.mockReturnValue({
-      data: currentUserFixture[0],
-    } as unknown as UseQueryResult<UseGetCurrentUser.User, Error>);
+    useGetUserSpy.mockReturnValue({
+      data: userFixture,
+    } as unknown as UseQueryResult<UseGetUser.User, Error>);
   });
 
   it('should render successfully', async () => {
@@ -33,9 +33,9 @@ describe('SettingsPage', () => {
   });
 
   it('should render header loader', async () => {
-    useGetCurrentUserSpy.mockReturnValue({
+    useGetUserSpy.mockReturnValue({
       data: null,
-    } as unknown as UseQueryResult<UseGetCurrentUser.User, Error>);
+    } as unknown as UseQueryResult<UseGetUser.User, Error>);
 
     render(<SettingsPage />);
 
