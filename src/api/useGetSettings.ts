@@ -6,12 +6,10 @@ import storage from 'utils/storage';
 /**
  * The `Settings` are user preferences.
  * @param theme - The application theme.
- * @param units - The unit of measurement.
  * @param [updatedAt] - Optional. The timestamp the settings were last updated.
  */
 export interface Settings {
   theme: 'light' | 'dark';
-  units: 'imperial' | 'metric';
   updatedAt?: string;
 }
 

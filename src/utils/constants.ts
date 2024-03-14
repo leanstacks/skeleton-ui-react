@@ -24,15 +24,4 @@ export enum StorageKeys {
  */
 export const DEFAULT_SETTINGS: Settings = {
   theme: 'light',
-  units: 'imperial',
 };
-
-/**
- * Constant value `metric` units of measurement.
- */
-export const UNITS_METRIC = 'metric';
-
-/**
- * Constant value `imperial` units of measurement.
- */
-export const UNITS_IMPERIAL = 'imperial';
