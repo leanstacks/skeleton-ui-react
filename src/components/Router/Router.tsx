@@ -8,6 +8,8 @@ import DashboardPage from 'pages/DashboardPage/DashboardPage';
 import SettingsPage from 'pages/SettingsPage/SettingsPage';
 import AppearanceSettings from 'pages/SettingsPage/components/AppearanceSettings';
 import ComponentsPage from 'pages/ComponentsPage/ComponentsPage';
+import TextComponents from 'pages/ComponentsPage/components/TextComponents';
+import ButtonComponents from 'pages/ComponentsPage/components/ButtonComponents';
 
 /**
  * The React Router configuration. An array of `RouteObject`.
@@ -44,6 +46,20 @@ export const routes: RouteObject[] = [
           {
             path: 'components',
             element: <ComponentsPage />,
+            children: [
+              {
+                index: true,
+                element: <Navigate to="text" />,
+              },
+              {
+                path: 'text',
+                element: <TextComponents />,
+              },
+              {
+                path: 'button',
+                element: <ButtonComponents />,
+              },
+            ],
           },
         ],
       },

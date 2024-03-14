@@ -1,9 +1,8 @@
-import { ButtonVariant } from '@leanstacks/react-common';
+import { Outlet } from 'react-router-dom';
 
-import Button from 'components/Button/Button';
 import Page from 'components/Page/Page';
-import CodeSnippet from 'components/Text/CodeSnippet';
 import Text from 'components/Text/Text';
+import MenuNavLink from 'components/Menu/MenuNavLink';
 
 /**
  * The `ComponentsPage` component renders the layout for the components page.
@@ -19,54 +18,19 @@ const ComponentsPage = (): JSX.Element => {
           Components
         </Text>
 
-        <section className="mb-24 mt-8">
-          <Text variant="heading2" className="mb-4">
-            Text Components
-          </Text>
-          <Text variant="heading1">Heading 1</Text>
-          <CodeSnippet className="my-2" code={`<Text variant="heading1">Heading 1</Text>`} />
-
-          <Text variant="heading2">Heading 2</Text>
-          <CodeSnippet className="my-2" code={`<Text variant="heading2">Heading 2</Text>`} />
-
-          <Text variant="heading3">Heading 3</Text>
-          <CodeSnippet className="my-2" code={`<Text variant="heading3">Heading 3</Text>`} />
-        </section>
-
-        <section className="my-24">
-          <Text variant="heading2" className="mb-4">
-            Button Components
-          </Text>
-
-          <div className="my-8">
-            <Button>Default button</Button>
-            <CodeSnippet className="my-2" code={`<Button>Default button</Button>`} />
+        <div className="my-6 grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div data-testid="page-components-menu">
+            <MenuNavLink to="text" iconName="text_fields" styleActive>
+              Text
+            </MenuNavLink>
+            <MenuNavLink to="button" iconName="buttons_alt" styleActive>
+              Button
+            </MenuNavLink>
           </div>
-
-          <div className="my-8">
-            <Button variant={ButtonVariant.Outline}>Outline button</Button>
-            <CodeSnippet
-              className="my-2"
-              code={`<Button variant={ButtonVariant.Outline}>Outline button</Button>`}
-            />
+          <div className="md:col-span-3" data-testid="page-components-content">
+            <Outlet />
           </div>
-
-          <div className="my-8">
-            <Button variant={ButtonVariant.Solid}>Solid button</Button>
-            <CodeSnippet
-              className="my-2"
-              code={`<Button variant={ButtonVariant.Solid}>Solid button</Button>`}
-            />
-          </div>
-
-          <div className="my-8">
-            <Button variant={ButtonVariant.Text}>Text button</Button>
-            <CodeSnippet
-              className="my-2"
-              code={`<Button variant={ButtonVariant.Text}>Text button</Button>`}
-            />
-          </div>
-        </section>
+        </div>
       </div>
     </Page>
   );

@@ -29,7 +29,7 @@ const SettingsPage = (): JSX.Element => {
             <LoaderSkeleton className="h-16" />
           </div>
         )}
-        <div className="my-6 grid gap-8 md:grid-cols-4">
+        <div className="my-6 grid grid-cols-1 gap-8 md:grid-cols-4">
           <div data-testid="page-settings-menu">
             <MenuNavLink to="appearance" iconName="brush" styleActive>
               Appearance
