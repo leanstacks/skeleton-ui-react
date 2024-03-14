@@ -1,0 +1,56 @@
+import {
+  render as renderWithoutWrapper,
+  renderHook as renderHookWithoutWrapper,
+} from '@testing-library/react';
+
+import { renderHook, screen, waitFor } from 'test/test-utils';
+
+import SettingsContextProvider, { useSettings } from 'providers/SettingsProvider';
+import * as UseGetSettings from 'api/useGetSettings';
+import { settingsFixture } from '__fixtures__/settings';
+import { UseQueryResult } from '@tanstack/react-query';
+
+const useGetSettingsSpy = jest.spyOn(UseGetSettings, 'useGetSettings');
+
+describe('SettingsProvider', () => {
+  beforeEach(() => {
+    useGetSettingsSpy.mockReturnValue({
+      data: settingsFixture,
+      isSuccess: true,
+    } as unknown as UseQueryResult<UseGetSettings.Settings, Error>);
+  });
+
+  it('should render successfully', async () => {
+    renderWithoutWrapper(
+      <SettingsContextProvider>
+        <div data-testid="provider-settings"></div>
+      </SettingsContextProvider>,
+    );
+
+    await screen.findByTestId('provider-settings');
+
+    expect(screen.getByTestId('provider-settings')).toBeDefined();
+  });
+});
+
+describe('useSettings', () => {
+  beforeEach(() => {
+    useGetSettingsSpy.mockReturnValue({
+      data: settingsFixture,
+      isSuccess: true,
+    } as unknown as UseQueryResult<UseGetSettings.Settings, Error>);
+  });
+
+  it('should return default value', async () => {
+    const { result } = renderHook(() => UseGetSettings.useGetSettings());
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(result.current.data).toBeDefined();
+    expect(result.current.data?.theme).toBe(settingsFixture.theme);
+  });
+
+  it('should throw error when not within provider', () => {
+    expect(() => renderHookWithoutWrapper(() => useSettings())).toThrow(/hook must be used within/);
+  });
+});

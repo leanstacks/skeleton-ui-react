@@ -1,250 +1,201 @@
-# React Starter Project
+# Starter React UI
 
-## Acknowledgements
+A serverless, progressive, responsive starter user interface (UI) with React at the core of the technology stack.
 
-This is a [LEAN**STACKS**](https://leanstacks.com/) solution.
+[![CI](https://github.com/leanstacks/skeleton-ui-react/actions/workflows/ci.yml/badge.svg)](https://github.com/leanstacks/skeleton-ui-react/actions/workflows/ci.yml)
 
-## Getting Started
+## About
 
-This is a Single-Page Application (SPA) user interface application authored in JavaScript using the [React](https://reactjs.org/) framework.
+This project was bootstrapped with the [Create React App](https://github.com/facebook/create-react-app) template.
 
-## Languages
+The technology stack includes:
 
-This project is primarily authored in:
+- Create React App - the foundation
+- React Router Dom - routing
+- React Query - data manipulation and caching
+- Axios - http client
+- Formik - form management
+- Yup - validation
+- Tailwind - styling
+- Material Symbols - icons
+- React Spring - animation
+- Lodash - utility functions
+- DayJS - date utility functions
+- Testing Library React - tests
+- Jest - tests
+- MSW - API mocking
+- TypeScript
 
-* ES2020 JavaScript with syntactic sugar via Babel
-* JSX
-* SASS
+### Repository
+
+This repository uses [trunk-based development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development). The latest code is located on the `main` branch. The `main` branch is always ready for deployment.
+
+Features are developed on branches named `feature/NNNNN` which are created from the `main` branch. The feature name used in the branch contains an issue identifier or a short name, e.g. `feature/123-do-something`.
+
+Releases are created on branches named `release/MM.mm.pp` which are created from the `main` branch. The release name follows the [semantic versioning](https://semver.org/) specification.
+
+Hotfixes are created on branches named `release/MM.mm.pp` which are created from the appropriate `release/MM.mm.pp` branch.
+
+A pull request must be opened requesting merge from any branch back to `main`. GitHub actions perform continuous integration, CI, checks against the PR source branch. At least one code review approval is required to complete the pull request.
+
+See also: [Feature flags](https://www.atlassian.com/continuous-delivery/principles/feature-flags)
+
+### Issue Management
+
+This project uses [GitHub Issues](https://github.com/leanstacks/skeleton-ui-react/issues).
+
+### Code Formatting
+
+The project includes a configuration file for the [Prettier](https://prettier.io/docs/en/configuration.html) code formatter. This allows all project contributors to share the same code formatting rules.
+
+Adjust the Prettier configuration as desired.
 
 ## Installation
 
-### Fork the Repository
+### Prerequistes
 
-Fork the [GitHub repo](https://github.com/leanstacks/skeleton-ui-react). Clone the project to the host machine.
+It is strongly recommended that you install Node Version Manager, [`nvm`][nvm]. Node Version Manager simplifies working on multiple projects with different versions of Node.js.
 
-### Dependencies
+### Clone the Repository
 
-This project requires the following global dependencies on the host machine:
+Open the [repository][repo] in a browser. Follow the instructions to clone the repository to your local machine.
 
-* Node v14 (lts/fermium)
-* Yarn
+### Install Node
 
-After installing the global dependencies, initialize the project. Open a terminal window, navigate to the project base directory and issue this command:
+Open a terminal window and navigate to the project base directory. Issue the following command to install the version of Node and NPM used by the application:
 
-```
-yarn install
-```
+```bash
+# If you already have this version of Node, simply switch to it...
+nvm use
 
-Yarn retrieves all project dependencies and installs them into the `/node_modules` sub-directory.
-
-### Editors
-
-You may use your preferred text editor. [Atom](https://atom.io/) or [VS Code](https://code.visualstudio.com/) are recommended.
-
-## Running
-
-The project uses [Yarn commands](https://yarnpkg.com/lang/en/docs/cli/) for build, test, and local debugging workflow automation. The following Yarn commands are defined.
-
-### Start
-
-The **start** command performs the following workflow steps:
-
-* starts the Webpack development server
-* builds the application and loads it into memory
-* watches source directories for changes
-* republishes source files when changes occur
-* reloads the application in the browser when changed source files are republished
-
-The **start** command is designed to allow engineers the means to rapidly make application changes on their local machines. This task is not intended for use in a server environment.
-
-To execute the **start** command, type the following at a terminal prompt in the project base directory:
-
-```
-yarn start
+# If you do NOT have this version of Node, install it...
+nvm install
 ```
 
-Open a browser and go to http://localhost:9000/ to use the application.
+Node Version Manager inspects the `.nvmrc` file in the project base directory and uses or installs the specified version of Node and the Node Package Manager, npm.
 
-To stop the Webpack development server, press `ctrl-C` in the terminal window.
+### Install the Dependencies
 
-### Test
+To install the project dependencies, issue the following commands at a terminal prompt in the project base directory:
 
-The **test** command performs the following workflow steps:
+```bash
+# Switch to the project node version...
+nvm use
 
-* executes tests once and exits
-
-The **test** command is designed to allow engineers the means to run all tests contained within `*.test.js` files located in the `/src/tests/` sub-directory.
-
-To execute the **test** command, type the following at a terminal prompt in the project base directory:
-
-```
-yarn test
+# Install project dependencies
+npm install
 ```
 
-To start the test environment and re-execute tests as source files are modified, use the `--watch` option.
+### After Installation
 
-```
-yarn test --watch
-```
+The installation is now complete! You may open the project in your favorite source code editor (we recommend [Visual Studio Code](https://code.visualstudio.com/)).
 
-To stop the test environment in watch mode, press `q` in the terminal window.
+We recommend the following VS Code extensions:
 
-### Build
+- Prettier - Code formatter (required)
+- Tailwind CSS IntelliSense (required)
+- Indent Rainbow (optional)
+- GitLens (optional)
+- Dotenv Official +Vault (optional)
+- GitHub Actions (optional)
 
-The **build** command performs the following workflow steps:
+Install the _Prettier_ extension to ensure that all project participants' contributions are formatted using the same rules. The extension leverages project-specific rules found in the `.prettierrc` file in the project base directory.
 
-* starts the Webpack process
-* creates a clean distribution `/dist` directory
-* copies all static assets to the distribution directory
-* transpiles, ugilifies, minifies, and maps source files into distribution bundles
-* injects the distribution bundles into `link` and `script` tags within the `index.html` file
+The _Tailwind CSS IntelliSense_ extension is a must-have companion in all projects using Tailwind. The extension ensures that Tailwind CSS classes are named and ordered correctly and flags any conflicting classes.
 
-To execute the **build** command, type the following at a terminal prompt in the project base directory:
+## Available Scripts
 
-```
-yarn build
-```
+In the project directory, you can run:
 
-## Deployment
+### `npm start`
 
-This project is ideally suited to be hosted from a static web server (e.g. Apache or Nginx) or from a CDN (e.g. AWS CloudFront).
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-To prepare the application distribution for deployment, run the **build** Yarn command documented above.  Next, take all of the files and directories from the `/dist` directory and deploy them to your hosting environment.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### Web Server Configuration
+### `npm test`
 
-#### Fallback to index.html
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Routed applications must fall back to `index.html`. That means, if you are using SPA routing  you must configure the static web server to return to the base html page (`index.html`) when the router is asked to serve a route which does not exist.
+### `npm test:ci`
 
-A static web server commonly returns `index.html` when it receives a request for `http://www.example.com/`. But it returns a `404 - Not Found` error when processing `http://www.example.com/greetings/109` unless it is configured to return `index.html` instead.
+Executes the test runner in `CI` mode and produces a coverage report. With `CI` mode enabled, the test runner executes all tests one time and prints a summary report to the console. A code coverage report is printed to the console immediately following the test summary.
 
-Each static web server is configured for fallback in a different way. Here are a few examples for common scenarios.
+A detailed test coverage report is created in the `./coverage` directory.
 
-##### Webpack Development Server
+### `npm run build`
 
-```
-historyApiFallback: {
-    disableDotRule: true,
-    htmlAcceptHeaders: [text/html', 'application/xhtml+xml']
-}
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-##### Apache
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Add a rewrite rule to the `.htaccess` file as illustrated below.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```
-RewriteEngine On
-  # If an existing asset or directory is requested, go to it as it is
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
-  RewriteRule ^ - [L]
-  # If the requested resource doesn't exist, use index.html
-  RewriteRule ^ /index.html
-```
+### `npm run eject`
 
-##### NGinx
+> **WARNING:** this is a one-way operation. Once you `eject`, you can’t go back!
 
-Use `try_files` as described in the [Front Controller Pattern Web Apps](https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/#front-controller-pattern-web-apps) documentation.Getting Started pages
+> **TIP:** if you are thinking of ejecting, consider using [`craco`](https://craco.js.org/) instead.
 
-```
-try_files $uri $uri/ /index.html;
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-##### IIS
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Add a rewrite rule to `web.config`, similar to the one illustrated below.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-```
-<system.webServer>
-  <rewrite>
-    <rules>
-      <rule name="Angular Routes" stopProcessing="true">
-        <match url=".*" />
-        <conditions logicalGrouping="MatchAll">
-          <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
-          <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
-        </conditions>
-        <action type="Rewrite" url="/src/" />
-      </rule>
-    </rules>
-  </rewrite>
-</system.webServer>
-```
+## DevOps
 
-## Docker
+### Cloud Resources
 
-This repository contains a sample `Dockerfile` which illustrates how to build a React SPA into a Docker image. 
+The AWS resources for this application component are provisioned via AWS CloudFormation. The `template.yml` file is the CloudFormation template.
 
-You may view and pull the published `skeleton-ui-react` Docker images on [DockerHub][dockerhub].
+The resources provisioned are:
 
-### Prerequisites
+| Resource                | Description                                                                   |
+| ----------------------- | ----------------------------------------------------------------------------- |
+| S3 Bucket               | Contains the published application.                                           |
+| S3 Bucket Policy        | Provides access to the S3 Bucket from AWS CloudFront.                         |
+| CloudFront Distribution | A CloudFront distribution to serve the SPA application.                       |
+| CloudFront Distribution | A CloudFront distribution to serve the full-stack application (UI, API, etc). |
+| Route53 RecordSet       | An `A` record for the application distribution.                               |
+| Route53 RecordSet       | An `AAAA` record for the application distribution.                            |
 
-These instructions assume that you have the Docker CLI installed on your local computer. See the [Docker Guides](https://docs.docker.com/get-started/) to get started with Docker.
+### CI/CD Pipelines
 
-### Build
+This project uses GitHub Actions to perform DevOps automation activities such as Continuous Integration and Continous Deployment. See all project [GitHub Actions workflow runs](https://github.com/leanstacks/skeleton-ui-react/actions).
 
-To build a Docker image for this project, run the following command in the root directory of this project:
+| Workflow              | Trigger                        | Description                                                                          |
+| --------------------- | ------------------------------ | ------------------------------------------------------------------------------------ |
+| CI                    | Pull Request for `main` branch | Builds, lints, and tests the application. Validates the AWS CloudFormation template. |
+| Deploy to Development | Push to `main` branch          | Deploys AWS CloudFormation stack. Builds and deploys the application.                |
+| Deploy to QA          | Push to `release/*` branch     | Deploys AWS CloudFormation stack. Builds and deploys the application.                |
+| Deploy to Production  | Publish a Release              | Deploys AWS CloudFormation stack. Builds and deploys the application.                |
 
-```
-docker build -t skeleton-ui-react:latest
-```
+## Related Information
 
-### Pull
+- [Create React App][cra]
+- [React Query][react-query]
+- [Axios][axios]
+- [Formik][formik]
+- [Yup][yup]
+- [Tailwind CSS][tailwind]
+- [Font Awesome][fa]
+- [Testing Library][testing-library]
+- [GitHub Actions][ghactions]
 
-To pull the latest `skeleton-ui-react` Docker image from the LeanStacks repository on DockerHub, run the following command:
-
-```
-docker pull leanstacks/skeleton-ui-react:latest
-```
-
-### Run
-
-To run the Docker image on your local machine, run the following command:
-
-```
-docker run -p 9000:80 leanstacks/skeleton-ui-react:latest
-```
-
-**Note:** The command above uses the official image published by LeanStacks to DockerHub. If you have built an image locally, you may substitute the name of your image.
-
-This command will run the Docker image in the foreground, allowing your to terminate the process by pressing `ctrl-C`.
-
-Open a browser and go to http://localhost:9000/ to use the application.
-
-To stop the Docker container, press `ctrl-C` in the terminal window.
-
-
-## Technology Stacks
-
-### Application
-
-[React](https://reactjs.org/)  
-[React Router](https://reacttraining.com/react-router/)  
-[React Redux](https://github.com/reactjs/react-redux)  
-[Redux](https://redux.js.org/)  
-[Redux Thunk](https://github.com/gaearon/redux-thunk)  
-[Axios](https://github.com/axios/axios)  
-[Lodash](https://lodash.com/)  
-[Luxon](https://moment.github.io/luxon)  
-[Bootstrap](https://getbootstrap.com/)  
-[Font Awesome](https://fontawesome.com/)  
-[Google Fonts](https://fonts.google.com)  
-[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)  
-[SASS](http://sass-lang.com/guide)  
-
-### Test
-
-[Jest](http://jestjs.io/)  
-[Enzyme](http://airbnb.io/enzyme/)  
-[Redux Mock Store](https://www.npmjs.com/package/redux-mock-store)  
-
-### Build
-
-[Babel](http://babeljs.io/)  
-[Webpack](https://webpack.js.org/configuration/)  
-[Yarn](https://yarnpkg.com/en/)  
-
-[dockerhub]: https://hub.docker.com/repository/docker/leanstacks/skeleton-ui-react "skeleton-ui-react | DockerHub"
-[dockerref]: https://docs.docker.com/reference/ "Reference documentation | Docker"
+[repo]: https://github.com/leanstacks/skeleton-ui-react 'GitHub Repository'
+[nvm]: https://github.com/nvm-sh/nvm 'Node Version Manager'
+[cra]: https://create-react-app.dev/ 'Create React App'
+[react-query]: https://tanstack.com/query 'React Query'
+[axios]: https://axios-http.com/ 'Axios'
+[formik]: https://formik.org/ 'Formik'
+[yup]: https://github.com/jquense/yup 'Yup'
+[tailwind]: https://tailwindcss.com/ 'Tailwind CSS'
+[fa]: https://fontawesome.com/ 'Font Awesome'
+[testing-library]: https://testing-library.com/ 'Testing Library'
+[ghactions]: https://docs.github.com/en/actions 'GitHub Actions'

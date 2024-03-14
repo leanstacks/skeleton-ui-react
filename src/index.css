@@ -1,0 +1,31 @@
+@tailwind base;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  *::-webkit-scrollbar {
+    width: theme('spacing[2.5]');
+    height: theme('spacing[1.5]');
+  }
+  *::-webkit-scrollbar-track {
+    background-color: theme('colors.neutral.300');
+  }
+  .dark *::-webkit-scrollbar-track {
+    background-color: theme('colors.neutral.900');
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: theme('colors.neutral.400');
+    border-color: theme('colors.neutral.300');
+    border-radius: theme('spacing.1');
+    border-style: solid;
+    border-width: theme('spacing.px');
+  }
+  .dark *::-webkit-scrollbar-thumb {
+    background-color: theme('colors.neutral.700');
+    border-color: theme('colors.neutral.900');
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
