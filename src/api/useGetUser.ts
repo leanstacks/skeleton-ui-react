@@ -66,7 +66,7 @@ export const useGetUser = ({ userId }: UseGetUserProps): UseQueryResult<User, Er
   };
 
   return useQuery({
-    queryKey: [QueryKeys.User, userId],
+    queryKey: [QueryKeys.Users, userId],
     queryFn: () => getUser(userId),
   });
 };

@@ -10,6 +10,8 @@ import AppearanceSettings from 'pages/SettingsPage/components/AppearanceSettings
 import ComponentsPage from 'pages/ComponentsPage/ComponentsPage';
 import TextComponents from 'pages/ComponentsPage/components/TextComponents';
 import ButtonComponents from 'pages/ComponentsPage/components/ButtonComponents';
+import UsersPage from 'pages/UsersPage/UsersPage';
+import UserDetail from 'pages/UsersPage/components/UserDetail';
 
 /**
  * The React Router configuration. An array of `RouteObject`.
@@ -58,6 +60,16 @@ export const routes: RouteObject[] = [
               {
                 path: 'button',
                 element: <ButtonComponents />,
+              },
+            ],
+          },
+          {
+            path: 'users',
+            element: <UsersPage />,
+            children: [
+              {
+                path: ':userId',
+                element: <UserDetail />,
               },
             ],
           },
