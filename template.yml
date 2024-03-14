@@ -1,4 +1,4 @@
-Description: LSuite UI component resources
+Description: React Starter UI component resources
 
 Parameters:
   EnvironmentCode:
@@ -34,7 +34,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub
-        - 'lsuite-ui-app.${HostedZone}-${AWS::Region}-${AWS::AccountId}'
+        - 'reactstarter-ui-app.${HostedZone}-${AWS::Region}-${AWS::AccountId}'
         - HostedZone: !FindInMap [EnvironmentAttributeMap, !Ref EnvironmentCode, HostedZone]
 
   ##
@@ -67,7 +67,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        Comment: !Sub 'LSuite UI SPA (${EnvironmentCode})'
+        Comment: !Sub 'React Starter UI SPA (${EnvironmentCode})'
         CustomErrorResponses:
           - ErrorCode: 404
             ResponsePagePath: '/index.html'
@@ -107,10 +107,10 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        Comment: !Sub 'LSuite UI App (${EnvironmentCode})'
+        Comment: !Sub 'React Starter UI App (${EnvironmentCode})'
         Aliases:
           - !Sub
-            - 'lsuite.${HostedZone}'
+            - 'react-starter.${HostedZone}'
             - HostedZone: !FindInMap [EnvironmentAttributeMap, !Ref EnvironmentCode, HostedZone]
         CacheBehaviors:
           - AllowedMethods:
@@ -175,7 +175,6 @@ Resources:
             DomainName: !Sub
               - 'api.${HostedZone}'
               - HostedZone: !FindInMap [EnvironmentAttributeMap, !Ref EnvironmentCode, HostedZone]
-
             Id: CUSTOM-API
         PriceClass: PriceClass_100
         ViewerCertificate:
@@ -193,7 +192,7 @@ Resources:
         - '${HostedZone}.'
         - HostedZone: !FindInMap [EnvironmentAttributeMap, !Ref EnvironmentCode, HostedZone]
       Name: !Sub
-        - 'lsuite.${HostedZone}'
+        - 'react-starter.${HostedZone}'
         - HostedZone: !FindInMap [EnvironmentAttributeMap, !Ref EnvironmentCode, HostedZone]
       Type: A
       AliasTarget:
@@ -210,7 +209,7 @@ Resources:
         - '${HostedZone}.'
         - HostedZone: !FindInMap [EnvironmentAttributeMap, !Ref EnvironmentCode, HostedZone]
       Name: !Sub
-        - 'lsuite.${HostedZone}'
+        - 'react-starter.${HostedZone}'
         - HostedZone: !FindInMap [EnvironmentAttributeMap, !Ref EnvironmentCode, HostedZone]
       Type: AAAA
       AliasTarget:
