@@ -2,6 +2,8 @@
 
 A serverless, progressive, responsive starter user interface (UI) with React at the core of the technology stack.
 
+[![CI](https://github.com/leanstacks/skeleton-ui-react/actions/workflows/ci.yml/badge.svg)](https://github.com/leanstacks/skeleton-ui-react/actions/workflows/ci.yml)
+
 ## About
 
 This project was bootstrapped with the [Create React App](https://github.com/facebook/create-react-app) template.
