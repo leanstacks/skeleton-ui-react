@@ -4,6 +4,7 @@ import { useGetUser } from 'api/useGetUser';
 import Avatar from 'components/Icon/Avatar';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import MenuNavLink from 'components/Menu/MenuNavLink';
+import Page from 'components/Page/Page';
 
 /**
  * The `SettingsPage` component renders the layout for the settings page. It
@@ -15,7 +16,7 @@ const SettingsPage = (): JSX.Element => {
   const { data: user } = useGetUser({ userId: 1 });
 
   return (
-    <div data-testid="page-settings" className="px-2 sm:px-8">
+    <Page testId="page-settings">
       <div className="container mx-auto my-4 min-h-[50vh]">
         {user ? (
           <div className="my-6 flex items-center gap-4" data-testid="page-settings-header">
@@ -40,7 +41,7 @@ const SettingsPage = (): JSX.Element => {
           </div>
         </div>
       </div>
-    </div>
+    </Page>
   );
 };
 
