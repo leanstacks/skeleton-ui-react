@@ -6,6 +6,7 @@ import { ObjectSchema } from 'yup';
  * The application configuration. The `value` provided by the `ConfigContext`.
  */
 export interface Config {
+  REACT_APP_BASE_URL_API: string;
   REACT_APP_BUILD_DATE: string;
   REACT_APP_BUILD_TIME: string;
   REACT_APP_BUILD_TS: string;
@@ -22,6 +23,7 @@ export interface Config {
  * @see {@link https://github.com/jquense/yup | Yup}
  */
 const configSchema: ObjectSchema<Config> = Yup.object({
+  REACT_APP_BASE_URL_API: Yup.string().url().required(),
   REACT_APP_BUILD_DATE: Yup.string().default('1970-01-01'),
   REACT_APP_BUILD_TIME: Yup.string().default('00:00:00'),
   REACT_APP_BUILD_TS: Yup.string().default('1970-01-01T00:00:00+0000'),

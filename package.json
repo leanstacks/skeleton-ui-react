@@ -71,7 +71,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://jsonplaceholder.typicode.com",
   "jest": {
     "coveragePathIgnorePatterns": [
       "node_modules",
