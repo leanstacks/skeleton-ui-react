@@ -40,7 +40,7 @@ describe('AxiosProvider', () => {
       const [config, setConfig] = useState<InternalAxiosRequestConfig>();
       const axios = useAxios();
       useEffect(() => {
-        axios.request({ url: '/api/users?externalId=axios' }).then((response) => {
+        axios.request({ url: 'https://jsonplaceholder.typicode.com/users/1' }).then((response) => {
           setConfig(response.config);
           setUser(response.data);
         });

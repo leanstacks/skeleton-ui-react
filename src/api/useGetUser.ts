@@ -4,6 +4,9 @@ import { useAxios } from 'providers/AxiosProvider';
 import { useConfig } from 'providers/ConfigProvider';
 import { QueryKeys } from 'utils/constants';
 
+/**
+ * The `Address` type.
+ */
 export type Address = {
   street: string;
   suite: string;
@@ -15,12 +18,18 @@ export type Address = {
   };
 };
 
+/**
+ * The `Company` type.
+ */
 export type Company = {
   name: string;
   catchPhrase: string;
   bs: string;
 };
 
+/**
+ * The `User` type.
+ */
 export type User = {
   id: number;
   name: string;
@@ -32,10 +41,19 @@ export type User = {
   company: Company;
 };
 
+/**
+ * The request properties for `useGetUser`.
+ * @param {number} userId - A `User` identifier.
+ */
 interface UseGetUserProps {
   userId: number;
 }
 
+/**
+ * An API hook which fetches a `User` by the identifier.
+ * @param {UseGetUserProps} props - The hook properties.
+ * @returns Returns a `UseQueryResult` with `User` data.
+ */
 export const useGetUser = ({ userId }: UseGetUserProps): UseQueryResult<User, Error> => {
   const axios = useAxios();
   const config = useConfig();

@@ -23,3 +23,5 @@ export const userFixture: User = {
     bs: 'harness real-time e-markets',
   },
 };
+
+export const usersFixture: User[] = [userFixture];
