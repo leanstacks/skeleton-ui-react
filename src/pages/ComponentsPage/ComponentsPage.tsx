@@ -5,6 +5,12 @@ import Page from 'components/Page/Page';
 import CodeSnippet from 'components/Text/CodeSnippet';
 import Text from 'components/Text/Text';
 
+/**
+ * The `ComponentsPage` component renders the layout for the components page.
+ * It provides an `Outlet` for displaying a variety of sub-pages containing
+ * React component variations.
+ * @returns {JSX.Element} JSX
+ */
 const ComponentsPage = (): JSX.Element => {
   return (
     <Page testId="page-components">
