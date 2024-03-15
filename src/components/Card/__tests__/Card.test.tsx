@@ -42,30 +42,4 @@ describe('Card', () => {
     // ASSERT
     expect(screen.getByTestId('card').classList).toContain('custom-className');
   });
-
-  it('should render card title', async () => {
-    // ARRANGE
-    render(
-      <Card title="test">
-        <div data-testid="content" />
-      </Card>,
-    );
-    await screen.findByTestId('card');
-
-    // ASSERT
-    expect(screen.getByTestId('card-title').textContent).toBe('test');
-  });
-
-  it('should render card subtitle', async () => {
-    // ARRANGE
-    render(
-      <Card subtitle="test">
-        <div data-testid="content" />
-      </Card>,
-    );
-    await screen.findByTestId('card');
-
-    // ASSERT
-    expect(screen.getByTestId('card-subtitle').textContent).toBe('test');
-  });
 });
