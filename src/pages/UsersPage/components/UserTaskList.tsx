@@ -7,6 +7,7 @@ import Icon from 'components/Icon/Icon';
 import Text from 'components/Text/Text';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import UserTaskListItem from './UserTaskListItem';
+import Badge from 'components/Badge/Badge';
 
 /**
  * Propeties for the `UserTaskList` React component.
@@ -49,14 +50,22 @@ const UserTaskList = ({ className, testId = 'user-task-list' }: UserTaskListProp
         {!!tasks && (
           <div>
             <div className="mb-8">
-              <div className="font-bold">To Do</div>
+              <div className="flex items-center gap-1">
+                <div className="font-bold">To Do</div>
+                {!!incompleteTasks && (
+                  <Badge className="self-start">{incompleteTasks.length}</Badge>
+                )}
+              </div>
               {incompleteTasks.map((task) => (
                 <UserTaskListItem key={task.id} task={task} />
               ))}
             </div>
 
             <div className="mb-8">
-              <div className="font-bold">Complete</div>
+              <div className="flex items-center gap-1">
+                <div className="font-bold">Complete</div>
+                {!!completeTasks && <Badge className="self-start">{completeTasks.length}</Badge>}
+              </div>
               {completeTasks.map((task) => (
                 <UserTaskListItem key={task.id} task={task} />
               ))}

@@ -1,10 +1,12 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
+import classNames from 'classnames';
 
 import { useGetUserTasks } from '../api/useGetUserTasks';
 import Icon from 'components/Icon/Icon';
 import Text from 'components/Text/Text';
 import Link from 'components/Link/Link';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
+import Badge from 'components/Badge/Badge';
 
 /**
  * Properties for the `UserTasks` component.
@@ -31,6 +33,7 @@ const UserTasks = ({ className, testId = 'user-tasks', userId }: UserTasksProps)
       <div className="mb-1 flex items-center gap-1 border-b border-neutral-500/10 pb-1">
         <Icon name="checklist" fill={0} />
         <Text variant="heading3">Tasks</Text>
+        {!!tasks && <Badge className="self-start">{tasks.length}</Badge>}
       </div>
 
       <div className="mb-2">
@@ -44,7 +47,11 @@ const UserTasks = ({ className, testId = 'user-tasks', userId }: UserTasksProps)
         {!!tasks &&
           tasks.slice(0, 3).map((task, index) => (
             <div key={task.id} className="flex items-center gap-4 py-0.5">
-              <Icon name={task.completed ? 'task_alt' : 'circle'} fill={0} className="text-lg" />
+              <Icon
+                name={task.completed ? 'task_alt' : 'circle'}
+                fill={0}
+                className={classNames('text-lg', { 'text-green-600': task.completed })}
+              />
               <div>{task.title}</div>
             </div>
           ))}
