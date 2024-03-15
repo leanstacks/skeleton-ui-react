@@ -4,11 +4,28 @@ import { useNavigate } from 'react-router-dom';
 
 import { User } from 'api/useGetUser';
 
+/**
+ * Properties for the `UserListItem` component.
+ * @param {User} user - A `User` object.
+ * @param {boolean} [isActive] - Optional. Indicates if this is the currently
+ * selected item in the list. Default: `false`.
+ * @see {@link PropsWithClassName}
+ * @see {@link PropsWithTestId}
+ */
 interface UserListItemProps extends PropsWithClassName, PropsWithTestId {
   user: User;
   isActive?: boolean;
 }
 
+/**
+ * The `UserListItem` React component renders select `User` attributes to
+ * create a selectable item within a list.
+ *
+ * When clicked, navigates to a route which displays the details of the
+ * clicked `User`.
+ * @param {UserListItemProps} props - Component properties.
+ * @returns {JSX.Element} JSX
+ */
 const UserListItem = ({
   className,
   isActive = false,

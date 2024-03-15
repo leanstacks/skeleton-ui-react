@@ -6,8 +6,19 @@ import Text from 'components/Text/Text';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import Icon from 'components/Icon/Icon';
 
+/**
+ * Properties for the `UserDetail` React component.
+ * @see {@link PropsWithClassName}
+ * @see {@link PropsWithTestId}
+ */
 interface UserDetailProps extends PropsWithClassName, PropsWithTestId {}
 
+/**
+ * The `UserDetail` component renders the detailed attributes of a `User`
+ * object.
+ * @param {UserDetailProps} props - Component properties.
+ * @returns {JSX.Element} JSX
+ */
 const UserDetail = ({ className, testId = 'user-detail' }: UserDetailProps): JSX.Element => {
   const { userId } = useParams();
   console.log(`UserDetail::userId::${userId}`);

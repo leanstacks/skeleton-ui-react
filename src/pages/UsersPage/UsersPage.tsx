@@ -1,8 +1,15 @@
+import { Outlet } from 'react-router-dom';
+
 import Page from 'components/Page/Page';
 import Text from 'components/Text/Text';
 import UserList from './components/UserList';
-import { Outlet } from 'react-router-dom';
 
+/**
+ * The `UsersPage` component renders the layout for the users page. It
+ * displays a list of selectable users. Renders the details of a selected
+ * `User`.
+ * @returns {JSX.Element} JSX
+ */
 const UsersPage = (): JSX.Element => {
   return (
     <Page testId="page-users">

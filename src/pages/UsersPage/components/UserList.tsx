@@ -6,8 +6,19 @@ import { useGetUsers } from '../api/useGetUsers';
 import UserListItem from './UserListItem';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 
+/**
+ * Properties for the `UserList` component.
+ * @see {@link PropsWithClassName}
+ * @see {@link PropsWithTestId}
+ */
 interface UserListProps extends PropsWithClassName, PropsWithTestId {}
 
+/**
+ * The `UserList` React component renders a list of `User` objects with the
+ * `UserListItem` component.
+ * @param {UserListProps} props - Component properties.
+ * @returns {JSX.Element} JSX
+ */
 const UserList = ({ className, testId = 'list-users' }: UserListProps): JSX.Element => {
   const { userId } = useParams();
   const { data: users, error, isPending } = useGetUsers();
