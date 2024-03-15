@@ -19,7 +19,7 @@ export type Task = {
  * @param {number} userId - A `User` identifier.
  */
 interface UseGetUserTasksProps {
-  userId: number;
+  userId?: number;
 }
 
 /**
@@ -33,7 +33,7 @@ export const useGetUserTasks = ({
   const axios = useAxios();
   const config = useConfig();
 
-  const getUserTasks = async (userId: number): Promise<Task[]> => {
+  const getUserTasks = async (): Promise<Task[]> => {
     const response = await axios.request({
       url: `${config.REACT_APP_BASE_URL_API}/users/${userId}/todos`,
     });
@@ -42,6 +42,7 @@ export const useGetUserTasks = ({
 
   return useQuery({
     queryKey: [QueryKeys.Tasks, { userId }],
-    queryFn: () => getUserTasks(userId),
+    queryFn: getUserTasks,
+    enabled: !!userId,
   });
 };

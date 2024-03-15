@@ -37,7 +37,7 @@ const UserTasks = ({ className, testId = 'user-tasks', userId }: UserTasksProps)
         {isPending && (
           <>
             <LoaderSkeleton className="my-3 h-4 w-80" />
-            <LoaderSkeleton className="my-3 h-4 w-72" />
+            <LoaderSkeleton className="my-3 h-4 w-80" />
             <LoaderSkeleton className="my-3 h-4 w-80" />
           </>
         )}

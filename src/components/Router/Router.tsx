@@ -13,6 +13,7 @@ import ButtonComponents from 'pages/ComponentsPage/components/ButtonComponents';
 import UsersPage from 'pages/UsersPage/UsersPage';
 import UserDetailLayout from 'pages/UsersPage/components/UserDetailLayout';
 import UserDetail from 'pages/UsersPage/components/UserDetail';
+import UserTaskList from 'pages/UsersPage/components/UserTaskList';
 
 /**
  * The React Router configuration. An array of `RouteObject`.
@@ -75,7 +76,7 @@ export const routes: RouteObject[] = [
                   { index: true, element: <UserDetail /> },
                   {
                     path: 'tasks',
-                    element: <div>PLACEHOLDER: User Task List</div>,
+                    element: <UserTaskList />,
                   },
                 ],
               },
