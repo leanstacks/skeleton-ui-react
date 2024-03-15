@@ -21,7 +21,6 @@ interface UserDetailProps extends PropsWithClassName, PropsWithTestId {}
  */
 const UserDetail = ({ className, testId = 'user-detail' }: UserDetailProps): JSX.Element => {
   const { userId } = useParams();
-  console.log(`UserDetail::userId::${userId}`);
   const { data: user, error, isPending } = useGetUser({ userId: Number(userId) });
 
   return (

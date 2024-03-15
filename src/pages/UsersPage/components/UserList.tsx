@@ -30,11 +30,11 @@ const UserList = ({ className, testId = 'list-users' }: UserListProps): JSX.Elem
     >
       {isPending && (
         <>
-          <LoaderSkeleton className="my-2 h-6" />
-          <LoaderSkeleton className="my-2 h-6" />
-          <LoaderSkeleton className="my-2 h-6" />
-          <LoaderSkeleton className="my-2 h-6" />
-          <LoaderSkeleton className="my-2 h-6" />
+          <LoaderSkeleton className="my-2 h-16" />
+          <LoaderSkeleton className="my-2 h-16" />
+          <LoaderSkeleton className="my-2 h-16" />
+          <LoaderSkeleton className="my-2 h-16" />
+          <LoaderSkeleton className="my-2 h-16" />
         </>
       )}
       {users &&
