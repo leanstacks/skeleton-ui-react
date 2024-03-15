@@ -5,6 +5,7 @@ import { useGetUser } from 'api/useGetUser';
 import Text from 'components/Text/Text';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import Icon from 'components/Icon/Icon';
+import UserTasks from './UserTasks';
 
 /**
  * Properties for the `UserDetail` React component.
@@ -44,6 +45,7 @@ const UserDetail = ({ className, testId = 'user-detail' }: UserDetailProps): JSX
           <Text variant="heading2" className="mb-2">
             {user.name}
           </Text>
+
           <div className="mb-8 flex flex-wrap items-center gap-4 text-sm opacity-75">
             <div className="flex items-center gap-1">
               <Icon name="mail" fill={0} className="text-sm" />
@@ -58,7 +60,8 @@ const UserDetail = ({ className, testId = 'user-detail' }: UserDetailProps): JSX
               {user.website}
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+
+          <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <div className="mb-1 flex items-center gap-1 border-b border-neutral-500/10 pb-1">
                 <Icon name="storefront" fill={0} />
@@ -79,6 +82,8 @@ const UserDetail = ({ className, testId = 'user-detail' }: UserDetailProps): JSX
               <div>{user.address.zipcode}</div>
             </div>
           </div>
+
+          <UserTasks userId={user.id} />
         </div>
       )}
       {!!error && <div className="text-red-600">{error.message}</div>}

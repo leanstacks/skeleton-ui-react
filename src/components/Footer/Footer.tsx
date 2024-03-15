@@ -26,12 +26,22 @@ const Footer = ({ className, testId = 'footer' }: FooterProps): JSX.Element => {
       <div className="flex flex-wrap items-center justify-center text-xs">
         <div className="mx-2">&copy; {year} LeanStacks</div>
         <div className="mx-2">
-          <Link to="https://leanstacks.net/privacy.html" title="Privacy Policy" target="_blank">
+          <Link
+            to="https://leanstacks.net/privacy.html"
+            title="Privacy Policy"
+            target="_blank"
+            className="text-inherit"
+          >
             Privacy
           </Link>
         </div>
         <div className="mx-2">
-          <Link to="https://leanstacks.net/terms.html" title="Terms and Conditions" target="_blank">
+          <Link
+            to="https://leanstacks.net/terms.html"
+            title="Terms and Conditions"
+            target="_blank"
+            className="text-inherit"
+          >
             Terms
           </Link>
         </div>

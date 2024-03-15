@@ -5,6 +5,7 @@ import { Settings } from 'api/useGetSettings';
  */
 export enum QueryKeys {
   Settings = 'Settings',
+  Tasks = 'Tasks',
   Users = 'Users',
   UserTokens = 'UserTokens',
 }
