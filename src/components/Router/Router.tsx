@@ -11,6 +11,7 @@ import ComponentsPage from 'pages/ComponentsPage/ComponentsPage';
 import TextComponents from 'pages/ComponentsPage/components/TextComponents';
 import ButtonComponents from 'pages/ComponentsPage/components/ButtonComponents';
 import UsersPage from 'pages/UsersPage/UsersPage';
+import UserDetailLayout from 'pages/UsersPage/components/UserDetailLayout';
 import UserDetail from 'pages/UsersPage/components/UserDetail';
 
 /**
@@ -69,7 +70,14 @@ export const routes: RouteObject[] = [
             children: [
               {
                 path: ':userId',
-                element: <UserDetail />,
+                element: <UserDetailLayout />,
+                children: [
+                  { index: true, element: <UserDetail /> },
+                  {
+                    path: 'tasks',
+                    element: <div>PLACEHOLDER: User Task List</div>,
+                  },
+                ],
               },
             ],
           },
