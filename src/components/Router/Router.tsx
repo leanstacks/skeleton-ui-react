@@ -14,6 +14,7 @@ import UsersPage from 'pages/UsersPage/UsersPage';
 import UserDetailLayout from 'pages/UsersPage/components/UserDetailLayout';
 import UserDetail from 'pages/UsersPage/components/UserDetail';
 import UserTaskList from 'pages/UsersPage/components/UserTaskList';
+import UserDetailEmpty from 'pages/UsersPage/components/UserDetailEmpty';
 
 /**
  * The React Router configuration. An array of `RouteObject`.
@@ -69,6 +70,10 @@ export const routes: RouteObject[] = [
             path: 'users',
             element: <UsersPage />,
             children: [
+              {
+                index: true,
+                element: <UserDetailEmpty />,
+              },
               {
                 path: ':userId',
                 element: <UserDetailLayout />,

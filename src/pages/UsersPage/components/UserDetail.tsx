@@ -1,11 +1,11 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
+import { useParams } from 'react-router-dom';
 
 import { useGetUser } from 'api/useGetUser';
 import Text from 'components/Text/Text';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import Icon from 'components/Icon/Icon';
 import UserTasks from './UserTasks';
-import { useParams } from 'react-router-dom';
 
 /**
  * Properties for the `UserDetail` React component.
