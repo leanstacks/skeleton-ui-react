@@ -32,9 +32,13 @@ const MessageCard = ({
   return (
     <Card className={classNames('w-80', className)} testId={testId}>
       <div className="flex flex-col items-center gap-2 text-center">
-        {iconProps && <Icon {...iconProps} />}
-        {title && <div className="font-bold">{title}</div>}
-        <div>{message}</div>
+        {iconProps && <Icon {...iconProps} testId={`${testId}-icon`} />}
+        {title && (
+          <div className="font-bold" data-testid={`${testId}-title`}>
+            {title}
+          </div>
+        )}
+        <div data-testid={`${testId}-message`}>{message}</div>
       </div>
     </Card>
   );
