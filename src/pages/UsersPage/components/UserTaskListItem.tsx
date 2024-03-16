@@ -32,6 +32,7 @@ const UserTaskListItem = ({
           name={task.completed ? 'task_alt' : 'circle'}
           fill={0}
           className={classNames('text-lg', { 'text-green-600': task.completed })}
+          testId={`${testId}-icon`}
         />
         <div>{task.title}</div>
       </div>

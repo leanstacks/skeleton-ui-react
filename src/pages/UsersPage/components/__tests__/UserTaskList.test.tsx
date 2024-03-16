@@ -48,12 +48,9 @@ describe('UserTaskList', () => {
 
     // ASSERT
     expect(screen.getByTestId('user-task-list-tasks')).toBeDefined();
-    expect(
-      screen.queryAllByTestId('user-task-list-tasks-incomplete', { exact: false }).length,
-    ).toBe(2);
-    expect(screen.queryAllByTestId('user-task-list-tasks-complete', { exact: false }).length).toBe(
-      1,
-    );
+    expect(screen.getByTestId('user-task-list-tasks-incomplete-1')).toBeDefined();
+    expect(screen.getByTestId('user-task-list-tasks-complete-2')).toBeDefined();
+    expect(screen.getByTestId('user-task-list-tasks-incomplete-3')).toBeDefined();
   });
 
   it('should render loading state', async () => {
