@@ -48,7 +48,7 @@ const UserTaskList = ({ className, testId = 'user-task-list' }: UserTaskListProp
           </>
         )}
         {!!tasks && (
-          <div>
+          <div data-testid={`${testId}-tasks`}>
             <div className="mb-8">
               <div className="flex items-center gap-1">
                 <div className="font-bold">To Do</div>
@@ -57,7 +57,11 @@ const UserTaskList = ({ className, testId = 'user-task-list' }: UserTaskListProp
                 )}
               </div>
               {incompleteTasks.map((task) => (
-                <UserTaskListItem key={task.id} task={task} />
+                <UserTaskListItem
+                  key={task.id}
+                  task={task}
+                  testId={`${testId}-tasks-incomplete-${task.id}`}
+                />
               ))}
             </div>
 
@@ -67,12 +71,20 @@ const UserTaskList = ({ className, testId = 'user-task-list' }: UserTaskListProp
                 {!!completeTasks && <Badge className="self-start">{completeTasks.length}</Badge>}
               </div>
               {completeTasks.map((task) => (
-                <UserTaskListItem key={task.id} task={task} />
+                <UserTaskListItem
+                  key={task.id}
+                  task={task}
+                  testId={`${testId}-tasks-complete-${task.id}`}
+                />
               ))}
             </div>
           </div>
         )}
-        {!!error && <div className="text-red-600">{error.message}</div>}
+        {!!error && (
+          <div className="text-red-600" data-testid={`${testId}-error`}>
+            {error.message}
+          </div>
+        )}
       </div>
     </div>
   );
