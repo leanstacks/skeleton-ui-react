@@ -46,7 +46,11 @@ const UserList = ({ className, testId = 'list-users' }: UserListProps): JSX.Elem
             testId={`list-item-user-${user.id}`}
           />
         ))}
-      {!!error && <div className="text-red-600">{error.message}</div>}
+      {!!error && (
+        <div className="text-red-600" data-testid={`${testId}-error`}>
+          {error.message}
+        </div>
+      )}
     </div>
   );
 };
