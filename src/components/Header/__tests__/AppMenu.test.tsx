@@ -3,7 +3,7 @@ import { UseQueryResult } from '@tanstack/react-query';
 
 import * as UseAuthContext from 'providers/AuthProvider';
 import * as UseGetUser from 'api/useGetUser';
-import { userFixture } from '__fixtures__/users';
+import { userFixture1 } from '__fixtures__/users';
 
 import AppMenu from '../AppMenu';
 
@@ -17,7 +17,7 @@ describe('AppMenu', () => {
       isAuthenticated: true,
     });
     useGetUserSpy.mockReturnValue({
-      data: userFixture,
+      data: userFixture1,
     } as unknown as UseQueryResult<UseGetUser.User>);
   });
 
@@ -51,7 +51,7 @@ describe('AppMenu', () => {
     await screen.findByTestId('menu-app');
 
     expect(screen.getByTestId('menu-app')).toBeDefined();
-    expect(screen.getByText(userFixture.name)).toBeDefined();
+    expect(screen.getByText(userFixture1.name)).toBeDefined();
     expect(screen.getByText('Sign Out')).toBeDefined();
   });
 

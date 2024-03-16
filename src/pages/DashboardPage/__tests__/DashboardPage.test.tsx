@@ -1,7 +1,7 @@
 import { render, screen } from 'test/test-utils';
 import { UseQueryResult } from '@tanstack/react-query';
 
-import { userFixture } from '__fixtures__/users';
+import { userFixture1 } from '__fixtures__/users';
 import * as UseGetUser from 'api/useGetUser';
 
 import DashboardPage from '../DashboardPage';
@@ -11,7 +11,7 @@ describe('DashboardPage', () => {
 
   beforeEach(() => {
     useGetUserSpy.mockReturnValue({
-      data: userFixture,
+      data: userFixture1,
     } as unknown as UseQueryResult<UseGetUser.User, Error>);
   });
 
@@ -26,9 +26,9 @@ describe('DashboardPage', () => {
   it('should render user information when available', async () => {
     render(<DashboardPage />);
 
-    await screen.findByText(userFixture.name);
+    await screen.findByText(userFixture1.name);
 
-    expect(screen.getByTestId('user-display-name').textContent).toBe(userFixture.name);
+    expect(screen.getByTestId('user-display-name').textContent).toBe(userFixture1.name);
   });
 
   it('should render loader when user not available', async () => {
