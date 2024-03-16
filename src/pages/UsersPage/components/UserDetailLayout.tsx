@@ -43,7 +43,7 @@ const UserDetailLayout = ({
         </>
       )}
       {!!user && (
-        <div>
+        <div data-testid={`${testId}-user`}>
           <Text variant="heading2" className="mb-2">
             {user.name}
           </Text>
@@ -66,7 +66,11 @@ const UserDetailLayout = ({
           <Outlet />
         </div>
       )}
-      {!!error && <div className="text-red-600">{error.message}</div>}
+      {!!error && (
+        <div className="text-red-600" data-testid={`${testId}-error`}>
+          {error.message}
+        </div>
+      )}
     </div>
   );
 };

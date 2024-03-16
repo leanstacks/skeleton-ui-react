@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 import { render, screen } from 'test/test-utils';
 
 import * as UseGetUser from 'api/useGetUser';
-import UserDetail from '../UserDetail';
+import UserDetailLayout from '../UserDetailLayout';
 
 // mock select functions from react-router-dom
 jest.mock('react-router-dom', () => ({
@@ -13,41 +13,41 @@ jest.mock('react-router-dom', () => ({
   }),
 }));
 
-describe('UserDetail', () => {
+describe('UserDetailLayout', () => {
   it('should render successfully', async () => {
     // ARRANGE
-    render(<UserDetail />);
-    await screen.findByTestId('user-detail');
+    render(<UserDetailLayout />);
+    await screen.findByTestId('layout-user-detail');
 
     // ASSERT
-    expect(screen.getByTestId('user-detail')).toBeDefined();
+    expect(screen.getByTestId('layout-user-detail')).toBeDefined();
   });
 
   it('should use custom testId', async () => {
     // ARRANGE
-    render(<UserDetail testId="custom-testId" />);
+    render(<UserDetailLayout testId="custom-testId" />);
     await screen.findByTestId('custom-testId');
 
     // ASSERT
     expect(screen.getByTestId('custom-testId')).toBeDefined();
   });
 
-  it('should use custom className', async () => {
+  it('should custom className', async () => {
     // ARRANGE
-    render(<UserDetail className="custom-className" />);
-    await screen.findByTestId('user-detail');
+    render(<UserDetailLayout className="custom-className" />);
+    await screen.findByTestId('layout-user-detail');
 
     // ASSERT
-    expect(screen.getByTestId('user-detail').classList).toContain('custom-className');
+    expect(screen.getByTestId('layout-user-detail').classList).toContain('custom-className');
   });
 
-  it('should render user detail', async () => {
+  it('should render user detail layout', async () => {
     // ARRANGE
-    render(<UserDetail />);
-    await screen.findByTestId('user-detail-user');
+    render(<UserDetailLayout />);
+    await screen.findByTestId('layout-user-detail-user');
 
     // ASSERT
-    expect(screen.getByTestId('user-detail-user')).toBeDefined();
+    expect(screen.getByTestId('layout-user-detail-user')).toBeDefined();
   });
 
   it('should render loading state', async () => {
@@ -58,7 +58,7 @@ describe('UserDetail', () => {
       error: undefined,
       isPending: true,
     } as unknown as UseQueryResult<UseGetUser.User, Error>);
-    render(<UserDetail />);
+    render(<UserDetailLayout />);
     await screen.findAllByTestId('loader-skeleton');
 
     // ASSERT
@@ -73,10 +73,10 @@ describe('UserDetail', () => {
       error: new AxiosError(),
       isPending: false,
     } as unknown as UseQueryResult<UseGetUser.User, Error>);
-    render(<UserDetail />);
-    await screen.findByTestId('user-detail-error');
+    render(<UserDetailLayout />);
+    await screen.findByTestId('layout-user-detail-error');
 
     // ASSERT
-    expect(screen.getByTestId('user-detail-error')).toBeDefined();
+    expect(screen.getAllByTestId('layout-user-detail-error')).toBeDefined();
   });
 });
