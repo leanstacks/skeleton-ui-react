@@ -33,7 +33,11 @@ const UserTasks = ({ className, testId = 'user-tasks', userId }: UserTasksProps)
       <div className="mb-1 flex items-center gap-1 border-b border-neutral-500/10 pb-1">
         <Icon name="checklist" fill={0} />
         <Text variant="heading3">Tasks</Text>
-        {!!tasks && <Badge className="self-start">{tasks.length}</Badge>}
+        {!!tasks && (
+          <Badge className="self-start" testId={`${testId}-badge-task-count`}>
+            {tasks.length}
+          </Badge>
+        )}
       </div>
 
       <div className="mb-2">
@@ -55,7 +59,11 @@ const UserTasks = ({ className, testId = 'user-tasks', userId }: UserTasksProps)
               <div>{task.title}</div>
             </div>
           ))}
-        {!!error && <div className="text-red-600">{error.message}</div>}
+        {!!error && (
+          <div className="text-red-600" data-testid={`${testId}-error`}>
+            {error.message}
+          </div>
+        )}
       </div>
 
       <Link to="tasks" title={`View all tasks for this user`} className="text-sm">
