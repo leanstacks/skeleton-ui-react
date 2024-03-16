@@ -35,7 +35,7 @@ const UserDetail = ({ className, testId = 'user-detail' }: UserDetailProps): JSX
         </>
       )}
       {!!user && (
-        <div>
+        <div data-testid={`${testId}-user`}>
           <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <div className="mb-1 flex items-center gap-1 border-b border-neutral-500/10 pb-1">
@@ -61,7 +61,11 @@ const UserDetail = ({ className, testId = 'user-detail' }: UserDetailProps): JSX
           <UserTasks userId={user.id} />
         </div>
       )}
-      {!!error && <div className="text-red-600">{error.message}</div>}
+      {!!error && (
+        <div className="text-red-600" data-testid={`${testId}-error`}>
+          {error.message}
+        </div>
+      )}
     </div>
   );
 };
