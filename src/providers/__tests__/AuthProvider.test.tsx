@@ -19,30 +19,33 @@ describe('AuthProvider', () => {
   });
 
   it('should render successfully', async () => {
+    // ARRANGE
     render(
       <AuthContextProvider>
         <div data-testid="provider-auth-ready"></div>
       </AuthContextProvider>,
     );
-
     await screen.findByTestId('provider-auth-ready');
 
+    // ASSERT
     expect(screen.getByTestId('provider-auth-ready')).toBeDefined();
   });
 
   it('should render children when ready', async () => {
+    // ARRANGE
     render(
       <AuthContextProvider>
         <div data-testid="provider-auth-ready"></div>
       </AuthContextProvider>,
     );
-
     await screen.findByTestId('provider-auth-ready');
 
+    // ASSERT
     expect(screen.getByTestId('provider-auth-ready')).toBeDefined();
   });
 
   it('should render loader when not ready', async () => {
+    // ARRANGE
     useGetUserTokensSpy.mockReturnValue({
       data: undefined,
       isPending: true,
@@ -53,9 +56,9 @@ describe('AuthProvider', () => {
         <div data-testid="provider-auth-ready"></div>
       </AuthContextProvider>,
     );
-
     await screen.findByTestId('provider-auth');
 
+    // ASSERT
     expect(screen.getByTestId('provider-auth')).toBeDefined();
   });
 });
@@ -72,10 +75,11 @@ describe('useAuthContext', () => {
   });
 
   it('should return the context', async () => {
+    // ARRANGE
     const { result } = renderHook(() => useAuthContext());
-
     await waitFor(() => expect(result.current.isAuthenticated).toBeDefined());
 
+    // ASSERT
     expect(result.current).toBeDefined();
     expect(result.current.isAuthenticated).toBe(true);
   });

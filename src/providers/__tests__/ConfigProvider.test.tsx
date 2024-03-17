@@ -6,14 +6,15 @@ import ConfigContextProvider, { useConfig } from 'providers/ConfigProvider';
 
 describe('ConfigProvider', () => {
   it('should render successfully', async () => {
+    // ARRANGE
     render(
       <ConfigContextProvider>
         <div data-testid="provider-config"></div>
       </ConfigContextProvider>,
     );
-
     await screen.findByTestId('provider-config');
 
+    // ASSERT
     expect(screen.getByTestId('provider-config')).toBeDefined();
   });
 });
@@ -30,6 +31,7 @@ describe.skip('ConfigProvider error', () => {
   });
 
   it('should throw configuration validation error', () => {
+    // ARRANGE
     function renderContextProvider() {
       render(
         <ConfigContextProvider>
@@ -38,21 +40,24 @@ describe.skip('ConfigProvider error', () => {
       );
     }
 
+    // ASSERT
     expect(renderContextProvider).toThrow(/is a required field/);
   });
 });
 
 describe('useConfig', () => {
   it('should return the context', async () => {
+    // ARRANGE
     const { result } = renderHook(() => useConfig());
-
     await waitFor(() => expect(result.current).not.toBeNull());
 
+    // ASSERT
     expect(result.current).toBeDefined();
     expect(result.current.REACT_APP_BUILD_ENV_CODE).toBe('test');
   });
 
   it('should throw error when not within provider', () => {
+    // ASSERT
     expect(() => renderHookWithoutWrapper(() => useConfig())).toThrow(/hook must be used within/);
   });
 });
