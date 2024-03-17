@@ -15,35 +15,37 @@ describe('LandingPage', () => {
   });
 
   it('should render successfully', async () => {
+    // ARRANGE
     render(<LandingPage />);
-
     await screen.findByTestId('page-landing');
 
+    // ASSERT
     expect(screen.getByTestId('page-landing')).toBeDefined();
   });
 
   it('should render LandingPage when not authenticated', async () => {
+    // ARRANGE
     render(<LandingPage />);
-
     await screen.findByTestId('page-landing');
 
+    // ASSERT
     expect(screen.getByTestId('page-landing')).toBeDefined();
   });
 
   it('should navigate when authenticated', async () => {
+    // ARRANGE
     useAuthContextSpy.mockReturnValueOnce({
       isAuthenticated: true,
     });
-
     render(
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/app" element={<div data-testid="success"></div>} />
       </Routes>,
     );
-
     await screen.findByTestId('success');
 
+    // ASSERT
     expect(screen.getByTestId('success')).toBeDefined();
   });
 });
