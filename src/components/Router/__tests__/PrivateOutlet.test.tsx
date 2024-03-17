@@ -1,9 +1,11 @@
-import { render, screen } from 'test/test-utils';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
+import { render, screen } from 'test/test-utils';
 import * as AuthProvider from '../../../providers/AuthProvider';
-import PrivateOutlet from '../PrivateOutlet';
+
 import Icon from 'components/Icon/Icon';
+
+import PrivateOutlet from '../PrivateOutlet';
 
 describe('PrivateOutlet', () => {
   const useAuthContextSpy = jest.spyOn(AuthProvider, 'useAuthContext');
@@ -13,6 +15,7 @@ describe('PrivateOutlet', () => {
   });
 
   it('should render successfully', async () => {
+    // ARRANGE
     render(
       <Routes>
         <Route path="/" element={<Navigate to="/private" />} />
@@ -22,13 +25,14 @@ describe('PrivateOutlet', () => {
         </Route>
       </Routes>,
     );
-
     await screen.findByTestId('authenticated');
 
+    // ASSERT
     expect(screen.getByTestId('authenticated')).toBeDefined();
   });
 
   it('should render private route when authenticated', async () => {
+    // ARRANGE
     render(
       <Routes>
         <Route path="/" element={<Navigate to="/private" />} />
@@ -38,15 +42,15 @@ describe('PrivateOutlet', () => {
         </Route>
       </Routes>,
     );
-
     await screen.findByTestId('authenticated');
 
+    // ASSERT
     expect(screen.getByTestId('authenticated')).toBeDefined();
   });
 
   it('should redirect to signin route when not authenticated', async () => {
+    // ARRANGE
     useAuthContextSpy.mockReturnValueOnce({ isAuthenticated: false });
-
     render(
       <Routes>
         <Route path="/" element={<Navigate to="/private" />} />
@@ -56,9 +60,9 @@ describe('PrivateOutlet', () => {
         </Route>
       </Routes>,
     );
-
     await screen.findByTestId('not-authenticated');
 
+    // ASSERT
     expect(screen.getByTestId('not-authenticated')).toBeDefined();
   });
 });
