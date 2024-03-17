@@ -10,6 +10,11 @@ import AppearanceSettings from 'pages/SettingsPage/components/AppearanceSettings
 import ComponentsPage from 'pages/ComponentsPage/ComponentsPage';
 import TextComponents from 'pages/ComponentsPage/components/TextComponents';
 import ButtonComponents from 'pages/ComponentsPage/components/ButtonComponents';
+import UsersPage from 'pages/UsersPage/UsersPage';
+import UserDetailLayout from 'pages/UsersPage/components/UserDetailLayout';
+import UserDetail from 'pages/UsersPage/components/UserDetail';
+import UserTaskList from 'pages/UsersPage/components/UserTaskList';
+import UserDetailEmpty from 'pages/UsersPage/components/UserDetailEmpty';
 
 /**
  * The React Router configuration. An array of `RouteObject`.
@@ -58,6 +63,27 @@ export const routes: RouteObject[] = [
               {
                 path: 'button',
                 element: <ButtonComponents />,
+              },
+            ],
+          },
+          {
+            path: 'users',
+            element: <UsersPage />,
+            children: [
+              {
+                index: true,
+                element: <UserDetailEmpty />,
+              },
+              {
+                path: ':userId',
+                element: <UserDetailLayout />,
+                children: [
+                  { index: true, element: <UserDetail /> },
+                  {
+                    path: 'tasks',
+                    element: <UserTaskList />,
+                  },
+                ],
               },
             ],
           },

@@ -103,6 +103,62 @@ Install the _Prettier_ extension to ensure that all project participants' contri
 
 The _Tailwind CSS IntelliSense_ extension is a must-have companion in all projects using Tailwind. The extension ensures that Tailwind CSS classes are named and ordered correctly and flags any conflicting classes.
 
+## Configuration
+
+The application is configured using Environment Variables. Because single-page applications are static, environment variable values are injected into the application during the build. The environment variables may be sourced from the environment or `.env` files as described in the [Create React App documentation](https://create-react-app.dev/docs/adding-custom-environment-variables).
+
+### `.env` files
+
+> **NOTE:** Because they may contain sensitive information, `.env` files are not committed to the repository.
+
+After project installation and before running the application locally, create the following `.env` files in the project base directory.
+
+#### `.env.local`
+
+The `.env.local` configuration file provides the configuration values when the application is started on a developer's local machine.
+
+```
+# Provided by Pipeline (Simulated)
+REACT_APP_BUILD_DATE=1970-01-01
+REACT_APP_BUILD_TIME=00:00:00
+REACT_APP_BUILD_TS=1970-01-01T00:00:00+0000
+REACT_APP_BUILD_COMMIT_SHA=local
+REACT_APP_BUILD_ENV_CODE=local
+REACT_APP_BUILD_WORKFLOW_NAME=local
+REACT_APP_BUILD_WORKFLOW_RUN_NUMBER=1
+REACT_APP_BUILD_WORKFLOW_RUN_ATTEMPT=1
+
+# API Configuration
+REACT_APP_BASE_URL_API=https://jsonplaceholder.typicode.com
+
+# Toasts Configuration
+REACT_APP_TOAST_AUTO_DISMISS_MILLIS=5000
+```
+
+#### `.env.test`
+
+The `.env.test` configuration file provides configuration values used when unit tests are executed on a developer's local machine.
+
+> **NOTE:** Use the same values when running tests in a CI/CD pipeline.
+
+```
+# Provided by Pipeline (Simulated)
+REACT_APP_BUILD_DATE=1970-01-01
+REACT_APP_BUILD_TIME=00:00:00
+REACT_APP_BUILD_TS=1970-01-01T00:00:00+0000
+REACT_APP_BUILD_COMMIT_SHA=test
+REACT_APP_BUILD_ENV_CODE=test
+REACT_APP_BUILD_WORKFLOW_NAME=test
+REACT_APP_BUILD_WORKFLOW_RUN_NUMBER=1
+REACT_APP_BUILD_WORKFLOW_RUN_ATTEMPT=1
+
+# API Configuration
+REACT_APP_BASE_URL_API=https://jsonplaceholder.typicode.com
+
+# Toasts Configuration
+REACT_APP_TOAST_AUTO_DISMISS_MILLIS=1500
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

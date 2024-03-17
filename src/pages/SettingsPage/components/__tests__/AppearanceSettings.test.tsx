@@ -23,18 +23,20 @@ describe('AppearanceSettings', () => {
   });
 
   it('should render successfully', async () => {
+    // ARRANGE
     render(<AppearanceSettings />);
-
     await screen.findByTestId('settings-appearance');
 
+    // ASSERT
     expect(screen.getByTestId('settings-appearance')).toBeDefined();
   });
 
   it('should use custom testId', async () => {
+    // ARRANGE
     render(<AppearanceSettings testId="custom-testId" />);
-
     await screen.findByTestId('custom-testId');
 
+    // ASSERT
     expect(screen.getByTestId('custom-testId')).toBeDefined();
   });
 

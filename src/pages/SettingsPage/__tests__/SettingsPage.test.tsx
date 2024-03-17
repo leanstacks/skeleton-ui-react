@@ -3,7 +3,7 @@ import { UseQueryResult } from '@tanstack/react-query';
 import { render, screen } from 'test/test-utils';
 
 import * as UseGetUser from 'api/useGetUser';
-import { userFixture } from '__fixtures__/users';
+import { userFixture1 } from '__fixtures__/users';
 
 import SettingsPage from '../SettingsPage';
 
@@ -12,7 +12,7 @@ describe('SettingsPage', () => {
 
   beforeEach(() => {
     useGetUserSpy.mockReturnValue({
-      data: userFixture,
+      data: userFixture1,
     } as unknown as UseQueryResult<UseGetUser.User, Error>);
   });
 

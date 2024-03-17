@@ -23,24 +23,26 @@ describe('AxiosProvider', () => {
   });
 
   it('should render successfully', async () => {
+    // ARRANGE
     render(
       <AxiosContextProvider>
         <div data-testid="provider-axios-ready"></div>
       </AxiosContextProvider>,
     );
-
     await screen.findByTestId('provider-axios-ready');
 
+    // ASSERT
     expect(screen.getByTestId('provider-axios-ready')).toBeDefined();
   });
 
   it('should add user token authentication headers to requests', async () => {
+    // ARRANGE
     function AxiosTester() {
       const [user, setUser] = useState();
       const [config, setConfig] = useState<InternalAxiosRequestConfig>();
       const axios = useAxios();
       useEffect(() => {
-        axios.request({ url: '/api/users?externalId=axios' }).then((response) => {
+        axios.request({ url: 'https://jsonplaceholder.typicode.com/users/1' }).then((response) => {
           setConfig(response.config);
           setUser(response.data);
         });
@@ -63,9 +65,9 @@ describe('AxiosProvider', () => {
         <AxiosTester />
       </AxiosContextProvider>,
     );
-
     await screen.findByTestId('provider-axios-ready');
 
+    // ASSERT
     expect(screen.getByTestId('provider-axios-ready')).toBeDefined();
     expect(screen.getByText('Bearer id-token')).toBeDefined();
     expect(screen.getByText('access-token')).toBeDefined();
@@ -86,10 +88,11 @@ describe('useAxios', () => {
   });
 
   it('should return context', async () => {
+    // ARRANGE
     const { result } = renderHook(() => useAxios());
-
     await waitFor(() => expect(result.current).not.toBeNull());
 
+    // ASSERT
     expect(result.current).toBeDefined();
     expect(result.current.request).toBeDefined();
   });

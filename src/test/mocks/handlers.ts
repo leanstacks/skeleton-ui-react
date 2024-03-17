@@ -1,27 +1,25 @@
 import { rest } from 'msw';
+import filter from 'lodash/filter';
+import find from 'lodash/find';
 
-import { userFixture } from '__fixtures__/users';
+import { usersFixture } from '__fixtures__/users';
+import { todosFixture } from '__fixtures__/todos';
 
 export const handlers = [
-  rest.get('/api/ping', async (req, res, ctx) => {
-    // simple API for testing foundational components
-    return res(ctx.json({ ping: 'pong' }));
+  rest.get('https://jsonplaceholder.typicode.com/users', (req, res, ctx) => {
+    return res(ctx.json(usersFixture));
   }),
-  rest.get('/api/errors/:httpStatusCode', async (req, res, ctx) => {
-    // simulate API response errors
-    const { httpStatusCode } = req.params;
-    return res(ctx.status(Number(httpStatusCode)));
-  }),
-  rest.get('/api/users', (req, res, ctx) => {
-    const externalId = req.url.searchParams.get('externalId');
-    if (externalId) {
-      if (externalId === 'not-found') {
-        return res(ctx.json([]));
-      }
-      return res(ctx.json(userFixture));
+  rest.get('https://jsonplaceholder.typicode.com/users/:userId', (req, res, ctx) => {
+    const { userId } = req.params;
+    const user = find(usersFixture, { id: Number(userId) });
+    if (!!user) {
+      return res(ctx.json(user));
     }
+    return res(ctx.status(404));
   }),
-  rest.put('/users/:id', (req, res, ctx) => {
-    return res(ctx.json(userFixture));
+  rest.get('https://jsonplaceholder.typicode.com/users/:userId/todos', (req, res, ctx) => {
+    const { userId } = req.params;
+    const todos = filter(todosFixture, { userId: Number(userId) });
+    return res(ctx.json(todos));
   }),
 ];

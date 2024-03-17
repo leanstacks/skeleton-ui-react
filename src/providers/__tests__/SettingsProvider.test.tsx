@@ -21,14 +21,15 @@ describe('SettingsProvider', () => {
   });
 
   it('should render successfully', async () => {
+    // ARRANGE
     renderWithoutWrapper(
       <SettingsContextProvider>
         <div data-testid="provider-settings"></div>
       </SettingsContextProvider>,
     );
-
     await screen.findByTestId('provider-settings');
 
+    // ASSERT
     expect(screen.getByTestId('provider-settings')).toBeDefined();
   });
 });
@@ -42,15 +43,17 @@ describe('useSettings', () => {
   });
 
   it('should return default value', async () => {
+    // ARRANGE
     const { result } = renderHook(() => UseGetSettings.useGetSettings());
-
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
+    // ASSERT
     expect(result.current.data).toBeDefined();
     expect(result.current.data?.theme).toBe(settingsFixture.theme);
   });
 
   it('should throw error when not within provider', () => {
+    // ASSERT
     expect(() => renderHookWithoutWrapper(() => useSettings())).toThrow(/hook must be used within/);
   });
 });

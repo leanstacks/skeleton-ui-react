@@ -1,6 +1,6 @@
 import { User } from 'api/useGetUser';
 
-export const userFixture: User = {
+export const userFixture1: User = {
   id: 1,
   name: 'Leanne Graham',
   username: 'Bret',
@@ -23,3 +23,29 @@ export const userFixture: User = {
     bs: 'harness real-time e-markets',
   },
 };
+
+export const userFixture2: User = {
+  id: 2,
+  name: 'Ervin Howell',
+  username: 'Antonette',
+  email: 'Shanna@melissa.tv',
+  address: {
+    street: 'Victor Plains',
+    suite: 'Suite 879',
+    city: 'Wisokyburgh',
+    zipcode: '90566-7771',
+    geo: {
+      lat: '-43.9509',
+      lng: '-34.4618',
+    },
+  },
+  phone: '010-692-6593 x09125',
+  website: 'anastasia.net',
+  company: {
+    name: 'Deckow-Crist',
+    catchPhrase: 'Proactive didactic contingency',
+    bs: 'synergize scalable supply-chains',
+  },
+};
+
+export const usersFixture: User[] = [userFixture1, userFixture2];

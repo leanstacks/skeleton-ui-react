@@ -31,21 +31,17 @@ export const useGetUserTokens = (
    */
   const getUserTokens = async (): Promise<UserTokens> => {
     // REPLACE: fetch tokens from your IdP
-    return new Promise((resolve, reject) => {
-      try {
-        const expires_at = dayjs().add(1, 'hour').toISOString();
-        const tokens: UserTokens = {
-          access_token: 'access-token',
-          id_token: 'id-token',
-          refresh_token: 'refresh-token',
-          token_type: 'bearer',
-          expires_in: 3600,
-          expires_at,
-        };
-        return resolve(tokens);
-      } catch (err) {
-        return reject(err);
-      }
+    return new Promise((resolve) => {
+      const expires_at = dayjs().add(1, 'hour').toISOString();
+      const tokens: UserTokens = {
+        access_token: 'access-token',
+        id_token: 'id-token',
+        refresh_token: 'refresh-token',
+        token_type: 'bearer',
+        expires_in: 3600,
+        expires_at,
+      };
+      return resolve(tokens);
     });
   };
 

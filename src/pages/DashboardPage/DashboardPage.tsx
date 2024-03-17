@@ -1,5 +1,6 @@
 import { useGetUser } from 'api/useGetUser';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
+import Page from 'components/Page/Page';
 
 /**
  * The `DashboardPage` component renders the content of the landing page
@@ -10,7 +11,7 @@ const DashboardPage = (): JSX.Element => {
   const { data: user } = useGetUser({ userId: 1 });
 
   return (
-    <div data-testid="page-dashboard" className="px-2 sm:px-8">
+    <Page testId="page-dashboard">
       <div className="container mx-auto min-h-[50vh]">
         <div className="my-4 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="col-span-2">
@@ -24,7 +25,7 @@ const DashboardPage = (): JSX.Element => {
           </div>
         </div>
       </div>
-    </div>
+    </Page>
   );
 };
 

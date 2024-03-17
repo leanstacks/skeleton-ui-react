@@ -52,6 +52,10 @@ const AppMenu = ({ side = 'right', testId = 'menu-app', ...props }: AppMenuProps
           <MenuNavLink to="/app/components" title="Components" iconName="stacks">
             Components
           </MenuNavLink>
+          <MenuSeparator />
+          <MenuNavLink to="/app/users" title="Users" iconName="person_search">
+            Users
+          </MenuNavLink>
         </>
       ) : (
         <>

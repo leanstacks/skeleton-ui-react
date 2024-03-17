@@ -34,46 +34,52 @@ describe('SelectField', () => {
   });
 
   it('should render successfully', async () => {
+    // ARRANGE
     render(<SelectField name="testField" options={options} />);
-
     await screen.findByTestId('field-select');
 
+    // ASSERT
     expect(screen.getByTestId('field-select')).toBeDefined();
   });
 
   it('should use custom testId', async () => {
+    // ARRANGE
     render(<SelectField name="testField" options={options} testId="custom-testId" />);
-
     await screen.findByTestId('custom-testId');
 
+    // ASSERT
     expect(screen.getByTestId('custom-testId')).toBeDefined();
   });
 
   it('should use custom className', async () => {
+    // ARRANGE
     render(<SelectField name="testField" options={options} className="custom-className" />);
-
     await screen.findByTestId('field-select');
 
+    // ASSERT
     expect(screen.getByTestId('field-select').classList).toContain('custom-className');
   });
 
   it('should show label', async () => {
+    // ARRANGE
     render(<SelectField name="testField" label="testLabel" options={options} />);
-
     await screen.findByTestId('field-select-label');
 
+    // ASSERT
     expect(screen.getByTestId('field-select-label').textContent).toBe('testLabel');
   });
 
   it('should show supporting text', async () => {
+    // ARRANGE
     render(<SelectField name="testField" supportingText="supporting" options={options} />);
-
     await screen.findByTestId('field-select-supporting-text');
 
+    // ASSERT
     expect(screen.getByTestId('field-select-supporting-text').textContent).toBe('supporting');
   });
 
   it('should display selected option label', async () => {
+    // ARRANGE
     useFieldSpy.mockReturnValue([
       { value: '1', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
       {
@@ -87,14 +93,15 @@ describe('SelectField', () => {
       { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
     ]);
     render(<SelectField name="testField" options={options} />);
-
     await screen.findByTestId('field-select-select');
 
+    // ASSERT
     expect(screen.getByTestId('field-select-select').classList).not.toContain('size-0');
     expect(screen.getByTestId('field-select-select').textContent).toBe('One');
   });
 
   it('should display selected option value', async () => {
+    // ARRANGE
     useFieldSpy.mockReturnValue([
       { value: '3', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
       {
@@ -108,14 +115,15 @@ describe('SelectField', () => {
       { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
     ]);
     render(<SelectField name="testField" options={options} />);
-
     await screen.findByTestId('field-select-select');
 
+    // ASSERT
     expect(screen.getByTestId('field-select-select').classList).not.toContain('size-0');
     expect(screen.getByTestId('field-select-select').textContent).toBe('3');
   });
 
   it('should show options when autofocused', async () => {
+    // ARRANGE
     useFieldSpy.mockReturnValue([
       { value: '1', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
       {
@@ -129,9 +137,9 @@ describe('SelectField', () => {
       { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
     ]);
     render(<SelectField name="testField" options={options} autoFocus />);
-
     await screen.findByTestId('field-select-select');
 
+    // ASSERT
     expect(screen.getByTestId('field-select-options').classList).not.toContain('hidden');
   });
 

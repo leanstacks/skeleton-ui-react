@@ -17,42 +17,47 @@ describe('Header', () => {
   });
 
   it('should render successfully', async () => {
+    // ARRANGE
     render(<Header />);
-
     await screen.findByTestId('header');
 
+    // ASSERT
     expect(screen.getByTestId('header')).toBeDefined();
   });
 
   it('should render custom testId', async () => {
+    // ARRANGE
     render(<Header testId="test" />);
-
     await screen.findByTestId('test');
 
+    // ASSERT
     expect(screen.getByTestId('test')).toBeDefined();
   });
 
   it('should render content when not authenticated', async () => {
+    // ARRANGE
     render(<Header />);
-
     await screen.findByTestId('header');
 
+    // ASSERT
     expect(screen.getByTestId('header')).toBeDefined();
   });
 
   it('should render content when authenticated', async () => {
+    // ARRANGE
     useAuthContextSpy.mockReturnValueOnce({
       isAuthenticated: true,
     });
     render(<Header />);
-
     await screen.findByTestId('header');
 
+    // ASSERT
     expect(screen.getByTestId('header')).toBeDefined();
     expect(screen.getByTestId('button-menu-icon')).toBeDefined();
   });
 
   it('should navigate when sign out button clicked', async () => {
+    // ARRANGE
     useAuthContextSpy.mockReturnValue({
       isAuthenticated: true,
     });
@@ -67,12 +72,14 @@ describe('Header', () => {
     );
     await screen.findByTestId('button-menu-icon');
 
+    // ACT
     // open the side menu
     await userEvent.click(screen.getByTestId('button-menu-icon'));
 
     // click the sign out menu item
     await userEvent.click(screen.getByText('Sign Out'));
 
+    // ASSERT
     expect(screen.getByTestId('page-sign-out')).toBeDefined();
   });
 });
