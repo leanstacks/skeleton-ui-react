@@ -14,10 +14,11 @@ describe('useGetSettings', () => {
   });
 
   it('should get settings', async () => {
+    // ARRANGE
     const { result } = renderHook(() => useGetSettings());
-
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
+    // ASSERT
     expect(result.current.data).toBeDefined();
     expect(result.current.data?.theme).toBeDefined();
     expect(getItemSpy).toHaveBeenCalled();
@@ -25,21 +26,23 @@ describe('useGetSettings', () => {
   });
 
   it('should return default settings when nothing stored', async () => {
+    // ARRANGE
     getItemSpy.mockReturnValue(null);
     const { result } = renderHook(() => useGetSettings());
-
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
+    // ASSERT
     expect(result.current.isSuccess).toBe(true);
     expect(result.current.data).toEqual(DEFAULT_SETTINGS);
   });
 
   it('should error on failure to get settings', async () => {
+    // ARRANGE
     getItemSpy.mockReturnValue('{invalid-json}}');
     const { result } = renderHook(() => useGetSettings());
-
     await waitFor(() => expect(result.current.isError).toBe(true));
 
+    // ASSERT
     expect(result.current.isError).toBe(true);
   });
 });
