@@ -2,11 +2,28 @@ import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
 import classNames from 'classnames';
 
+/**
+ * Properties for the `Table` React component.
+ * @template TData - The type of the table data object.
+ * @param {ColumnDef<TData>[]} columns - An array of `ColumnDef`, column definition, objects.
+ * @param {TData[]} data - An array of data objects, of type `TData`,
+ * which are used to populate the rows of the table.
+ */
 interface TableProps<TData = unknown> extends PropsWithClassName, PropsWithTestId {
   columns: ColumnDef<TData, any>[];
   data: TData[];
 }
 
+/**
+ * The `Table` component renders a `table` element using the column definitions
+ * and data supplied in the properties.
+ *
+ * Uses TanStack Table.
+ * @template TData - The type of the table data object.
+ * @param {TableProps} props - Component properteis.
+ * @returns {JSX.Element} JSX
+ * @see {@link https://tanstack.com/table/latest TanStack Table}
+ */
 const Table = <TData,>({
   className,
   columns,

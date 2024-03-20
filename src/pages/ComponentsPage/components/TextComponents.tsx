@@ -3,7 +3,7 @@ import { createColumnHelper } from '@tanstack/react-table';
 
 import CodeSnippet from 'components/Text/CodeSnippet';
 import Text from 'components/Text/Text';
-import { ComponentProperties } from '../model/components';
+import { ComponentProperty } from '../model/components';
 import Table from 'components/Table/Table';
 
 /**
@@ -23,7 +23,7 @@ const TextComponents = ({
   className,
   testId = 'components-text',
 }: TextComponentsProps): JSX.Element => {
-  const data: ComponentProperties[] = [
+  const data: ComponentProperty[] = [
     {
       name: 'children',
       description: 'The content to be displayed.',
@@ -41,7 +41,7 @@ const TextComponents = ({
       description: 'Optional. Applies default styling. Default: body copy.',
     },
   ];
-  const columnHelper = createColumnHelper<ComponentProperties>();
+  const columnHelper = createColumnHelper<ComponentProperty>();
   const columns = [
     columnHelper.accessor('name', {
       cell: (info) => <span className="font-mono text-sky-600">{info.getValue()}</span>,
@@ -68,7 +68,7 @@ const TextComponents = ({
         <Text variant="heading3" className="mb-2">
           Properties
         </Text>
-        <Table<ComponentProperties> data={data} columns={columns} />
+        <Table<ComponentProperty> data={data} columns={columns} />
       </div>
 
       <Text variant="heading3">Examples</Text>
