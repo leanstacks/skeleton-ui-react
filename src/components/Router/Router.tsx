@@ -10,6 +10,7 @@ import AppearanceSettings from 'pages/SettingsPage/components/AppearanceSettings
 import ComponentsPage from 'pages/ComponentsPage/ComponentsPage';
 import TextComponents from 'pages/ComponentsPage/components/TextComponents';
 import ButtonComponents from 'pages/ComponentsPage/components/ButtonComponents';
+import BadgeComponents from 'pages/ComponentsPage/components/BadgeComponents';
 import UsersPage from 'pages/UsersPage/UsersPage';
 import UserDetailLayout from 'pages/UsersPage/components/UserDetailLayout';
 import UserDetail from 'pages/UsersPage/components/UserDetail';
@@ -59,6 +60,10 @@ export const routes: RouteObject[] = [
               {
                 path: 'text',
                 element: <TextComponents />,
+              },
+              {
+                path: 'badge',
+                element: <BadgeComponents />,
               },
               {
                 path: 'button',

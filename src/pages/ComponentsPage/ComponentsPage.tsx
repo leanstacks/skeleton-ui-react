@@ -23,6 +23,9 @@ const ComponentsPage = (): JSX.Element => {
             <MenuNavLink to="text" iconName="text_fields" styleActive>
               Text
             </MenuNavLink>
+            <MenuNavLink to="badge" iconName="counter_3" styleActive>
+              Badge
+            </MenuNavLink>
             <MenuNavLink to="button" iconName="buttons_alt" styleActive>
               Button
             </MenuNavLink>
