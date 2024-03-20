@@ -23,7 +23,7 @@ const TextComponents = ({
   return (
     <section className={className} data-testid={testId}>
       <Text variant="heading2" className="mb-4">
-        Text Components
+        Text Component
       </Text>
 
       <div className='my-8'>
