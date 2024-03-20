@@ -30,7 +30,7 @@ const TextComponents = ({
     },
     {
       name: 'className',
-      description: 'Optional. Class names to apply to the table.',
+      description: 'Optional. Additional CSS class names.',
     },
     {
       name: 'testId',
@@ -38,7 +38,7 @@ const TextComponents = ({
     },
     {
       name: 'variant',
-      description: 'Optional. Applies default styling. Default: body copy.',
+      description: 'Optional. Applies default styling. Default: body copy',
     },
   ];
   const columnHelper = createColumnHelper<ComponentProperty>();

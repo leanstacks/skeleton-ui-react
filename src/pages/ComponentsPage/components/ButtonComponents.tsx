@@ -3,6 +3,9 @@ import { ButtonVariant, PropsWithClassName, PropsWithTestId } from '@leanstacks/
 import Button from 'components/Button/Button';
 import CodeSnippet from 'components/Text/CodeSnippet';
 import Text from 'components/Text/Text';
+import { ComponentProperty } from '../model/components';
+import { createColumnHelper } from '@tanstack/react-table';
+import Table from 'components/Table/Table';
 
 /**
  * Properties for the `ButtonComponents` React component.
@@ -21,6 +24,40 @@ const ButtonComponents = ({
   className,
   testId = 'components-button',
 }: ButtonComponentsProps): JSX.Element => {
+  const data: ComponentProperty[] = [
+    {
+      name: 'children',
+      description: 'The content to be displayed.',
+    },
+    {
+      name: 'className',
+      description: 'Optional. Additional CSS class names.',
+    },
+    {
+      name: 'onClick',
+      description: 'Optional. Click event handler function.',
+    },
+    {
+      name: 'testId',
+      description: 'Optional. Identifier for testing.',
+    },
+    {
+      name: 'variant',
+      description: 'Optional. Applies default styling. Default: solid',
+    },
+  ];
+  const columnHelper = createColumnHelper<ComponentProperty>();
+  const columns = [
+    columnHelper.accessor('name', {
+      cell: (info) => <span className="font-mono text-sky-600">{info.getValue()}</span>,
+      header: () => 'Name',
+    }),
+    columnHelper.accessor('description', {
+      cell: (info) => info.renderValue(),
+      header: () => 'Description',
+    }),
+  ];
+
   return (
     <section className={className} data-testid={testId}>
       <Text variant="heading2" className="mb-4">
@@ -36,58 +73,7 @@ const ButtonComponents = ({
         <Text variant="heading3" className="mb-2">
           Properties
         </Text>
-        <table className="w-full border-collapse text-left text-sm">
-          <thead>
-            <tr>
-              <th className="border-b border-neutral-400/25 py-2 pr-2 font-semibold">Name</th>
-              <th className="border-b border-neutral-400/25 py-2 pr-2 font-semibold">
-                Description
-              </th>
-            </tr>
-          </thead>
-          <tbody className="align-baseline">
-            <tr>
-              <td className="border-t border-neutral-400/10 py-2 pr-2 font-mono text-sky-600">
-                children
-              </td>
-              <td className="border-t border-neutral-400/10 py-2 pr-2">
-                The button content or label.
-              </td>
-            </tr>
-            <tr>
-              <td className="border-t border-neutral-400/10 py-2 pr-2 font-mono text-sky-600">
-                className
-              </td>
-              <td className="border-t border-neutral-400/10 py-2 pr-2">
-                Optional class names to apply.
-              </td>
-            </tr>
-            <tr>
-              <td className="border-t border-neutral-400/10 py-2 pr-2 font-mono text-sky-600">
-                onClick
-              </td>
-              <td className="border-t border-neutral-400/10 py-2 pr-2">
-                Optional. Click event handler function.
-              </td>
-            </tr>
-            <tr>
-              <td className="border-t border-neutral-400/10 py-2 pr-2 font-mono text-sky-600">
-                testId
-              </td>
-              <td className="border-t border-neutral-400/10 py-2 pr-2">
-                Optional identifier for testing purposes.
-              </td>
-            </tr>
-            <tr>
-              <td className="border-t border-neutral-400/10 py-2 pr-2 font-mono text-sky-600">
-                variant
-              </td>
-              <td className="border-t border-neutral-400/10 py-2 pr-2">
-                Optional. Applies default styling. Default: solid
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <Table<ComponentProperty> data={data} columns={columns} />
       </div>
 
       <div className="my-8">
