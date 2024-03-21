@@ -5,14 +5,15 @@ import { ComponentProperty } from '../model/components';
 import Text from 'components/Text/Text';
 import Table from 'components/Table/Table';
 import CodeSnippet from 'components/Text/CodeSnippet';
-import Badge from 'components/Badge/Badge';
+import Card from 'components/Card/Card';
+import MessageCard from 'components/Card/MessageCard';
 
-interface BadgeComponentsProps extends PropsWithClassName, PropsWithTestId {}
+interface CardComponentsProps extends PropsWithClassName, PropsWithTestId {}
 
-const BadgeComponents = ({
+const CardComponents = ({
   className,
   testId = 'components-badge',
-}: BadgeComponentsProps): JSX.Element => {
+}: CardComponentsProps): JSX.Element => {
   const data: ComponentProperty[] = [
     {
       name: 'children',
@@ -42,13 +43,12 @@ const BadgeComponents = ({
   return (
     <section className={className} data-testid={testId}>
       <Text variant="heading2" className="mb-4">
-        Badge Component
+        Card Component
       </Text>
 
       <div className="my-8">
-        The <span className="font-mono font-bold">Badge</span> component displays a stylized
-        counter. Useful for displaying the number of items of a specific type, for example, the
-        number of notifications.
+        The <span className="font-mono font-bold">Card</span> component displays block container for
+        a group of related content.
       </div>
 
       <div className="my-8">
@@ -59,33 +59,58 @@ const BadgeComponents = ({
       </div>
 
       <Text variant="heading3">Examples</Text>
+      <Text className="my-4 font-bold">Card</Text>
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Badge>3</Badge>
+          <Card>I am the card content.</Card>
         </div>
-        <CodeSnippet className="my-2" code={`<Badge>3</Badge>`} />
+        <CodeSnippet className="my-2" code={`<Card>I am the card content.</Card>`} />
       </div>
 
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Badge>999+</Badge>
-        </div>
-        <CodeSnippet className="my-2" code={`<Badge>999+</Badge>`} />
-      </div>
-
-      <div className="my-8">
-        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Badge className="bg-blue-500" testId="my-badge">
-            19
-          </Badge>
+          <Card className="bg-slate-800 text-white" testId="my-card">
+            I am the card content.
+          </Card>
         </div>
         <CodeSnippet
           className="my-2"
-          code={`<Badge className='bg-blue-500' testId='my-badge'>19</Badge>`}
+          code={`<Card className="bg-slate-800 text-white" testId="my-card">
+  I am the card content.
+</Card>`}
+        />
+      </div>
+
+      <Text className="my-4 font-bold">Message Card</Text>
+
+      <div className="my-8">
+        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
+          <MessageCard message="Hello World!" />
+        </div>
+        <CodeSnippet className="my-2" code={`<MessageCard message="Hello World!" />`} />
+      </div>
+
+      <div className="my-8">
+        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
+          <MessageCard
+            className="text-red-600"
+            iconProps={{ name: 'report', className: 'text-5xl' }}
+            message="Are you sure you wish to proceed?"
+            title="Stop!"
+          />
+        </div>
+        <CodeSnippet
+          className="my-2"
+          code={`<MessageCard
+  className="text-red-600"
+  iconProps={{ name: 'report', className: 'text-5xl' }}
+  message="Are you sure you wish to proceed?"
+  title="Stop!"
+/>`}
         />
       </div>
     </section>
   );
 };
 
-export default BadgeComponents;
+export default CardComponents;

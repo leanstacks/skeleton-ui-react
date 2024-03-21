@@ -29,6 +29,9 @@ const ComponentsPage = (): JSX.Element => {
             <MenuNavLink to="button" iconName="buttons_alt" styleActive>
               Button
             </MenuNavLink>
+            <MenuNavLink to="card" iconName="crop_square" styleActive>
+              Card
+            </MenuNavLink>
           </div>
           <div className="md:col-span-3" data-testid="page-components-content">
             <Outlet />
