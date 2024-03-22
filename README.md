@@ -12,15 +12,16 @@ The technology stack includes:
 
 - Create React App - the foundation
 - React Router Dom - routing
-- React Query - data manipulation and caching
+- TanStack React Query - data manipulation and caching
 - Axios - http client
 - Formik - form management
 - Yup - validation
-- Tailwind - styling
-- Material Symbols - icons
 - React Spring - animation
 - Lodash - utility functions
 - DayJS - date utility functions
+- TanStack React Table - tables and datagrids
+- Tailwind - styling
+- Material Symbols - icons
 - Testing Library React - tests
 - Jest - tests
 - MSW - API mocking
