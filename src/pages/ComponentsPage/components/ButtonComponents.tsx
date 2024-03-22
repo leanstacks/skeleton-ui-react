@@ -76,6 +76,7 @@ const ButtonComponents = ({
         <Table<ComponentProperty> data={data} columns={columns} />
       </div>
 
+      <Text variant="heading3">Examples</Text>
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
           <Button>Default button</Button>
@@ -117,7 +118,7 @@ const ButtonComponents = ({
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
           <Button
             variant={ButtonVariant.Solid}
-            className="bg-blue-600"
+            className="!border-blue-600 !bg-blue-600 !text-white"
             onClick={() => alert('Hey! You clicked me!')}
             testId="click-me-button"
           >
@@ -128,7 +129,7 @@ const ButtonComponents = ({
           className="my-2"
           code={`<Button
   variant={ButtonVariant.Solid}
-  className="bg-blue-600"
+  className="!border-blue-600 !bg-blue-600 !text-white"
   onClick={() => alert('Hey! You clicked me!')}
   testId="click-me-button"
 >

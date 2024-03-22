@@ -14,7 +14,8 @@ const CardComponents = ({
   className,
   testId = 'components-badge',
 }: CardComponentsProps): JSX.Element => {
-  const data: ComponentProperty[] = [
+  const columnHelper = createColumnHelper<ComponentProperty>();
+  const cardData: ComponentProperty[] = [
     {
       name: 'children',
       description: 'The content to be displayed.',
@@ -28,7 +29,28 @@ const CardComponents = ({
       description: 'Optional. Identifier for testing.',
     },
   ];
-  const columnHelper = createColumnHelper<ComponentProperty>();
+  const messageCardData: ComponentProperty[] = [
+    {
+      name: 'className',
+      description: 'Optional. Additional CSS class names.',
+    },
+    {
+      name: 'iconProps',
+      description: 'Optional. Icon properties object.',
+    },
+    {
+      name: 'message',
+      description: 'Messasge text.',
+    },
+    {
+      name: 'testId',
+      description: 'Optional. Identifier for testing.',
+    },
+    {
+      name: 'title',
+      description: 'Optional. Title text.',
+    },
+  ];
   const columns = [
     columnHelper.accessor('name', {
       cell: (info) => <span className="font-mono text-sky-600">{info.getValue()}</span>,
@@ -42,72 +64,109 @@ const CardComponents = ({
 
   return (
     <section className={className} data-testid={testId}>
-      <Text variant="heading2" className="mb-4">
-        Card Component
-      </Text>
-
-      <div className="my-8">
-        The <span className="font-mono font-bold">Card</span> component displays block container for
-        a group of related content.
-      </div>
-
-      <div className="my-8">
-        <Text variant="heading3" className="mb-2">
-          Properties
+      <div className="mb-16">
+        <Text variant="heading2" className="mb-4">
+          Card Component
         </Text>
-        <Table<ComponentProperty> data={data} columns={columns} />
-      </div>
 
-      <Text variant="heading3">Examples</Text>
-      <Text className="my-4 font-bold">Card</Text>
-      <div className="my-8">
-        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Card>I am the card content.</Card>
+        <div className="my-8">
+          The <span className="font-mono font-bold">Card</span> component displays block container
+          for a group of related content.
         </div>
-        <CodeSnippet className="my-2" code={`<Card>I am the card content.</Card>`} />
-      </div>
 
-      <div className="my-8">
-        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Card className="bg-slate-800 text-white" testId="my-card">
-            I am the card content.
-          </Card>
+        <div className="my-8">
+          <Text variant="heading3" className="mb-2">
+            Properties
+          </Text>
+          <Table<ComponentProperty> data={cardData} columns={columns} />
         </div>
-        <CodeSnippet
-          className="my-2"
-          code={`<Card className="bg-slate-800 text-white" testId="my-card">
+
+        <Text variant="heading3">Examples</Text>
+        <div className="my-8">
+          <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
+            <Card>I am the card content.</Card>
+          </div>
+          <CodeSnippet className="my-2" code={`<Card>I am the card content.</Card>`} />
+        </div>
+
+        <div className="my-8">
+          <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
+            <Card className="bg-slate-800 text-white" testId="my-card">
+              I am the card content.
+            </Card>
+          </div>
+          <CodeSnippet
+            className="my-2"
+            code={`<Card className="bg-slate-800 text-white" testId="my-card">
   I am the card content.
 </Card>`}
-        />
-      </div>
-
-      <Text className="my-4 font-bold">Message Card</Text>
-
-      <div className="my-8">
-        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <MessageCard message="Hello World!" />
-        </div>
-        <CodeSnippet className="my-2" code={`<MessageCard message="Hello World!" />`} />
-      </div>
-
-      <div className="my-8">
-        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <MessageCard
-            className="text-red-600"
-            iconProps={{ name: 'report', className: 'text-5xl' }}
-            message="Are you sure you wish to proceed?"
-            title="Stop!"
           />
         </div>
-        <CodeSnippet
-          className="my-2"
-          code={`<MessageCard
-  className="text-red-600"
-  iconProps={{ name: 'report', className: 'text-5xl' }}
+      </div>
+
+      <div className="mb-16">
+        <Text variant="heading2" className="mb-4">
+          MessageCard Component
+        </Text>
+
+        <div className="my-8">
+          The <span className="font-mono font-bold">MessageCard</span> component displays block
+          container for displaying messages. The card consists of a message with optional title and
+          icon.
+        </div>
+
+        <div className="my-8">
+          <Text variant="heading3" className="mb-2">
+            Properties
+          </Text>
+          <Table<ComponentProperty> data={messageCardData} columns={columns} />
+        </div>
+
+        <Text variant="heading3">Examples</Text>
+        <div className="my-8">
+          <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
+            <MessageCard message="Hello World!" />
+          </div>
+          <CodeSnippet className="my-2" code={`<MessageCard message="Hello World!" />`} />
+        </div>
+
+        <div className="my-8">
+          <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
+            <MessageCard
+              iconProps={{ name: 'info', fill: 0, className: 'text-5xl', opticalSize: 48 }}
+              message="Select an item from the list to view details."
+              testId="my-empty-state"
+            />
+          </div>
+          <CodeSnippet
+            className="my-2"
+            code={`<MessageCard
+  iconProps={{ name: 'info', fill: 0, className: 'text-5xl', opticalSize: 48 }}
+  message="Select an item from the list to view details."
+  testId='my-empty-state'
+/>`}
+          />
+        </div>
+
+        <div className="my-8">
+          <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
+            <MessageCard
+              className="text-red-800"
+              iconProps={{ name: 'report', className: 'text-5xl text-red-600' }}
+              message="Are you sure you wish to proceed?"
+              title="Stop!"
+            />
+          </div>
+          <CodeSnippet
+            className="my-2"
+            code={`<MessageCard
+  className="text-red-800"
+  iconProps={{ name: 'report', className: 'text-5xl text-red-600' }}
   message="Are you sure you wish to proceed?"
   title="Stop!"
 />`}
-        />
+          />
+        </div>
       </div>
     </section>
   );

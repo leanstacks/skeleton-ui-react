@@ -63,15 +63,15 @@ export const routes: RouteObject[] = [
                 element: <TextComponents />,
               },
               {
-                path: 'badge',
+                path: 'badges',
                 element: <BadgeComponents />,
               },
               {
-                path: 'button',
+                path: 'buttons',
                 element: <ButtonComponents />,
               },
               {
-                path: 'card',
+                path: 'cards',
                 element: <CardComponents />,
               },
             ],
