@@ -7,8 +7,19 @@ import Table from 'components/Table/Table';
 import CodeSnippet from 'components/Text/CodeSnippet';
 import Badge from 'components/Badge/Badge';
 
+/**
+ * Properties for the `BadgeComponents` React component.
+ * @see {@link PropsWithClassName}
+ * @see {@link PropsWithTestId}
+ */
 interface BadgeComponentsProps extends PropsWithClassName, PropsWithTestId {}
 
+/**
+ * The `BadgeComponents` React component renders a set of examples illustrating
+ * the use of the `Badge` component.
+ * @param {BadgeComponentsProps} props - Component properties.
+ * @returns {JSX.Element} JSX
+ */
 const BadgeComponents = ({
   className,
   testId = 'components-badge',

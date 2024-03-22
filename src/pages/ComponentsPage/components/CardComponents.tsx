@@ -8,8 +8,19 @@ import CodeSnippet from 'components/Text/CodeSnippet';
 import Card from 'components/Card/Card';
 import MessageCard from 'components/Card/MessageCard';
 
+/**
+ * Properties for the `CardComponents` React component.
+ * @see {@link PropsWithClassName}
+ * @see {@link PropsWithTestId}
+ */
 interface CardComponentsProps extends PropsWithClassName, PropsWithTestId {}
 
+/**
+ * The `CardComponents` React component renders a set of examples illustrating
+ * the use of the `Card` family of components.
+ * @param {CardComponentsProps} props - Component properties.
+ * @returns {JSX.Element} JSX
+ */
 const CardComponents = ({
   className,
   testId = 'components-card',
