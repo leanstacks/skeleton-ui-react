@@ -236,23 +236,23 @@ This project uses GitHub Actions to perform DevOps automation activities such as
 ## Related Information
 
 - [Create React App][cra]
-- [React Query][react-query]
+- [TanStack][tanstack]
 - [Axios][axios]
 - [Formik][formik]
 - [Yup][yup]
 - [Tailwind CSS][tailwind]
-- [Font Awesome][fa]
+- [Material Symbols][icons]
 - [Testing Library][testing-library]
 - [GitHub Actions][ghactions]
 
 [repo]: https://github.com/leanstacks/skeleton-ui-react 'GitHub Repository'
 [nvm]: https://github.com/nvm-sh/nvm 'Node Version Manager'
 [cra]: https://create-react-app.dev/ 'Create React App'
-[react-query]: https://tanstack.com/query 'React Query'
 [axios]: https://axios-http.com/ 'Axios'
 [formik]: https://formik.org/ 'Formik'
 [yup]: https://github.com/jquense/yup 'Yup'
 [tailwind]: https://tailwindcss.com/ 'Tailwind CSS'
-[fa]: https://fontawesome.com/ 'Font Awesome'
+[icons]: https://fonts.google.com/icons 'Material Symbols'
+[tanstack]: https://tanstack.com/ 'TanStack'
 [testing-library]: https://testing-library.com/ 'Testing Library'
 [ghactions]: https://docs.github.com/en/actions 'GitHub Actions'
