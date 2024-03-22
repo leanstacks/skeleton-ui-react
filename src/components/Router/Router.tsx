@@ -17,6 +17,7 @@ import UserDetailLayout from 'pages/UsersPage/components/UserDetailLayout';
 import UserDetail from 'pages/UsersPage/components/UserDetail';
 import UserTaskList from 'pages/UsersPage/components/UserTaskList';
 import UserDetailEmpty from 'pages/UsersPage/components/UserDetailEmpty';
+import AvatarComponents from 'pages/ComponentsPage/components/AvatarComponents';
 
 /**
  * The React Router configuration. An array of `RouteObject`.
@@ -56,11 +57,11 @@ export const routes: RouteObject[] = [
             children: [
               {
                 index: true,
-                element: <Navigate to="text" />,
+                element: <Navigate to="avatar" />,
               },
               {
-                path: 'text',
-                element: <TextComponents />,
+                path: 'avatar',
+                element: <AvatarComponents />,
               },
               {
                 path: 'badges',
@@ -73,6 +74,10 @@ export const routes: RouteObject[] = [
               {
                 path: 'cards',
                 element: <CardComponents />,
+              },
+              {
+                path: 'text',
+                element: <TextComponents />,
               },
             ],
           },
