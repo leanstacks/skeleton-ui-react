@@ -1,5 +1,6 @@
 import { render, screen } from 'test/test-utils';
 import ButtonComponents from '../ButtonComponents';
+import userEvent from '@testing-library/user-event';
 
 describe('ButtonComponents', () => {
   it('should render successfully', async () => {
@@ -27,5 +28,18 @@ describe('ButtonComponents', () => {
 
     // ASSERT
     expect(screen.getByTestId('components-button').classList).toContain('custom-className');
+  });
+
+  it('should display alert', async () => {
+    // ARRANGE
+    const alertSpy = jest.spyOn(window, 'alert').mockImplementation(() => {});
+    render(<ButtonComponents />);
+    await screen.findByTestId('components-button');
+
+    // ACT
+    await userEvent.click(screen.getByTestId('click-me-button'));
+
+    // ASSERT
+    expect(alertSpy).toHaveBeenCalled();
   });
 });

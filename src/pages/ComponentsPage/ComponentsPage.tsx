@@ -23,8 +23,14 @@ const ComponentsPage = (): JSX.Element => {
             <MenuNavLink to="text" iconName="text_fields" styleActive>
               Text
             </MenuNavLink>
-            <MenuNavLink to="button" iconName="buttons_alt" styleActive>
-              Button
+            <MenuNavLink to="badges" iconName="counter_3" styleActive>
+              Badges
+            </MenuNavLink>
+            <MenuNavLink to="buttons" iconName="buttons_alt" styleActive>
+              Buttons
+            </MenuNavLink>
+            <MenuNavLink to="cards" iconName="crop_square" styleActive>
+              Cards
             </MenuNavLink>
           </div>
           <div className="md:col-span-3" data-testid="page-components-content">

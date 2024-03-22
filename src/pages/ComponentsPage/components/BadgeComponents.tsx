@@ -1,28 +1,29 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import { createColumnHelper } from '@tanstack/react-table';
 
-import CodeSnippet from 'components/Text/CodeSnippet';
-import Text from 'components/Text/Text';
 import { ComponentProperty } from '../model/components';
+import Text from 'components/Text/Text';
 import Table from 'components/Table/Table';
+import CodeSnippet from 'components/Text/CodeSnippet';
+import Badge from 'components/Badge/Badge';
 
 /**
- * Properties for the `TextComponents` React component.
+ * Properties for the `BadgeComponents` React component.
  * @see {@link PropsWithClassName}
  * @see {@link PropsWithTestId}
  */
-interface TextComponentsProps extends PropsWithClassName, PropsWithTestId {}
+interface BadgeComponentsProps extends PropsWithClassName, PropsWithTestId {}
 
 /**
- * The `TextComponents` React component renders a set of examples illustrating
- * the use of the `Text` component.
- * @param {TextComponentsProps} props - Component properties.
+ * The `BadgeComponents` React component renders a set of examples illustrating
+ * the use of the `Badge` component.
+ * @param {BadgeComponentsProps} props - Component properties.
  * @returns {JSX.Element} JSX
  */
-const TextComponents = ({
+const BadgeComponents = ({
   className,
-  testId = 'components-text',
-}: TextComponentsProps): JSX.Element => {
+  testId = 'components-badge',
+}: BadgeComponentsProps): JSX.Element => {
   const data: ComponentProperty[] = [
     {
       name: 'children',
@@ -35,10 +36,6 @@ const TextComponents = ({
     {
       name: 'testId',
       description: 'Optional. Identifier for testing.',
-    },
-    {
-      name: 'variant',
-      description: 'Optional. Applies default styling. Default: body copy',
     },
   ];
   const columnHelper = createColumnHelper<ComponentProperty>();
@@ -56,12 +53,13 @@ const TextComponents = ({
   return (
     <section className={className} data-testid={testId}>
       <Text variant="heading2" className="mb-4">
-        Text Component
+        Badge Component
       </Text>
 
       <div className="my-8">
-        The <span className="font-mono font-bold">Text</span> component displays blocks of text
-        which is styled in a standardized way.
+        The <span className="font-mono font-bold">Badge</span> component displays a stylized
+        counter. Useful for displaying the number of items of a specific type, for example, the
+        number of notifications.
       </div>
 
       <div className="my-8">
@@ -74,46 +72,31 @@ const TextComponents = ({
       <Text variant="heading3">Examples</Text>
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Text variant="heading1">Heading 1</Text>
+          <Badge>3</Badge>
         </div>
-        <CodeSnippet className="my-2" code={`<Text variant="heading1">Heading 1</Text>`} />
+        <CodeSnippet className="my-2" code={`<Badge>3</Badge>`} />
       </div>
 
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Text variant="heading2">Heading 2</Text>
+          <Badge>999+</Badge>
         </div>
-        <CodeSnippet className="my-2" code={`<Text variant="heading2">Heading 2</Text>`} />
+        <CodeSnippet className="my-2" code={`<Badge>999+</Badge>`} />
       </div>
 
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Text variant="heading3">Heading 3</Text>
-        </div>
-        <CodeSnippet className="my-2" code={`<Text variant="heading3">Heading 3</Text>`} />
-      </div>
-
-      <div className="my-8">
-        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Text>
-            This is standard body copy text. It may be styled in various ways such as{' '}
-            <span className="font-bold">bold</span> or <span className="italic">italic</span>, as{' '}
-            <span className="underline">underlined</span> or{' '}
-            <span className="line-through">strikethrough</span>.
-          </Text>
+          <Badge className="bg-blue-500" testId="my-badge">
+            19
+          </Badge>
         </div>
         <CodeSnippet
           className="my-2"
-          code={`<Text>
-  This is the standard body copy text. It may be styled in various ways such as{' '}
-  <span className="font-bold">bold</span> or <span className="italic">italic</span>, as{' '}
-  <span className="underline">underlined</span> or{' '}
-  <span className="line-through">strikethrough</span>.
-</Text>`}
+          code={`<Badge className='bg-blue-500' testId='my-badge'>19</Badge>`}
         />
       </div>
     </section>
   );
 };
 
-export default TextComponents;
+export default BadgeComponents;
