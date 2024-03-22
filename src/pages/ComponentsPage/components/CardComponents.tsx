@@ -12,7 +12,7 @@ interface CardComponentsProps extends PropsWithClassName, PropsWithTestId {}
 
 const CardComponents = ({
   className,
-  testId = 'components-badge',
+  testId = 'components-card',
 }: CardComponentsProps): JSX.Element => {
   const columnHelper = createColumnHelper<ComponentProperty>();
   const cardData: ComponentProperty[] = [
