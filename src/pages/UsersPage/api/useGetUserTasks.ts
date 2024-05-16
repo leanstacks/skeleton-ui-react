@@ -35,7 +35,7 @@ export const useGetUserTasks = ({
 
   const getUserTasks = async (): Promise<Task[]> => {
     const response = await axios.request({
-      url: `${config.REACT_APP_BASE_URL_API}/users/${userId}/todos`,
+      url: `${config.VITE_BASE_URL_API}/users/${userId}/todos`,
     });
     return response.data;
   };

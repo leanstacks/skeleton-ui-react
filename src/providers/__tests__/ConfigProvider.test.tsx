@@ -53,7 +53,7 @@ describe('useConfig', () => {
 
     // ASSERT
     expect(result.current).toBeDefined();
-    expect(result.current.REACT_APP_BUILD_ENV_CODE).toBe('test');
+    expect(result.current.VITE_BUILD_ENV_CODE).toBe('test');
   });
 
   it('should throw error when not within provider', () => {

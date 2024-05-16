@@ -53,11 +53,7 @@ export const AllProvidersExceptRouter = ({ children }: PropsWithChildren): JSX.E
   );
 };
 
-const customRender = (
-  ui: React.ReactElement,
-  options?: RenderOptions,
-  { route = '/' }: any = {},
-) => {
+const customRender = (ui: React.ReactElement, options?: RenderOptions, { route = '/' } = {}) => {
   window.history.pushState({}, 'Test page', route);
 
   return render(ui, { wrapper: WithAllProviders, ...options });

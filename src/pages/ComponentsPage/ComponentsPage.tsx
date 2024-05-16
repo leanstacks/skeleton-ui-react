@@ -20,8 +20,8 @@ const ComponentsPage = (): JSX.Element => {
 
         <div className="my-6 grid grid-cols-1 gap-8 md:grid-cols-4">
           <div data-testid="page-components-menu">
-            <MenuNavLink to="text" iconName="text_fields" styleActive>
-              Text
+            <MenuNavLink to="avatar" iconName="account_circle" styleActive>
+              Avatar
             </MenuNavLink>
             <MenuNavLink to="badges" iconName="counter_3" styleActive>
               Badges
@@ -31,6 +31,9 @@ const ComponentsPage = (): JSX.Element => {
             </MenuNavLink>
             <MenuNavLink to="cards" iconName="crop_square" styleActive>
               Cards
+            </MenuNavLink>
+            <MenuNavLink to="text" iconName="text_fields" styleActive>
+              Text
             </MenuNavLink>
           </div>
           <div className="md:col-span-3" data-testid="page-components-content">

@@ -60,7 +60,7 @@ export const useGetUser = ({ userId }: UseGetUserProps): UseQueryResult<User, Er
 
   const getUser = async (id: number): Promise<User | null> => {
     const response = await axios.request({
-      url: `${config.REACT_APP_BASE_URL_API}/users/${id}`,
+      url: `${config.VITE_BASE_URL_API}/users/${id}`,
     });
     return response.data;
   };

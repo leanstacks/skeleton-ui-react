@@ -9,8 +9,10 @@ import classNames from 'classnames';
  * @param {TData[]} data - An array of data objects, of type `TData`,
  * which are used to populate the rows of the table.
  */
-interface TableProps<TData = unknown> extends PropsWithClassName, PropsWithTestId {
-  columns: ColumnDef<TData, any>[];
+interface TableProps<TData = unknown, TValue = unknown>
+  extends PropsWithClassName,
+    PropsWithTestId {
+  columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
@@ -24,12 +26,12 @@ interface TableProps<TData = unknown> extends PropsWithClassName, PropsWithTestI
  * @returns {JSX.Element} JSX
  * @see {@link https://tanstack.com/table/latest TanStack Table}
  */
-const Table = <TData,>({
+const Table = <TData, TValue>({
   className,
   columns,
   data,
   testId = 'table',
-}: TableProps<TData>): JSX.Element => {
+}: TableProps<TData, TValue>): JSX.Element => {
   const table = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel() });
 
   return (

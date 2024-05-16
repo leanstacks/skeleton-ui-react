@@ -2,6 +2,7 @@ import React, { PropsWithChildren, useContext } from 'react';
 
 import { UserTokens, useGetUserTokens } from 'api/useGetUserTokens';
 import LoaderSpinner from 'components/Loader/LoaderSpinner';
+import { QueryObserverBaseResult } from '@tanstack/react-query';
 
 /**
  * The `value` provided by the `AuthContext`.
@@ -9,7 +10,7 @@ import LoaderSpinner from 'components/Loader/LoaderSpinner';
 export interface AuthContextValue {
   isAuthenticated: boolean;
   userToken?: UserTokens;
-  refetchUserTokens?: () => any;
+  refetchUserTokens?: () => Promise<QueryObserverBaseResult<UserTokens, Error>>;
 }
 
 /**

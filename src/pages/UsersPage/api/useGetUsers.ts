@@ -15,7 +15,7 @@ export const useGetUsers = (): UseQueryResult<User[], Error> => {
 
   const getUsers = async (): Promise<User[]> => {
     const response = await axios.request({
-      url: `${config.REACT_APP_BASE_URL_API}/users`,
+      url: `${config.VITE_BASE_URL_API}/users`,
     });
     return response.data;
   };

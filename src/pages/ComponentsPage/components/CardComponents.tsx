@@ -89,7 +89,7 @@ const CardComponents = ({
           <Text variant="heading3" className="mb-2">
             Properties
           </Text>
-          <Table<ComponentProperty> data={cardData} columns={columns} />
+          <Table<ComponentProperty, string> data={cardData} columns={columns} />
         </div>
 
         <Text variant="heading3">Examples</Text>
@@ -130,7 +130,7 @@ const CardComponents = ({
           <Text variant="heading3" className="mb-2">
             Properties
           </Text>
-          <Table<ComponentProperty> data={messageCardData} columns={columns} />
+          <Table<ComponentProperty, string> data={messageCardData} columns={columns} />
         </div>
 
         <Text variant="heading3">Examples</Text>

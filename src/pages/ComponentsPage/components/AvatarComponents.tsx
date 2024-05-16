@@ -1,41 +1,47 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import { createColumnHelper } from '@tanstack/react-table';
 
+import avatarPicture from './avatar-picture.png';
 import { ComponentProperty } from '../model/components';
 import Text from 'components/Text/Text';
 import Table from 'components/Table/Table';
 import CodeSnippet from 'components/Text/CodeSnippet';
-import Badge from 'components/Badge/Badge';
+import Avatar from 'components/Icon/Avatar';
 
 /**
- * Properties for the `BadgeComponents` React component.
+ * Properties for the `AvatarComponents` React component.
  * @see {@link PropsWithClassName}
  * @see {@link PropsWithTestId}
  */
-interface BadgeComponentsProps extends PropsWithClassName, PropsWithTestId {}
+interface AvatarComponentsProps extends PropsWithClassName, PropsWithTestId {}
 
 /**
- * The `BadgeComponents` React component renders a set of examples illustrating
- * the use of the `Badge` component.
- * @param {BadgeComponentsProps} props - Component properties.
+ * The `AvatarComponents` React component renders a set of examples illustrating
+ * the use of the `Avatar` component.
+ * @param {AvatarComponentsProps} props - Component properties.
  * @returns {JSX.Element} JSX
  */
-const BadgeComponents = ({
+const AvatarComponents = ({
   className,
-  testId = 'components-badge',
-}: BadgeComponentsProps): JSX.Element => {
+  testId = 'components-avatar',
+}: AvatarComponentsProps): JSX.Element => {
   const data: ComponentProperty[] = [
-    {
-      name: 'children',
-      description: 'The content to be displayed.',
-    },
     {
       name: 'className',
       description: 'Optional. Additional CSS class names.',
     },
     {
+      name: 'picture',
+      description: 'The URL or base64 encoded image source.',
+    },
+    {
       name: 'testId',
       description: 'Optional. Identifier for testing.',
+    },
+    {
+      name: 'value',
+      description:
+        'The short name to associate with the Avatar. Displayed as alternative text for the image or when hovered.',
     },
   ];
   const columnHelper = createColumnHelper<ComponentProperty>();
@@ -53,13 +59,13 @@ const BadgeComponents = ({
   return (
     <section className={className} data-testid={testId}>
       <Text variant="heading2" className="mb-4">
-        Badge Component
+        Avatar Component
       </Text>
 
       <div className="my-8">
-        The <span className="font-mono font-bold">Badge</span> component displays a stylized
-        counter. Useful for displaying the number of items of a specific type, for example, the
-        number of notifications.
+        The <span className="font-mono font-bold">Avatar</span> component displays a circular image
+        or placeholder. Usually used to represent a user, group, or team, but may be used to
+        represent any named object.
       </div>
 
       <div className="my-8">
@@ -72,31 +78,44 @@ const BadgeComponents = ({
       <Text variant="heading3">Examples</Text>
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Badge>3</Badge>
+          <Avatar value="John Smith" />
         </div>
-        <CodeSnippet className="my-2" code={`<Badge>3</Badge>`} />
+        <CodeSnippet className="my-2" code={`<Avatar value="John Smith" />`} />
       </div>
 
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Badge>999+</Badge>
-        </div>
-        <CodeSnippet className="my-2" code={`<Badge>999+</Badge>`} />
-      </div>
-
-      <div className="my-8">
-        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Badge className="bg-blue-500" testId="my-badge">
-            19
-          </Badge>
+          <Avatar value="Alexander Johnson" className="rounded-full" />
         </div>
         <CodeSnippet
           className="my-2"
-          code={`<Badge className='bg-blue-500' testId='my-badge'>19</Badge>`}
+          code={`<Avatar value="Alexander Johnson" className="rounded-full" />`}
+        />
+      </div>
+
+      <div className="my-8">
+        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
+          <Avatar
+            picture={avatarPicture}
+            value="Jane Jones"
+            className="rounded-full"
+            testId="my-avatar"
+          />
+        </div>
+        <CodeSnippet
+          className="my-2"
+          code={`import avatarPicture from './avatar-picture.png';
+
+<Avatar
+  picture={avatarPicture}
+  value="Jane Jones"
+  className="rounded-full"
+  testId="my-avatar"
+/>`}
         />
       </div>
     </section>
   );
 };
 
-export default BadgeComponents;
+export default AvatarComponents;

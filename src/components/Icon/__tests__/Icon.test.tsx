@@ -71,7 +71,7 @@ describe('Icon', () => {
 
   it('should use default fill value when invalid prop', async () => {
     // ARRANGE
-    // @ts-expect-error
+    // @ts-expect-error bad fill value
     render(<Icon name="circle" fill={3} />);
     await screen.findByTestId('icon');
 
@@ -83,7 +83,7 @@ describe('Icon', () => {
 
   it('should use default weight value when invalid prop', async () => {
     // ARRANGE
-    // @ts-expect-error
+    // @ts-expect-error bad weight value
     render(<Icon name="circle" weight={0} />);
     await screen.findByTestId('icon');
 

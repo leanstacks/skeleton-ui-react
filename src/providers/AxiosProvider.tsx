@@ -44,8 +44,8 @@ const notAuthenticatedErrorInterceptor = async (
         ...config,
         headers: {
           ...config?.headers,
-          Authorization: `Bearer ${data.id_token}`,
-          'X-Access-Token': data.access_token,
+          Authorization: `Bearer ${data?.id_token}`,
+          'X-Access-Token': data?.access_token,
         },
       });
     }
