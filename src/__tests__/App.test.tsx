@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from 'test/test-utils';
 
-import Button from '../Button';
+import App from '../App';
 
-describe('Button', () => {
+describe('App', () => {
   it('should render successfully', async () => {
     // ARRANGE
-    render(<Button />);
-    await screen.findByTestId('button');
+    render(<App />);
+    await screen.findByTestId('app');
 
     // ASSERT
-    expect(screen.getByTestId('button')).toBeDefined();
+    expect(screen.getByTestId('app')).toBeDefined();
   });
 });

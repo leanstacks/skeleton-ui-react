@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 import { UseQueryResult } from '@tanstack/react-query';
 
@@ -7,7 +8,7 @@ import * as UseGetUser from 'api/useGetUser';
 import DashboardPage from '../DashboardPage';
 
 describe('DashboardPage', () => {
-  const useGetUserSpy = jest.spyOn(UseGetUser, 'useGetUser');
+  const useGetUserSpy = vi.spyOn(UseGetUser, 'useGetUser');
 
   beforeEach(() => {
     useGetUserSpy.mockReturnValue({

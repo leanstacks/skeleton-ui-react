@@ -1,3 +1,4 @@
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 import * as FormikLibrary from 'formik';
@@ -5,9 +6,9 @@ import * as FormikLibrary from 'formik';
 import SelectField, { SelectFieldOption } from '../SelectField';
 
 describe('SelectField', () => {
-  const useFieldSpy = jest.spyOn(FormikLibrary, 'useField');
-  const mockSetValue = jest.fn();
-  const mockSetTouched = jest.fn();
+  const useFieldSpy = vi.spyOn(FormikLibrary, 'useField');
+  const mockSetValue = vi.fn();
+  const mockSetTouched = vi.fn();
 
   const options: SelectFieldOption[] = [
     {
@@ -20,7 +21,7 @@ describe('SelectField', () => {
 
   beforeEach(() => {
     useFieldSpy.mockReturnValue([
-      { value: '', name: 'testField', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '', name: 'testField', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: false,
         initialTouched: false,
@@ -29,8 +30,12 @@ describe('SelectField', () => {
         error: '',
         initialError: '',
       },
-      { setValue: mockSetValue, setTouched: mockSetTouched, setError: jest.fn() },
+      { setValue: mockSetValue, setTouched: mockSetTouched, setError: vi.fn() },
     ]);
+  });
+
+  afterEach(() => {
+    vi.resetAllMocks();
   });
 
   it('should render successfully', async () => {
@@ -81,7 +86,7 @@ describe('SelectField', () => {
   it('should display selected option label', async () => {
     // ARRANGE
     useFieldSpy.mockReturnValue([
-      { value: '1', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '1', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: false,
         initialTouched: false,
@@ -90,7 +95,7 @@ describe('SelectField', () => {
         error: '',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
     render(<SelectField name="testField" options={options} />);
     await screen.findByTestId('field-select-select');
@@ -103,7 +108,7 @@ describe('SelectField', () => {
   it('should display selected option value', async () => {
     // ARRANGE
     useFieldSpy.mockReturnValue([
-      { value: '3', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '3', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: false,
         initialTouched: false,
@@ -112,7 +117,7 @@ describe('SelectField', () => {
         error: '',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
     render(<SelectField name="testField" options={options} />);
     await screen.findByTestId('field-select-select');
@@ -125,7 +130,7 @@ describe('SelectField', () => {
   it('should show options when autofocused', async () => {
     // ARRANGE
     useFieldSpy.mockReturnValue([
-      { value: '1', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '1', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: false,
         initialTouched: false,
@@ -134,7 +139,7 @@ describe('SelectField', () => {
         error: '',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
     render(<SelectField name="testField" options={options} autoFocus />);
     await screen.findByTestId('field-select-select');
@@ -198,7 +203,7 @@ describe('SelectField', () => {
 
   it('should call onChange when provided', async () => {
     // ARRANGE
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
     render(<SelectField name="testField" options={options} onChange={mockOnChange} />);
     await screen.findByTestId('field-select');
 
@@ -215,7 +220,7 @@ describe('SelectField', () => {
   it('should show error', async () => {
     // ARRANGE
     useFieldSpy.mockReturnValue([
-      { value: '1', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '1', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: true,
         initialTouched: false,
@@ -224,7 +229,7 @@ describe('SelectField', () => {
         error: 'Invalid value',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
     render(<SelectField name="testField" options={options} />);
     await screen.findByTestId('field-select-error');

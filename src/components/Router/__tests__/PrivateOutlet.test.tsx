@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { render, screen } from 'test/test-utils';
@@ -8,7 +9,7 @@ import Icon from 'components/Icon/Icon';
 import PrivateOutlet from '../PrivateOutlet';
 
 describe('PrivateOutlet', () => {
-  const useAuthContextSpy = jest.spyOn(AuthProvider, 'useAuthContext');
+  const useAuthContextSpy = vi.spyOn(AuthProvider, 'useAuthContext');
 
   beforeEach(() => {
     useAuthContextSpy.mockReturnValue({ isAuthenticated: true });

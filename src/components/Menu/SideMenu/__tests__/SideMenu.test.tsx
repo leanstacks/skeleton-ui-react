@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 import userEvent from '@testing-library/user-event';
 
@@ -95,7 +96,7 @@ describe('SideMenu', () => {
 
   it('should call close function when backdrop clicked', async () => {
     // ARRANGE
-    const mockClose = jest.fn();
+    const mockClose = vi.fn();
     render(<SideMenu close={mockClose} />);
     await screen.findByTestId('menu-side');
 
@@ -108,7 +109,7 @@ describe('SideMenu', () => {
 
   it('should call close function when body clicked', async () => {
     // ARRANGE
-    const mockClose = jest.fn();
+    const mockClose = vi.fn();
     render(<SideMenu close={mockClose}>Body</SideMenu>);
     await screen.findByText('Body');
 

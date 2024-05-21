@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { useGetUser } from 'api/useGetUser';
 import { renderHook, waitFor } from 'test/test-utils';
 

@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 import userEvent from '@testing-library/user-event';
 
@@ -33,7 +34,7 @@ describe('MenuCloseButton', () => {
 
   it('should call close function when clicked', async () => {
     // ARRANGE
-    const mockClose = jest.fn();
+    const mockClose = vi.fn();
     render(<MenuCloseButton close={mockClose} />);
     await screen.findByTestId('menu-close-button');
 

@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { UseMutationResult } from '@tanstack/react-query';
 import userEvent from '@testing-library/user-event';
 
@@ -10,9 +11,9 @@ import { settingsFixture } from '__fixtures__/settings';
 import ThemeToggle from '../ThemeToggle';
 
 describe('ThemeToggle', () => {
-  const useSettingsSpy = jest.spyOn(SettingsProvider, 'useSettings');
-  const useSetSettingsSpy = jest.spyOn(UseSetSettings, 'useSetSettings');
-  const mockMutate = jest.fn();
+  const useSettingsSpy = vi.spyOn(SettingsProvider, 'useSettings');
+  const useSetSettingsSpy = vi.spyOn(UseSetSettings, 'useSetSettings');
+  const mockMutate = vi.fn();
 
   beforeEach(() => {
     useSettingsSpy.mockReturnValue({

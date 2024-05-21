@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { UseQueryResult } from '@tanstack/react-query';
 
 import { render, renderHook, screen, waitFor } from 'test/test-utils';
@@ -8,7 +9,7 @@ import * as UseGetUserTokens from 'api/useGetUserTokens';
 import AuthContextProvider, { useAuthContext } from 'providers/AuthProvider';
 
 describe('AuthProvider', () => {
-  const useGetUserTokensSpy = jest.spyOn(UseGetUserTokens, 'useGetUserTokens');
+  const useGetUserTokensSpy = vi.spyOn(UseGetUserTokens, 'useGetUserTokens');
 
   beforeEach(() => {
     useGetUserTokensSpy.mockReturnValue({
@@ -64,7 +65,7 @@ describe('AuthProvider', () => {
 });
 
 describe('useAuthContext', () => {
-  const useGetUserTokensSpy = jest.spyOn(UseGetUserTokens, 'useGetUserTokens');
+  const useGetUserTokensSpy = vi.spyOn(UseGetUserTokens, 'useGetUserTokens');
 
   beforeEach(() => {
     useGetUserTokensSpy.mockReturnValue({

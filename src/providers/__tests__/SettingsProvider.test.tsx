@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   render as renderWithoutWrapper,
   renderHook as renderHookWithoutWrapper,
@@ -10,7 +11,7 @@ import * as UseGetSettings from 'api/useGetSettings';
 import { settingsFixture } from '__fixtures__/settings';
 import { UseQueryResult } from '@tanstack/react-query';
 
-const useGetSettingsSpy = jest.spyOn(UseGetSettings, 'useGetSettings');
+const useGetSettingsSpy = vi.spyOn(UseGetSettings, 'useGetSettings');
 
 describe('SettingsProvider', () => {
   beforeEach(() => {

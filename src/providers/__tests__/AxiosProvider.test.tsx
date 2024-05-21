@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, renderHook, screen, waitFor } from 'test/test-utils';
 
 import * as AuthProvider from '../AuthProvider';
@@ -8,8 +9,8 @@ import { InternalAxiosRequestConfig } from 'axios';
 import { userTokensFixture } from '__fixtures__/tokens';
 
 describe('AxiosProvider', () => {
-  const useAuthContextSpy = jest.spyOn(AuthProvider, 'useAuthContext');
-  const refetchUserTokensMock = jest.fn();
+  const useAuthContextSpy = vi.spyOn(AuthProvider, 'useAuthContext');
+  const refetchUserTokensMock = vi.fn();
 
   beforeEach(() => {
     refetchUserTokensMock.mockReturnValue({
@@ -76,8 +77,8 @@ describe('AxiosProvider', () => {
 });
 
 describe('useAxios', () => {
-  const useAuthContextSpy = jest.spyOn(AuthProvider, 'useAuthContext');
-  const refetchUserTokensMock = jest.fn();
+  const useAuthContextSpy = vi.spyOn(AuthProvider, 'useAuthContext');
+  const refetchUserTokensMock = vi.fn();
 
   beforeEach(() => {
     useAuthContextSpy.mockReturnValue({

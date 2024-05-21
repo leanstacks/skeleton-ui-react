@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 
 import * as UseGetUserTasks from '../../api/useGetUserTasks';
@@ -45,7 +46,7 @@ describe('UserTasks', () => {
 
   it('should render loading state', async () => {
     // ARRANGE
-    const useGetUserTasksSpy = jest.spyOn(UseGetUserTasks, 'useGetUserTasks');
+    const useGetUserTasksSpy = vi.spyOn(UseGetUserTasks, 'useGetUserTasks');
     useGetUserTasksSpy.mockReturnValue({
       data: undefined,
       error: undefined,
@@ -60,7 +61,7 @@ describe('UserTasks', () => {
 
   it('should render error state', async () => {
     // ARRANGE
-    const useGetUserTasksSpy = jest.spyOn(UseGetUserTasks, 'useGetUserTasks');
+    const useGetUserTasksSpy = vi.spyOn(UseGetUserTasks, 'useGetUserTasks');
     useGetUserTasksSpy.mockReturnValue({
       data: undefined,
       error: new AxiosError(),

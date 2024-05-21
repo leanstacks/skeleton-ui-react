@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { queryClient, render, screen } from 'test/test-utils';
 import { UseQueryResult } from '@tanstack/react-query';
 
@@ -8,8 +9,8 @@ import { userFixture1 } from '__fixtures__/users';
 import AppMenu from '../AppMenu';
 
 describe('AppMenu', () => {
-  const useAuthContextSpy = jest.spyOn(UseAuthContext, 'useAuthContext');
-  const useGetUserSpy = jest.spyOn(UseGetUser, 'useGetUser');
+  const useAuthContextSpy = vi.spyOn(UseAuthContext, 'useAuthContext');
+  const useGetUserSpy = vi.spyOn(UseGetUser, 'useGetUser');
 
   beforeEach(() => {
     queryClient.clear();

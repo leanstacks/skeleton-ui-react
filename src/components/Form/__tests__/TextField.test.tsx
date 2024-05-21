@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -6,11 +7,11 @@ import * as FormikLibrary from 'formik';
 import TextField from '../TextField';
 
 describe('TextField', () => {
-  const useFieldSpy = jest.spyOn(FormikLibrary, 'useField');
+  const useFieldSpy = vi.spyOn(FormikLibrary, 'useField');
 
   beforeEach(() => {
     useFieldSpy.mockReturnValue([
-      { value: '', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: false,
         initialTouched: false,
@@ -19,7 +20,7 @@ describe('TextField', () => {
         error: '',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
   });
 
@@ -53,7 +54,7 @@ describe('TextField', () => {
   it('should show input when field has value', async () => {
     // ARRANGE
     useFieldSpy.mockReturnValue([
-      { value: 'A', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: 'A', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: false,
         initialTouched: false,
@@ -62,7 +63,7 @@ describe('TextField', () => {
         error: '',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
     render(<TextField name="testValue" />);
     await screen.findByTestId('field-text-input');
@@ -74,7 +75,7 @@ describe('TextField', () => {
   it('should show input when field autofocused', async () => {
     // ARRANGE
     useFieldSpy.mockReturnValue([
-      { value: '', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: false,
         initialTouched: false,
@@ -83,7 +84,7 @@ describe('TextField', () => {
         error: '',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
     render(<TextField name="testValue" autoFocus />);
     await screen.findByTestId('field-text-input');
@@ -95,7 +96,7 @@ describe('TextField', () => {
   it('should not show input when field has no value', async () => {
     // ARRANGE
     useFieldSpy.mockReturnValue([
-      { value: '', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: false,
         initialTouched: false,
@@ -104,7 +105,7 @@ describe('TextField', () => {
         error: '',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
     render(<TextField name="testValue" />);
     await screen.findByTestId('field-text-input');
@@ -116,7 +117,7 @@ describe('TextField', () => {
   it('should hide input when empty field blurred', async () => {
     // ARRANGE
     useFieldSpy.mockReturnValue([
-      { value: '', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: false,
         initialTouched: false,
@@ -125,7 +126,7 @@ describe('TextField', () => {
         error: '',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
     render(
       <div>
@@ -185,7 +186,7 @@ describe('TextField', () => {
   it('should render error message when input is not valid', async () => {
     // ARRANGE
     useFieldSpy.mockReturnValue([
-      { value: '', name: 'testValue', onChange: jest.fn(), onBlur: jest.fn() },
+      { value: '', name: 'testValue', onChange: vi.fn(), onBlur: vi.fn() },
       {
         touched: true,
         initialTouched: false,
@@ -194,7 +195,7 @@ describe('TextField', () => {
         error: 'Invalid',
         initialError: '',
       },
-      { setValue: jest.fn(), setTouched: jest.fn(), setError: jest.fn() },
+      { setValue: vi.fn(), setTouched: vi.fn(), setError: vi.fn() },
     ]);
     render(<TextField name="testValue" />);
     await screen.findByTestId('field-text-error');

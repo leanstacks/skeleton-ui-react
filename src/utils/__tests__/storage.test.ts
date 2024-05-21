@@ -1,10 +1,11 @@
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import storage from 'utils/storage';
 
 describe('storage', () => {
   const originalLocalStorage = global.localStorage;
-  const mockGetItem = jest.fn();
-  const mockSetItem = jest.fn();
-  const mockRemoveItem = jest.fn();
+  const mockGetItem = vi.fn();
+  const mockSetItem = vi.fn();
+  const mockRemoveItem = vi.fn();
 
   beforeAll(() => {
     Object.defineProperty(global, 'localStorage', {

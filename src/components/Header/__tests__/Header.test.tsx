@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { Route, Routes } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ import * as AuthProvider from '../../../providers/AuthProvider';
 import Header from '../Header';
 
 describe('Header', () => {
-  const useAuthContextSpy = jest.spyOn(AuthProvider, 'useAuthContext');
+  const useAuthContextSpy = vi.spyOn(AuthProvider, 'useAuthContext');
 
   beforeEach(() => {
     useAuthContextSpy.mockReturnValue({

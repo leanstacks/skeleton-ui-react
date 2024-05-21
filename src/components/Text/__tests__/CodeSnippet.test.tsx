@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { render, screen } from 'test/test-utils';
 import CodeSnippet from '../CodeSnippet';
 
@@ -35,6 +36,6 @@ describe('CodeSnippet', () => {
     await screen.findByTestId('code-snippet');
 
     // ASSERT
-    expect(screen.getByTestId('code-snippet')).toHaveTextContent('<div>content</div>');
+    expect(screen.getByTestId('code-snippet').textContent).toBe('<div>content</div>');
   });
 });

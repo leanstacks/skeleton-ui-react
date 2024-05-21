@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { createColumnHelper } from '@tanstack/react-table';
 import { render, screen } from 'test/test-utils';
 import Table from '../Table';

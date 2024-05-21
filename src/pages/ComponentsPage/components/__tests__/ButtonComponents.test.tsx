@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 import ButtonComponents from '../ButtonComponents';
 import userEvent from '@testing-library/user-event';
@@ -32,7 +33,7 @@ describe('ButtonComponents', () => {
 
   it('should display alert', async () => {
     // ARRANGE
-    const alertSpy = jest.spyOn(window, 'alert').mockImplementation(() => {});
+    const alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => {});
     render(<ButtonComponents />);
     await screen.findByTestId('components-button');
 
