@@ -1,7 +1,6 @@
 import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
-import { config as rawConfig } from 'utils/config';
 
 /**
  * The application configuration. The `value` provided by the `ConfigContext`.
@@ -56,7 +55,7 @@ const ConfigContextProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     try {
-      const validatedConfig = configSchema.validateSync(rawConfig, {
+      const validatedConfig = configSchema.validateSync(import.meta.env, {
         abortEarly: false,
         stripUnknown: true,
       });
