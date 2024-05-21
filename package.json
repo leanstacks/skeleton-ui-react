@@ -13,7 +13,7 @@
     "url": "https://github.com/leanstacks/skeleton-ui-react"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
