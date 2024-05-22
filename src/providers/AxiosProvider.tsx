@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
 import { AuthContextValue } from './AuthProvider';
@@ -68,7 +68,7 @@ const customAxios = axios.create({
 /**
  * The `AxiosContext` instance.
  */
-const AxiosContext = React.createContext<AxiosInstance>(customAxios);
+export const AxiosContext = React.createContext<AxiosInstance>(customAxios);
 
 /**
  * The `AxiosContextProvider` React component creates, maintains, and provides
@@ -101,14 +101,6 @@ const AxiosContextProvider = ({ children }: PropsWithChildren) => {
   return (
     <AxiosContext.Provider value={customAxios}>{isReady && <>{children}</>}</AxiosContext.Provider>
   );
-};
-
-/**
- * The `useAxios` hook returns the current `AxiosContext` value.
- * @returns {AxiosInstance} The current `AxiosContext` value, an `AxiosInstance`.
- */
-export const useAxios = (): AxiosInstance => {
-  return useContext(AxiosContext);
 };
 
 export default AxiosContextProvider;

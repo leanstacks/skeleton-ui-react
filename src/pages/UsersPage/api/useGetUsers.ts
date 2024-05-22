@@ -1,7 +1,7 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { User } from 'api/useGetUser';
 
-import { useAxios } from 'providers/AxiosProvider';
+import { useAxios } from 'hooks/useAxios';
 import { useConfig } from 'providers/ConfigProvider';
 import { QueryKeys } from 'utils/constants';
 
