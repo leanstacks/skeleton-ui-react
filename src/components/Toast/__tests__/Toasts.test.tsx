@@ -2,13 +2,13 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import { render, screen, waitFor } from 'test/test-utils';
-import * as ToastsProvider from 'providers/ToastsProvider';
+import * as UseToasts from 'hooks/useToasts';
 import { toastFixture } from '__fixtures__/toasts';
 
 import Toasts from '../Toasts';
 
 describe('Toasts', () => {
-  const useToastsSpy = vi.spyOn(ToastsProvider, 'useToasts');
+  const useToastsSpy = vi.spyOn(UseToasts, 'useToasts');
   const mockRemoveToast = vi.fn();
 
   beforeEach(() => {

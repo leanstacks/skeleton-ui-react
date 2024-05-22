@@ -1,4 +1,4 @@
-import React, { Dispatch, PropsWithChildren, useContext, useMemo, useReducer } from 'react';
+import React, { Dispatch, PropsWithChildren, useMemo, useReducer } from 'react';
 import { v4 as uuid } from 'uuid';
 import dayjs from 'dayjs';
 
@@ -119,7 +119,7 @@ const actions = (dispatch: Dispatch<ToastsContextAction>) => {
 /**
  * The `ToastsContext` instance.
  */
-const ToastsContext = React.createContext<ToastsContextValue | undefined>(undefined);
+export const ToastsContext = React.createContext<ToastsContextValue | undefined>(undefined);
 
 /**
  * The `ToastsProvider` React component creates, maintains, and provides
@@ -143,16 +143,3 @@ const ToastsProvider = ({ children }: PropsWithChildren): JSX.Element => {
 };
 
 export default ToastsProvider;
-
-/**
- * The `useToasts` hook returns the current `ToastsContext` value.
- * @returns {ToastsContextValue} The current `ToastContext` value, `ToastsContextValue`.
- */
-export const useToasts = (): ToastsContextValue => {
-  const context = useContext(ToastsContext);
-  if (!context) {
-    throw new Error('useToasts hook must be used within a ToastsProvider');
-  }
-
-  return context;
-};
