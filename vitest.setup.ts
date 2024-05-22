@@ -1,7 +1,7 @@
 import { afterAll, afterEach, beforeAll } from 'vitest';
 
 import { server } from './src/test/mocks/server';
-import { queryClient } from './src/test/test-utils';
+import { queryClient } from './src/test/query-client';
 
 beforeAll(() => {
   server.listen();

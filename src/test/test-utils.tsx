@@ -6,52 +6,7 @@ import {
   RenderHookOptions,
   RenderOptions,
 } from '@testing-library/react';
-import { PropsWithChildren } from 'react';
-import { MemoryRouter } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-import ConfigContextProvider from 'providers/ConfigProvider';
-import SettingsContextProvider from 'providers/SettingsProvider';
-import AuthContextProvider from 'providers/AuthProvider';
-import ToastsProvider from 'providers/ToastsProvider';
-
-export const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
-
-const WithAllProviders = ({ children }: PropsWithChildren): JSX.Element => {
-  return (
-    <ConfigContextProvider>
-      <QueryClientProvider client={queryClient}>
-        <SettingsContextProvider>
-          <AuthContextProvider>
-            <ToastsProvider>
-              <MemoryRouter>{children}</MemoryRouter>
-            </ToastsProvider>
-          </AuthContextProvider>
-        </SettingsContextProvider>
-      </QueryClientProvider>
-    </ConfigContextProvider>
-  );
-};
-
-export const AllProvidersExceptRouter = ({ children }: PropsWithChildren): JSX.Element => {
-  return (
-    <ConfigContextProvider>
-      <QueryClientProvider client={queryClient}>
-        <SettingsContextProvider>
-          <AuthContextProvider>
-            <ToastsProvider>{children}</ToastsProvider>
-          </AuthContextProvider>
-        </SettingsContextProvider>
-      </QueryClientProvider>
-    </ConfigContextProvider>
-  );
-};
+import WithAllProviders from './WithAllProviders';
 
 const customRender = (ui: React.ReactElement, options?: RenderOptions, { route = '/' } = {}) => {
   window.history.pushState({}, 'Test page', route);
@@ -73,6 +28,7 @@ function customRenderHook<
 }
 
 // re-export @testing-library/react
+// eslint-disable-next-line
 export * from '@testing-library/react';
 
 // override the render function

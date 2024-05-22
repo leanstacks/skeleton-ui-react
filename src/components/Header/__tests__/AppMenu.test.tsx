@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { queryClient, render, screen } from 'test/test-utils';
+import { render, screen } from 'test/test-utils';
+import { queryClient } from 'test/query-client';
 import { UseQueryResult } from '@tanstack/react-query';
 
 import * as UseAuth from 'hooks/useAuth';
