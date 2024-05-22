@@ -4,15 +4,15 @@ import { Route, Routes } from 'react-router-dom';
 
 import { render, screen } from 'test/test-utils';
 
-import * as AuthProvider from '../../../providers/AuthProvider';
+import * as UseAuth from 'hooks/useAuth';
 
 import Header from '../Header';
 
 describe('Header', () => {
-  const useAuthContextSpy = vi.spyOn(AuthProvider, 'useAuthContext');
+  const useAuthSpy = vi.spyOn(UseAuth, 'useAuth');
 
   beforeEach(() => {
-    useAuthContextSpy.mockReturnValue({
+    useAuthSpy.mockReturnValue({
       isAuthenticated: false,
     });
   });
@@ -46,7 +46,7 @@ describe('Header', () => {
 
   it('should render content when authenticated', async () => {
     // ARRANGE
-    useAuthContextSpy.mockReturnValueOnce({
+    useAuthSpy.mockReturnValueOnce({
       isAuthenticated: true,
     });
     render(<Header />);
@@ -59,7 +59,7 @@ describe('Header', () => {
 
   it('should navigate when sign out button clicked', async () => {
     // ARRANGE
-    useAuthContextSpy.mockReturnValue({
+    useAuthSpy.mockReturnValue({
       isAuthenticated: true,
     });
     render(

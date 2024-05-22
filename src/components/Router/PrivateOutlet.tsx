@@ -1,4 +1,4 @@
-import { useAuthContext } from 'providers/AuthProvider';
+import { useAuth } from 'hooks/useAuth';
 import { Navigate, Outlet } from 'react-router-dom';
 
 /**
@@ -12,7 +12,7 @@ import { Navigate, Outlet } from 'react-router-dom';
  * @returns {JSX.Element} JSX
  */
 const PrivateOutlet = (): JSX.Element => {
-  const authContext = useAuthContext();
+  const authContext = useAuth();
 
   if (authContext.isAuthenticated) {
     return <Outlet />;

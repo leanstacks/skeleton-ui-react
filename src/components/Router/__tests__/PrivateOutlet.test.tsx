@@ -2,17 +2,17 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { render, screen } from 'test/test-utils';
-import * as AuthProvider from '../../../providers/AuthProvider';
+import * as UseAuth from 'hooks/useAuth';
 
 import Icon from 'components/Icon/Icon';
 
 import PrivateOutlet from '../PrivateOutlet';
 
 describe('PrivateOutlet', () => {
-  const useAuthContextSpy = vi.spyOn(AuthProvider, 'useAuthContext');
+  const useAuthSpy = vi.spyOn(UseAuth, 'useAuth');
 
   beforeEach(() => {
-    useAuthContextSpy.mockReturnValue({ isAuthenticated: true });
+    useAuthSpy.mockReturnValue({ isAuthenticated: true });
   });
 
   it('should render successfully', async () => {
@@ -51,7 +51,7 @@ describe('PrivateOutlet', () => {
 
   it('should redirect to signin route when not authenticated', async () => {
     // ARRANGE
-    useAuthContextSpy.mockReturnValueOnce({ isAuthenticated: false });
+    useAuthSpy.mockReturnValueOnce({ isAuthenticated: false });
     render(
       <Routes>
         <Route path="/" element={<Navigate to="/private" />} />

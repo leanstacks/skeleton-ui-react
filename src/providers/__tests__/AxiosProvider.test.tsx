@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, renderHook, screen, waitFor } from 'test/test-utils';
 
-import * as AuthProvider from '../AuthProvider';
+import * as UseAuth from 'hooks/useAuth';
 
 import AxiosContextProvider, { useAxios } from 'providers/AxiosProvider';
 import { useEffect, useState } from 'react';
@@ -9,14 +9,14 @@ import { InternalAxiosRequestConfig } from 'axios';
 import { userTokensFixture } from '__fixtures__/tokens';
 
 describe('AxiosProvider', () => {
-  const useAuthContextSpy = vi.spyOn(AuthProvider, 'useAuthContext');
+  const useAuthSpy = vi.spyOn(UseAuth, 'useAuth');
   const refetchUserTokensMock = vi.fn();
 
   beforeEach(() => {
     refetchUserTokensMock.mockReturnValue({
       data: userTokensFixture,
     });
-    useAuthContextSpy.mockReturnValue({
+    useAuthSpy.mockReturnValue({
       isAuthenticated: true,
       userToken: userTokensFixture,
       refetchUserTokens: refetchUserTokensMock,
@@ -77,11 +77,11 @@ describe('AxiosProvider', () => {
 });
 
 describe('useAxios', () => {
-  const useAuthContextSpy = vi.spyOn(AuthProvider, 'useAuthContext');
+  const useAuthSpy = vi.spyOn(UseAuth, 'useAuth');
   const refetchUserTokensMock = vi.fn();
 
   beforeEach(() => {
-    useAuthContextSpy.mockReturnValue({
+    useAuthSpy.mockReturnValue({
       isAuthenticated: true,
       userToken: userTokensFixture,
       refetchUserTokens: refetchUserTokensMock,

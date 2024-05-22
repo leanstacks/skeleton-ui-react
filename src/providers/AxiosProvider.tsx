@@ -1,7 +1,8 @@
 import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
 import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
-import { AuthContextValue, useAuthContext } from './AuthProvider';
+import { AuthContextValue } from './AuthProvider';
+import { useAuth } from 'hooks/useAuth';
 
 /**
  * An Axios request interceptor that adds user authentication headers to
@@ -77,7 +78,7 @@ const AxiosContext = React.createContext<AxiosInstance>(customAxios);
  */
 const AxiosContextProvider = ({ children }: PropsWithChildren) => {
   const [isReady, setIsReady] = useState(false);
-  const authContext = useAuthContext();
+  const authContext = useAuth();
 
   useEffect(() => {
     const authRequestInterceptorId = customAxios.interceptors.request.use(async (config) =>
