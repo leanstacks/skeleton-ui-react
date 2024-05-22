@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
 
@@ -38,7 +38,7 @@ const configSchema: ObjectSchema<Config> = Yup.object({
 /**
  * The `ConfigContext` instance.
  */
-const ConfigContext = React.createContext<Config | undefined>(undefined);
+export const ConfigContext = React.createContext<Config | undefined>(undefined);
 
 /**
  * The `ConfigContextProvider` React component creates, maintains, and provides
@@ -71,19 +71,6 @@ const ConfigContextProvider = ({ children }: PropsWithChildren) => {
   return (
     <ConfigContext.Provider value={config}>{isReady && <>{children}</>}</ConfigContext.Provider>
   );
-};
-
-/**
- * The `useConfig` hook returns the current `ConfigContext` value.
- * @returns {Config} The current `ConfigContext` value, `Config`.
- */
-export const useConfig = (): Config => {
-  const context = useContext(ConfigContext);
-  if (!context) {
-    throw new Error('useConfig hook must be used within a ConfigContextProvider');
-  }
-
-  return context;
 };
 
 export default ConfigContextProvider;
