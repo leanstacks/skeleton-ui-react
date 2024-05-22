@@ -85,4 +85,4 @@ jobs:
 
       - name: Deploy to AWS S3
         run: |
-          aws s3 sync build s3://${{ steps.cloudformation.outputs.APP_BUCKET_NAME }} --delete
+          aws s3 sync dist s3://${{ steps.cloudformation.outputs.APP_BUCKET_NAME }} --delete
