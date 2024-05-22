@@ -4,14 +4,14 @@ import userEvent from '@testing-library/user-event';
 
 import { render, screen } from 'test/test-utils';
 import { Settings } from 'api/useGetSettings';
-import * as SettingsProvider from 'providers/SettingsProvider';
+import * as UseSettings from 'hooks/useSettings';
 import * as UseSetSettings from 'api/useSetSettings';
 import { settingsFixture } from '__fixtures__/settings';
 
 import ThemeToggle from '../ThemeToggle';
 
 describe('ThemeToggle', () => {
-  const useSettingsSpy = vi.spyOn(SettingsProvider, 'useSettings');
+  const useSettingsSpy = vi.spyOn(UseSettings, 'useSettings');
   const useSetSettingsSpy = vi.spyOn(UseSetSettings, 'useSetSettings');
   const mockMutate = vi.fn();
 

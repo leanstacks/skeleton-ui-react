@@ -2,7 +2,7 @@ import { ButtonVariant, PropsWithClassName } from '@leanstacks/react-common';
 import classNames from 'classnames';
 
 import { useSetSettings } from 'api/useSetSettings';
-import { useSettings } from 'providers/SettingsProvider';
+import { useSettings } from 'hooks/useSettings';
 import Button from './Button';
 import Icon from 'components/Icon/Icon';
 

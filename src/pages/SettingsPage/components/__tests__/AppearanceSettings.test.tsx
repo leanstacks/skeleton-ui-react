@@ -5,13 +5,13 @@ import userEvent from '@testing-library/user-event';
 import { render, screen } from 'test/test-utils';
 import { Settings } from 'api/useGetSettings';
 import { DEFAULT_SETTINGS } from 'utils/constants';
-import * as SettingsProvider from 'providers/SettingsProvider';
+import * as UseSettings from 'hooks/useSettings';
 import * as UseSetSettings from 'api/useSetSettings';
 
 import AppearanceSettings from '../AppearanceSettings';
 
 describe('AppearanceSettings', () => {
-  const useSettingsSpy = vi.spyOn(SettingsProvider, 'useSettings');
+  const useSettingsSpy = vi.spyOn(UseSettings, 'useSettings');
   const useSetSettingsSpy = vi.spyOn(UseSetSettings, 'useSetSettings');
   const mockSetSettings = vi.fn();
 
