@@ -1,10 +1,11 @@
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import SearchResult from '../SearchResult';
 
 describe('SearchResult', () => {
-  const mockOnClick = jest.fn();
+  const mockOnClick = vi.fn();
 
   it('should render successfully', async () => {
     // ARRANGE

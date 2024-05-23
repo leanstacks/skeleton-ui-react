@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PropsWithTestId } from '@leanstacks/react-common';
 
-import { useAuthContext } from 'providers/AuthProvider';
+import { useAuth } from 'hooks/useAuth';
 import logo from './logo.png';
 import ThemeToggle from 'components/Button/ThemeToggle';
 import AppMenu from './AppMenu';
@@ -20,7 +20,7 @@ interface HeaderProps extends PropsWithTestId {}
  * @see {@link HeaderProps}
  */
 const Header = ({ testId = 'header' }: HeaderProps): JSX.Element => {
-  const { isAuthenticated } = useAuthContext();
+  const { isAuthenticated } = useAuth();
 
   return (
     <header

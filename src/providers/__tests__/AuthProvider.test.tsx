@@ -1,14 +1,15 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { UseQueryResult } from '@tanstack/react-query';
 
-import { render, renderHook, screen, waitFor } from 'test/test-utils';
+import { render, screen } from 'test/test-utils';
 
 import { userTokensFixture } from '__fixtures__/tokens';
 import * as UseGetUserTokens from 'api/useGetUserTokens';
 
-import AuthContextProvider, { useAuthContext } from 'providers/AuthProvider';
+import AuthContextProvider from 'providers/AuthProvider';
 
 describe('AuthProvider', () => {
-  const useGetUserTokensSpy = jest.spyOn(UseGetUserTokens, 'useGetUserTokens');
+  const useGetUserTokensSpy = vi.spyOn(UseGetUserTokens, 'useGetUserTokens');
 
   beforeEach(() => {
     useGetUserTokensSpy.mockReturnValue({
@@ -60,27 +61,5 @@ describe('AuthProvider', () => {
 
     // ASSERT
     expect(screen.getByTestId('provider-auth')).toBeDefined();
-  });
-});
-
-describe('useAuthContext', () => {
-  const useGetUserTokensSpy = jest.spyOn(UseGetUserTokens, 'useGetUserTokens');
-
-  beforeEach(() => {
-    useGetUserTokensSpy.mockReturnValue({
-      data: userTokensFixture,
-      isSuccess: true,
-      isPending: false,
-    } as unknown as UseQueryResult<UseGetUserTokens.UserTokens, Error>);
-  });
-
-  it('should return the context', async () => {
-    // ARRANGE
-    const { result } = renderHook(() => useAuthContext());
-    await waitFor(() => expect(result.current.isAuthenticated).toBeDefined());
-
-    // ASSERT
-    expect(result.current).toBeDefined();
-    expect(result.current.isAuthenticated).toBe(true);
   });
 });

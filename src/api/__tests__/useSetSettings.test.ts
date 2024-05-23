@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from 'vitest';
 import { renderHook, waitFor } from 'test/test-utils';
 
 import storage from 'utils/storage';
@@ -6,7 +7,7 @@ import { Settings } from 'api/useGetSettings';
 import { useSetSettings } from 'api/useSetSettings';
 
 describe('useSetSettings', () => {
-  const setItemSpy = jest.spyOn(storage, 'setItem');
+  const setItemSpy = vi.spyOn(storage, 'setItem');
 
   it('should update settings', async () => {
     // ARRANGE

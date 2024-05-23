@@ -15,7 +15,7 @@ const DashboardPage = (): JSX.Element => {
       <div className="container mx-auto min-h-[50vh]">
         <div className="my-4 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="col-span-2">
-            {!!user ? (
+            {user ? (
               <h1 className="text-xl">
                 Welcome <span data-testid="user-display-name">{user.name}</span>
               </h1>

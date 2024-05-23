@@ -47,14 +47,14 @@ jobs:
       - name: Create Environment Configuration
         run: |
           echo "${{ env.ENV_FILE }}" > .env
-          echo "REACT_APP_BUILD_DATE=$(date +'%Y-%m-%d')" >> .env
-          echo "REACT_APP_BUILD_TIME=$(date +'%H:%M:%S%z')" >> .env
-          echo "REACT_APP_BUILD_TS=$(date +'%Y-%m-%dT%H:%M:%S%z')" >> .env
-          echo "REACT_APP_BUILD_COMMIT_SHA=${{ github.sha }}" >> .env
-          echo "REACT_APP_BUILD_ENV_CODE=${{ env.AWS_ENV_CODE }}" >> .env
-          echo "REACT_APP_BUILD_WORKFLOW_NAME=${{ github.workflow }}" >> .env
-          echo "REACT_APP_BUILD_WORKFLOW_RUN_NUMBER=${{ github.run_number }}" >> .env
-          echo "REACT_APP_BUILD_WORKFLOW_RUN_ATTEMPT=${{ github.run_attempt }}" >> .env
+          echo "VITE_BUILD_DATE=$(date +'%Y-%m-%d')" >> .env
+          echo "VITE_BUILD_TIME=$(date +'%H:%M:%S%z')" >> .env
+          echo "VITE_BUILD_TS=$(date +'%Y-%m-%dT%H:%M:%S%z')" >> .env
+          echo "VITE_BUILD_COMMIT_SHA=${{ github.sha }}" >> .env
+          echo "VITE_BUILD_ENV_CODE=${{ env.AWS_ENV_CODE }}" >> .env
+          echo "VITE_BUILD_WORKFLOW_NAME=${{ github.workflow }}" >> .env
+          echo "VITE_BUILD_WORKFLOW_RUN_NUMBER=${{ github.run_number }}" >> .env
+          echo "VITE_BUILD_WORKFLOW_RUN_ATTEMPT=${{ github.run_attempt }}" >> .env
 
       - name: Build
         run: npm run build
@@ -85,4 +85,4 @@ jobs:
 
       - name: Deploy to AWS S3
         run: |
-          aws s3 sync build s3://${{ steps.cloudformation.outputs.APP_BUCKET_NAME }} --delete
+          aws s3 sync dist s3://${{ steps.cloudformation.outputs.APP_BUCKET_NAME }} --delete

@@ -1,15 +1,16 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 
-import * as UseAuthContext from '../../../providers/AuthProvider';
+import * as UseAuth from 'hooks/useAuth';
 
 import LandingPage from '../LandingPage';
 import { Route, Routes } from 'react-router-dom';
 
 describe('LandingPage', () => {
-  const useAuthContextSpy = jest.spyOn(UseAuthContext, 'useAuthContext');
+  const useAuthSpy = vi.spyOn(UseAuth, 'useAuth');
 
   beforeEach(() => {
-    useAuthContextSpy.mockReturnValue({
+    useAuthSpy.mockReturnValue({
       isAuthenticated: false,
     });
   });
@@ -34,7 +35,7 @@ describe('LandingPage', () => {
 
   it('should navigate when authenticated', async () => {
     // ARRANGE
-    useAuthContextSpy.mockReturnValueOnce({
+    useAuthSpy.mockReturnValueOnce({
       isAuthenticated: true,
     });
     render(

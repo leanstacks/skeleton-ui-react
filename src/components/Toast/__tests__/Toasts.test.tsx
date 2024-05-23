@@ -1,18 +1,19 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import { render, screen, waitFor } from 'test/test-utils';
-import * as ToastsProvider from 'providers/ToastsProvider';
+import * as UseToasts from 'hooks/useToasts';
 import { toastFixture } from '__fixtures__/toasts';
 
 import Toasts from '../Toasts';
 
 describe('Toasts', () => {
-  const useToastsSpy = jest.spyOn(ToastsProvider, 'useToasts');
-  const mockRemoveToast = jest.fn();
+  const useToastsSpy = vi.spyOn(UseToasts, 'useToasts');
+  const mockRemoveToast = vi.fn();
 
   beforeEach(() => {
     useToastsSpy.mockReturnValue({
-      createToast: jest.fn(),
+      createToast: vi.fn(),
       removeToast: mockRemoveToast,
       toasts: [toastFixture],
     });

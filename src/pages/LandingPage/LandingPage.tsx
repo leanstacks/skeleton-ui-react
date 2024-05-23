@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 
-import { useAuthContext } from 'providers/AuthProvider';
+import { useAuth } from 'hooks/useAuth';
 import Page from 'components/Page/Page';
 
 /**
@@ -12,7 +12,7 @@ import Page from 'components/Page/Page';
  * @returns {JSX.Element} JSX
  */
 const LandingPage = (): JSX.Element => {
-  const authContext = useAuthContext();
+  const authContext = useAuth();
 
   if (authContext.isAuthenticated) {
     return <Navigate to="/app" />;

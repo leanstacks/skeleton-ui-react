@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import { animated, useSpring } from '@react-spring/web';
 
 import { ToastDetail } from 'providers/ToastsProvider';
-import { useConfig } from 'providers/ConfigProvider';
+import { useConfig } from 'hooks/useConfig';
 
 import Icon from 'components/Icon/Icon';
 import Button from 'components/Button/Button';
@@ -51,7 +51,7 @@ const Toast = ({ className, dismiss, testId = 'toast', toast }: ToastProps): JSX
     if (toast.isAutoDismiss) {
       const dismissInterval = setInterval(() => {
         const dismissAt = dayjs(toast.createdAt).add(
-          config.REACT_APP_TOAST_AUTO_DISMISS_MILLIS,
+          config.VITE_TOAST_AUTO_DISMISS_MILLIS,
           'millisecond',
         );
         if (dayjs().isAfter(dismissAt)) {
@@ -62,7 +62,7 @@ const Toast = ({ className, dismiss, testId = 'toast', toast }: ToastProps): JSX
       return () => clearInterval(dismissInterval);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [toast, config.REACT_APP_TOAST_AUTO_DISMISS_MILLIS]);
+  }, [toast, config.VITE_TOAST_AUTO_DISMISS_MILLIS]);
 
   return (
     <animated.div

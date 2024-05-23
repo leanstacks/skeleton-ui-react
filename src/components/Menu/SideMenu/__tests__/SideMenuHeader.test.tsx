@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 import userEvent from '@testing-library/user-event';
 
@@ -58,7 +59,7 @@ describe('SideMenuHeader', () => {
 
   it('should call close function when close button clicked', async () => {
     // ARRANGE
-    const mockClose = jest.fn();
+    const mockClose = vi.fn();
     render(
       <SideMenuHeader close={mockClose}>
         <div data-testid="menu-header-content">Content</div>

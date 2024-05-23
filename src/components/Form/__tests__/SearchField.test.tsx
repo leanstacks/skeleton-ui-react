@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -5,12 +6,12 @@ import SearchField from '../SearchField';
 import SearchResult from '../SearchResult';
 
 describe('SearchField', () => {
-  const mockOnChange = jest.fn();
-  const mockRenderSearchResults = jest.fn();
+  const mockOnChange = vi.fn();
+  const mockRenderSearchResults = vi.fn();
 
   beforeEach(() => {
     mockRenderSearchResults.mockImplementation(() => {
-      return [<SearchResult onClick={jest.fn()} key="1" />];
+      return [<SearchResult onClick={vi.fn()} key="1" />];
     });
   });
 
@@ -65,7 +66,7 @@ describe('SearchField', () => {
     await screen.findByTestId('field-search-supporting-text');
 
     // ASSERT
-    expect(screen.getByTestId('field-search-supporting-text')).toHaveTextContent('supporting');
+    expect(screen.getByTestId('field-search-supporting-text').textContent).toBe('supporting');
   });
 
   it('should display error text', async () => {
@@ -80,7 +81,7 @@ describe('SearchField', () => {
     await screen.findByTestId('field-search-error');
 
     // ASSERT
-    expect(screen.getByTestId('field-search-error')).toHaveTextContent('error');
+    expect(screen.getByTestId('field-search-error').textContent).toBe('error');
   });
 
   it('should call onChange when input changes', async () => {
@@ -92,7 +93,7 @@ describe('SearchField', () => {
     await userEvent.type(screen.getByTestId('field-search-input'), 'test');
 
     // ASSERT
-    expect(screen.getByTestId('field-search-input')).toHaveValue('test');
+    expect(screen.getByTestId<HTMLInputElement>('field-search-input').value).toBe('test');
     expect(mockOnChange).toHaveBeenCalledWith('test');
   });
 });

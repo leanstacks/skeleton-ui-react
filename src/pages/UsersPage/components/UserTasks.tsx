@@ -49,7 +49,7 @@ const UserTasks = ({ className, testId = 'user-tasks', userId }: UserTasksProps)
           </>
         )}
         {!!tasks &&
-          tasks.slice(0, 3).map((task, index) => (
+          tasks.slice(0, 3).map((task) => (
             <div key={task.id} className="flex items-center gap-4 py-0.5">
               <Icon
                 name={task.completed ? 'task_alt' : 'circle'}

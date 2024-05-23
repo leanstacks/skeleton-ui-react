@@ -1,18 +1,19 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { UseMutationResult } from '@tanstack/react-query';
 import userEvent from '@testing-library/user-event';
 
 import { render, screen } from 'test/test-utils';
 import { Settings } from 'api/useGetSettings';
 import { DEFAULT_SETTINGS } from 'utils/constants';
-import * as SettingsProvider from 'providers/SettingsProvider';
+import * as UseSettings from 'hooks/useSettings';
 import * as UseSetSettings from 'api/useSetSettings';
 
 import AppearanceSettings from '../AppearanceSettings';
 
 describe('AppearanceSettings', () => {
-  const useSettingsSpy = jest.spyOn(SettingsProvider, 'useSettings');
-  const useSetSettingsSpy = jest.spyOn(UseSetSettings, 'useSetSettings');
-  const mockSetSettings = jest.fn();
+  const useSettingsSpy = vi.spyOn(UseSettings, 'useSettings');
+  const useSetSettingsSpy = vi.spyOn(UseSetSettings, 'useSetSettings');
+  const mockSetSettings = vi.fn();
 
   beforeEach(() => {
     useSettingsSpy.mockReturnValue(DEFAULT_SETTINGS);

@@ -44,7 +44,7 @@ export const useSetSettings = () => {
 
   return useMutation({
     mutationFn: setSettings,
-    onSuccess: (data, variables, context) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.Settings] });
     },
   });

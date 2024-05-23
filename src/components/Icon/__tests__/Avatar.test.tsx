@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { render, screen } from 'test/test-utils';
 
 import Avatar from '../Avatar';
@@ -46,6 +47,6 @@ describe('Avatar', () => {
     await screen.findByTestId('icon-avatar');
 
     // ASSERT
-    expect(screen.getByTestId('icon-avatar')).toHaveTextContent('?');
+    expect(screen.getByTestId('icon-avatar').textContent).toBe('?');
   });
 });

@@ -41,7 +41,6 @@ interface SelectFieldProps extends InputHTMLAttributes<HTMLSelectElement>, Props
  * @returns {JSX.Element} JSX
  */
 const SelectField = ({
-  children,
   className,
   label,
   onChange,

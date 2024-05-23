@@ -1,4 +1,4 @@
-import { useAuthContext } from 'providers/AuthProvider';
+import { useAuth } from 'hooks/useAuth';
 import { useGetUser } from 'api/useGetUser';
 
 import logo from './logo.png';
@@ -20,7 +20,7 @@ interface AppMenuProps extends Omit<SideMenuProps, 'headerContent'> {}
  * @returns {JSX.Element} JSX
  */
 const AppMenu = ({ side = 'right', testId = 'menu-app', ...props }: AppMenuProps): JSX.Element => {
-  const { isAuthenticated } = useAuthContext();
+  const { isAuthenticated } = useAuth();
   // REPLACE: load the currently authenticated user
   const { data: user } = useGetUser({ userId: 1 });
 

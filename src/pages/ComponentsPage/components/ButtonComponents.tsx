@@ -73,7 +73,7 @@ const ButtonComponents = ({
         <Text variant="heading3" className="mb-2">
           Properties
         </Text>
-        <Table<ComponentProperty> data={data} columns={columns} />
+        <Table<ComponentProperty, string> data={data} columns={columns} />
       </div>
 
       <Text variant="heading3">Examples</Text>

@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import ErrorBoundary from '../ErrorBoundary';
@@ -31,7 +32,7 @@ describe('ErrorBoundary', () => {
 
   it('should render fallback when error', async () => {
     // ARRANGE
-    jest.spyOn(console, 'error').mockImplementation(() => null);
+    vi.spyOn(console, 'error').mockImplementation(() => null);
     const TestError = (): JSX.Element => {
       throw new Error('test error');
     };

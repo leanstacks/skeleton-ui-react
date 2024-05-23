@@ -1,7 +1,8 @@
-import React, { PropsWithChildren, useContext } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import { UserTokens, useGetUserTokens } from 'api/useGetUserTokens';
 import LoaderSpinner from 'components/Loader/LoaderSpinner';
+import { QueryObserverBaseResult } from '@tanstack/react-query';
 
 /**
  * The `value` provided by the `AuthContext`.
@@ -9,7 +10,7 @@ import LoaderSpinner from 'components/Loader/LoaderSpinner';
 export interface AuthContextValue {
   isAuthenticated: boolean;
   userToken?: UserTokens;
-  refetchUserTokens?: () => any;
+  refetchUserTokens?: () => Promise<QueryObserverBaseResult<UserTokens, Error>>;
 }
 
 /**
@@ -22,7 +23,7 @@ const DEFAULT_CONTEXT_VALUE: AuthContextValue = {
 /**
  * The `AuthContext` instance.
  */
-const AuthContext = React.createContext<AuthContextValue>(DEFAULT_CONTEXT_VALUE);
+export const AuthContext = React.createContext<AuthContextValue>(DEFAULT_CONTEXT_VALUE);
 
 /**
  * The `AuthContextProvider` React component creates, maintains, and provides
@@ -54,14 +55,6 @@ const AuthContextProvider = ({ children }: PropsWithChildren): JSX.Element => {
       )}
     </AuthContext.Provider>
   );
-};
-
-/**
- * The `useAuthContext` hook returns the current `AuthContext` value.
- * @returns {AuthContextValue} The current `AuthContext` value, `AuthContextValue`.
- */
-export const useAuthContext = (): AuthContextValue => {
-  return useContext(AuthContext);
 };
 
 export default AuthContextProvider;

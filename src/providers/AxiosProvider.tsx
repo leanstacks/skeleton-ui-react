@@ -1,7 +1,8 @@
-import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
-import { AuthContextValue, useAuthContext } from './AuthProvider';
+import { AuthContextValue } from './AuthProvider';
+import { useAuth } from 'hooks/useAuth';
 
 /**
  * An Axios request interceptor that adds user authentication headers to
@@ -44,8 +45,8 @@ const notAuthenticatedErrorInterceptor = async (
         ...config,
         headers: {
           ...config?.headers,
-          Authorization: `Bearer ${data.id_token}`,
-          'X-Access-Token': data.access_token,
+          Authorization: `Bearer ${data?.id_token}`,
+          'X-Access-Token': data?.access_token,
         },
       });
     }
@@ -67,7 +68,7 @@ const customAxios = axios.create({
 /**
  * The `AxiosContext` instance.
  */
-const AxiosContext = React.createContext<AxiosInstance>(customAxios);
+export const AxiosContext = React.createContext<AxiosInstance>(customAxios);
 
 /**
  * The `AxiosContextProvider` React component creates, maintains, and provides
@@ -77,7 +78,7 @@ const AxiosContext = React.createContext<AxiosInstance>(customAxios);
  */
 const AxiosContextProvider = ({ children }: PropsWithChildren) => {
   const [isReady, setIsReady] = useState(false);
-  const authContext = useAuthContext();
+  const authContext = useAuth();
 
   useEffect(() => {
     const authRequestInterceptorId = customAxios.interceptors.request.use(async (config) =>
@@ -100,14 +101,6 @@ const AxiosContextProvider = ({ children }: PropsWithChildren) => {
   return (
     <AxiosContext.Provider value={customAxios}>{isReady && <>{children}</>}</AxiosContext.Provider>
   );
-};
-
-/**
- * The `useAxios` hook returns the current `AxiosContext` value.
- * @returns {AxiosInstance} The current `AxiosContext` value, an `AxiosInstance`.
- */
-export const useAxios = (): AxiosInstance => {
-  return useContext(AxiosContext);
 };
 
 export default AxiosContextProvider;

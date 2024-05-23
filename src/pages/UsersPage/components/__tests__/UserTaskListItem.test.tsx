@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { render, screen } from 'test/test-utils';
 
 import { todosFixture } from '__fixtures__/todos';
@@ -42,6 +43,6 @@ describe('UserTaskListItem', () => {
     await screen.findByTestId('user-task-list-item');
 
     // ASSERT
-    expect(screen.getByTestId('user-task-list-item-icon')).toHaveTextContent('task_alt');
+    expect(screen.getByTestId('user-task-list-item-icon').textContent).toBe('task_alt');
   });
 });

@@ -1,14 +1,18 @@
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 import UserListItem from '../UserListItem';
 import { userFixture1 } from '__fixtures__/users';
 import userEvent from '@testing-library/user-event';
 
 // mock select functions from react-router-dom
-const mockNavigate = jest.fn();
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: () => mockNavigate,
-}));
+const mockNavigate = vi.fn();
+vi.mock('react-router-dom', async () => {
+  const original = await vi.importActual('react-router-dom');
+  return {
+    ...original,
+    useNavigate: () => mockNavigate,
+  };
+});
 
 describe('UserListItem', () => {
   it('should render successfully', async () => {

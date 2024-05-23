@@ -6,13 +6,13 @@ import { usersFixture } from '__fixtures__/users';
 import { todosFixture } from '__fixtures__/todos';
 
 export const handlers = [
-  rest.get('https://jsonplaceholder.typicode.com/users', (req, res, ctx) => {
+  rest.get('https://jsonplaceholder.typicode.com/users', (_req, res, ctx) => {
     return res(ctx.json(usersFixture));
   }),
   rest.get('https://jsonplaceholder.typicode.com/users/:userId', (req, res, ctx) => {
     const { userId } = req.params;
     const user = find(usersFixture, { id: Number(userId) });
-    if (!!user) {
+    if (user) {
       return res(ctx.json(user));
     }
     return res(ctx.status(404));

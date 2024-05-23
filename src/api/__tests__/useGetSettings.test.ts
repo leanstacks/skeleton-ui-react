@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { renderHook, waitFor } from 'test/test-utils';
 
 import { settingsFixture } from '__fixtures__/settings';
@@ -7,7 +8,7 @@ import storage from 'utils/storage';
 import { useGetSettings } from 'api/useGetSettings';
 
 describe('useGetSettings', () => {
-  const getItemSpy = jest.spyOn(storage, 'getItem');
+  const getItemSpy = vi.spyOn(storage, 'getItem');
 
   beforeEach(() => {
     getItemSpy.mockReturnValue(JSON.stringify(settingsFixture));

@@ -1,11 +1,11 @@
-import React, { PropsWithChildren, useContext, useMemo } from 'react';
+import React, { PropsWithChildren, useMemo } from 'react';
 
 import { Settings, useGetSettings } from 'api/useGetSettings';
 
 /**
  * The `SettingsContext` instance.
  */
-const SettingsContext = React.createContext<Settings | undefined>(undefined);
+export const SettingsContext = React.createContext<Settings | undefined>(undefined);
 
 /**
  * The `SettingsContextProvider` React component creates, maintains, and provides
@@ -23,20 +23,6 @@ const SettingsContextProvider = ({ children }: PropsWithChildren) => {
       {!isLoading && <>{children}</>}
     </SettingsContext.Provider>
   );
-};
-
-/**
- * The `useSettings` hook returns the current `SettingsContext` value.
- * @returns {Settings} The current `SettingsContext` value, `Settings`.
- * @see {@link Settings}
- */
-export const useSettings = (): Settings => {
-  const context = useContext(SettingsContext);
-  if (!context) {
-    throw new Error('useSettings hook must be used within a SettingsContextProvider');
-  }
-
-  return context;
 };
 
 export default SettingsContextProvider;

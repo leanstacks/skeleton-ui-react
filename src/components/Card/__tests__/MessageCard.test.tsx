@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import MessageCard from '../MessageCard';
@@ -38,7 +39,7 @@ describe('MessageCard', () => {
 
     // ASSERT
     expect(screen.getByTestId('card-message')).toBeDefined();
-    expect(screen.getByTestId('card-message-title')).toHaveTextContent('Title');
+    expect(screen.getByTestId('card-message-title').textContent).toBe('Title');
   });
 
   it('should display icon', async () => {
@@ -48,6 +49,6 @@ describe('MessageCard', () => {
 
     // ASSERT
     expect(screen.getByTestId('card-message')).toBeDefined();
-    expect(screen.getByTestId('card-message-icon')).toHaveTextContent('info');
+    expect(screen.getByTestId('card-message-icon').textContent).toBe('info');
   });
 });

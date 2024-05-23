@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from 'vitest';
 import dayjs from 'dayjs';
 import userEvent from '@testing-library/user-event';
 
@@ -9,7 +10,7 @@ import { toastFixture } from '__fixtures__/toasts';
 import Toast from '../Toast';
 
 describe('Toast', () => {
-  const mockDismiss = jest.fn();
+  const mockDismiss = vi.fn();
 
   it('should render successfully', async () => {
     // ARRANGE

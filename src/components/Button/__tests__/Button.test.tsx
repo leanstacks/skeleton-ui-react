@@ -1,4 +1,6 @@
+import { describe, expect, it } from 'vitest';
 import { render, screen } from 'test/test-utils';
+
 import Button from '../Button';
 
 describe('Button', () => {

@@ -1,7 +1,6 @@
 import { PropsWithTestId } from '@leanstacks/react-common';
 
-import { useToasts } from 'providers/ToastsProvider';
-
+import { useToasts } from 'hooks/useToasts';
 import Toast from './Toast';
 
 /**

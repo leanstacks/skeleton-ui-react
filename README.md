@@ -6,11 +6,11 @@ A serverless, progressive, responsive starter user interface (UI) with React at 
 
 ## About
 
-This project was bootstrapped with the [Create React App](https://github.com/facebook/create-react-app) template.
+This project was bootstrapped with the [Vite](https://vitejs.dev/) React TypeScript template.
 
 The technology stack includes:
 
-- Create React App - the foundation
+- Vite - the foundation
 - React Router Dom - routing
 - TanStack React Query - data manipulation and caching
 - Axios - http client
@@ -23,7 +23,7 @@ The technology stack includes:
 - Tailwind - styling
 - Material Symbols - icons
 - Testing Library React - tests
-- Jest - tests
+- Vitest - tests
 - MSW - API mocking
 - TypeScript
 
@@ -106,13 +106,13 @@ The _Tailwind CSS IntelliSense_ extension is a must-have companion in all projec
 
 ## Configuration
 
-The application is configured using Environment Variables. Because single-page applications are static, environment variable values are injected into the application during the build. The environment variables may be sourced from the environment or `.env` files as described in the [Create React App documentation](https://create-react-app.dev/docs/adding-custom-environment-variables).
+The application is configured using Environment Variables. Because single-page applications are static, environment variable values are injected into the application during the build. The environment variables may be sourced from the environment or `.env` files as described in the [Vite documentation](https://vitejs.dev/guide/env-and-mode.html).
 
 ### `.env` files
 
 > **NOTE:** Because they may contain sensitive information, `.env` files are not committed to the repository.
 
-After project installation and before running the application locally, create the following `.env` files in the project base directory.
+After project installation and before running the application locally, create the following `.env` files in the project base directory. Learn more in the official [Vite guide for environment variables and modes](https://vitejs.dev/guide/env-and-mode.html).
 
 #### `.env.local`
 
@@ -120,90 +120,82 @@ The `.env.local` configuration file provides the configuration values when the a
 
 ```
 # Provided by Pipeline (Simulated)
-REACT_APP_BUILD_DATE=1970-01-01
-REACT_APP_BUILD_TIME=00:00:00
-REACT_APP_BUILD_TS=1970-01-01T00:00:00+0000
-REACT_APP_BUILD_COMMIT_SHA=local
-REACT_APP_BUILD_ENV_CODE=local
-REACT_APP_BUILD_WORKFLOW_NAME=local
-REACT_APP_BUILD_WORKFLOW_RUN_NUMBER=1
-REACT_APP_BUILD_WORKFLOW_RUN_ATTEMPT=1
+VITE_BUILD_DATE=1970-01-01
+VITE_BUILD_TIME=00:00:00
+VITE_BUILD_TS=1970-01-01T00:00:00+0000
+VITE_BUILD_COMMIT_SHA=local
+VITE_BUILD_ENV_CODE=local
+VITE_BUILD_WORKFLOW_NAME=local
+VITE_BUILD_WORKFLOW_RUN_NUMBER=1
+VITE_BUILD_WORKFLOW_RUN_ATTEMPT=1
 
 # API Configuration
-REACT_APP_BASE_URL_API=https://jsonplaceholder.typicode.com
+VITE_BASE_URL_API=https://jsonplaceholder.typicode.com
 
 # Toasts Configuration
-REACT_APP_TOAST_AUTO_DISMISS_MILLIS=5000
+VITE_TOAST_AUTO_DISMISS_MILLIS=5000
 ```
 
-#### `.env.test`
+#### `.env.test.local`
 
-The `.env.test` configuration file provides configuration values used when unit tests are executed on a developer's local machine.
+The `.env.test.local` configuration file provides configuration values used when unit tests are executed on a developer's local machine.
 
 > **NOTE:** Use the same values when running tests in a CI/CD pipeline.
 
 ```
 # Provided by Pipeline (Simulated)
-REACT_APP_BUILD_DATE=1970-01-01
-REACT_APP_BUILD_TIME=00:00:00
-REACT_APP_BUILD_TS=1970-01-01T00:00:00+0000
-REACT_APP_BUILD_COMMIT_SHA=test
-REACT_APP_BUILD_ENV_CODE=test
-REACT_APP_BUILD_WORKFLOW_NAME=test
-REACT_APP_BUILD_WORKFLOW_RUN_NUMBER=1
-REACT_APP_BUILD_WORKFLOW_RUN_ATTEMPT=1
+VITE_BUILD_DATE=1970-01-01
+VITE_BUILD_TIME=00:00:00
+VITE_BUILD_TS=1970-01-01T00:00:00+0000
+VITE_BUILD_COMMIT_SHA=test
+VITE_BUILD_ENV_CODE=test
+VITE_BUILD_WORKFLOW_NAME=test
+VITE_BUILD_WORKFLOW_RUN_NUMBER=1
+VITE_BUILD_WORKFLOW_RUN_ATTEMPT=1
 
 # API Configuration
-REACT_APP_BASE_URL_API=https://jsonplaceholder.typicode.com
+VITE_BASE_URL_API=https://jsonplaceholder.typicode.com
 
 # Toasts Configuration
-REACT_APP_TOAST_AUTO_DISMISS_MILLIS=1500
+VITE_TOAST_AUTO_DISMISS_MILLIS=1500
 ```
 
 ## Available Scripts
 
-In the project directory, you can run:
+Many of the scripts leverage the [Vite CLI](https://vitejs.dev/guide/cli.html) or the [Vitest CLI](https://vitest.dev/guide/cli.html). Read more about them in their respective official guides.
 
-### `npm start`
+In the project base directory, the following commands are available to run.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `npm run dev`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Runs the app in the development mode.
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+The page will reload if you make edits.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
+See the section about [running tests](https://vitest.dev/guide/cli.html) for more information.
 
-### `npm test:ci`
+### `npm run test:ci`
 
 Executes the test runner in `CI` mode and produces a coverage report. With `CI` mode enabled, the test runner executes all tests one time and prints a summary report to the console. A code coverage report is printed to the console immediately following the test summary.
 
 A detailed test coverage report is created in the `./coverage` directory.
 
+> **NOTE:** This is the command which should be utilized by CI/CD platforms.
+
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `dist` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+See the official guide for more information about [building for production](https://vitejs.dev/guide/build.html) and [deploying a static site](https://vitejs.dev/guide/static-deploy.html).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run lint`
 
-### `npm run eject`
-
-> **WARNING:** this is a one-way operation. Once you `eject`, you can’t go back!
-
-> **TIP:** if you are thinking of ejecting, consider using [`craco`](https://craco.js.org/) instead.
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Runs the eslint static code analysis and prints the results to the console.
 
 ## DevOps
 
@@ -235,7 +227,7 @@ This project uses GitHub Actions to perform DevOps automation activities such as
 
 ## Related Information
 
-- [Create React App][cra]
+- [Vite][vite]
 - [TanStack][tanstack]
 - [Axios][axios]
 - [Formik][formik]
@@ -247,7 +239,7 @@ This project uses GitHub Actions to perform DevOps automation activities such as
 
 [repo]: https://github.com/leanstacks/skeleton-ui-react 'GitHub Repository'
 [nvm]: https://github.com/nvm-sh/nvm 'Node Version Manager'
-[cra]: https://create-react-app.dev/ 'Create React App'
+[vite]: https://vitejs.dev/ 'Vite'
 [axios]: https://axios-http.com/ 'Axios'
 [formik]: https://formik.org/ 'Formik'
 [yup]: https://github.com/jquense/yup 'Yup'

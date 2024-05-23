@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 
 import * as UseGetUser from 'api/useGetUser';
@@ -7,12 +8,15 @@ import { UseQueryResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
 // mock select functions from react-router-dom
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useParams: () => ({
-    userId: '1',
-  }),
-}));
+vi.mock('react-router-dom', async () => {
+  const original = await vi.importActual('react-router-dom');
+  return {
+    ...original,
+    useParams: () => ({
+      userId: '1',
+    }),
+  };
+});
 
 describe('UserList', () => {
   it('should render successfully', async () => {
@@ -53,7 +57,7 @@ describe('UserList', () => {
 
   it('should render loading state', async () => {
     // ARRANGE
-    const useGetUsersSpy = jest.spyOn(UseGetUsers, 'useGetUsers');
+    const useGetUsersSpy = vi.spyOn(UseGetUsers, 'useGetUsers');
     useGetUsersSpy.mockReturnValue({
       data: undefined,
       error: undefined,
@@ -68,7 +72,7 @@ describe('UserList', () => {
 
   it('should render error state', async () => {
     // ARRANGE
-    const useGetUsersSpy = jest.spyOn(UseGetUsers, 'useGetUsers');
+    const useGetUsersSpy = vi.spyOn(UseGetUsers, 'useGetUsers');
     useGetUsersSpy.mockReturnValue({
       data: undefined,
       error: new AxiosError(),

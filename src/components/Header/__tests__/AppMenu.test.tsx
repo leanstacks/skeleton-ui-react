@@ -1,19 +1,21 @@
-import { queryClient, render, screen } from 'test/test-utils';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { render, screen } from 'test/test-utils';
+import { queryClient } from 'test/query-client';
 import { UseQueryResult } from '@tanstack/react-query';
 
-import * as UseAuthContext from 'providers/AuthProvider';
+import * as UseAuth from 'hooks/useAuth';
 import * as UseGetUser from 'api/useGetUser';
 import { userFixture1 } from '__fixtures__/users';
 
 import AppMenu from '../AppMenu';
 
 describe('AppMenu', () => {
-  const useAuthContextSpy = jest.spyOn(UseAuthContext, 'useAuthContext');
-  const useGetUserSpy = jest.spyOn(UseGetUser, 'useGetUser');
+  const useAuthSpy = vi.spyOn(UseAuth, 'useAuth');
+  const useGetUserSpy = vi.spyOn(UseGetUser, 'useGetUser');
 
   beforeEach(() => {
     queryClient.clear();
-    useAuthContextSpy.mockReturnValue({
+    useAuthSpy.mockReturnValue({
       isAuthenticated: true,
     });
     useGetUserSpy.mockReturnValue({
@@ -61,7 +63,7 @@ describe('AppMenu', () => {
 
   it('should render unauthenticated content', async () => {
     // ARRANGE
-    useAuthContextSpy.mockReturnValue({
+    useAuthSpy.mockReturnValue({
       isAuthenticated: false,
     });
     useGetUserSpy.mockReturnValue({

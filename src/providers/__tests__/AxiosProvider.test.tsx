@@ -1,21 +1,23 @@
-import { render, renderHook, screen, waitFor } from 'test/test-utils';
-
-import * as AuthProvider from '../AuthProvider';
-
-import AxiosContextProvider, { useAxios } from 'providers/AxiosProvider';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useEffect, useState } from 'react';
 import { InternalAxiosRequestConfig } from 'axios';
+import { render, screen } from 'test/test-utils';
+
+import { useAxios } from 'hooks/useAxios';
+import * as UseAuth from 'hooks/useAuth';
 import { userTokensFixture } from '__fixtures__/tokens';
 
+import AxiosContextProvider from 'providers/AxiosProvider';
+
 describe('AxiosProvider', () => {
-  const useAuthContextSpy = jest.spyOn(AuthProvider, 'useAuthContext');
-  const refetchUserTokensMock = jest.fn();
+  const useAuthSpy = vi.spyOn(UseAuth, 'useAuth');
+  const refetchUserTokensMock = vi.fn();
 
   beforeEach(() => {
     refetchUserTokensMock.mockReturnValue({
       data: userTokensFixture,
     });
-    useAuthContextSpy.mockReturnValue({
+    useAuthSpy.mockReturnValue({
       isAuthenticated: true,
       userToken: userTokensFixture,
       refetchUserTokens: refetchUserTokensMock,
@@ -72,28 +74,5 @@ describe('AxiosProvider', () => {
     expect(screen.getByText('Bearer id-token')).toBeDefined();
     expect(screen.getByText('access-token')).toBeDefined();
     expect(refetchUserTokensMock).not.toHaveBeenCalled();
-  });
-});
-
-describe('useAxios', () => {
-  const useAuthContextSpy = jest.spyOn(AuthProvider, 'useAuthContext');
-  const refetchUserTokensMock = jest.fn();
-
-  beforeEach(() => {
-    useAuthContextSpy.mockReturnValue({
-      isAuthenticated: true,
-      userToken: userTokensFixture,
-      refetchUserTokens: refetchUserTokensMock,
-    });
-  });
-
-  it('should return context', async () => {
-    // ARRANGE
-    const { result } = renderHook(() => useAxios());
-    await waitFor(() => expect(result.current).not.toBeNull());
-
-    // ASSERT
-    expect(result.current).toBeDefined();
-    expect(result.current.request).toBeDefined();
   });
 });

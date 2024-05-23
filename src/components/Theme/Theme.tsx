@@ -2,7 +2,7 @@ import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import { PropsWithChildren } from 'react';
 import classNames from 'classnames';
 
-import { useSettings } from 'providers/SettingsProvider';
+import { useSettings } from 'hooks/useSettings';
 
 /**
  * Properties for the `Theme` component.

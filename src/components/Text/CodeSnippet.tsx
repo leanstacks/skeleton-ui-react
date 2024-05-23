@@ -1,7 +1,6 @@
 import { SandpackProvider, SandpackLayout, SandpackCodeEditor } from '@codesandbox/sandpack-react';
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
-import { useSettings } from 'providers/SettingsProvider';
-
+import { useSettings } from 'hooks/useSettings';
 /**
  * Properties for the `CodeSnippet` React component.
  * @param {string} code - The code snippet.
