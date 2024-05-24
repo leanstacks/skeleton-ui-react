@@ -4,6 +4,8 @@ import StandardLayout from 'components/Layout/StandardLayout';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import PrivateOutlet from './PrivateOutlet';
 import LandingPage from 'pages/LandingPage/LandingPage';
+import SigninPage from 'pages/SigninPage/SigninPage';
+import SignoutPage from 'pages/SignoutPage/SignoutPage';
 import DashboardPage from 'pages/DashboardPage/DashboardPage';
 import SettingsPage from 'pages/SettingsPage/SettingsPage';
 import AppearanceSettings from 'pages/SettingsPage/components/AppearanceSettings';
@@ -34,7 +36,16 @@ export const routes: RouteObject[] = [
         element: <LandingPage />,
       },
       {
+        path: 'auth/signin',
+        element: <SigninPage />,
+      },
+      {
+        path: 'auth/signout',
+        element: <SignoutPage />,
+      },
+      {
         path: 'app',
+        element: <PrivateOutlet />,
         children: [
           { index: true, element: <DashboardPage /> },
           {
@@ -103,11 +114,6 @@ export const routes: RouteObject[] = [
             ],
           },
         ],
-      },
-      {
-        path: 'private',
-        element: <PrivateOutlet />,
-        children: [{ index: true, element: <DashboardPage /> }],
       },
     ],
   },
