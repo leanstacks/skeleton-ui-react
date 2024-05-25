@@ -43,11 +43,13 @@ export const useGetUserTokens = (
           // tokens not expired
           return resolve(tokens);
         } else {
-          reject(new Error('Tokens expired.'));
+          // tokens expired
+          return reject(new Error('Tokens expired.'));
         }
-      } else {
-        reject(new Error('Tokens not found.'));
       }
+
+      // tokens not found
+      return reject(new Error('Tokens not found.'));
     });
   };
 

@@ -3,18 +3,19 @@ import { UseQueryResult } from '@tanstack/react-query';
 
 import { render, screen } from 'test/test-utils';
 
-import * as UseGetUser from 'api/useGetUser';
+import { User } from 'api/useGetUser';
+import * as UseGetCurrentUser from 'api/useGetCurrentUser';
 import { userFixture1 } from '__fixtures__/users';
 
 import SettingsPage from '../SettingsPage';
 
 describe('SettingsPage', () => {
-  const useGetUserSpy = vi.spyOn(UseGetUser, 'useGetUser');
+  const useGetCurrentUserSpy = vi.spyOn(UseGetCurrentUser, 'useGetCurrentUser');
 
   beforeEach(() => {
-    useGetUserSpy.mockReturnValue({
+    useGetCurrentUserSpy.mockReturnValue({
       data: userFixture1,
-    } as unknown as UseQueryResult<UseGetUser.User, Error>);
+    } as unknown as UseQueryResult<User, Error>);
   });
 
   it('should render successfully', async () => {
@@ -37,9 +38,9 @@ describe('SettingsPage', () => {
 
   it('should render header loader', async () => {
     // ARRANGE
-    useGetUserSpy.mockReturnValue({
+    useGetCurrentUserSpy.mockReturnValue({
       data: null,
-    } as unknown as UseQueryResult<UseGetUser.User, Error>);
+    } as unknown as UseQueryResult<User, Error>);
 
     render(<SettingsPage />);
     await screen.findByTestId('page-settings-header-loader');
