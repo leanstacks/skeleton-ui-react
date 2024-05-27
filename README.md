@@ -4,6 +4,16 @@ A serverless, progressive, responsive starter user interface (UI) with React at 
 
 [![CI](https://github.com/leanstacks/skeleton-ui-react/actions/workflows/ci.yml/badge.svg)](https://github.com/leanstacks/skeleton-ui-react/actions/workflows/ci.yml)
 
+## Helpful Hints
+
+### Data
+
+This project's API integration uses the simulated REST endpoints made available by [JSON Placeholder](https://jsonplaceholder.typicode.com/).
+
+### Authentication
+
+When running the application, you may sign in with any of the JSON Placeholder [Users](https://jsonplaceholder.typicode.com/users). Simply enter the _Username_ value from any user in the API and use any value for the _Password_ so long as it meets the password validation requirements. For example, try username `Bret` and password `aB123456789!`.
+
 ## About
 
 This project was bootstrapped with the [Vite](https://vitejs.dev/) React TypeScript template.
