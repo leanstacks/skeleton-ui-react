@@ -1,4 +1,6 @@
-import { PropsWithTestId } from '@leanstacks/react-common';
+import { useState } from 'react';
+import classNames from 'classnames';
+import { Alert, AlertVariant, PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import { Form, Formik } from 'formik';
 import { object, string } from 'yup';
 import { useNavigate } from 'react-router-dom';
@@ -6,12 +8,14 @@ import { Button } from '@leanstacks/react-common';
 
 import { useSignin } from '../api/useSignin';
 import TextField from 'components/Form/TextField';
+import Icon from 'components/Icon/Icon';
 
 /**
  * Properties for the `SigninForm` component.
+ * @see {@link PropsWithClassName}
  * @see {@link PropsWithTestId}
  */
-interface SigninFormProps extends PropsWithTestId {}
+interface SigninFormProps extends PropsWithClassName, PropsWithTestId {}
 
 /**
  * Signin form values.
@@ -46,20 +50,36 @@ const validationSchema = object<SigninFormValues>({
  * @param {SigninFormProps} props - Component properties.
  * @returns {JSX.Element} JSX
  */
-const SigninForm = ({ testId = 'form-signin' }: SigninFormProps): JSX.Element => {
+const SigninForm = ({ className, testId = 'form-signin' }: SigninFormProps): JSX.Element => {
+  const [error, setError] = useState<string>('');
   const { mutate: signin } = useSignin();
   const navigate = useNavigate();
 
   return (
-    <div data-testid={testId}>
+    <div className={classNames('lg:w-2/3 xl:w-1/2', className)} data-testid={testId}>
+      {error && (
+        <Alert
+          variant={AlertVariant.Error}
+          className="mb-4 flex items-center gap-2 rounded-none"
+          testId={`${testId}-alert`}
+        >
+          <Icon name="error" />
+          {error}
+        </Alert>
+      )}
       <Formik<SigninFormValues>
         initialValues={{ username: '', password: '' }}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
+          setError('');
           signin(values.username, {
             onSuccess: () => {
               setSubmitting(false);
               navigate('/');
+            },
+            onError: (err: Error) => {
+              setError(err.message);
+              setSubmitting(false);
             },
           });
         }}
@@ -69,7 +89,7 @@ const SigninForm = ({ testId = 'form-signin' }: SigninFormProps): JSX.Element =>
             <TextField
               name="username"
               label="Username"
-              className="mb-4 lg:w-2/3 xl:w-1/2"
+              className="mb-4"
               autoComplete="off"
               maxLength={30}
               disabled={isSubmitting}
@@ -80,7 +100,7 @@ const SigninForm = ({ testId = 'form-signin' }: SigninFormProps): JSX.Element =>
               type="password"
               name="password"
               label="Password"
-              className="mb-4 lg:w-2/3 xl:w-1/2"
+              className="mb-4"
               autoComplete="off"
               maxLength={30}
               disabled={isSubmitting}
