@@ -1,7 +1,8 @@
 import { UseQueryOptions, UseQueryResult, useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 
-import { QueryKeys } from 'utils/constants';
+import { QueryKeys, StorageKeys } from 'utils/constants';
+import storage from 'utils/storage';
 
 /**
  * A `UserTokens` object contains OAuth access, id, and refresh tokens
@@ -31,17 +32,24 @@ export const useGetUserTokens = (
    */
   const getUserTokens = async (): Promise<UserTokens> => {
     // REPLACE: fetch tokens from your IdP
-    return new Promise((resolve) => {
-      const expires_at = dayjs().add(1, 'hour').toISOString();
-      const tokens: UserTokens = {
-        access_token: 'access-token',
-        id_token: 'id-token',
-        refresh_token: 'refresh-token',
-        token_type: 'bearer',
-        expires_in: 3600,
-        expires_at,
-      };
-      return resolve(tokens);
+    return new Promise((resolve, reject) => {
+      const storedTokens = storage.getItem(StorageKeys.UserTokens);
+
+      if (storedTokens) {
+        // tokens found
+        const tokens = JSON.parse(storedTokens) as unknown as UserTokens;
+        const now = dayjs();
+        if (now.isBefore(tokens.expires_at)) {
+          // tokens not expired
+          return resolve(tokens);
+        } else {
+          // tokens expired
+          return reject(new Error('Tokens expired.'));
+        }
+      }
+
+      // tokens not found
+      return reject(new Error('Tokens not found.'));
     });
   };
 

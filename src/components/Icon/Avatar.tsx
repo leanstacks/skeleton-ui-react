@@ -82,7 +82,7 @@ const Avatar = ({
   return (
     <div
       className={classNames(
-        'flex size-8 items-center justify-center text-neutral-100',
+        'flex size-8 items-center justify-center font-bold text-neutral-100',
         backgroundColor,
         className,
       )}

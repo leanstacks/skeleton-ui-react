@@ -3,24 +3,25 @@ import { render, screen } from 'test/test-utils';
 import { queryClient } from 'test/query-client';
 import { UseQueryResult } from '@tanstack/react-query';
 
+import { User } from 'api/useGetUser';
 import * as UseAuth from 'hooks/useAuth';
-import * as UseGetUser from 'api/useGetUser';
+import * as UseGetCurrentUser from 'api/useGetCurrentUser';
 import { userFixture1 } from '__fixtures__/users';
 
 import AppMenu from '../AppMenu';
 
 describe('AppMenu', () => {
   const useAuthSpy = vi.spyOn(UseAuth, 'useAuth');
-  const useGetUserSpy = vi.spyOn(UseGetUser, 'useGetUser');
+  const useGetCurrentUserSpy = vi.spyOn(UseGetCurrentUser, 'useGetCurrentUser');
 
   beforeEach(() => {
     queryClient.clear();
     useAuthSpy.mockReturnValue({
       isAuthenticated: true,
     });
-    useGetUserSpy.mockReturnValue({
+    useGetCurrentUserSpy.mockReturnValue({
       data: userFixture1,
-    } as unknown as UseQueryResult<UseGetUser.User>);
+    } as unknown as UseQueryResult<User>);
   });
 
   it('should render successfully', async () => {
@@ -66,9 +67,9 @@ describe('AppMenu', () => {
     useAuthSpy.mockReturnValue({
       isAuthenticated: false,
     });
-    useGetUserSpy.mockReturnValue({
+    useGetCurrentUserSpy.mockReturnValue({
       data: undefined,
-    } as unknown as UseQueryResult<UseGetUser.User>);
+    } as unknown as UseQueryResult<User>);
     render(<AppMenu />);
     await screen.findByTestId('menu-app');
 

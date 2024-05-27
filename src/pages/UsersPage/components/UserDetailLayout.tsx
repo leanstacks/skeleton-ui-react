@@ -5,6 +5,7 @@ import { useGetUser } from 'api/useGetUser';
 import Text from 'components/Text/Text';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import Icon from 'components/Icon/Icon';
+import Avatar from 'components/Icon/Avatar';
 
 /**
  * Properties for the `UserDetailLayout` React component.
@@ -44,9 +45,12 @@ const UserDetailLayout = ({
       )}
       {!!user && (
         <div data-testid={`${testId}-user`}>
-          <Text variant="heading2" className="mb-2">
-            {user.name}
-          </Text>
+          <div className="flex items-center gap-2">
+            <Avatar value={user.name} className="rounded-full" />
+            <Text variant="heading2" className="">
+              {user.name}
+            </Text>
+          </div>
 
           <div className="mb-8 flex flex-wrap items-center gap-4 text-sm opacity-75">
             <div className="flex items-center gap-1">

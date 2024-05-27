@@ -15,6 +15,7 @@ export enum QueryKeys {
  */
 export enum StorageKeys {
   Settings = 'react-starter.settings',
+  User = 'react-starter.user',
   UserTokens = 'react-starter.user-tokens',
 }
 

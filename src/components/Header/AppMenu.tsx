@@ -1,5 +1,5 @@
 import { useAuth } from 'hooks/useAuth';
-import { useGetUser } from 'api/useGetUser';
+import { useGetCurrentUser } from 'api/useGetCurrentUser';
 
 import logo from './logo.png';
 import SideMenu, { SideMenuProps } from 'components/Menu/SideMenu/SideMenu';
@@ -21,8 +21,7 @@ interface AppMenuProps extends Omit<SideMenuProps, 'headerContent'> {}
  */
 const AppMenu = ({ side = 'right', testId = 'menu-app', ...props }: AppMenuProps): JSX.Element => {
   const { isAuthenticated } = useAuth();
-  // REPLACE: load the currently authenticated user
-  const { data: user } = useGetUser({ userId: 1 });
+  const { data: user } = useGetCurrentUser();
 
   const renderHeader = () => {
     if (isAuthenticated && user) {

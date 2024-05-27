@@ -1,4 +1,4 @@
-import { useGetUser } from 'api/useGetUser';
+import { useGetCurrentUser } from 'api/useGetCurrentUser';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import Page from 'components/Page/Page';
 
@@ -8,7 +8,7 @@ import Page from 'components/Page/Page';
  * @returns {JSX.Element} JSX
  */
 const DashboardPage = (): JSX.Element => {
-  const { data: user } = useGetUser({ userId: 1 });
+  const { data: user } = useGetCurrentUser();
 
   return (
     <Page testId="page-dashboard">

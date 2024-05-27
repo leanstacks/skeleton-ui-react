@@ -2,18 +2,19 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 import { UseQueryResult } from '@tanstack/react-query';
 
+import { User } from 'api/useGetUser';
 import { userFixture1 } from '__fixtures__/users';
-import * as UseGetUser from 'api/useGetUser';
+import * as UseGetCurrentUser from 'api/useGetCurrentUser';
 
 import DashboardPage from '../DashboardPage';
 
 describe('DashboardPage', () => {
-  const useGetUserSpy = vi.spyOn(UseGetUser, 'useGetUser');
+  const useGetCurrentUserSpy = vi.spyOn(UseGetCurrentUser, 'useGetCurrentUser');
 
   beforeEach(() => {
-    useGetUserSpy.mockReturnValue({
+    useGetCurrentUserSpy.mockReturnValue({
       data: userFixture1,
-    } as unknown as UseQueryResult<UseGetUser.User, Error>);
+    } as unknown as UseQueryResult<User, Error>);
   });
 
   it('should render successfully', async () => {
@@ -36,8 +37,8 @@ describe('DashboardPage', () => {
 
   it('should render loader when user not available', async () => {
     // ARRANGE
-    useGetUserSpy.mockReturnValueOnce({ data: undefined } as unknown as UseQueryResult<
-      UseGetUser.User,
+    useGetCurrentUserSpy.mockReturnValueOnce({ data: undefined } as unknown as UseQueryResult<
+      User,
       Error
     >);
     render(<DashboardPage />);
