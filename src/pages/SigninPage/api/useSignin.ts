@@ -62,6 +62,7 @@ export const useSignin = () => {
     mutationFn: signin,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.UserTokens] });
+      queryClient.invalidateQueries({ queryKey: [QueryKeys.Users, 'current'] });
     },
   });
 };
