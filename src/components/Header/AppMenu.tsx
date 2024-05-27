@@ -21,7 +21,6 @@ interface AppMenuProps extends Omit<SideMenuProps, 'headerContent'> {}
  */
 const AppMenu = ({ side = 'right', testId = 'menu-app', ...props }: AppMenuProps): JSX.Element => {
   const { isAuthenticated } = useAuth();
-  // REPLACE: load the currently authenticated user
   const { data: user } = useGetCurrentUser();
 
   const renderHeader = () => {
