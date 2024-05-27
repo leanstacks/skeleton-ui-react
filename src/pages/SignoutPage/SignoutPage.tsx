@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import LoaderSpinner from 'components/Loader/LoaderSpinner';
 import { useSignout } from './api/useSignout';
+import LoaderSpinner from 'components/Loader/LoaderSpinner';
 import Page from 'components/Page/Page';
 
 /**
