@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useGetCurrentUser } from 'api/useGetCurrentUser';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import Page from 'components/Page/Page';
@@ -9,6 +11,7 @@ import UserTasksCard from 'pages/UsersPage/components/UserTasksCard';
  * @returns {JSX.Element} JSX
  */
 const DashboardPage = (): JSX.Element => {
+  const { t } = useTranslation();
   const { data: user } = useGetCurrentUser();
 
   return (
@@ -18,7 +21,8 @@ const DashboardPage = (): JSX.Element => {
           <div className="col-span-2">
             {user ? (
               <h1 className="text-xl">
-                Welcome <span data-testid="user-display-name">{user.name}</span>
+                <span className="capitalize">{t('welcome')}</span>{' '}
+                <span data-testid="user-display-name">{user.name}</span>
               </h1>
             ) : (
               <LoaderSkeleton className="h-7" testId="page-dashboard-loader" />
