@@ -1,6 +1,6 @@
+import { ReactNode, useState } from 'react';
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
-import { ReactNode, useState } from 'react';
 
 /**
  * Properties for the `Dropdown` component.
@@ -55,7 +55,7 @@ const Dropdown = ({
   const [hidden, setHidden] = useState<boolean>(true);
 
   return (
-    <div className={classNames('', className)} data-testid={testId}>
+    <div className={className} data-testid={testId}>
       <div
         className={classNames('absolute left-0 top-0 z-[1000] h-screen w-screen', {
           hidden: hidden,
