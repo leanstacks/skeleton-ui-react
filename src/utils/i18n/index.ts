@@ -5,30 +5,39 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { StorageKeys } from 'utils/constants';
 
 // translation resources
-import translationsEN from './translations/en/en.json';
-import translationsES from './translations/es/es.json';
-import translationsFR from './translations/fr/fr.json';
+import en from './locales/en';
+import es from './locales/es';
+import fr from './locales/fr';
 
 const resources = {
-  en: { translation: translationsEN },
-  es: { translation: translationsES },
-  fr: { translation: translationsFR },
+  en,
+  es,
+  fr,
 };
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    // logging
     debug: true,
-    detection: {
-      lookupLocalStorage: StorageKeys.Language,
-    },
+
+    // languages, namespaces, and resources
+    supportedLngs: ['en', 'es', 'fr'],
     fallbackLng: 'en',
+    ns: ['common'],
+    defaultNS: 'common',
+    resources,
+
+    // translation defaults
     interpolation: {
       escapeValue: false,
     },
-    resources,
-    supportedLngs: ['en', 'es', 'fr'],
+
+    // plugin - language detector
+    detection: {
+      lookupLocalStorage: StorageKeys.Language,
+    },
   });
 
 export default i18n;
