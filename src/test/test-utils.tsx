@@ -6,6 +6,8 @@ import {
   RenderHookOptions,
   RenderOptions,
 } from '@testing-library/react';
+
+import 'utils/i18n';
 import WithAllProviders from './WithAllProviders';
 
 const customRender = (ui: React.ReactElement, options?: RenderOptions, { route = '/' } = {}) => {

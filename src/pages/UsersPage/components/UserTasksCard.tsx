@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import filter from 'lodash/filter';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 import { useGetUserTasks } from '../api/useGetUserTasks';
 import Card, { CardProps } from 'components/Card/Card';
@@ -31,20 +32,21 @@ const UserTasksCard = ({
   ...props
 }: UserTasksCardProps): JSX.Element => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { data: tasks, error, isLoading } = useGetUserTasks({ userId });
   const incompleteTasks = filter(tasks, { completed: false });
 
   const tasksMessage = useMemo(() => {
     if (error) {
-      return 'A problem occurred fetching your tasks.';
+      return t('task.errors.fetchingList', { ns: 'users' });
     }
 
     if (incompleteTasks.length === 0) {
-      return 'You are all caught up!';
+      return t('task.allComplete', { ns: 'users' });
     }
 
-    return `You have ${incompleteTasks.length} tasks to complete.`;
-  }, [error, incompleteTasks]);
+    return t('task.toComplete', { ns: 'users', val: incompleteTasks.length });
+  }, [error, incompleteTasks, t]);
 
   return (
     <div onClick={() => navigate(`/app/users/${userId}/tasks`)} data-testid={testId}>
@@ -63,7 +65,7 @@ const UserTasksCard = ({
           </div>
         ) : (
           <div>
-            <div className="text-xl font-bold">Tasks</div>
+            <div className="text-xl font-bold capitalize">{t('task.tasks', { ns: 'users' })}</div>
             <div data-testid={`${testId}-message`}>{tasksMessage}</div>
           </div>
         )}

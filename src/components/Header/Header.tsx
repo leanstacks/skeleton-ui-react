@@ -6,6 +6,7 @@ import logo from './logo.png';
 import ThemeToggle from 'components/Button/ThemeToggle';
 import AppMenu from './AppMenu';
 import MenuButton from 'components/Menu/MenuButton';
+import LanguageToggle from 'components/Button/LanguageToggle';
 
 /**
  * Properties for the `Header` component.
@@ -33,6 +34,7 @@ const Header = ({ testId = 'header' }: HeaderProps): JSX.Element => {
         </Link>
       </div>
       <div className="flex items-center">
+        <LanguageToggle />
         <ThemeToggle />
         <MenuButton Menu={AppMenu} />
       </div>

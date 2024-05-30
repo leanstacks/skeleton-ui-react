@@ -1,0 +1,11 @@
+{
+  "user": {},
+  "task": {
+    "allComplete": "Toutes vos tâches sont terminées!",
+    "errors": {
+      "fetchingList": "Un problème est survenu lors de la récupération de vos tâches."
+    },
+    "tasks": "tâches",
+    "toComplete": "Vous avez {{val}} tâche à accomplir."
+  }
+}
