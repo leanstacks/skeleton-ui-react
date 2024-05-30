@@ -1,7 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
-import 'utils/i18n';
 import { StorageKeys } from 'utils/constants';
 import { render, screen } from 'test/test-utils';
 import storage from 'utils/storage';

@@ -21,7 +21,7 @@ const DashboardPage = (): JSX.Element => {
           <div className="col-span-2">
             {user ? (
               <h1 className="text-xl">
-                <span className="capitalize">{t('welcome')}</span>{' '}
+                <span className="capitalize">{t('welcome', { ns: 'common' })}</span>{' '}
                 <span data-testid="user-display-name">{user.name}</span>
               </h1>
             ) : (

@@ -1,6 +1,7 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
+import { useTranslation } from 'react-i18next';
 
 import Link from 'components/Link/Link';
 
@@ -19,6 +20,7 @@ interface FooterProps extends PropsWithClassName, PropsWithTestId {}
  * @see {@link FooterProps}
  */
 const Footer = ({ className, testId = 'footer' }: FooterProps): JSX.Element => {
+  const { t } = useTranslation();
   const year = dayjs().format('YYYY');
 
   return (
@@ -28,21 +30,21 @@ const Footer = ({ className, testId = 'footer' }: FooterProps): JSX.Element => {
         <div className="mx-2">
           <Link
             to="https://leanstacks.net/privacy.html"
-            title="Privacy Policy"
+            title={t('privacyPolicy', { ns: 'common' })}
             target="_blank"
             className="text-inherit"
           >
-            Privacy
+            {t('privacy', { ns: 'common' })}
           </Link>
         </div>
         <div className="mx-2">
           <Link
             to="https://leanstacks.net/terms.html"
-            title="Terms and Conditions"
+            title={t('termsAndConditions', { ns: 'common' })}
             target="_blank"
             className="text-inherit"
           >
-            Terms
+            {t('terms', { ns: 'common' })}
           </Link>
         </div>
       </div>

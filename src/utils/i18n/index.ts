@@ -9,12 +9,6 @@ import en from './locales/en';
 import es from './locales/es';
 import fr from './locales/fr';
 
-const resources = {
-  en,
-  es,
-  fr,
-};
-
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -25,9 +19,13 @@ i18n
     // languages, namespaces, and resources
     supportedLngs: ['en', 'es', 'fr'],
     fallbackLng: 'en',
-    ns: ['common'],
+    ns: ['common', 'users'],
     defaultNS: 'common',
-    resources,
+    resources: {
+      en,
+      es,
+      fr,
+    },
 
     // translation defaults
     interpolation: {

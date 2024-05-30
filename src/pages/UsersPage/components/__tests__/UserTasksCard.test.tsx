@@ -1,12 +1,12 @@
 import { render, screen } from 'test/test-utils';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-
-import * as UseGetUserTasks from '../../api/useGetUserTasks';
-
-import UserTasksCard from '../UserTasksCard';
-import { todosFixture } from '__fixtures__/todos';
 import { UseQueryResult } from '@tanstack/react-query';
 import userEvent from '@testing-library/user-event';
+
+import * as UseGetUserTasks from '../../api/useGetUserTasks';
+import { todosFixture } from '__fixtures__/todos';
+
+import UserTasksCard from '../UserTasksCard';
 
 // mock select functions from react-router-dom
 const mockNavigate = vi.fn();
@@ -96,7 +96,7 @@ describe('UserTasksCard', () => {
 
     // ASSERT
     expect(screen.getByTestId('card-user-tasks-message').textContent).toBe(
-      'You are all caught up!',
+      'All your tasks are complete!',
     );
   });
 

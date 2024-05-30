@@ -1,4 +1,5 @@
 import { Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { useAuth } from 'hooks/useAuth';
 import Page from 'components/Page/Page';
@@ -12,6 +13,7 @@ import Page from 'components/Page/Page';
  * @returns {JSX.Element} JSX
  */
 const LandingPage = (): JSX.Element => {
+  const { t } = useTranslation();
   const authContext = useAuth();
 
   if (authContext.isAuthenticated) {
@@ -21,9 +23,11 @@ const LandingPage = (): JSX.Element => {
   return (
     <Page testId="page-landing">
       <div className="container mx-auto min-h-[50vh]">
-        <h1 className="mb-4 pt-32 text-4xl md:mb-8 md:text-8xl">Let's get started</h1>
+        <h1 className="mb-4 pt-32 text-4xl md:mb-8 md:text-8xl">
+          {t('letsGetStarted', { ns: 'common' })}
+        </h1>
 
-        <div className="opacity-60 md:text-2xl">Creating React apps just got a lot simpler</div>
+        <div className="opacity-60 md:text-2xl">{t('creatingReactApps', { ns: 'common' })}</div>
       </div>
     </Page>
   );
