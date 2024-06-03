@@ -95,6 +95,20 @@ const BadgeComponents = ({
           code={`<Badge className='!bg-blue-500' testId='my-badge'>19</Badge>`}
         />
       </div>
+
+      <div className="my-8">
+        <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
+          <Badge className="!bg-neutral-500 uppercase" testId="badge-status-closed">
+            Closed
+          </Badge>
+        </div>
+        <CodeSnippet
+          className="my-2"
+          code={`<Badge className="!bg-neutral-500 uppercase" testId="badge-status-closed">
+  Closed
+</Badge>`}
+        />
+      </div>
     </section>
   );
 };
