@@ -6,7 +6,7 @@ import SettingsContextProvider from 'providers/SettingsProvider';
 import AuthContextProvider from 'providers/AuthProvider';
 import ToastsProvider from 'providers/ToastsProvider';
 
-import { queryClient } from './query-client';
+import { queryClient } from '../query-client';
 
 /**
  * A React test wrapper. Wraps the component under test with a bespoke set

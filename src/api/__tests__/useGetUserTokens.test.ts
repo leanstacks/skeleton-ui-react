@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import dayjs from 'dayjs';
 
 import { renderHook, waitFor } from 'test/test-utils';
-import WithQueryClientProvider from 'test/WithQueryClientProvider';
+import WithQueryClientProvider from 'test/wrappers/WithQueryClientProvider';
 import storage from 'utils/storage';
 import { userTokensFixture } from '__fixtures__/tokens';
 
