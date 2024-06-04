@@ -8,7 +8,7 @@ import {
 } from '@testing-library/react';
 
 import 'utils/i18n';
-import WithAllProviders from './WithAllProviders';
+import WithAllProviders from './wrappers/WithAllProviders';
 
 const customRender = (ui: React.ReactElement, options?: RenderOptions, { route = '/' } = {}) => {
   window.history.pushState({}, 'Test page', route);
