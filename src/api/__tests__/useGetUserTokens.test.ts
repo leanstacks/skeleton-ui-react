@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import dayjs from 'dayjs';
 
 import { renderHook, waitFor } from 'test/test-utils';
+import WithQueryClientProvider from 'test/WithQueryClientProvider';
 import storage from 'utils/storage';
 import { userTokensFixture } from '__fixtures__/tokens';
 
@@ -37,8 +38,9 @@ describe('useGetTokens', () => {
       expires_at: dayjs('2024-01-01').toISOString(),
     };
     getItemSpy.mockReturnValue(JSON.stringify(token));
-    const { result } = renderHook(() => useGetUserTokens());
-    await waitFor(() => expect(result.current.error).toBeDefined());
+    // use a specific wrapper to avoid test side effects from "AuthProvider"
+    const { result } = renderHook(() => useGetUserTokens(), { wrapper: WithQueryClientProvider });
+    await waitFor(() => expect(result.current.isError).toBe(true));
 
     // ASSERT
     expect(result.current.error).toBeInstanceOf(Error);
@@ -47,8 +49,9 @@ describe('useGetTokens', () => {
   it('should error if token is not found', async () => {
     // ARRANGE
     getItemSpy.mockReturnValue(null);
-    const { result } = renderHook(() => useGetUserTokens());
-    await waitFor(() => expect(result.current.error).toBeDefined());
+    // use a specific wrapper to avoid test side effects from "AuthProvider"
+    const { result } = renderHook(() => useGetUserTokens(), { wrapper: WithQueryClientProvider });
+    await waitFor(() => expect(result.current.isError).toBe(true));
 
     // ASSERT
     expect(result.current.error).toBeInstanceOf(Error);
