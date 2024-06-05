@@ -49,9 +49,9 @@ const UserListItem = ({
       onClick={() => doClick()}
       data-testid={testId}
     >
-      <div className="flex flex-col">
-        <div>{user.name}</div>
-        <div className="text-xs opacity-50">{user.email}</div>
+      <div className="flex min-w-0 flex-col">
+        <div className="truncate">{user.name}</div>
+        <div className="truncate text-xs opacity-75">{user.email}</div>
       </div>
     </div>
   );
