@@ -43,13 +43,19 @@ const LanguageToggle = ({ className }: LanguageToggleProps): JSX.Element => {
       content={
         <DropdownContent className="text-sm">
           <DropdownItem onClick={() => setLanguage('en')} testId="dropdown-item-en">
-            English
+            <Button variant={ButtonVariant.Text} className="!p-0">
+              English
+            </Button>
           </DropdownItem>
           <DropdownItem onClick={() => setLanguage('fr')} testId="dropdown-item-fr">
-            French
+            <Button variant={ButtonVariant.Text} className="!p-0">
+              French
+            </Button>
           </DropdownItem>
           <DropdownItem onClick={() => setLanguage('es')} testId="dropdown-item-es">
-            Spanish
+            <Button variant={ButtonVariant.Text} className="!p-0">
+              Spanish
+            </Button>
           </DropdownItem>
         </DropdownContent>
       }
