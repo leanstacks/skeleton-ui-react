@@ -1,4 +1,4 @@
-import { PropsWithClassName } from '@leanstacks/react-common';
+import { ButtonVariant, PropsWithClassName } from '@leanstacks/react-common';
 import { useTranslation } from 'react-i18next';
 
 import { StorageKeys } from 'utils/constants';
@@ -7,6 +7,7 @@ import Dropdown from 'components/Dropdown/Dropdown';
 import Icon from 'components/Icon/Icon';
 import DropdownContent from 'components/Dropdown/DropdownContent';
 import DropdownItem from 'components/Dropdown/DropdownItem';
+import Button from './Button';
 
 /**
  * Properties for the `LanguageToggle` component.
@@ -34,7 +35,11 @@ const LanguageToggle = ({ className }: LanguageToggleProps): JSX.Element => {
 
   return (
     <Dropdown
-      toggle={<Icon name="language" className="px-2 py-1" />}
+      toggle={
+        <Button variant={ButtonVariant.Text}>
+          <Icon name="language" />
+        </Button>
+      }
       content={
         <DropdownContent className="text-sm">
           <DropdownItem onClick={() => setLanguage('en')} testId="dropdown-item-en">
