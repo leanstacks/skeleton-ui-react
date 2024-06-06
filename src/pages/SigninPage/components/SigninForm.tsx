@@ -93,7 +93,6 @@ const SigninForm = ({ className, testId = 'form-signin' }: SigninFormProps): JSX
               autoComplete="off"
               maxLength={30}
               disabled={isSubmitting}
-              tabIndex={1}
               testId={`${testId}-text-field-username`}
             />
             <TextField
@@ -104,14 +103,12 @@ const SigninForm = ({ className, testId = 'form-signin' }: SigninFormProps): JSX
               autoComplete="off"
               maxLength={30}
               disabled={isSubmitting}
-              tabIndex={2}
               testId={`${testId}-text-field-password`}
             />
             <Button
               type="submit"
               className="w-full sm:w-40"
               disabled={isSubmitting || !dirty}
-              tabIndex={3}
               testId={`${testId}-button-submit`}
             >
               Sign In

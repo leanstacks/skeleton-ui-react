@@ -64,7 +64,9 @@ const CardComponents = ({
   ];
   const columns = [
     columnHelper.accessor('name', {
-      cell: (info) => <span className="font-mono text-sky-600">{info.getValue()}</span>,
+      cell: (info) => (
+        <span className="font-mono text-sky-700 dark:text-sky-500">{info.getValue()}</span>
+      ),
       header: () => 'Name',
     }),
     columnHelper.accessor('description', {

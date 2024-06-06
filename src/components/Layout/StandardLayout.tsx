@@ -25,7 +25,9 @@ const StandardLayout = ({
   return (
     <div className={className} data-testid={testId}>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
       <Toasts />
     </div>

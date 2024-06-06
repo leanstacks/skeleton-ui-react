@@ -20,7 +20,10 @@ interface LinkProps extends RouterLinkProps, PropsWithTestId {}
 const Link = ({ children, className, testId = 'link', ...props }: LinkProps): JSX.Element => {
   return (
     <RouterLink
-      className={classNames('text-blue-600 hover:underline hover:opacity-75', className)}
+      className={classNames(
+        'text-blue-600 hover:underline hover:opacity-75 dark:text-blue-400',
+        className,
+      )}
       data-testid={testId}
       {...props}
     >

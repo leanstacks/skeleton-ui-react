@@ -41,7 +41,9 @@ const BadgeComponents = ({
   const columnHelper = createColumnHelper<ComponentProperty>();
   const columns = [
     columnHelper.accessor('name', {
-      cell: (info) => <span className="font-mono text-sky-600">{info.getValue()}</span>,
+      cell: (info) => (
+        <span className="font-mono text-sky-700 dark:text-sky-500">{info.getValue()}</span>
+      ),
       header: () => 'Name',
     }),
     columnHelper.accessor('description', {
@@ -86,25 +88,31 @@ const BadgeComponents = ({
 
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Badge className="!bg-blue-500" testId="my-badge">
+          <Badge className="!bg-blue-600 dark:!bg-blue-700" testId="my-badge">
             19
           </Badge>
         </div>
         <CodeSnippet
           className="my-2"
-          code={`<Badge className='!bg-blue-500' testId='my-badge'>19</Badge>`}
+          code={`<Badge className='!bg-blue-600 dark:!bg-blue-700' testId='my-badge'>19</Badge>`}
         />
       </div>
 
       <div className="my-8">
         <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
-          <Badge className="!bg-neutral-500 uppercase" testId="badge-status-closed">
+          <Badge
+            className="!bg-neutral-500 uppercase dark:!bg-neutral-300 dark:text-black"
+            testId="badge-status-closed"
+          >
             Closed
           </Badge>
         </div>
         <CodeSnippet
           className="my-2"
-          code={`<Badge className="!bg-neutral-500 uppercase" testId="badge-status-closed">
+          code={`<Badge
+  className="!bg-neutral-500 uppercase dark:!bg-neutral-300 dark:text-black"
+  testId="badge-status-closed"
+>
   Closed
 </Badge>`}
         />

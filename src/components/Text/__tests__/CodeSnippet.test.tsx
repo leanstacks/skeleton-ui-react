@@ -1,8 +1,17 @@
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
+
+import * as UseSettings from 'hooks/useSettings';
+
 import CodeSnippet from '../CodeSnippet';
 
 describe('CodeSnippet', () => {
+  const useSettingsSpy = vi.spyOn(UseSettings, 'useSettings');
+
+  beforeEach(() => {
+    useSettingsSpy.mockReturnValue({ theme: 'light' });
+  });
+
   it('should render successfully', async () => {
     // ARRANGE
     render(<CodeSnippet code="<></>" />);
@@ -37,5 +46,15 @@ describe('CodeSnippet', () => {
 
     // ASSERT
     expect(screen.getByTestId('code-snippet').textContent).toBe('<div>content</div>');
+  });
+
+  it('should use dark theme', async () => {
+    // ARRANGE
+    useSettingsSpy.mockReturnValue({ theme: 'dark' });
+    render(<CodeSnippet code="<></>" />);
+    await screen.findByTestId('code-snippet');
+
+    // ASSERT
+    expect(screen.getByTestId('code-snippet').querySelector('.dark')).not.toBeNull();
   });
 });
