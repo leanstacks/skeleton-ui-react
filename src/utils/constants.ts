@@ -26,3 +26,10 @@ export enum StorageKeys {
 export const DEFAULT_SETTINGS: Settings = {
   theme: 'light',
 };
+
+/**
+ * URL search parameter, i.e. query string, keys.
+ */
+export enum SearchParam {
+  tab = 'tab',
+}

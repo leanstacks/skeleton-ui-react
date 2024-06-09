@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Page from 'components/Page/Page';
 import Text from 'components/Text/Text';
 import UserList from './components/UserList';
+import Tabs from 'components/Tabs/Tabs';
 
 /**
  * The `UsersPage` component renders the layout for the users page. It
@@ -13,12 +14,22 @@ import UserList from './components/UserList';
 const UsersPage = (): JSX.Element => {
   return (
     <Page testId="page-users">
-      <div className="min-h-[50vh container mx-auto my-4">
+      <div className="container mx-auto my-4 min-h-[50vh]">
         <Text variant="heading1" className="mb-4 border-b border-neutral-500/50 pb-2">
           Users
         </Text>
 
-        <div className="my-6 grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="my-6 md:hidden">
+          <Tabs
+            tabs={[
+              { label: 'Users', testId: 'tab-user-list' },
+              { label: 'Detail', testId: 'tab-user-detail' },
+            ]}
+            tabContents={[{ children: <UserList /> }, { children: <Outlet />, className: 'my-6' }]}
+          />
+        </div>
+
+        <div className="my-6 hidden grid-cols-1 gap-8 md:grid md:grid-cols-4">
           <div>
             <UserList />
           </div>

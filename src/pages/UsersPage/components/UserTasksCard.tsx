@@ -49,7 +49,7 @@ const UserTasksCard = ({
   }, [error, incompleteTasks, t]);
 
   return (
-    <div onClick={() => navigate(`/app/users/${userId}/tasks`)} data-testid={testId}>
+    <div onClick={() => navigate(`/app/users/${userId}/tasks?tab=1`)} data-testid={testId}>
       <Card
         className={classNames(
           'transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:cursor-pointer hover:bg-blue-600/10',

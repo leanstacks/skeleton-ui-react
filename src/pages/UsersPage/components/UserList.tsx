@@ -25,7 +25,7 @@ const UserList = ({ className, testId = 'list-users' }: UserListProps): JSX.Elem
 
   return (
     <div
-      className={classNames('flex max-h-48 flex-col overflow-y-auto md:max-h-full', className)}
+      className={classNames('flex h-full flex-col overflow-y-auto', className)}
       data-testid={testId}
     >
       {isPending && (

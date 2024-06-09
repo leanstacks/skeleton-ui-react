@@ -35,13 +35,13 @@ const UserListItem = ({
   const navigate = useNavigate();
 
   const doClick = () => {
-    navigate(`${user.id}`);
+    navigate(`${user.id}?tab=1`);
   };
 
   return (
     <div
       className={classNames(
-        'flex min-h-16 items-center border-b-2  px-2 py-1.5 hover:cursor-pointer hover:border-b-blue-300 hover:dark:border-b-blue-600',
+        'flex min-h-16 items-center border-b-2 px-2 py-1.5 hover:cursor-pointer hover:border-b-blue-300 hover:dark:border-b-blue-600',
         { 'border-b-neutral-500/10': !isActive },
         { 'border-b-blue-300 dark:border-b-blue-600': isActive },
         className,
