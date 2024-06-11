@@ -120,6 +120,6 @@ describe('UserTasksCard', () => {
     await userEvent.click(screen.getByTestId('card-user-tasks'));
 
     // ASSERT
-    expect(mockNavigate).toHaveBeenCalledWith(`/app/users/1/tasks`);
+    expect(mockNavigate).toHaveBeenCalledWith(`/app/users/1/tasks?tab=1`);
   });
 });
