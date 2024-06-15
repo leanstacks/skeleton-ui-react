@@ -26,6 +26,7 @@ const UsersPage = (): JSX.Element => {
               { label: 'Detail', testId: 'tab-user-detail' },
             ]}
             tabContents={[{ children: <UserList /> }, { children: <Outlet />, className: 'my-6' }]}
+            variant="fullWidth"
           />
         </div>
 

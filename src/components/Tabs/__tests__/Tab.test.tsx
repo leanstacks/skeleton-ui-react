@@ -24,6 +24,15 @@ describe('Tab', () => {
     expect(screen.getByTestId('custom-testId')).toBeDefined();
   });
 
+  it('should use custom className', async () => {
+    // ARRANGE
+    render(<Tab label="Label" className="custom-className" />);
+    await screen.findByTestId('tab');
+
+    // ASSERT
+    expect(screen.getByTestId('tab').classList).toContain('custom-className');
+  });
+
   it('should render label', async () => {
     // ARRANGE
     render(<Tab label="Label" />);

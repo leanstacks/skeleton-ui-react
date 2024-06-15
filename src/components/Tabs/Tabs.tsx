@@ -1,5 +1,6 @@
 import { PropsWithTestId } from '@leanstacks/react-common';
 import { useSearchParams } from 'react-router-dom';
+import classNames from 'classnames';
 
 import { toNumberBetween } from 'utils/numbers';
 import { SearchParam } from 'utils/constants';
@@ -7,14 +8,22 @@ import Tab, { TabProps } from './Tab';
 import TabContent, { TabContentProps } from './TabContent';
 
 /**
+ * The `TabVariant` describes variations of display behavior for `Tabs`.
+ */
+type TabVariant = 'fullWidth' | 'standard';
+
+/**
  * Properties for the `Tabs` React component.
  * @param {TabProps[]} tabs - An array of `Tab` component properties.
  * @param {TabConent[]} tabContents - An array of `TabContent` component properties.
+ * @param {TabVariant} [variant='standard'] -  Optional. The tab display behavior.
+ * Default: `standard`.
  * @see {@link PropsWithTestId}
  */
 interface TabsProps extends PropsWithTestId {
   tabs: Omit<TabProps, 'isActive' | 'onClick'>[];
   tabContents: TabContentProps[];
+  variant?: TabVariant;
 }
 
 /**
@@ -41,7 +50,12 @@ interface TabsProps extends PropsWithTestId {
  * @param {TabsProps} - Component properties
  * @returns {JSX.Element} JSX
  */
-const Tabs = ({ tabs, tabContents, testId = 'tabs' }: TabsProps): JSX.Element => {
+const Tabs = ({
+  tabs,
+  tabContents,
+  testId = 'tabs',
+  variant = 'standard',
+}: TabsProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // obtain activeTabIndex from query string
@@ -62,9 +76,10 @@ const Tabs = ({ tabs, tabContents, testId = 'tabs' }: TabsProps): JSX.Element =>
   return (
     <div data-testid={testId}>
       <div className="flex gap-4 border-b border-b-neutral-500/10" data-testid={`${testId}-tabs`}>
-        {tabs.map((tabProps, index) => (
+        {tabs.map(({ className, ...tabProps }, index) => (
           <Tab
             {...tabProps}
+            className={classNames({ className, 'flex-grow': variant === 'fullWidth' })}
             isActive={activeTabIndex === index}
             onClick={() => setTab(index)}
             key={index}

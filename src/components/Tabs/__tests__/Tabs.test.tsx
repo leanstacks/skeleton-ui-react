@@ -52,4 +52,16 @@ describe('Tabs', () => {
     // ASSERT
     expect(screen.getByTestId('tab-content-two')).toBeDefined();
   });
+
+  it('should render full width variant', async () => {
+    // ARRANGE
+    render(<Tabs tabs={tabs} tabContents={tabContents} variant="fullWidth" />);
+    await screen.findByTestId('tabs');
+
+    // ASSERT
+    expect(screen.getByTestId('tabs')).toBeDefined();
+    expect(screen.getByTestId('tabs-tabs').children.length).toBe(tabs.length);
+    expect(screen.getByTestId('tab-content-one')).toBeDefined();
+    expect(screen.getByTestId('tab-one').classList).toContain('flex-grow');
+  });
 });

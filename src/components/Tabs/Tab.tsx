@@ -1,4 +1,4 @@
-import { PropsWithTestId } from '@leanstacks/react-common';
+import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
 
 /**
@@ -8,9 +8,10 @@ import classNames from 'classnames';
  * @param {string} label - The tab label.
  * @param {function} [onClick] - Optional. A function to be invoked when the
  * tab is clicked.
+ * @see {@link PropsWithClassName}
  * @see {@link PropsWithTestId}
  */
-export interface TabProps extends PropsWithTestId {
+export interface TabProps extends PropsWithClassName, PropsWithTestId {
   isActive?: boolean;
   label: string;
   onClick?: () => void;
@@ -26,7 +27,13 @@ export interface TabProps extends PropsWithTestId {
  * @param {TabProps} props - Component properties.
  * @returns {JSX.Element} JSX
  */
-const Tab = ({ isActive = false, label, onClick, testId = 'tab' }: TabProps): JSX.Element => {
+const Tab = ({
+  className,
+  isActive = false,
+  label,
+  onClick,
+  testId = 'tab',
+}: TabProps): JSX.Element => {
   /**
    * Handle tab click events.
    */
@@ -37,13 +44,14 @@ const Tab = ({ isActive = false, label, onClick, testId = 'tab' }: TabProps): JS
   return (
     <div
       className={classNames(
-        'flex w-full cursor-pointer items-center justify-center px-2 py-1 text-sm font-bold uppercase',
+        'flex cursor-pointer items-center justify-center px-2 py-1 text-sm font-bold uppercase',
         {
           'border-b-2 border-b-blue-300 dark:border-b-blue-600': isActive,
         },
         {
           'border-b-2 border-transparent': !isActive,
         },
+        className,
       )}
       onClick={handleClick}
       data-testid={testId}
