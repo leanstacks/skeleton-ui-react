@@ -1,8 +1,7 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 
 import { Task } from '../api/useGetUserTasks';
-import Icon from 'components/Icon/Icon';
-import classNames from 'classnames';
+import TaskCompleteToggle from './TaskCompleteToggle';
 
 /**
  * Properties for the `UserTaskListItem` React component.
@@ -28,12 +27,7 @@ const UserTaskListItem = ({
   return (
     <div className={className} data-testid={testId}>
       <div key={task.id} className="flex items-center gap-4 py-0.5">
-        <Icon
-          name={task.completed ? 'task_alt' : 'circle'}
-          fill={0}
-          className={classNames('text-lg', { 'text-green-600': task.completed })}
-          testId={`${testId}-icon`}
-        />
+        <TaskCompleteToggle task={task} testId={`${testId}-toggle-complete`} />
         <div>{task.title}</div>
       </div>
     </div>
