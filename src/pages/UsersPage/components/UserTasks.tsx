@@ -66,7 +66,7 @@ const UserTasks = ({ className, testId = 'user-tasks', userId }: UserTasksProps)
         )}
       </div>
 
-      <Link to="tasks" title={`View all tasks for this user`} className="text-sm">
+      <Link to="tasks?tab=1" title={`View all tasks for this user`} className="text-sm">
         View all
       </Link>
     </div>
