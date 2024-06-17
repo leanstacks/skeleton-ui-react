@@ -9,7 +9,7 @@ import { useAxios } from 'hooks/useAxios';
 /**
  * The `useUpdateTask` mutation function variables.
  */
-type UpdateTaskVariables = {
+export type UpdateTaskVariables = {
   task: Task;
 };
 
