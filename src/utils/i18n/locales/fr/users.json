@@ -5,6 +5,10 @@
     "errors": {
       "fetchingList": "Un problème est survenu lors de la récupération de vos tâches."
     },
+    "markComplete": "Marquez-le comme terminé",
+    "markIncomplete": "Marquez-le comme incomplet",
+    "markedComplete": "Tâche marquée terminée",
+    "markedIncomplete": "Tâche marquée incomplète",
     "tasks": "tâches",
     "toComplete": "Vous avez {{val}} tâche à accomplir."
   }

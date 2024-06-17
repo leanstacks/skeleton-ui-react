@@ -5,6 +5,10 @@
     "errors": {
       "fetchingList": "A problem occurred fetching your tasks."
     },
+    "markComplete": "Mark complete",
+    "markIncomplete": "Mark incomplete",
+    "markedComplete": "Marked task complete",
+    "markedIncomplete": "Marked task incomplete",
     "tasks": "tasks",
     "toComplete": "You have {{val}} tasks to complete."
   }
