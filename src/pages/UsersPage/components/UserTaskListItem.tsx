@@ -1,7 +1,7 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 
 import { Task } from '../api/useGetUserTasks';
-import TaskCompleteToggle from './TaskCompleteToggle';
+import TaskCompleteToggle from '../Tasks/components/TaskCompleteToggle';
 
 /**
  * Properties for the `UserTaskListItem` React component.
