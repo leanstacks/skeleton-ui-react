@@ -13,7 +13,7 @@ import { useToasts } from 'hooks/useToasts';
 import Icon from 'components/Icon/Icon';
 
 /**
- * Propeties for the`TaskCompleteToggle` component.
+ * Propeties for the `TaskCompleteToggle` component.
  * @param {Task} task - A Task object.
  * @see {@link PropsWithClassName}
  * @see {@link PropsWithTestId}

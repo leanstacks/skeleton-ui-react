@@ -58,15 +58,16 @@ export const useGetUser = ({ userId }: UseGetUserProps): UseQueryResult<User, Er
   const axios = useAxios();
   const config = useConfig();
 
-  const getUser = async (id: number): Promise<User | null> => {
+  const getUser = async (): Promise<User | null> => {
     const response = await axios.request({
-      url: `${config.VITE_BASE_URL_API}/users/${id}`,
+      url: `${config.VITE_BASE_URL_API}/users/${userId}`,
     });
     return response.data;
   };
 
   return useQuery({
     queryKey: [QueryKeys.Users, userId],
-    queryFn: () => getUser(userId),
+    queryFn: () => getUser(),
+    enabled: !!userId,
   });
 };

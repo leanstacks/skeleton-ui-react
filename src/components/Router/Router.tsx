@@ -10,6 +10,7 @@ import DashboardPage from 'pages/DashboardPage/DashboardPage';
 import SettingsPage from 'pages/SettingsPage/SettingsPage';
 import AppearanceSettings from 'pages/SettingsPage/components/AppearanceSettings';
 import ComponentsPage from 'pages/ComponentsPage/ComponentsPage';
+import AvatarComponents from 'pages/ComponentsPage/components/AvatarComponents';
 import TextComponents from 'pages/ComponentsPage/components/TextComponents';
 import ButtonComponents from 'pages/ComponentsPage/components/ButtonComponents';
 import BadgeComponents from 'pages/ComponentsPage/components/BadgeComponents';
@@ -17,9 +18,9 @@ import CardComponents from 'pages/ComponentsPage/components/CardComponents';
 import UsersPage from 'pages/UsersPage/UsersPage';
 import UserDetailLayout from 'pages/UsersPage/components/UserDetailLayout';
 import UserDetail from 'pages/UsersPage/components/UserDetail';
-import UserTaskList from 'pages/UsersPage/components/UserTaskList';
 import UserDetailEmpty from 'pages/UsersPage/components/UserDetailEmpty';
-import AvatarComponents from 'pages/ComponentsPage/components/AvatarComponents';
+import UserTaskList from 'pages/UsersPage/components/UserTaskList';
+import TaskDetail from 'pages/UsersPage/Tasks/components/TaskDetail';
 
 /**
  * The React Router configuration. An array of `RouteObject`.
@@ -108,6 +109,10 @@ export const routes: RouteObject[] = [
                   {
                     path: 'tasks',
                     element: <UserTaskList />,
+                  },
+                  {
+                    path: 'tasks/:taskId',
+                    element: <TaskDetail />,
                   },
                 ],
               },

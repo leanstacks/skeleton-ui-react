@@ -3,7 +3,7 @@ import { renderHook, waitFor } from 'test/test-utils';
 
 import { useGetUsers } from '../useGetUsers';
 
-describe('useGetUser', () => {
+describe('useGetUsers', () => {
   it('should get users', async () => {
     // ARRANGE
     const { result } = renderHook(() => useGetUsers());
