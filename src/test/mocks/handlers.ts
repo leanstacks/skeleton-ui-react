@@ -25,6 +25,15 @@ export const handlers = [
     const todos = filter(todosFixture, { userId: Number(userId) });
     return HttpResponse.json(todos);
   }),
+  http.get('https://jsonplaceholder.typicode.com/todos/:todoId', ({ params }) => {
+    // get a task
+    const { todoId } = params;
+    const todo = find(todosFixture, { id: Number(todoId) });
+    if (todo) {
+      return HttpResponse.json(todo);
+    }
+    return new HttpResponse(null, { status: 404 });
+  }),
   http.put('https://jsonplaceholder.typicode.com/todos/:todoId', async ({ params, request }) => {
     // update a task
     const { todoId } = params;

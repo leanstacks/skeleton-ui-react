@@ -59,6 +59,7 @@ const TaskDetail = ({ className, testId = 'task-detail' }: TaskDetailProps): JSX
             className="!m-0 !p-0"
             title="Close"
             onClick={() => navigate(-1)}
+            testId={`${testId}-button-close`}
           >
             <Icon name="close" className="text-xl" opticalSize={20} />
           </Button>
@@ -108,20 +109,25 @@ const TaskDetail = ({ className, testId = 'task-detail' }: TaskDetailProps): JSX
         <div data-testid={`${testId}-task`}>
           <div className="mt-4">
             <div className="text-xs font-bold uppercase">Title</div>
-            <div className="text-lg">{task.title}</div>
+            <div className="text-lg" data-testid={`${testId}-task-title`}>
+              {task.title}
+            </div>
           </div>
 
           <div className="mt-4">
             <div className="text-xs font-bold uppercase">Assignee</div>
             <div>
               {isLoadingUser && <LoaderSkeleton className="h-4 w-40" testId="loader-user" />}
-              {user && <>{user.name}</>}
+              {user && <span data-testid={`${testId}-task-user-name`}>{user.name}</span>}
             </div>
           </div>
 
           <div className="mt-4">
             <div className="text-xs font-bold uppercase">Status</div>
-            <Badge className={classNames('inline', { '!bg-blue-600': task.completed })}>
+            <Badge
+              className={classNames('inline', { '!bg-blue-600': task.completed })}
+              testId={`${testId}-task-status`}
+            >
               {task.completed ? 'COMPLETE' : 'INCOMPLETE'}
             </Badge>
           </div>
