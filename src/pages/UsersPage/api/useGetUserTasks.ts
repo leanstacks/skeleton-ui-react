@@ -25,6 +25,7 @@ interface UseGetUserTasksProps {
 /**
  * An API hook which fetches a collection of `Task` objects which
  * are assigned to a `User`.
+ * @param {UseGetUserTasksProps} props - Hook properties.
  * @returns Returns a `UseQueryResult` with `Task` collection data.
  */
 export const useGetUserTasks = ({

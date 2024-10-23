@@ -5,10 +5,19 @@ import { useConfig } from 'hooks/useConfig';
 import { Task } from 'pages/UsersPage/api/useGetUserTasks';
 import { QueryKeys } from 'utils/constants';
 
+/**
+ * Properties for the `useGetTask` hook.
+ * @param {number} taskId - A `Task` identifier.
+ */
 interface UseGetTaskProps {
   taskId: number;
 }
 
+/**
+ * An API hook which fetches a single `Task` object by the identifier attribute.
+ * @param {UseGetTaskProps} props - Hook properties.
+ * @returns Returns a `UseQueryResult` with `Task` data.
+ */
 export const useGetTask = ({ taskId }: UseGetTaskProps): UseQueryResult<Task> => {
   const axios = useAxios();
   const config = useConfig();
