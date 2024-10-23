@@ -1,15 +1,15 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
+import { UseQueryResult } from '@tanstack/react-query';
 
 import { render, screen } from 'test/test-utils';
 import * as UseGetTask from 'pages/UsersPage/Tasks/api/useGetTask';
 import * as UseGetUser from 'api/useGetUser';
-
-import TaskDetail from '../TaskDetail';
-import { UseQueryResult } from '@tanstack/react-query';
 import { Task } from 'pages/UsersPage/api/useGetUserTasks';
 import { userFixture1 } from '__fixtures__/users';
 import { todosFixture } from '__fixtures__/todos';
+
+import TaskDetail from '../TaskDetail';
 
 // mock select functions from react-router-dom
 const mockNavigate = vi.fn();
