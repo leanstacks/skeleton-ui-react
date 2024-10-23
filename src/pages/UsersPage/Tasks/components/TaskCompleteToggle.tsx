@@ -7,13 +7,13 @@ import {
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { Task } from '../api/useGetUserTasks';
+import { Task } from 'pages/UsersPage/api/useGetUserTasks';
 import { useUpdateTask } from '../api/useUpdateTask';
 import { useToasts } from 'hooks/useToasts';
 import Icon from 'components/Icon/Icon';
 
 /**
- * Propeties for the`TaskCompleteToggle` component.
+ * Propeties for the `TaskCompleteToggle` component.
  * @param {Task} task - A Task object.
  * @see {@link PropsWithClassName}
  * @see {@link PropsWithTestId}

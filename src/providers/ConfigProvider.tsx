@@ -43,7 +43,7 @@ export const ConfigContext = React.createContext<Config | undefined>(undefined);
 /**
  * The `ConfigContextProvider` React component creates, maintains, and provides
  * access to the `ConfigContext` value.
- * Validates the React application configuration values from `process.env`.
+ * Validates the React application configuration values from `import.meta.env`.
  * Throws an `Error` when the configuration is invalid, preventing application
  * startup.
  * @param {PropsWithChildren} props - Component properties, `PropsWithChildren`.
