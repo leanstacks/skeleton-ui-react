@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import { animated, useSpring } from '@react-spring/web';
 
-import { ToastDetail } from 'providers/ToastsProvider';
+import { ToastDetail } from 'providers/ToastsContext';
 import { useConfig } from 'hooks/useConfig';
 
 import Icon from 'components/Icon/Icon';

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { AxiosInstance } from 'axios';
 
-import { AxiosContext } from 'providers/AxiosProvider';
+import { AxiosContext } from 'providers/AxiosContext';
 
 /**
  * The `useAxios` hook returns the current `AxiosContext` value.

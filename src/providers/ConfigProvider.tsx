@@ -1,44 +1,24 @@
-import React, { PropsWithChildren, useEffect, useState } from 'react';
-import * as Yup from 'yup';
-import { ObjectSchema } from 'yup';
+import { PropsWithChildren, useEffect, useState } from 'react';
+import { number, object, ObjectSchema, string, ValidationError } from 'yup';
 
-/**
- * The application configuration. The `value` provided by the `ConfigContext`.
- */
-export interface Config {
-  VITE_BASE_URL_API: string;
-  VITE_BUILD_DATE: string;
-  VITE_BUILD_TIME: string;
-  VITE_BUILD_TS: string;
-  VITE_BUILD_COMMIT_SHA: string;
-  VITE_BUILD_ENV_CODE: string;
-  VITE_BUILD_WORKFLOW_NAME: string;
-  VITE_BUILD_WORKFLOW_RUN_NUMBER: number;
-  VITE_BUILD_WORKFLOW_RUN_ATTEMPT: number;
-  VITE_TOAST_AUTO_DISMISS_MILLIS: number;
-}
+import { Config, ConfigContext } from './ConfigContext';
 
 /**
  * The configuration validation schema.
  * @see {@link https://github.com/jquense/yup | Yup}
  */
-const configSchema: ObjectSchema<Config> = Yup.object({
-  VITE_BASE_URL_API: Yup.string().url().required(),
-  VITE_BUILD_DATE: Yup.string().default('1970-01-01'),
-  VITE_BUILD_TIME: Yup.string().default('00:00:00'),
-  VITE_BUILD_TS: Yup.string().default('1970-01-01T00:00:00+0000'),
-  VITE_BUILD_COMMIT_SHA: Yup.string().default('local'),
-  VITE_BUILD_ENV_CODE: Yup.string().default('local'),
-  VITE_BUILD_WORKFLOW_NAME: Yup.string().default('local'),
-  VITE_BUILD_WORKFLOW_RUN_NUMBER: Yup.number().default(1),
-  VITE_BUILD_WORKFLOW_RUN_ATTEMPT: Yup.number().default(1),
-  VITE_TOAST_AUTO_DISMISS_MILLIS: Yup.number().default(5000),
+const configSchema: ObjectSchema<Config> = object({
+  VITE_BASE_URL_API: string().url().required(),
+  VITE_BUILD_DATE: string().default('1970-01-01'),
+  VITE_BUILD_TIME: string().default('00:00:00'),
+  VITE_BUILD_TS: string().default('1970-01-01T00:00:00+0000'),
+  VITE_BUILD_COMMIT_SHA: string().default('local'),
+  VITE_BUILD_ENV_CODE: string().default('local'),
+  VITE_BUILD_WORKFLOW_NAME: string().default('local'),
+  VITE_BUILD_WORKFLOW_RUN_NUMBER: number().default(1),
+  VITE_BUILD_WORKFLOW_RUN_ATTEMPT: number().default(1),
+  VITE_TOAST_AUTO_DISMISS_MILLIS: number().default(5000),
 });
-
-/**
- * The `ConfigContext` instance.
- */
-export const ConfigContext = React.createContext<Config | undefined>(undefined);
 
 /**
  * The `ConfigContextProvider` React component creates, maintains, and provides
@@ -49,7 +29,7 @@ export const ConfigContext = React.createContext<Config | undefined>(undefined);
  * @param {PropsWithChildren} props - Component properties, `PropsWithChildren`.
  * @returns {JSX.Element} JSX
  */
-const ConfigContextProvider = ({ children }: PropsWithChildren) => {
+const ConfigContextProvider = ({ children }: PropsWithChildren): JSX.Element => {
   const [isReady, setIsReady] = useState<boolean>(false);
   const [config, setConfig] = useState<Config>();
 
@@ -62,7 +42,7 @@ const ConfigContextProvider = ({ children }: PropsWithChildren) => {
       setConfig(validatedConfig);
       setIsReady(true);
     } catch (err) {
-      if (err instanceof Yup.ValidationError) throw new Error(`${err}::${err.errors}`);
+      if (err instanceof ValidationError) throw new Error(`${err}::${err.errors}`);
       if (err instanceof Error) throw new Error(`Configuration error: ${err.message}`);
       throw err;
     }

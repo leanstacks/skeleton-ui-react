@@ -1,30 +1,8 @@
-import React, { Dispatch, PropsWithChildren, useMemo, useReducer } from 'react';
+import { Dispatch, PropsWithChildren, useMemo, useReducer } from 'react';
 import { v4 as uuid } from 'uuid';
 import dayjs from 'dayjs';
 
-/**
- * Describes the attributes of a single Toast.
- */
-export interface ToastDetail {
-  id: string;
-  text: string;
-  createdAt: string;
-  isAutoDismiss: boolean;
-}
-
-/**
- * A DTO type which describes the attributes to create a new Toast.
- */
-export type CreateToastDTO = Pick<ToastDetail, 'text' | 'isAutoDismiss'>;
-
-/**
- * The `value` provided by the `ToastsContext`.
- */
-export interface ToastsContextValue {
-  toasts: ToastDetail[];
-  createToast: (toast: CreateToastDTO) => void;
-  removeToast: (id: string) => void;
-}
+import { CreateToastDTO, ToastDetail, ToastsContext, ToastsContextValue } from './ToastsContext';
 
 /**
  * The `ToastsContext` reducer `state`.
@@ -115,11 +93,6 @@ const actions = (dispatch: Dispatch<ToastsContextAction>) => {
     removeToast,
   };
 };
-
-/**
- * The `ToastsContext` instance.
- */
-export const ToastsContext = React.createContext<ToastsContextValue | undefined>(undefined);
 
 /**
  * The `ToastsProvider` React component creates, maintains, and provides

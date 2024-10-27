@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { Settings } from 'api/useGetSettings';
-import { SettingsContext } from 'providers/SettingsProvider';
+import { SettingsContext } from 'providers/SettingsContext';
 
 /**
  * The `useSettings` hook returns the current `SettingsContext` value.

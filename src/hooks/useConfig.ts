@@ -1,6 +1,5 @@
+import { Config, ConfigContext } from 'providers/ConfigContext';
 import { useContext } from 'react';
-
-import { Config, ConfigContext } from 'providers/ConfigProvider';
 
 /**
  * The `useConfig` hook returns the current `ConfigContext` value.
