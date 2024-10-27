@@ -23,6 +23,9 @@
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "2.19.9",
+    "@fortawesome/fontawesome-svg-core": "6.6.0",
+    "@fortawesome/free-solid-svg-icons": "6.6.0",
+    "@fortawesome/react-fontawesome": "0.2.2",
     "@leanstacks/react-common": "1.1.0",
     "@react-spring/web": "9.7.5",
     "@tanstack/react-query": "5.59.16",

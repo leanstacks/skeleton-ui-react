@@ -4,8 +4,8 @@ import { Outlet, useParams } from 'react-router-dom';
 import { useGetUser } from 'api/useGetUser';
 import Text from 'components/Text/Text';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
-import Icon from 'components/Icon/Icon';
 import Avatar from 'components/Icon/Avatar';
+import FAIcon from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `UserDetailLayout` React component.
@@ -52,17 +52,17 @@ const UserDetailLayout = ({
             </Text>
           </div>
 
-          <div className="mb-8 flex flex-wrap items-center gap-4 text-sm opacity-75">
+          <div className="mb-8 mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm opacity-75">
             <div className="flex items-center gap-1">
-              <Icon name="mail" fill={0} className="text-sm" />
+              <FAIcon icon="envelope" />
               {user.email}
             </div>
             <div className="flex items-center gap-1">
-              <Icon name="call" fill={0} className="text-sm" />
+              <FAIcon icon="phone" />
               {user.phone}
             </div>
             <div className="flex items-center gap-1">
-              <Icon name="language" fill={0} className="text-sm" />
+              <FAIcon icon="link" />
               {user.website}
             </div>
           </div>
