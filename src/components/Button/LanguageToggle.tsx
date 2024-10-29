@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { StorageKeys } from 'utils/constants';
 import storage from 'utils/storage';
 import Dropdown from 'components/Dropdown/Dropdown';
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 import DropdownContent from 'components/Dropdown/DropdownContent';
 import DropdownItem from 'components/Dropdown/DropdownItem';
 import Button from './Button';
@@ -37,7 +37,7 @@ const LanguageToggle = ({ className }: LanguageToggleProps): JSX.Element => {
     <Dropdown
       toggle={
         <Button variant={ButtonVariant.Text}>
-          <Icon name="language" />
+          <FAIcon icon="language" size="2x" />
         </Button>
       }
       content={

@@ -24,6 +24,7 @@
   "dependencies": {
     "@codesandbox/sandpack-react": "2.19.9",
     "@fortawesome/fontawesome-svg-core": "6.6.0",
+    "@fortawesome/free-regular-svg-icons": "6.6.0",
     "@fortawesome/free-solid-svg-icons": "6.6.0",
     "@fortawesome/react-fontawesome": "0.2.2",
     "@leanstacks/react-common": "1.1.0",
@@ -48,6 +49,7 @@
     "yup": "1.4.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "6.6.2",
     "@testing-library/react": "16.0.1",
     "@testing-library/user-event": "14.5.2",
     "@types/lodash": "4.17.12",

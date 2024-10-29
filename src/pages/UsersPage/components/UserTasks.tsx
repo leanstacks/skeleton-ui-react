@@ -2,7 +2,7 @@ import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
 
 import { useGetUserTasks } from '../api/useGetUserTasks';
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 import Text from 'components/Text/Text';
 import Link from 'components/Link/Link';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
@@ -30,8 +30,8 @@ const UserTasks = ({ className, testId = 'user-tasks', userId }: UserTasksProps)
 
   return (
     <div className={className} data-testid={testId}>
-      <div className="mb-1 flex items-center gap-1 border-b border-neutral-500/10 pb-1">
-        <Icon name="checklist" fill={0} />
+      <div className="mb-1 flex items-center gap-2 border-b border-neutral-500/10 pb-1">
+        <FAIcon icon="listCheck" size="lg" />
         <Text variant="heading3">Tasks</Text>
         {!!tasks && (
           <Badge className="self-start" testId={`${testId}-badge-task-count`}>
@@ -51,10 +51,9 @@ const UserTasks = ({ className, testId = 'user-tasks', userId }: UserTasksProps)
         {!!tasks &&
           tasks.slice(0, 3).map((task) => (
             <div key={task.id} className="flex items-center gap-4 py-0.5">
-              <Icon
-                name={task.completed ? 'task_alt' : 'circle'}
-                fill={0}
-                className={classNames('text-lg', { 'text-green-600': task.completed })}
+              <FAIcon
+                icon={task.completed ? 'circleCheck' : 'circleRegular'}
+                className={classNames({ 'text-green-600': task.completed })}
               />
               <div>{task.title}</div>
             </div>

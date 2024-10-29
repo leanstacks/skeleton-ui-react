@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { Task } from 'pages/UsersPage/api/useGetUserTasks';
 import { useUpdateTask } from '../api/useUpdateTask';
 import { useToasts } from 'hooks/useToasts';
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 
 /**
  * Propeties for the `TaskCompleteToggle` component.
@@ -73,10 +73,9 @@ const TaskCompleteToggle = ({
       onClick={handleButtonClick}
       data-testid={testId}
     >
-      <Icon
-        name={task.completed ? 'task_alt' : 'circle'}
-        fill={0}
-        className={classNames('text-lg', { 'text-green-600': task.completed })}
+      <FAIcon
+        icon={task.completed ? 'circleCheck' : 'circleRegular'}
+        className={classNames({ 'text-green-600': task.completed })}
         testId={`${testId}-icon`}
       />
     </Button>

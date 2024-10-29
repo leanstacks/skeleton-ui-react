@@ -8,7 +8,7 @@ import { Button } from '@leanstacks/react-common';
 
 import { useSignin } from '../api/useSignin';
 import TextField from 'components/Form/TextField';
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `SigninForm` component.
@@ -63,7 +63,7 @@ const SigninForm = ({ className, testId = 'form-signin' }: SigninFormProps): JSX
           className="mb-4 flex items-center gap-2 rounded-none"
           testId={`${testId}-alert`}
         >
-          <Icon name="error" />
+          <FAIcon icon="circleExclamation" size="lg" />
           {error}
         </Alert>
       )}

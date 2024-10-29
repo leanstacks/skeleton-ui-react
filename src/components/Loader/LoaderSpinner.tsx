@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
+import { BaseComponentProps } from '@leanstacks/react-common';
 
-import Icon from 'components/Icon/Icon';
+import FAIcon, { FAIconProps } from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `LoaderSpinner` component.
@@ -9,12 +9,10 @@ import Icon from 'components/Icon/Icon';
  * @param {string} [iconName] - Optional. The icon name. Default: "Progress Activity".
  * @param {string} [text] - Optional. The loader text.
  * @param {string} [textClassName] - Optional. CSS class names for the text.
- * @see {@link PropsWithClassName}
- * @see {@link PropsWithTestId}
+ * @see {@link BaseComponentProps}
  */
-interface LoaderSpinnerProps extends PropsWithClassName, PropsWithTestId {
+interface LoaderSpinnerProps extends BaseComponentProps, Partial<Pick<FAIconProps, 'icon'>> {
   iconClassName?: string;
-  iconName?: string;
   text?: string;
   textClassName?: string;
 }
@@ -29,18 +27,14 @@ interface LoaderSpinnerProps extends PropsWithClassName, PropsWithTestId {
 const LoaderSpinner = ({
   className,
   iconClassName,
-  iconName = 'progress_activity',
+  icon = 'circleNotch',
   testId = 'loader-spinner',
   text,
   textClassName,
 }: LoaderSpinnerProps): JSX.Element => {
   return (
     <div className={classNames('flex items-center', className)} data-testid={testId}>
-      <Icon
-        name={iconName}
-        className={classNames('animate-spin', iconClassName)}
-        testId={`${testId}-icon`}
-      />
+      <FAIcon icon={icon} spin className={iconClassName} testId={`${testId}-icon`} />
       {!!text && <div className={classNames('ms-2', textClassName)}>{text}</div>}
     </div>
   );

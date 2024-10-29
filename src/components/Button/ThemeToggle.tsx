@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useSetSettings } from 'api/useSetSettings';
 import { useSettings } from 'hooks/useSettings';
 import Button from './Button';
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `ThemeToggle` component.
@@ -32,7 +32,7 @@ const ThemeToggle = ({ className }: ThemeToggleProps): JSX.Element => {
           onClick={() => setSettings({ theme: 'dark' })}
           testId="button-theme-dark"
         >
-          <Icon name="lightbulb" fill={1} testId="icon-dark-mode" />
+          <FAIcon icon="moon" size="lg" testId="icon-dark-mode" />
         </Button>
       ) : (
         <Button
@@ -42,7 +42,7 @@ const ThemeToggle = ({ className }: ThemeToggleProps): JSX.Element => {
           onClick={() => setSettings({ theme: 'light' })}
           testId="button-theme-light"
         >
-          <Icon name="lightbulb" fill={0} testId="icon-light-mode" />
+          <FAIcon icon="sun" size="lg" testId="icon-light-mode" />
         </Button>
       )}
     </>

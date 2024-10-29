@@ -20,19 +20,19 @@ const ComponentsPage = (): JSX.Element => {
 
         <div className="my-6 grid grid-cols-1 gap-8 md:grid-cols-4">
           <div data-testid="page-components-menu">
-            <MenuNavLink to="avatar" iconName="account_circle" styleActive>
+            <MenuNavLink to="avatar" styleActive>
               Avatar
             </MenuNavLink>
-            <MenuNavLink to="badges" iconName="counter_3" styleActive>
-              Badges
+            <MenuNavLink to="badge" styleActive>
+              Badge
             </MenuNavLink>
-            <MenuNavLink to="buttons" iconName="buttons_alt" styleActive>
-              Buttons
+            <MenuNavLink to="button" styleActive>
+              Button
             </MenuNavLink>
-            <MenuNavLink to="cards" iconName="crop_square" styleActive>
-              Cards
+            <MenuNavLink to="card" styleActive>
+              Card
             </MenuNavLink>
-            <MenuNavLink to="text" iconName="text_fields" styleActive>
+            <MenuNavLink to="text" styleActive>
               Text
             </MenuNavLink>
           </div>

@@ -7,8 +7,8 @@ import { animated, useSpring } from '@react-spring/web';
 import { ToastDetail } from 'providers/ToastsContext';
 import { useConfig } from 'hooks/useConfig';
 
-import Icon from 'components/Icon/Icon';
 import Button from 'components/Button/Button';
+import FAIcon from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `Toast` component.
@@ -80,7 +80,7 @@ const Toast = ({ className, dismiss, testId = 'toast', toast }: ToastProps): JSX
           onClick={() => doDismiss()}
           data-testid={`${testId}-button-dismiss`}
         >
-          <Icon name="cancel" testId={`${testId}-icon-dismiss`} />
+          <FAIcon icon="circleXmark" size="xl" testId={`${testId}-icon-dismiss`} />
         </Button>
       </div>
     </animated.div>

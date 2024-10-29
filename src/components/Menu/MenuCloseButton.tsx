@@ -2,7 +2,7 @@ import { ButtonVariant, PropsWithClassName, PropsWithTestId } from '@leanstacks/
 import classNames from 'classnames';
 
 import Button from 'components/Button/Button';
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `MenuCloseButton` component.
@@ -34,7 +34,7 @@ const MenuCloseButton = ({
       title="Close"
       testId={testId}
     >
-      <Icon name="close" className="text-lg" />
+      <FAIcon icon="xmark" size="lg" />
     </Button>
   );
 };

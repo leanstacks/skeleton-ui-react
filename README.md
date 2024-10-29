@@ -32,6 +32,7 @@ The technology stack includes:
 - TanStack React Table - tables and datagrids
 - Tailwind - styling
 - Material Symbols - icons
+- Font Awesome - icons
 - Testing Library React - tests
 - Vitest - tests
 - MSW - API mocking
@@ -244,6 +245,7 @@ This project uses GitHub Actions to perform DevOps automation activities such as
 - [Yup][yup]
 - [Tailwind CSS][tailwind]
 - [Material Symbols][icons]
+- [Font Awesome][fontawesome]
 - [Testing Library][testing-library]
 - [GitHub Actions][ghactions]
 
@@ -255,6 +257,7 @@ This project uses GitHub Actions to perform DevOps automation activities such as
 [yup]: https://github.com/jquense/yup 'Yup'
 [tailwind]: https://tailwindcss.com/ 'Tailwind CSS'
 [icons]: https://fonts.google.com/icons 'Material Symbols'
+[fontawesome]: https://fontawesome.com/ 'Font Awesome'
 [tanstack]: https://tanstack.com/ 'TanStack'
 [testing-library]: https://testing-library.com/ 'Testing Library'
 [ghactions]: https://docs.github.com/en/actions 'GitHub Actions'

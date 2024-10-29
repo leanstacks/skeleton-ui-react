@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { render, screen } from 'test/test-utils';
+import { render, screen, waitFor } from 'test/test-utils';
 
 import LoaderSpinner from '../LoaderSpinner';
 
@@ -28,16 +28,18 @@ describe('LoaderSpinner', () => {
     await screen.findByTestId('loader-spinner');
 
     // ASSERT
-    expect(screen.getByTestId('loader-spinner-icon').textContent).toBe('progress_activity');
+    expect(screen.getByTestId('loader-spinner-icon')).toHaveAttribute('data-icon', 'circle-notch');
   });
 
   it('should render custom icon', async () => {
     // ARRANGE
-    render(<LoaderSpinner iconName="circle" testId="loader-spinner-circle" />);
-    await screen.findByTestId('loader-spinner-circle');
+    render(<LoaderSpinner icon="bars" />);
+    await waitFor(() =>
+      expect(screen.getByTestId('loader-spinner-icon')).toHaveAttribute('data-icon', 'bars'),
+    );
 
     // ASSERT
-    expect(screen.getByTestId('loader-spinner-circle-icon').textContent).toBe('circle');
+    expect(screen.getByTestId('loader-spinner-icon')).toHaveAttribute('data-icon', 'bars');
   });
 
   it('should render custom icon class name', async () => {

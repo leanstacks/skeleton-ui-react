@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { MenuProps } from './Menu';
 import Button from 'components/Button/Button';
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `MenuButton` component.
@@ -42,7 +42,7 @@ const MenuButton = ({
         title={title}
         testId={testId}
       >
-        <Icon name="menu" testId={`${testId}-icon`} />
+        <FAIcon icon="bars" size="xl" testId={`${testId}-icon`} />
       </Button>
       {isMenuOpen && <Menu close={() => setIsMenuOpen(false)} />}
     </>

@@ -9,13 +9,13 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
-import Icon from 'components/Icon/Icon';
 import Text from 'components/Text/Text';
 import { useGetTask } from '../api/useGetTask';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import { useGetUser } from 'api/useGetUser';
 import LoaderSpinner from 'components/Loader/LoaderSpinner';
 import Badge from 'components/Badge/Badge';
+import FAIcon from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `TaskDetail` component.
@@ -46,22 +46,22 @@ const TaskDetail = ({ className, testId = 'task-detail' }: TaskDetailProps): JSX
 
   return (
     <div className={className} data-testid={testId}>
-      <div className="mb-1 flex items-center gap-1 border-b border-neutral-500/10 pb-1">
-        <Icon name="checklist" />
+      <div className="mb-1 flex items-center gap-2 border-b border-neutral-500/10 pb-1">
+        <FAIcon icon="listCheck" size="lg" />
         <Text variant="heading3">Task</Text>
         {isLoadingTask && <LoaderSpinner iconClassName="text-xl" />}
         {!!task && <div className="text-xl">{`#${task.id}`}</div>}
-        <div className="ms-auto">
-          <Icon name="edit" fill={0} className="me-2 text-xl" opticalSize={20} />
-          <Icon name="delete" fill={0} className="me-2 text-xl" opticalSize={20} />
+        <div className="ms-auto flex items-center gap-2">
+          <FAIcon icon="pencil" className="px-2 py-1" />
+          <FAIcon icon="trash" className="px-2 py-1" />
           <Button
             variant={ButtonVariant.Text}
-            className="!m-0 !p-0"
+            className=""
             title="Close"
             onClick={() => navigate(-1)}
             testId={`${testId}-button-close`}
           >
-            <Icon name="close" className="text-xl" opticalSize={20} />
+            <FAIcon icon="xmark" />
           </Button>
         </div>
       </div>
@@ -72,7 +72,7 @@ const TaskDetail = ({ className, testId = 'task-detail' }: TaskDetailProps): JSX
           className="mb-4 flex items-center gap-2 rounded-none"
           testId={`${testId}-alert-taskError`}
         >
-          <Icon name="error" />
+          <FAIcon icon="circleExclamation" />
           {taskError.message}
         </Alert>
       )}
@@ -83,7 +83,7 @@ const TaskDetail = ({ className, testId = 'task-detail' }: TaskDetailProps): JSX
           className="mb-4 flex items-center gap-2 rounded-none"
           testId={`${testId}-alert-userError`}
         >
-          <Icon name="error" />
+          <FAIcon icon="circleExclamation" />
           {userError.message}
         </Alert>
       )}

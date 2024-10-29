@@ -1,17 +1,17 @@
 import classNames from 'classnames';
 
 import Card, { CardProps } from './Card';
-import Icon, { IconProps } from 'components/Icon/Icon';
+import FAIcon, { FAIconProps } from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `MessageCard` React component.
- * @param {IconProps} [iconProps] - Optional. Icon properties.
+ * @param {FAIconProps} [iconProps] - Optional. Icon properties.
  * @param {string} [title] - Optional. A card title.
  * @param {string} message - A card message.
  * @see {@link CardProps}
  */
 interface MessageCardProps extends CardProps {
-  iconProps?: IconProps;
+  iconProps?: FAIconProps;
   title?: string;
   message: string;
 }
@@ -32,7 +32,7 @@ const MessageCard = ({
   return (
     <Card className={classNames('w-80', className)} testId={testId}>
       <div className="flex flex-col items-center gap-2 text-center">
-        {iconProps && <Icon {...iconProps} testId={`${testId}-icon`} />}
+        {iconProps && <FAIcon {...iconProps} testId={`${testId}-icon`} />}
         {title && (
           <div className="font-bold" data-testid={`${testId}-title`}>
             {title}

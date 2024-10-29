@@ -76,7 +76,7 @@ describe('AppMenu', () => {
     // ASSERT
     expect(screen.getByTestId('menu-app')).toBeDefined();
     expect(screen.getByAltText('Logo')).toBeDefined();
-    expect(screen.getByText('Sign In')).toBeDefined();
-    expect(screen.getByText('Sign Up')).toBeDefined();
+    expect(screen.getByText(/^Sign In$/i)).toBeDefined();
+    expect(screen.getByText(/Sign Up/i)).toBeDefined();
   });
 });

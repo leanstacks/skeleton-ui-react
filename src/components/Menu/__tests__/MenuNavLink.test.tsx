@@ -35,12 +35,12 @@ describe('MenuNavLink', () => {
 
   it('should render Icon when iconName provided', async () => {
     // ARRANGE
-    render(<MenuNavLink to="/" iconName="circle" />);
+    render(<MenuNavLink to="/" icon="bars" />);
     await screen.findByTestId('menu-navlink-icon');
 
     // ASSERT
     expect(screen.getByTestId('menu-navlink-icon')).toBeDefined();
-    expect(screen.getByTestId('menu-navlink-icon').textContent).toBe('circle');
+    expect(screen.getByTestId('menu-navlink-icon')).toHaveAttribute('data-icon', 'bars');
   });
 
   it('should not render Icon when iconName omitted', async () => {
@@ -54,7 +54,7 @@ describe('MenuNavLink', () => {
 
   it('should use custom icon classes when provided', async () => {
     // ARRANGE
-    render(<MenuNavLink to="/" iconName="circle" iconClassName="custom-class" />);
+    render(<MenuNavLink to="/" icon="bars" iconClassName="custom-class" />);
     await screen.findByTestId('menu-navlink-icon');
 
     // ASSERT

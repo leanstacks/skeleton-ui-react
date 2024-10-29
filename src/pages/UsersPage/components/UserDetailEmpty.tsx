@@ -23,7 +23,7 @@ const UserDetailEmpty = ({
     <div className={className} data-testid={testId}>
       <MessageCard
         className="mx-auto"
-        iconProps={{ name: 'info', fill: 0, className: 'text-5xl', opticalSize: 48 }}
+        iconProps={{ icon: 'circleInfo', size: '2x' }}
         message="Select a user from the list to view details."
         testId={`${testId}-card-message`}
       />

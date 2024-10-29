@@ -2,21 +2,22 @@ import { NavLink, NavLinkProps } from 'react-router-dom';
 import { PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
 
-import Icon from 'components/Icon/Icon';
+import FAIcon, { FAIconProps } from 'components/Icon/FAIcon';
 
 /**
  * Properties for the `MenuNavLink` component.
- * @param {string} [iconName] - Optional. Name of `Icon` to display. When not
- * provided, no `Icon` will be displayed.
  * @param {string} [iconClassName] - Optional. Additional CSS classes to apply
  * to the `Icon`.
  * @param {boolean} [styleActive] - Optional. Indicates if active `NavLink` styles
  * should be applied. Default: `false`.
  * @see {@link NavLinkProps}
+ * @see {@link FAIconProps}
  * @see {@link PropsWithTestId}
  */
-interface MenuNavLinkProps extends NavLinkProps, PropsWithTestId {
-  iconName?: string;
+interface MenuNavLinkProps
+  extends NavLinkProps,
+    Partial<Pick<FAIconProps, 'icon'>>,
+    PropsWithTestId {
   iconClassName?: string;
   styleActive?: boolean;
 }
@@ -39,7 +40,7 @@ type NavLinkRenderProps = {
 const MenuNavLink = ({
   children,
   className,
-  iconName,
+  icon,
   iconClassName,
   styleActive = false,
   testId = 'menu-navlink',
@@ -63,10 +64,11 @@ const MenuNavLink = ({
   return (
     <NavLink className={getClassName} data-testid={testId} {...props}>
       <>
-        {iconName && (
-          <Icon
-            name={iconName}
-            className={classNames('me-2 text-lg', iconClassName)}
+        {icon && (
+          <FAIcon
+            icon={icon}
+            size="lg"
+            className={classNames('me-2', iconClassName)}
             testId={`${testId}-icon`}
           />
         )}
