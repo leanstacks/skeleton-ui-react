@@ -72,7 +72,7 @@ export type FAIconName =
 
 /**
  * Properties for the `FAIcon` component.
- * @param {FAIconName} icon - The Font Awesome icon name without the `fa-` prefix.
+ * @param {FAIconName} icon - The icon name.
  * @see {@link BaseComponentProps}
  * @see {@link FontAwesomeIcon}
  */

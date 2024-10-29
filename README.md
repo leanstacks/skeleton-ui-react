@@ -31,7 +31,6 @@ The technology stack includes:
 - DayJS - date utility functions
 - TanStack React Table - tables and datagrids
 - Tailwind - styling
-- Material Symbols - icons
 - Font Awesome - icons
 - Testing Library React - tests
 - Vitest - tests
@@ -244,7 +243,6 @@ This project uses GitHub Actions to perform DevOps automation activities such as
 - [Formik][formik]
 - [Yup][yup]
 - [Tailwind CSS][tailwind]
-- [Material Symbols][icons]
 - [Font Awesome][fontawesome]
 - [Testing Library][testing-library]
 - [GitHub Actions][ghactions]
@@ -256,7 +254,6 @@ This project uses GitHub Actions to perform DevOps automation activities such as
 [formik]: https://formik.org/ 'Formik'
 [yup]: https://github.com/jquense/yup 'Yup'
 [tailwind]: https://tailwindcss.com/ 'Tailwind CSS'
-[icons]: https://fonts.google.com/icons 'Material Symbols'
 [fontawesome]: https://fontawesome.com/ 'Font Awesome'
 [tanstack]: https://tanstack.com/ 'TanStack'
 [testing-library]: https://testing-library.com/ 'Testing Library'
