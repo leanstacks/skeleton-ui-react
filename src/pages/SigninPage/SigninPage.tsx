@@ -1,4 +1,4 @@
-import Page from 'components/Page/Page';
+import Page from 'common/components/Page/Page';
 import SigninForm from './components/SigninForm';
 
 /**

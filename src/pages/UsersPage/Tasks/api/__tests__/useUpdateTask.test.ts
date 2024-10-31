@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { renderHook, waitFor } from 'test/test-utils';
 import { queryClient } from 'test/query-client';
 import { todosFixture } from '__fixtures__/todos';
-import { QueryKeys } from 'utils/constants';
+import { QueryKeys } from 'common/utils/constants';
 import { Task } from '../../../api/useGetUserTasks';
 
 import { useUpdateTask } from '../useUpdateTask';

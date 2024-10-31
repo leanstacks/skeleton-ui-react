@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { QueryKeys, StorageKeys } from 'utils/constants';
-import storage from 'utils/storage';
+import { QueryKeys, StorageKeys } from 'common/utils/constants';
+import storage from 'common/utils/storage';
 
 /**
  * An API hook which deauthenticates the currently authenticated user.

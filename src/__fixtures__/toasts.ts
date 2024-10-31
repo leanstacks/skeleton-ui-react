@@ -1,4 +1,4 @@
-import { ToastDetail } from 'providers/ToastsContext';
+import { ToastDetail } from 'common/providers/ToastsContext';
 
 export const toastFixture: ToastDetail = {
   id: 'toast1',

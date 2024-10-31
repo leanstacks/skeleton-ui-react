@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 
-import * as UseGetUser from 'api/useGetUser';
+import * as UseGetUser from 'common/api/useGetUser';
 import * as UseGetUsers from '../../api/useGetUsers';
 import UserList from '../UserList';
 import { UseQueryResult } from '@tanstack/react-query';

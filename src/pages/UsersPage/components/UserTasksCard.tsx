@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import { useGetUserTasks } from '../api/useGetUserTasks';
-import Card, { CardProps } from 'components/Card/Card';
-import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
+import Card, { CardProps } from 'common/components/Card/Card';
+import LoaderSkeleton from 'common/components/Loader/LoaderSkeleton';
 
 /**
  * Properties for the `UserTasksCard` React component.

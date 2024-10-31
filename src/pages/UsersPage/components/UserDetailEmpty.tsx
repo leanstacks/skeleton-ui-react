@@ -1,6 +1,6 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 
-import MessageCard from 'components/Card/MessageCard';
+import MessageCard from 'common/components/Card/MessageCard';
 
 /**
  * Properties for the `UserDetailEmpty` component.

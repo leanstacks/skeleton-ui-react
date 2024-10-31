@@ -1,4 +1,4 @@
-import { UserTokens } from 'api/useGetUserTokens';
+import { UserTokens } from 'common/api/useGetUserTokens';
 
 export const userTokensFixture: UserTokens = {
   id_token: 'id-token',

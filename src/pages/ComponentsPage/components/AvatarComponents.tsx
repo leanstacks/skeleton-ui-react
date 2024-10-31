@@ -3,10 +3,10 @@ import { createColumnHelper } from '@tanstack/react-table';
 
 import avatarPicture from './avatar-picture.png';
 import { ComponentProperty } from '../model/components';
-import Text from 'components/Text/Text';
-import Table from 'components/Table/Table';
-import CodeSnippet from 'components/Text/CodeSnippet';
-import Avatar from 'components/Icon/Avatar';
+import Text from 'common/components/Text/Text';
+import Table from 'common/components/Table/Table';
+import CodeSnippet from 'common/components/Text/CodeSnippet';
+import Avatar from 'common/components/Icon/Avatar';
 
 /**
  * Properties for the `AvatarComponents` React component.

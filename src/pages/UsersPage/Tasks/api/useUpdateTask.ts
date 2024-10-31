@@ -1,10 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import reject from 'lodash/reject';
 
-import { QueryKeys } from 'utils/constants';
+import { QueryKeys } from 'common/utils/constants';
 import { Task } from 'pages/UsersPage/api/useGetUserTasks';
-import { useConfig } from 'hooks/useConfig';
-import { useAxios } from 'hooks/useAxios';
+import { useConfig } from 'common/hooks/useConfig';
+import { useAxios } from 'common/hooks/useAxios';
 
 /**
  * The `useUpdateTask` mutation function variables.

@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 
-import Page from 'components/Page/Page';
-import Text from 'components/Text/Text';
+import Page from 'common/components/Page/Page';
+import Text from 'common/components/Text/Text';
 import UserList from './components/UserList';
-import Tabs from 'components/Tabs/Tabs';
+import Tabs from 'common/components/Tabs/Tabs';
 
 /**
  * The `UsersPage` component renders the layout for the users page. It

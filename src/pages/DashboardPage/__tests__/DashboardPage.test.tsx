@@ -2,9 +2,9 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 import { UseQueryResult } from '@tanstack/react-query';
 
-import { User } from 'api/useGetUser';
+import { User } from 'common/api/useGetUser';
 import { userFixture1 } from '__fixtures__/users';
-import * as UseGetCurrentUser from 'api/useGetCurrentUser';
+import * as UseGetCurrentUser from 'common/api/useGetCurrentUser';
 
 import DashboardPage from '../DashboardPage';
 

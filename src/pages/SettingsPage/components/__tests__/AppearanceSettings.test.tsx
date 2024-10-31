@@ -3,10 +3,10 @@ import { UseMutationResult } from '@tanstack/react-query';
 import userEvent from '@testing-library/user-event';
 
 import { render, screen } from 'test/test-utils';
-import { Settings } from 'api/useGetSettings';
-import { DEFAULT_SETTINGS } from 'utils/constants';
-import * as UseSettings from 'hooks/useSettings';
-import * as UseSetSettings from 'api/useSetSettings';
+import { Settings } from 'common/api/useGetSettings';
+import { DEFAULT_SETTINGS } from 'common/utils/constants';
+import * as UseSettings from 'common/hooks/useSettings';
+import * as UseSetSettings from 'common/api/useSetSettings';
 
 import AppearanceSettings from '../AppearanceSettings';
 

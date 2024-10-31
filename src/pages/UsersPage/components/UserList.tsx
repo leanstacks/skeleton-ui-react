@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { useGetUsers } from '../api/useGetUsers';
 import UserListItem from './UserListItem';
-import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
+import LoaderSkeleton from 'common/components/Loader/LoaderSkeleton';
 
 /**
  * Properties for the `UserList` component.

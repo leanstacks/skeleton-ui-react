@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { useAuth } from 'hooks/useAuth';
-import Page from 'components/Page/Page';
+import { useAuth } from 'common/hooks/useAuth';
+import Page from 'common/components/Page/Page';
 
 /**
  * The `LandingPage` component renders the content of the landing page

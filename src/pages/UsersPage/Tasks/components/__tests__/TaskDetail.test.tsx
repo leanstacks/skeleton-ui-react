@@ -4,7 +4,7 @@ import { UseQueryResult } from '@tanstack/react-query';
 
 import { render, screen } from 'test/test-utils';
 import * as UseGetTask from 'pages/UsersPage/Tasks/api/useGetTask';
-import * as UseGetUser from 'api/useGetUser';
+import * as UseGetUser from 'common/api/useGetUser';
 import { Task } from 'pages/UsersPage/api/useGetUserTasks';
 import { userFixture1 } from '__fixtures__/users';
 import { todosFixture } from '__fixtures__/todos';

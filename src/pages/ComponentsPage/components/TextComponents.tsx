@@ -1,10 +1,10 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import { createColumnHelper } from '@tanstack/react-table';
 
-import CodeSnippet from 'components/Text/CodeSnippet';
-import Text from 'components/Text/Text';
+import CodeSnippet from 'common/components/Text/CodeSnippet';
+import Text from 'common/components/Text/Text';
 import { ComponentProperty } from '../model/components';
-import Table from 'components/Table/Table';
+import Table from 'common/components/Table/Table';
 
 /**
  * Properties for the `TextComponents` React component.

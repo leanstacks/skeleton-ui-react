@@ -9,8 +9,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Task } from 'pages/UsersPage/api/useGetUserTasks';
 import { useUpdateTask } from '../api/useUpdateTask';
-import { useToasts } from 'hooks/useToasts';
-import FAIcon from 'components/Icon/FAIcon';
+import { useToasts } from 'common/hooks/useToasts';
+import FAIcon from 'common/components/Icon/FAIcon';
 
 /**
  * Propeties for the `TaskCompleteToggle` component.

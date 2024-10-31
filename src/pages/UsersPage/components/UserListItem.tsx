@@ -2,7 +2,7 @@ import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
-import { User } from 'api/useGetUser';
+import { User } from 'common/api/useGetUser';
 
 /**
  * Properties for the `UserListItem` component.

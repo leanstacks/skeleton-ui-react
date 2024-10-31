@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 
-import Page from 'components/Page/Page';
-import Text from 'components/Text/Text';
-import MenuNavLink from 'components/Menu/MenuNavLink';
+import Page from 'common/components/Page/Page';
+import Text from 'common/components/Text/Text';
+import MenuNavLink from 'common/components/Menu/MenuNavLink';
 
 /**
  * The `ComponentsPage` component renders the layout for the components page.

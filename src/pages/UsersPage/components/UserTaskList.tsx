@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import filter from 'lodash/filter';
 
 import { useGetUserTasks } from '../api/useGetUserTasks';
-import FAIcon from 'components/Icon/FAIcon';
-import Text from 'components/Text/Text';
-import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
+import FAIcon from 'common/components/Icon/FAIcon';
+import Text from 'common/components/Text/Text';
+import LoaderSkeleton from 'common/components/Loader/LoaderSkeleton';
 import UserTaskListItem from './UserTaskListItem';
-import Badge from 'components/Badge/Badge';
+import Badge from 'common/components/Badge/Badge';
 
 /**
  * Propeties for the `UserTaskList` React component.

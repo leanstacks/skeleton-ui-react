@@ -1,10 +1,10 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import { useParams } from 'react-router-dom';
 
-import { useGetUser } from 'api/useGetUser';
-import Text from 'components/Text/Text';
-import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
-import FAIcon from 'components/Icon/FAIcon';
+import { useGetUser } from 'common/api/useGetUser';
+import Text from 'common/components/Text/Text';
+import LoaderSkeleton from 'common/components/Loader/LoaderSkeleton';
+import FAIcon from 'common/components/Icon/FAIcon';
 import UserTasks from './UserTasks';
 
 /**

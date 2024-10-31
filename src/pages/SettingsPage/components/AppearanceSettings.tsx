@@ -1,8 +1,8 @@
 import { PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
 
-import { useSettings } from 'hooks/useSettings';
-import { useSetSettings } from 'api/useSetSettings';
+import { useSettings } from 'common/hooks/useSettings';
+import { useSetSettings } from 'common/api/useSetSettings';
 import SettingsHeading from './SettingsHeading';
 
 /**

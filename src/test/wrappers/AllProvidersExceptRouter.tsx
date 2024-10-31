@@ -1,10 +1,10 @@
 import { PropsWithChildren } from 'react';
 import { QueryClientProvider } from '@tanstack/react-query';
 
-import ConfigContextProvider from 'providers/ConfigProvider';
-import SettingsContextProvider from 'providers/SettingsProvider';
-import AuthContextProvider from 'providers/AuthProvider';
-import ToastsProvider from 'providers/ToastsProvider';
+import ConfigContextProvider from 'common/providers/ConfigProvider';
+import SettingsContextProvider from 'common/providers/SettingsProvider';
+import AuthContextProvider from 'common/providers/AuthProvider';
+import ToastsProvider from 'common/providers/ToastsProvider';
 
 import { queryClient } from '../query-client';
 
