@@ -4,8 +4,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { render, screen } from 'test/test-utils';
 import * as UseAuth from 'hooks/useAuth';
 
-import Icon from 'components/Icon/Icon';
-
 import PrivateOutlet from '../PrivateOutlet';
 
 describe('PrivateOutlet', () => {
@@ -20,9 +18,9 @@ describe('PrivateOutlet', () => {
     render(
       <Routes>
         <Route path="/" element={<Navigate to="/private" />} />
-        <Route path="/auth/signin" element={<Icon name="square" testId="not-authenticated" />} />
+        <Route path="/auth/signin" element={<div data-testid="not-authenticated" />} />
         <Route path="/private" element={<PrivateOutlet />}>
-          <Route index={true} element={<Icon name="circle" testId="authenticated" />} />
+          <Route index={true} element={<div data-testid="authenticated" />} />
         </Route>
       </Routes>,
     );
@@ -37,9 +35,9 @@ describe('PrivateOutlet', () => {
     render(
       <Routes>
         <Route path="/" element={<Navigate to="/private" />} />
-        <Route path="/auth/signin" element={<Icon name="square" testId="not-authenticated" />} />
+        <Route path="/auth/signin" element={<div data-testid="not-authenticated" />} />
         <Route path="/private" element={<PrivateOutlet />}>
-          <Route index={true} element={<Icon name="circle" testId="authenticated" />} />
+          <Route index={true} element={<div data-testid="authenticated" />} />
         </Route>
       </Routes>,
     );
@@ -55,9 +53,9 @@ describe('PrivateOutlet', () => {
     render(
       <Routes>
         <Route path="/" element={<Navigate to="/private" />} />
-        <Route path="/auth/signin" element={<Icon name="square" testId="not-authenticated" />} />
+        <Route path="/auth/signin" element={<div data-testid="not-authenticated" />} />
         <Route path="/private" element={<PrivateOutlet />}>
-          <Route index={true} element={<Icon name="circle" testId="authenticated" />} />
+          <Route index={true} element={<div data-testid="authenticated" />} />
         </Route>
       </Routes>,
     );

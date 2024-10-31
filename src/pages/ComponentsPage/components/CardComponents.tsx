@@ -146,7 +146,7 @@ const CardComponents = ({
         <div className="my-8">
           <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
             <MessageCard
-              iconProps={{ name: 'info', fill: 0, className: 'text-5xl', opticalSize: 48 }}
+              iconProps={{ icon: 'circleInfo', size: '2x' }}
               message="Select an item from the list to view details."
               testId="my-empty-state"
             />
@@ -154,7 +154,7 @@ const CardComponents = ({
           <CodeSnippet
             className="my-2"
             code={`<MessageCard
-  iconProps={{ name: 'info', fill: 0, className: 'text-5xl', opticalSize: 48 }}
+  iconProps={{ icon: 'circleInfo', size: '2x' }}
   message="Select an item from the list to view details."
   testId='my-empty-state'
 />`}
@@ -165,7 +165,7 @@ const CardComponents = ({
           <div className="mb-2 flex place-content-center rounded border border-neutral-500/10 p-4 dark:bg-neutral-700/25">
             <MessageCard
               className="text-red-800"
-              iconProps={{ name: 'report', className: 'text-5xl text-red-600' }}
+              iconProps={{ icon: 'circleExclamation', size: '2x', className: 'text-red-600' }}
               message="Are you sure you wish to proceed?"
               title="Stop!"
             />
@@ -174,7 +174,7 @@ const CardComponents = ({
             className="my-2"
             code={`<MessageCard
   className="text-red-800"
-  iconProps={{ name: 'report', className: 'text-5xl text-red-600' }}
+  iconProps={{ icon: 'circleExclamation', size: '2x', className: 'text-red-600' }}
   message="Are you sure you wish to proceed?"
   title="Stop!"
 />`}

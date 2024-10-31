@@ -57,7 +57,7 @@ describe('TaskCompleteToggle', () => {
     // ASSERT
     expect(screen.getByTestId('toggle-task-complete')).toBeDefined();
     expect(screen.getByTestId('toggle-task-complete').title).toBe('Mark complete');
-    expect(screen.getByTestId('toggle-task-complete-icon').textContent).toBe('circle');
+    expect(screen.getByTestId('toggle-task-complete-icon')).toHaveAttribute('data-icon', 'circle');
   });
 
   it('should render complete task', async () => {
@@ -68,7 +68,10 @@ describe('TaskCompleteToggle', () => {
     // ASSERT
     expect(screen.getByTestId('toggle-task-complete')).toBeDefined();
     expect(screen.getByTestId('toggle-task-complete').title).toBe('Mark incomplete');
-    expect(screen.getByTestId('toggle-task-complete-icon').textContent).toBe('task_alt');
+    expect(screen.getByTestId('toggle-task-complete-icon')).toHaveAttribute(
+      'data-icon',
+      'circle-check',
+    );
   });
 
   it('should toggle task complete when clicked', async () => {
@@ -76,7 +79,7 @@ describe('TaskCompleteToggle', () => {
     render(<TaskCompleteToggle task={incompleteTask} />);
     await screen.findByTestId('toggle-task-complete');
     expect(screen.getByTestId('toggle-task-complete').title).toBe('Mark complete');
-    expect(screen.getByTestId('toggle-task-complete-icon').textContent).toBe('circle');
+    expect(screen.getByTestId('toggle-task-complete-icon')).toHaveAttribute('data-icon', 'circle');
 
     // ACT
     await userEvent.click(screen.getByTestId('toggle-task-complete'));
@@ -94,7 +97,10 @@ describe('TaskCompleteToggle', () => {
     render(<TaskCompleteToggle task={completeTask} />);
     await screen.findByTestId('toggle-task-complete');
     expect(screen.getByTestId('toggle-task-complete').title).toBe('Mark incomplete');
-    expect(screen.getByTestId('toggle-task-complete-icon').textContent).toBe('task_alt');
+    expect(screen.getByTestId('toggle-task-complete-icon')).toHaveAttribute(
+      'data-icon',
+      'circle-check',
+    );
 
     // ACT
     await userEvent.click(screen.getByTestId('toggle-task-complete'));

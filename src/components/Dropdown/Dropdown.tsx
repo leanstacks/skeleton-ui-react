@@ -25,7 +25,7 @@ interface DropdownProps extends PropsWithClassName, PropsWithTestId {
  * *Example:*
  * ```jsx
   <Dropdown
-    toggle={<Icon name="language" className="px-2 py-1" />}
+    toggle={<FAIcon icon='bars' className="px-2 py-1" />}
     content={
       <DropdownContent className="text-sm">
         <DropdownItem onClick={() => setLanguage('en')} testId="dropdown-item-en">

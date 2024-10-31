@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useGetUser } from 'api/useGetUser';
 import Text from 'components/Text/Text';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 import UserTasks from './UserTasks';
 
 /**
@@ -38,8 +38,8 @@ const UserDetail = ({ className, testId = 'user-detail' }: UserDetailProps): JSX
         <div data-testid={`${testId}-user`}>
           <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <div className="mb-1 flex items-center gap-1 border-b border-neutral-500/10 pb-1">
-                <Icon name="storefront" fill={0} />
+              <div className="mb-1 flex items-center gap-2 border-b border-neutral-500/10 pb-1">
+                <FAIcon icon="building" />
                 <Text variant="heading3">Company</Text>
               </div>
               <div className="font-bold">{user.company.name}</div>
@@ -47,8 +47,8 @@ const UserDetail = ({ className, testId = 'user-detail' }: UserDetailProps): JSX
               <div>{user.company.bs}</div>
             </div>
             <div>
-              <div className="mb-1 flex items-center gap-1 border-b border-neutral-500/10 pb-1">
-                <Icon name="location_on" fill={0} />
+              <div className="mb-1 flex items-center gap-2 border-b border-neutral-500/10 pb-1">
+                <FAIcon icon="mapLocationDot" />
                 <Text variant="heading3">Address</Text>
               </div>
               <div>{user.address.street}</div>

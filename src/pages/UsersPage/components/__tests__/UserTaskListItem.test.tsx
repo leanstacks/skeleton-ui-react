@@ -43,8 +43,9 @@ describe('UserTaskListItem', () => {
     await screen.findByTestId('user-task-list-item');
 
     // ASSERT
-    expect(screen.getByTestId('user-task-list-item-toggle-complete-icon').textContent).toBe(
-      'task_alt',
+    expect(screen.getByTestId('user-task-list-item-toggle-complete-icon')).toHaveAttribute(
+      'data-icon',
+      'circle-check',
     );
   });
 });

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { ToastsContext, ToastsContextValue } from 'providers/ToastsProvider';
+import { ToastsContext, ToastsContextValue } from 'providers/ToastsContext';
 
 /**
  * The `useToasts` hook returns the current `ToastsContext` value.

@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 
 import { render, screen, waitFor } from 'test/test-utils';
 
-import { ToastDetail } from 'providers/ToastsProvider';
+import { ToastDetail } from 'providers/ToastsContext';
 import { toastFixture } from '__fixtures__/toasts';
 
 import Toast from '../Toast';

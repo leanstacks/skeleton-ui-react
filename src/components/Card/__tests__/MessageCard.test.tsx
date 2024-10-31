@@ -44,11 +44,11 @@ describe('MessageCard', () => {
 
   it('should display icon', async () => {
     // ARRANGE
-    render(<MessageCard message="Message" iconProps={{ name: 'info' }} />);
+    render(<MessageCard message="Message" iconProps={{ icon: 'circleInfo' }} />);
     await screen.findByTestId('card-message');
 
     // ASSERT
     expect(screen.getByTestId('card-message')).toBeDefined();
-    expect(screen.getByTestId('card-message-icon').textContent).toBe('info');
+    expect(screen.getByTestId('card-message-icon')).toHaveAttribute('data-icon', 'circle-info');
   });
 });

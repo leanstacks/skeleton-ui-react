@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import filter from 'lodash/filter';
 
 import { useGetUserTasks } from '../api/useGetUserTasks';
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 import Text from 'components/Text/Text';
 import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
 import UserTaskListItem from './UserTaskListItem';
@@ -31,8 +31,8 @@ const UserTaskList = ({ className, testId = 'user-task-list' }: UserTaskListProp
 
   return (
     <div className={className} data-testid={testId}>
-      <div className="mb-1 flex items-center gap-1 border-b border-neutral-500/10 pb-1">
-        <Icon name="checklist" fill={0} />
+      <div className="mb-1 flex items-center gap-2 border-b border-neutral-500/10 pb-1">
+        <FAIcon icon="listCheck" size="xl" />
         <Text variant="heading3">Tasks</Text>
       </div>
 

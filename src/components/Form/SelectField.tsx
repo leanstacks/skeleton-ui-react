@@ -3,7 +3,7 @@ import { PropsWithTestId } from '@leanstacks/react-common';
 import { useField } from 'formik';
 import classNames from 'classnames';
 
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 
 /**
  * Describes a single option for a `SelectField`. If `label` is omitted,
@@ -136,8 +136,8 @@ const SelectField = ({
             {selectedValue}
           </div>
         </div>
-        <Icon
-          name={isExpanded ? 'expand_less' : 'expand_more'}
+        <FAIcon
+          icon={isExpanded ? 'chevronUp' : 'chevronDown'}
           className="ms-2"
           testId={`${testId}-icon-expand`}
         />
@@ -174,7 +174,7 @@ const SelectField = ({
             key={value}
           >
             <div className="flex-grow">{label ?? value}</div>
-            {field.value === value && <Icon name="check" className="ms-2 text-green-600" />}
+            {field.value === value && <FAIcon icon="check" className="ms-2 text-green-600" />}
           </div>
         ))}
       </div>

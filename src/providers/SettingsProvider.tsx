@@ -1,11 +1,7 @@
-import React, { PropsWithChildren, useMemo } from 'react';
+import { PropsWithChildren, useMemo } from 'react';
 
-import { Settings, useGetSettings } from 'api/useGetSettings';
-
-/**
- * The `SettingsContext` instance.
- */
-export const SettingsContext = React.createContext<Settings | undefined>(undefined);
+import { useGetSettings } from 'api/useGetSettings';
+import { SettingsContext } from './SettingsContext';
 
 /**
  * The `SettingsContextProvider` React component creates, maintains, and provides

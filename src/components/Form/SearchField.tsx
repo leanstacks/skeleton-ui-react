@@ -2,7 +2,7 @@ import { ChangeEvent, ReactElement, useEffect, useRef } from 'react';
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
 
-import Icon from 'components/Icon/Icon';
+import FAIcon from 'components/Icon/FAIcon';
 import { SearchResultProps } from './SearchResult';
 
 /**
@@ -80,7 +80,7 @@ const SearchField = ({
           'flex h-16 items-center border-b border-neutral-500/50 bg-neutral-500/10 px-4 py-2 has-[:focus]:border-blue-600',
         )}
       >
-        <Icon name="search" className="me-2" data-testid={`${testId}-icon-leading`} />
+        <FAIcon icon="magnifyingGlass" className="me-2" data-testid={`${testId}-icon-leading`} />
         <input
           name={`${testId}-input`}
           onChange={doOnChange}
@@ -91,11 +91,12 @@ const SearchField = ({
           ref={inputRef}
           data-testid={`${testId}-input`}
         />
-        <Icon
-          name="progress_activity"
-          className={classNames('ms-2 animate-spin', {
+        <FAIcon
+          icon="circleNotch"
+          className={classNames('ms-2', {
             invisible: !isLoading,
           })}
+          spin
           data-testid={`${testId}-icon-trailing`}
         />
       </div>

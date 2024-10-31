@@ -40,32 +40,30 @@ const AppMenu = ({ side = 'right', testId = 'menu-app', ...props }: AppMenuProps
     <SideMenu side={side} testId={testId} headerContent={renderHeader()} {...props}>
       {isAuthenticated ? (
         <>
-          <MenuNavLink to="/auth/signout" title="Sign Out" iconName="logout">
+          <MenuNavLink to="/auth/signout" title="Sign Out" icon="rightFromBracket">
             Sign Out
           </MenuNavLink>
           <MenuSeparator />
-          <MenuNavLink to="/app/settings" title="Settings" iconName="settings">
+          <MenuNavLink to="/app/settings" title="Settings" icon="sliders">
             Settings
           </MenuNavLink>
-          <MenuSeparator />
-          <MenuNavLink to="/app/components" title="Components" iconName="stacks">
+          <MenuNavLink to="/app/components" title="Components" icon="puzzlePiece">
             Components
           </MenuNavLink>
-          <MenuSeparator />
-          <MenuNavLink to="/app/users" title="Users" iconName="person_search">
+          <MenuNavLink to="/app/users" title="Users" icon="users">
             Users
           </MenuNavLink>
         </>
       ) : (
         <>
-          <MenuNavLink to="/auth/signin" title="Sign In" iconName="login">
+          <MenuNavLink to="/auth/signin" title="Sign In" icon="rightToBracket">
             Sign In
           </MenuNavLink>
-          <MenuNavLink to="/auth/signin" title="Sign Up" iconName="person_add">
-            Sign Up
+          <MenuNavLink to="/auth/signin" title="Sign Up" className="text-xs">
+            Need an account? Sign Up
           </MenuNavLink>
           <MenuSeparator />
-          <MenuNavLink to="/app/components" title="Components" iconName="stacks">
+          <MenuNavLink to="/app/components" title="Components" icon="puzzlePiece">
             Components
           </MenuNavLink>
         </>
