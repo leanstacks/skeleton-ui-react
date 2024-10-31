@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from 'test/test-utils';
 
-import * as UseAuth from 'hooks/useAuth';
+import * as UseAuth from 'common/hooks/useAuth';
 
 import LandingPage from '../LandingPage';
 import { Route, Routes } from 'react-router-dom';

@@ -3,7 +3,7 @@ import { UseQueryResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { render, screen } from 'test/test-utils';
 
-import * as UseGetUser from 'api/useGetUser';
+import * as UseGetUser from 'common/api/useGetUser';
 import UserDetailLayout from '../UserDetailLayout';
 
 // mock select functions from react-router-dom

@@ -2,11 +2,11 @@ import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import { createColumnHelper } from '@tanstack/react-table';
 
 import { ComponentProperty } from '../model/components';
-import Text from 'components/Text/Text';
-import Table from 'components/Table/Table';
-import CodeSnippet from 'components/Text/CodeSnippet';
-import Card from 'components/Card/Card';
-import MessageCard from 'components/Card/MessageCard';
+import Text from 'common/components/Text/Text';
+import Table from 'common/components/Table/Table';
+import CodeSnippet from 'common/components/Text/CodeSnippet';
+import Card from 'common/components/Card/Card';
+import MessageCard from 'common/components/Card/MessageCard';
 
 /**
  * Properties for the `CardComponents` React component.

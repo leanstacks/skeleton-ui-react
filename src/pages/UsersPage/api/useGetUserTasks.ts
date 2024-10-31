@@ -1,8 +1,8 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 
-import { useAxios } from 'hooks/useAxios';
-import { useConfig } from 'hooks/useConfig';
-import { QueryKeys } from 'utils/constants';
+import { useAxios } from 'common/hooks/useAxios';
+import { useConfig } from 'common/hooks/useConfig';
+import { QueryKeys } from 'common/utils/constants';
 
 /**
  * The `Task` type.

@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@leanstacks/react-common';
 
 import { useSignin } from '../api/useSignin';
-import TextField from 'components/Form/TextField';
-import FAIcon from 'components/Icon/FAIcon';
+import TextField from 'common/components/Form/TextField';
+import FAIcon from 'common/components/Icon/FAIcon';
 
 /**
  * Properties for the `SigninForm` component.

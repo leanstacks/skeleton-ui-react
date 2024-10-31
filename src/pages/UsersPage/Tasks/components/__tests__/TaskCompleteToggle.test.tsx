@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import { render, screen } from 'test/test-utils';
 import { todosFixture } from '__fixtures__/todos';
-import * as UseToasts from 'hooks/useToasts';
+import * as UseToasts from 'common/hooks/useToasts';
 
 import TaskCompleteToggle from '../TaskCompleteToggle';
 

@@ -1,11 +1,11 @@
 import { ButtonVariant, PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 
-import Button from 'components/Button/Button';
-import CodeSnippet from 'components/Text/CodeSnippet';
-import Text from 'components/Text/Text';
+import Button from 'common/components/Button/Button';
+import CodeSnippet from 'common/components/Text/CodeSnippet';
+import Text from 'common/components/Text/Text';
 import { ComponentProperty } from '../model/components';
 import { createColumnHelper } from '@tanstack/react-table';
-import Table from 'components/Table/Table';
+import Table from 'common/components/Table/Table';
 
 /**
  * Properties for the `ButtonComponents` React component.

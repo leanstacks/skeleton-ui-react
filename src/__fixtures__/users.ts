@@ -1,4 +1,4 @@
-import { User } from 'api/useGetUser';
+import { User } from 'common/api/useGetUser';
 
 export const userFixture1: User = {
   id: 1,

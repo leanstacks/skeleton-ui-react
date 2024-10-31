@@ -1,9 +1,9 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { User } from 'api/useGetUser';
+import { User } from 'common/api/useGetUser';
 
-import { useAxios } from 'hooks/useAxios';
-import { useConfig } from 'hooks/useConfig';
-import { QueryKeys } from 'utils/constants';
+import { useAxios } from 'common/hooks/useAxios';
+import { useConfig } from 'common/hooks/useConfig';
+import { QueryKeys } from 'common/utils/constants';
 
 /**
  * An API hook which fetches a collection of `User` objects.

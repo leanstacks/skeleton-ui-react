@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
 
-import { useGetCurrentUser } from 'api/useGetCurrentUser';
-import Avatar from 'components/Icon/Avatar';
-import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
-import MenuNavLink from 'components/Menu/MenuNavLink';
-import Page from 'components/Page/Page';
+import { useGetCurrentUser } from 'common/api/useGetCurrentUser';
+import Avatar from 'common/components/Icon/Avatar';
+import LoaderSkeleton from 'common/components/Loader/LoaderSkeleton';
+import MenuNavLink from 'common/components/Menu/MenuNavLink';
+import Page from 'common/components/Page/Page';
 
 /**
  * The `SettingsPage` component renders the layout for the settings page. It

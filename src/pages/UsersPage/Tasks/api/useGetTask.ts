@@ -1,9 +1,9 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 
-import { useAxios } from 'hooks/useAxios';
-import { useConfig } from 'hooks/useConfig';
+import { useAxios } from 'common/hooks/useAxios';
+import { useConfig } from 'common/hooks/useConfig';
 import { Task } from 'pages/UsersPage/api/useGetUserTasks';
-import { QueryKeys } from 'utils/constants';
+import { QueryKeys } from 'common/utils/constants';
 
 /**
  * Properties for the `useGetTask` hook.

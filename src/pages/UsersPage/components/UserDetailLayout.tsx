@@ -1,11 +1,11 @@
 import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import { Outlet, useParams } from 'react-router-dom';
 
-import { useGetUser } from 'api/useGetUser';
-import Text from 'components/Text/Text';
-import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
-import Avatar from 'components/Icon/Avatar';
-import FAIcon from 'components/Icon/FAIcon';
+import { useGetUser } from 'common/api/useGetUser';
+import Text from 'common/components/Text/Text';
+import LoaderSkeleton from 'common/components/Loader/LoaderSkeleton';
+import Avatar from 'common/components/Icon/Avatar';
+import FAIcon from 'common/components/Icon/FAIcon';
 
 /**
  * Properties for the `UserDetailLayout` React component.

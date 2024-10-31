@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import { renderHook, waitFor } from 'test/test-utils';
-import storage from 'utils/storage';
+import storage from 'common/utils/storage';
 
 import { useSignin } from '../useSignin';
 

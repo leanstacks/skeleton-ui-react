@@ -7,7 +7,7 @@ import {
   RenderOptions,
 } from '@testing-library/react';
 
-import 'utils/i18n';
+import 'common/utils/i18n';
 import WithAllProviders from './wrappers/WithAllProviders';
 
 const customRender = (ui: React.ReactElement, options?: RenderOptions, { route = '/' } = {}) => {

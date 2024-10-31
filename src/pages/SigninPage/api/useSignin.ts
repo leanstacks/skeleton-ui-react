@@ -2,12 +2,12 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import find from 'lodash/find';
 
-import { User } from 'api/useGetUser';
-import { UserTokens } from 'api/useGetUserTokens';
-import { useAxios } from 'hooks/useAxios';
-import { useConfig } from 'hooks/useConfig';
-import storage from 'utils/storage';
-import { QueryKeys, StorageKeys } from 'utils/constants';
+import { User } from 'common/api/useGetUser';
+import { UserTokens } from 'common/api/useGetUserTokens';
+import { useAxios } from 'common/hooks/useAxios';
+import { useConfig } from 'common/hooks/useConfig';
+import storage from 'common/utils/storage';
+import { QueryKeys, StorageKeys } from 'common/utils/constants';
 
 /**
  * An API hook which performs user authentication.

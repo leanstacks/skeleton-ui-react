@@ -2,11 +2,11 @@ import { PropsWithClassName, PropsWithTestId } from '@leanstacks/react-common';
 import classNames from 'classnames';
 
 import { useGetUserTasks } from '../api/useGetUserTasks';
-import FAIcon from 'components/Icon/FAIcon';
-import Text from 'components/Text/Text';
-import Link from 'components/Link/Link';
-import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
-import Badge from 'components/Badge/Badge';
+import FAIcon from 'common/components/Icon/FAIcon';
+import Text from 'common/components/Text/Text';
+import Link from 'common/components/Link/Link';
+import LoaderSkeleton from 'common/components/Loader/LoaderSkeleton';
+import Badge from 'common/components/Badge/Badge';
 
 /**
  * Properties for the `UserTasks` component.

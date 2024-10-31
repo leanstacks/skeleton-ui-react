@@ -9,13 +9,13 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
-import Text from 'components/Text/Text';
+import Text from 'common/components/Text/Text';
 import { useGetTask } from '../api/useGetTask';
-import LoaderSkeleton from 'components/Loader/LoaderSkeleton';
-import { useGetUser } from 'api/useGetUser';
-import LoaderSpinner from 'components/Loader/LoaderSpinner';
-import Badge from 'components/Badge/Badge';
-import FAIcon from 'components/Icon/FAIcon';
+import LoaderSkeleton from 'common/components/Loader/LoaderSkeleton';
+import { useGetUser } from 'common/api/useGetUser';
+import LoaderSpinner from 'common/components/Loader/LoaderSpinner';
+import Badge from 'common/components/Badge/Badge';
+import FAIcon from 'common/components/Icon/FAIcon';
 
 /**
  * Properties for the `TaskDetail` component.

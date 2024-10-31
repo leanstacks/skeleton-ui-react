@@ -3,8 +3,8 @@ import { UseQueryResult } from '@tanstack/react-query';
 
 import { render, screen } from 'test/test-utils';
 
-import { User } from 'api/useGetUser';
-import * as UseGetCurrentUser from 'api/useGetCurrentUser';
+import { User } from 'common/api/useGetUser';
+import * as UseGetCurrentUser from 'common/api/useGetCurrentUser';
 import { userFixture1 } from '__fixtures__/users';
 
 import SettingsPage from '../SettingsPage';
