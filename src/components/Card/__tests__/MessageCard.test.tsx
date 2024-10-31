@@ -50,6 +50,5 @@ describe('MessageCard', () => {
     // ASSERT
     expect(screen.getByTestId('card-message')).toBeDefined();
     expect(screen.getByTestId('card-message-icon')).toHaveAttribute('data-icon', 'circle-info');
-    // expect(screen.getByTestId('card-message-icon').getAttribute('data-icon')).toBe('circle-info');
   });
 });
