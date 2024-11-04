@@ -10,6 +10,7 @@
     "markedComplete": "Tâche marquée terminée",
     "markedIncomplete": "Tâche marquée incomplète",
     "tasks": "tâches",
-    "toComplete": "Vous avez {{val}} tâche à accomplir."
+    "toComplete_one": "Vous avez {{count}} tâche à accomplir.",
+    "toComplete_other": "Vous avez {{count}} tâches à accomplir."
   }
 }
