@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest --coverage --coverage.all=false",
@@ -49,9 +49,11 @@
     "yup": "1.4.0"
   },
   "devDependencies": {
+    "@eslint/js": "9.14.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.0.1",
     "@testing-library/user-event": "14.5.2",
+    "@types/eslint__js": "8.42.3",
     "@types/lodash": "4.17.13",
     "@types/qs": "6.9.16",
     "@types/react": "18.3.12",
@@ -62,15 +64,17 @@
     "@vitejs/plugin-react": "4.3.3",
     "@vitest/coverage-v8": "2.1.4",
     "autoprefixer": "10.4.20",
-    "eslint": "8.57.1",
+    "eslint": "9.14.0",
     "eslint-plugin-react-hooks": "5.0.0",
     "eslint-plugin-react-refresh": "0.4.14",
+    "globals": "15.11.0",
     "jsdom": "25.0.1",
     "msw": "2.6.0",
     "postcss": "8.4.47",
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "0.6.8",
     "typescript": "5.6.3",
+    "typescript-eslint": "8.12.2",
     "vite": "5.4.10",
     "vitest": "2.1.4"
   }

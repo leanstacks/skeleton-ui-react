@@ -61,7 +61,6 @@ const Toast = ({ className, dismiss, testId = 'toast', toast }: ToastProps): JSX
 
       return () => clearInterval(dismissInterval);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toast, config.VITE_TOAST_AUTO_DISMISS_MILLIS]);
 
   return (
