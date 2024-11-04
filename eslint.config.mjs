@@ -7,6 +7,14 @@ import tseslint from 'typescript-eslint';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
 
+/**
+ * The ESLint configuration in "flat config" format.
+ *
+ * Note: This configuration uses helper functions from `typescript-eslint`.
+ *
+ * @see {@link https://eslint.org/docs/latest/use/configure/ Configure ESLint}
+ * @see {@link https://typescript-eslint.io/packages/typescript-eslint typescript-eslint}
+ */
 export default tseslint.config(
   {
     files: ['**/*.ts', '**/*.tsx'],
