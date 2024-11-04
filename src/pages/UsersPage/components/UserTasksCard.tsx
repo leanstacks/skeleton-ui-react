@@ -45,7 +45,7 @@ const UserTasksCard = ({
       return t('task.allComplete', { ns: 'users' });
     }
 
-    return t('task.toComplete', { ns: 'users', val: incompleteTasks.length });
+    return t('task.toComplete', { ns: 'users', count: incompleteTasks.length });
   }, [error, incompleteTasks, t]);
 
   return (
