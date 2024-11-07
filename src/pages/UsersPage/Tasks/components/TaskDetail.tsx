@@ -16,6 +16,13 @@ import { useGetUser } from 'common/api/useGetUser';
 import LoaderSpinner from 'common/components/Loader/LoaderSpinner';
 import Badge from 'common/components/Badge/Badge';
 import FAIcon from 'common/components/Icon/FAIcon';
+import Dialog from 'common/components/Dialog/Dialog';
+import { useState } from 'react';
+import DialogHeading from 'common/components/Dialog/DialogHeading';
+import DialogContent from 'common/components/Dialog/DialogContent';
+import DialogButtons from 'common/components/Dialog/DialogButtons';
+import DialogButton from 'common/components/Dialog/DialogButton';
+import Divider from 'common/components/Dialog/Divider';
 
 /**
  * Properties for the `TaskDetail` component.
@@ -31,6 +38,7 @@ interface TaskDetailProps extends PropsWithClassName, PropsWithTestId {}
  * @returns {JSX.Element} JSX
  */
 const TaskDetail = ({ className, testId = 'task-detail' }: TaskDetailProps): JSX.Element => {
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState<boolean>(false);
   const navigate = useNavigate();
   const { taskId } = useParams();
   const {
@@ -53,10 +61,16 @@ const TaskDetail = ({ className, testId = 'task-detail' }: TaskDetailProps): JSX
         {!!task && <div className="text-xl">{`#${task.id}`}</div>}
         <div className="ms-auto flex items-center gap-2">
           <FAIcon icon="pencil" className="px-2 py-1" />
-          <FAIcon icon="trash" className="px-2 py-1" />
           <Button
             variant={ButtonVariant.Text}
-            className=""
+            title="Delete"
+            onClick={() => setIsDeleteDialogOpen(true)}
+            testId={`${testId}-button-delete`}
+          >
+            <FAIcon icon="trash" />
+          </Button>
+          <Button
+            variant={ButtonVariant.Text}
             title="Close"
             onClick={() => navigate(-1)}
             testId={`${testId}-button-close`}
@@ -131,6 +145,22 @@ const TaskDetail = ({ className, testId = 'task-detail' }: TaskDetailProps): JSX
               {task.completed ? 'COMPLETE' : 'INCOMPLETE'}
             </Badge>
           </div>
+
+          <Dialog
+            isOpen={isDeleteDialogOpen}
+            onClose={() => setIsDeleteDialogOpen(false)}
+            testId="dialog-task-delete"
+          >
+            <DialogHeading>Are you sure?</DialogHeading>
+            <DialogContent>
+              Deleting task <span className="text-neutral-500">{task.title}</span> is permanent.
+            </DialogContent>
+            <Divider />
+            <DialogButtons>
+              <DialogButton onClick={() => setIsDeleteDialogOpen(false)}>Cancel</DialogButton>
+              <DialogButton variant="danger">Delete</DialogButton>
+            </DialogButtons>
+          </Dialog>
         </div>
       )}
     </div>
