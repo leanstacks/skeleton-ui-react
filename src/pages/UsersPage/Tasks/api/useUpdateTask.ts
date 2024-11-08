@@ -15,7 +15,7 @@ export type UpdateTaskVariables = {
 
 /**
  * An API hook which updates a single `Task`. Returns a `UseMutationResult`
- * object whose `mutate` attribute is a function to update as `Task`.
+ * object whose `mutate` attribute is a function to update a `Task`.
  *
  * When successful, the hook updates cached `Task` query data.
  * @returns Returns a `UseMutationResult`.
