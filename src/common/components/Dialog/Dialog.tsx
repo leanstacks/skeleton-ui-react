@@ -4,11 +4,24 @@ import classNames from 'classnames';
 
 import Backdrop from './Backdrop';
 
-interface DialogProps extends BaseComponentProps, PropsWithChildren {
+/**
+ * Properties for the `Dialog` component.
+ * @param {boolean} [isOpen] - Indicates if the Dialog should be displayed.
+ * @param {function} [onClose] - A function called when the Dialog closes.
+ * @see {@link BaseComponentProps}
+ * @see {@link PropsWithChildren}
+ */
+export interface DialogProps extends BaseComponentProps, PropsWithChildren {
   isOpen?: boolean;
   onClose?: () => void | Promise<void>;
 }
 
+/**
+ * A `Dialog` is a modal window that displays on top of the main content,
+ * typically asking the user to take an action or confirm a decision.
+ * @param {DialogProps} props - Component properties.
+ * @returns {JSX.Element} JSX
+ */
 const Dialog = ({
   children,
   className,

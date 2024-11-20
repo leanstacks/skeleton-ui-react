@@ -8,12 +8,25 @@ import Divider from 'common/components/Dialog/Divider';
 import DialogButtons from 'common/components/Dialog/DialogButtons';
 import DialogButton from 'common/components/Dialog/DialogButton';
 
+/**
+ * Properties for the `TaskDeleteDialog` component.
+ * @param {function} onCancel - A function called when the cancel button is clicked.
+ * @param {function} onDelete - A function called when the delete button is clicked.
+ * @param {Task} task - The `Task` being deleted.
+ * @see {@link Dialog}
+ */
 interface TaskDeleteDialogProps extends ComponentPropsWithoutRef<typeof Dialog> {
   onCancel: () => void;
   onDelete: () => void;
   task: Task;
 }
 
+/**
+ * The `TaskDeleteDialog` renders a dialog prompting the user for deletion
+ * confirmation of a `Task`.
+ * @param {TaskDeleteDialog} props - Component properties.
+ * @returns {JSX.Element} JSX
+ */
 const TaskDeleteDialog = ({
   onCancel,
   onDelete,

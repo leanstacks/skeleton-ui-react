@@ -1,8 +1,18 @@
 import { BaseComponentProps } from '@leanstacks/react-common';
 import classNames from 'classnames';
 
+/**
+ * Properties for the `Divider` component.
+ * @see {@link BaseComponentProps}
+ */
 interface DividerProps extends BaseComponentProps {}
 
+/**
+ * The `Divider` component renders a horizontal line which visually separates
+ * content.
+ * @param {DividerProps} props - Component properties.
+ * @returns {JSX.Element} JSX
+ */
 const Divider = ({ className, testId = 'divider' }: DividerProps): JSX.Element => {
   return (
     <div
