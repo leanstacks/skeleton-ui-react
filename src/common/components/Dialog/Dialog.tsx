@@ -41,12 +41,10 @@ const Dialog = ({
   };
 
   const handleBackdropClick = (): void => {
-    console.log('handleBackdropClick');
     closeDialog();
   };
 
   const handleDialogClick = (e: React.MouseEvent): void => {
-    console.log('handleDialogClick');
     e.stopPropagation();
   };
 
