@@ -22,8 +22,8 @@ interface TaskDeleteDialogProps extends ComponentPropsWithoutRef<typeof Dialog> 
 }
 
 /**
- * The `TaskDeleteDialog` renders a dialog prompting the user for deletion
- * confirmation of a `Task`.
+ * The `TaskDeleteDialog` renders a dialog prompting for deletion confirmation
+ * of a `Task`.
  * @param {TaskDeleteDialog} props - Component properties.
  * @returns {JSX.Element} JSX
  */
@@ -41,8 +41,14 @@ const TaskDeleteDialog = ({
       </DialogContent>
       <Divider />
       <DialogButtons>
-        <DialogButton onClick={() => onCancel()}>Cancel</DialogButton>
-        <DialogButton onClick={() => onDelete()} variant="danger">
+        <DialogButton onClick={() => onCancel()} testId={`${dialogProps.testId}-button-cancel`}>
+          Cancel
+        </DialogButton>
+        <DialogButton
+          onClick={() => onDelete()}
+          variant="danger"
+          testId={`${dialogProps.testId}-button-delete`}
+        >
           Delete
         </DialogButton>
       </DialogButtons>
