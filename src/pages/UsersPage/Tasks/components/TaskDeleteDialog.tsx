@@ -31,23 +31,24 @@ const TaskDeleteDialog = ({
   onCancel,
   onDelete,
   task,
+  testId = 'dialog-task-delete',
   ...dialogProps
 }: TaskDeleteDialogProps): JSX.Element => {
   return (
-    <Dialog {...dialogProps}>
+    <Dialog testId={testId} {...dialogProps}>
       <DialogHeading>Are you sure?</DialogHeading>
       <DialogContent>
         Deleting task <span className="text-neutral-500">{task.title}</span> is permanent.
       </DialogContent>
       <Divider />
       <DialogButtons>
-        <DialogButton onClick={() => onCancel()} testId={`${dialogProps.testId}-button-cancel`}>
+        <DialogButton onClick={() => onCancel()} testId={`${testId}-button-cancel`}>
           Cancel
         </DialogButton>
         <DialogButton
           onClick={() => onDelete()}
           variant="danger"
-          testId={`${dialogProps.testId}-button-delete`}
+          testId={`${testId}-button-delete`}
         >
           Delete
         </DialogButton>
