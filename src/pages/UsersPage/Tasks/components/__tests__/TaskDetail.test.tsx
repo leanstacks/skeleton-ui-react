@@ -210,7 +210,7 @@ describe('TaskDetail', () => {
     await user.click(screen.getByTestId('task-detail-button-delete'));
     expect(screen.getByTestId('dialog-task-delete')).not.toHaveClass('hidden');
 
-    await user.click(screen.getByTestId('dialog-backdrop'));
+    await user.click(screen.getByTestId('dialog-task-delete-backdrop'));
 
     // ASSERT
     expect(screen.getByTestId('dialog-task-delete')).toHaveClass('hidden');

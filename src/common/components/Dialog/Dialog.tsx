@@ -53,7 +53,7 @@ const Dialog = ({
       <Backdrop
         className="flex items-center justify-center"
         onClick={handleBackdropClick}
-        testId="dialog-backdrop"
+        testId={`${testId}-backdrop`}
       >
         <div
           className="m-4 min-w-72 max-w-[560px] rounded-3xl bg-light-bg p-6 dark:bg-dark-bg"
