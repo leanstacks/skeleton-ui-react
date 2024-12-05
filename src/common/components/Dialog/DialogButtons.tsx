@@ -3,7 +3,7 @@ import { BaseComponentProps } from '@leanstacks/react-common';
 import classNames from 'classnames';
 
 /**
- * Properties for the `DialogButton` component.
+ * Properties for the `DialogButtons` component.
  * @see {@link BaseComponentProps}
  * @see {@link PropsWithChildren}
  */
