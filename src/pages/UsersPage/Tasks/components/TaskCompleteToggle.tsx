@@ -34,7 +34,7 @@ const TaskCompleteToggle = ({
   testId = 'toggle-task-complete',
 }: TaskCompleteToggleProps): JSX.Element => {
   const { t } = useTranslation();
-  const { mutate: updateTask } = useUpdateTask();
+  const { mutate: updateTask, isPending } = useUpdateTask();
   const { createToast } = useToasts();
 
   const buttonTitle = task.completed
@@ -71,6 +71,7 @@ const TaskCompleteToggle = ({
       variant={ButtonVariant.Text}
       title={buttonTitle}
       onClick={handleButtonClick}
+      disabled={isPending}
       data-testid={testId}
     >
       <FAIcon

@@ -45,4 +45,13 @@ export const handlers = [
     }
     return new HttpResponse(null, { status: 404 });
   }),
+  http.delete('https://jsonplaceholder.typicode.com/todos/:todoId', async ({ params }) => {
+    // delete a task
+    const { todoId } = params;
+    const todo = find(todosFixture, { id: Number(todoId) });
+    if (todo) {
+      return new HttpResponse(null, { status: 200 });
+    }
+    return new HttpResponse(null, { status: 500 });
+  }),
 ];
