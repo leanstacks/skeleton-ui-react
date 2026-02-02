@@ -4,6 +4,10 @@ A serverless, progressive, responsive starter user interface (UI) with React at 
 
 [![CI](https://github.com/leanstacks/skeleton-ui-react/actions/workflows/ci.yml/badge.svg)](https://github.com/leanstacks/skeleton-ui-react/actions/workflows/ci.yml)
 
+## ⚠️ Deprecation Notice
+
+This repository is deprecated in favor of the [React Starter](https://github.com/leanstacks/react-starter) repository.
+
 ## Helpful Hints
 
 ### Data
